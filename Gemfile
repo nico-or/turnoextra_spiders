@@ -1,0 +1,36 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+# git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby "~> 3.4"
+
+# Framework
+gem "tanakai", "~> 1.7"
+
+# Require files in directory and child directories recursively
+gem "require_all"
+
+# Dotenv
+gem "dotenv"
+
+# To debug spiders:
+group :development do
+  gem "byebug", platforms: :mri
+  gem "pry"
+end
+
+# If you want to save items to the database, require one of these gems:
+# gem 'sqlite3'
+# gem 'pg'
+# gem 'mysql2'
+
+# And use your preferred ORM/database connector:
+# gem 'activerecord', require: 'active_record'
+# gem 'sequel'
+
+gem "mechanize", "~> 2.8"
+gem "mutex_m", "~> 0.3.0"
+gem "nkf", "~> 0.2.0"
+gem "ostruct", "~> 0.6.1"
+gem "rubocop", "~> 1.74"
