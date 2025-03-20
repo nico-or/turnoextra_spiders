@@ -80,4 +80,8 @@ class ApplicationSpider < Tanakai::Base
       delay: 2..5
     }
   }
+
+  class << self
+    attr_reader :store
+  end
 end

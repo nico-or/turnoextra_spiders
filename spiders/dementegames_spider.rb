@@ -3,6 +3,10 @@
 # Demente Games store spider
 class DementegamesSpider < ApplicationSpider
   @name = "dementegames_spider"
+  @store = {
+    name: "Demente Games",
+    url: "https://www.dementegames.cl/"
+  }
   @start_urls = ["https://dementegames.cl/10-juegos-de-mesa?page=1&q=Disponibilidad-Inmediata/Existencias-En+stock"]
   @config = {}
 
