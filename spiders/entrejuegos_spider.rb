@@ -12,12 +12,10 @@ class EntrejuegosSpider < ApplicationSpider
 
   def parse(response, url:, data: {})
     response.css("div#js-product-list article").each do |article|
-      if article.at_css(".product-title").text.end_with?("...")
-        link = article.at_css(".product-title a")
-        request_to :parse_product_page, url: absolute_url(link[:href], base: url)
-      else
-        parse_product_node(article)
-      end
+      # TODO: only fetch page when the full title hasn't been already scrapped
+      # should_follow(article)
+
+      parse_product_node(article)
     end
 
     paginate(response, url)
@@ -50,5 +48,14 @@ class EntrejuegosSpider < ApplicationSpider
     item[:price] = node.nil? ? 0 : node["content"].to_i
     item[:stock] = !node.nil?
     send_item item
+  end
+
+  def should_follow(article)
+    if article.at_css(".product-title").text.end_with?("...")
+      link = article.at_css(".product-title a")
+      request_to :parse_product_page, url: absolute_url(link[:href], base: url)
+    else
+      parse_product_node(article)
+    end
   end
 end
