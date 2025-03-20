@@ -15,6 +15,10 @@ class DementegamesSpider < ApplicationSpider
       parse_product_node(article)
     end
 
+    paginate(response, url)
+  end
+
+  def paginate(response, url)
     next_page = response.at_css("nav.pagination li a[@rel=next]")
     return unless next_page
 
