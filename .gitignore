@@ -8,8 +8,8 @@
 /tmp/*
 !/tmp/.keep
 
-/db/*
-!/db/.keep
+db/*.csv
+db/*.json
 
 .byebug_history
 *.swp
