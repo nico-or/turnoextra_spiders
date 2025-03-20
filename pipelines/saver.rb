@@ -11,6 +11,14 @@ class Saver < Tanakai::Pipeline
     # Add today's date
     item[:date] = Date.today
 
-    save_to "db/#{spider.class.name}.csv", item, format: :csv
+    save_to "db/#{datestamp}_#{spider.class.name}.csv", item, format: :csv
+
+    item
+  end
+
+  private
+
+  def datestamp
+    Time.now.strftime("%Y%m%d")
   end
 end
