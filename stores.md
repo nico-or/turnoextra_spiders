@@ -6,7 +6,7 @@ List of stores urls to implement in the future.
 - [x] https://www.entrejuegos.cl
 - [x] https://www.dementegames.cl
 - [x] https://www.updown.cl
-- [ ] https://www.piedrabruja.cl
+- [x] https://www.piedrabruja.cl
 - [ ] https://www.magicsur.cl
 - [ ] https://www.juegosenroque.cl
 - [ ] https://www.vudugaming.cl
