@@ -5,7 +5,7 @@ List of stores urls to implement in the future.
 - [x] https://www.devir.cl
 - [x] https://www.entrejuegos.cl
 - [x] https://www.dementegames.cl
-- [ ] https://www.updown.cl
+- [x] https://www.updown.cl
 - [ ] https://www.piedrabruja.cl
 - [ ] https://www.magicsur.cl
 - [ ] https://www.juegosenroque.cl
