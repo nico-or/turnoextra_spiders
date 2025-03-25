@@ -25,7 +25,8 @@ class ApplicationSpider < Tanakai::Base
     # Use lambda if you want to rotate user agents before each run:
     # user_agent: -> { ARRAY_OF_USER_AGENTS.sample }
     # Works for all engines
-    # user_agent: "Mozilla/5.0 Firefox/61.0",
+    user_agent:
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
 
     # Custom cookies, format: array of hashes.
     # Format for a single cookie: { name: "cookie name", value: "cookie value", domain: ".example.com" }
@@ -36,7 +37,7 @@ class ApplicationSpider < Tanakai::Base
     # with self-signed SSL cert (for example Crawlera or Mitmproxy)
     # Also, it will allow to visit webpages with expires SSL certificate.
     # Works for all engines
-    ignore_ssl_errors: true,
+    # ignore_ssl_errors: true,
 
     # Skip images downloading if true, works for all engines
     disable_images: true,
