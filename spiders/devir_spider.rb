@@ -27,10 +27,8 @@ class DevirSpider < ApplicationSpider
     item = {}
     item[:url] = node.at_css("strong a")[:href]
     item[:title] = node.at_css("strong a").text.strip
-    # The price element is mising for out-of-stock products
-    price_node = node.at_css("span.price")
-    item[:price] = price_node.nil? ? 0 : price_node.text.match(/([\d.]+),/)[1].gsub(".", "")
-    item[:stock] = in_stock(node)
+    item[:price] = parse_price(node)
+    item[:stock] = in_stock?(node)
 
     send_item item
   end
@@ -44,11 +42,18 @@ class DevirSpider < ApplicationSpider
 
   private
 
-  def button_text(node)
-    node.css("div.actions-primary").text.strip
+  def in_stock?(node)
+    button_node = node.css("div.actions-primary")
+    button_text = button_node.text.strip
+    button_text.eql?("Añadir al carrito")
   end
 
-  def in_stock(node)
-    button_text(node).eql?("Añadir al carrito")
+  # parses prices in the format 12.990,00 CLP
+  def parse_price(node)
+    price_text = node.at_css("span.price")&.text&.strip
+    return unless price_text
+
+    sanitized_price = price_text.sub(/,00.+/, "")
+    scan_int(sanitized_price)
   end
 end
