@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # Entrejuegos  store spider
+# engine: prestashop
 class EntrejuegosSpider < ApplicationSpider
   @name = "entrejuegos_spider"
   @store = {
@@ -11,23 +12,17 @@ class EntrejuegosSpider < ApplicationSpider
   @config = {}
 
   def parse(response, url:, data: {})
-    response.css("div#js-product-list article").each do |article|
-      # TODO: only fetch page when the full title hasn't been already scrapped
-      # should_follow(article)
-
-      parse_product_node(article)
-    end
-
+    parse_index(response)
     paginate(response, url)
   end
 
-  def paginate(response, url)
-    next_page = response.at_css("nav.pagination li a[@rel=next]")
-    return unless next_page
-
-    request_to :parse, url: absolute_url(next_page[:href], base: url)
+  # Parse a Nokogiri::Element and call #parse_product_node on all elements
+  def parse_index(response, url: nil, data: {})
+    listings = response.css("div#js-product-list article")
+    listings.each { parse_product_node(it) }
   end
 
+  # Parse a Nokogiri::Element representing a listing and call #send_item on it
   def parse_product_node(node)
     item = {}
     item[:url] = node.at_css(".product-title a")[:href]
@@ -38,6 +33,17 @@ class EntrejuegosSpider < ApplicationSpider
     item[:stock] = !price_node.nil?
     send_item item
   end
+
+  def paginate(response, url)
+    next_page = response.at_css("nav.pagination li a[@rel=next]")
+    return unless next_page
+
+    request_to :parse, url: absolute_url(next_page[:href], base: url)
+  end
+
+  # TODO: Fetch a product page when the title is truncated in the index
+  # TODO: check if full title was already scrapped before fetching a product page
+  # (to reduce the total amount of webrequests)
 
   def parse_product_page(response, url:, data: {})
     item = {}

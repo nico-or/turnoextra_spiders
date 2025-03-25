@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # Demente Games store spider
+# engine: Prestashop
 class DementegamesSpider < ApplicationSpider
   @name = "dementegames_spider"
   @store = {
@@ -11,18 +12,14 @@ class DementegamesSpider < ApplicationSpider
   @config = {}
 
   def parse(response, url:, data: {})
-    response.css("div#js-product-list article").each do |article|
-      parse_product_node(article)
-    end
-
+    parse_index(response)
     paginate(response, url)
   end
 
-  def paginate(response, url)
-    next_page = response.at_css("nav.pagination li a[@rel=next]")
-    return unless next_page
-
-    request_to :parse, url: absolute_url(next_page[:href], base: url)
+  # Parse a Nokogiri::Element and call #parse_product_node on all elements
+  def parse_index(response, url: nil, data: {})
+    listings = response.css("div#js-product-list article")
+    listings.each { parse_product_node(it) }
   end
 
   # parse a Nokogiri node and return an item
@@ -34,5 +31,12 @@ class DementegamesSpider < ApplicationSpider
     item[:stock] = true
 
     send_item item
+  end
+
+  def paginate(response, url)
+    next_page = response.at_css("nav.pagination li a[@rel=next]")
+    return unless next_page
+
+    request_to :parse, url: absolute_url(next_page[:href], base: url)
   end
 end

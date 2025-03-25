@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # Devir store spider
+# engine: ??
 class DevirSpider < ApplicationSpider
   @name = "devir_spider"
   @store = {
@@ -11,20 +12,17 @@ class DevirSpider < ApplicationSpider
   @config = {}
 
   def parse(response, url:, data: {})
-    response.css("div.products li.item").each do |listing|
-      parse_product_node(listing)
-    end
-
+    parse_index(response)
     paginate(response, url)
   end
 
-  def paginate(response, url)
-    next_page = response.at_css('a[title="Siguiente"]')
-    return unless next_page
-
-    request_to :parse, url: absolute_url(next_page[:href], base: url)
+  # Parse a Nokogiri::Element and call #parse_product_node on all elements
+  def parse_index(response, url: nil, data: {})
+    listings = response.css("div.products li.item")
+    listings.each { parse_product_node(it) }
   end
 
+  # Parse a Nokogiri::Element representing a listing and call #send_item on it
   def parse_product_node(node)
     item = {}
     item[:url] = node.at_css("strong a")[:href]
@@ -36,6 +34,15 @@ class DevirSpider < ApplicationSpider
 
     send_item item
   end
+
+  def paginate(response, url)
+    next_page = response.at_css('a[title="Siguiente"]')
+    return unless next_page
+
+    request_to :parse, url: absolute_url(next_page[:href], base: url)
+  end
+
+  private
 
   def button_text(node)
     node.css("div.actions-primary").text.strip
