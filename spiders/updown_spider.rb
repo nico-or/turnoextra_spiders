@@ -27,7 +27,7 @@ class UpdownSpider < ApplicationSpider
     item = {}
     item[:url] = node.at_css("a")[:href]
     item[:title] = node.at_css("h2").text
-    item[:price] = node.at_css("span.price").text.then { scan_int(it) }
+    item[:price] = scan_int(node.css("span.price bdi").last.text)
     item[:stock] = true
 
     send_item item
