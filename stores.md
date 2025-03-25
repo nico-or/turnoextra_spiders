@@ -9,7 +9,7 @@ List of stores urls to implement in the future.
 - [x] https://www.piedrabruja.cl
 - [ ] https://www.magicsur.cl
 - [x] https://www.juegosenroque.cl
-- [ ] https://www.vudugaming.cl
+- [x] https://www.vudugaming.cl
 - [ ] https://www.gatoarcano.cl
 - [ ] https://www.flexogames.cl
 - [ ] https://www.aldeajuegos.cl
