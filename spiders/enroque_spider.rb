@@ -35,7 +35,8 @@ class EnroqueSpider < ApplicationSpider
 
   def paginate(response, url)
     next_page = response.css("ul.pagination li a").last
-    return unless next_page
+    # last page has the <a> element, but it doesn't have the href attribute
+    return unless next_page[:href]
 
     request_to :parse, url: absolute_url(next_page[:href], base: url)
   end
