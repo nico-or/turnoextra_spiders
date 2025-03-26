@@ -11,7 +11,7 @@ List of stores urls to implement in the future.
 - [x] https://www.juegosenroque.cl
 - [x] https://www.vudugaming.cl
 - [ ] https://www.gatoarcano.cl
-- [ ] https://www.flexogames.cl
+- [x] https://www.flexogames.cl
 - [ ] https://www.aldeajuegos.cl
 - [ ] https://www.playcenter.cl
 - [ ] https://www.mirzu.cl
