@@ -27,16 +27,23 @@ class UpdownSpider < ApplicationSpider
     item = {}
     item[:url] = node.at_css("a")[:href]
     item[:title] = node.at_css("h2").text
-    item[:price] = scan_int(node.css("span.price bdi").last.text)
+    item[:price] = get_price(node)
     item[:stock] = true
 
     send_item item
   end
+
+  private
 
   def paginate(response, url)
     next_page = response.at_css("nav.woocommerce-pagination li a.next")
     return unless next_page
 
     request_to :parse, url: absolute_url(next_page[:href], base: url)
+  end
+
+  def get_price(node)
+    price_node = node.css("span.price bdi").last
+    scan_int(price_node.text)
   end
 end
