@@ -12,22 +12,22 @@ class EnroqueSpider < ApplicationSpider
   @config = {}
 
   def parse(response, url:, data: {})
-    parse_index(response)
+    parse_index(response, url: url)
     paginate(response, url)
   end
 
   # Parse a Nokogiri::Element and call #parse_product_node on all elements
   def parse_index(response, url: nil, data: {})
     listings = response.css("div#filter-results li.js-pagination-result")
-    listings.each { parse_product_node(it) }
+    listings.each { parse_product_node(it, url) }
   end
 
   # Parse a Nokogiri::Element representing a listing and call #send_item on it
-  def parse_product_node(node)
+  def parse_product_node(node, url)
     item = {}
-    item[:url] = absolute_url(node.at_css("a.card-link")[:href], base: self.class.store[:url])
+    item[:url] = absolute_url(node.at_css("a.card-link")[:href], base: url)
     item[:title] = node.at_css("a.card-link").text
-    item[:price] = node.at_css("strong.price__current").text.then { scan_int(it) }
+    item[:price] = get_price(node)
     item[:stock] = in_stock?(node)
 
     send_item item
@@ -42,6 +42,11 @@ class EnroqueSpider < ApplicationSpider
   end
 
   private
+
+  def get_price(node)
+    price_node = node.at_css("strong.price__current")
+    scan_int(price_node.text)
+  end
 
   def in_stock?(node)
     # Posible values: 'Preventa', 'Agregar al carrito'
