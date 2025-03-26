@@ -27,16 +27,23 @@ class VudugamingSpider < ApplicationSpider
     item = {}
     item[:url] = absolute_url(node.at_css("h2 a")[:href], base: url)
     item[:title] = node.at_css("h2").text
-    item[:price] = scan_int(node.at_css("div.product-block__price").text)
+    item[:price] = get_price(node)
     item[:stock] = true
 
     send_item item
   end
+
+  private
 
   def paginate(response, url)
     next_page = response.at_css("ul.pager li.next a")
     return unless next_page
 
     request_to :parse, url: absolute_url(next_page[:href], base: url)
+  end
+
+  def get_price(node)
+    price_node = node.at_css("div.product-block__price")
+    scan_int(price_node.text)
   end
 end
