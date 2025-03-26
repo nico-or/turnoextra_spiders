@@ -27,12 +27,13 @@ class EntrejuegosSpider < ApplicationSpider
     item = {}
     item[:url] = node.at_css(".product-title a")[:href]
     item[:title] = node.at_css(".product-title").text
-    # The price element is mising for out-of-stock products
-    price_node = node.at_css("span.price")
-    item[:price] = price_node.nil? ? 0 : scan_int(price_node.text)
-    item[:stock] = !price_node.nil?
+    item[:price] = get_price(node)
+    item[:stock] = in_stock?(node)
+
     send_item item
   end
+
+  private
 
   def paginate(response, url)
     next_page = response.at_css("nav.pagination li a[@rel=next]")
@@ -41,27 +42,15 @@ class EntrejuegosSpider < ApplicationSpider
     request_to :parse, url: absolute_url(next_page[:href], base: url)
   end
 
-  # TODO: Fetch a product page when the title is truncated in the index
-  # TODO: check if full title was already scrapped before fetching a product page
-  # (to reduce the total amount of webrequests)
+  def get_price(node)
+    return unless in_stock?(node)
 
-  def parse_product_page(response, url:, data: {})
-    item = {}
-    item[:url] = url
-    item[:title] = response.at_css("h1").text
-    # The price element is mising for out-of-stock products
-    node = response.at_css("div.current-price span.current-price-value")
-    item[:price] = node.nil? ? 0 : node["content"].to_i
-    item[:stock] = !node.nil?
-    send_item item
+    price_node = node.at_css("span.price")
+    scan_int(price_node.text)
   end
 
-  def should_follow(article)
-    if article.at_css(".product-title").text.end_with?("...")
-      link = article.at_css(".product-title a")
-      request_to :parse_product_page, url: absolute_url(link[:href], base: url)
-    else
-      parse_product_node(article)
-    end
+  def in_stock?(node)
+    price_node = node.at_css("span.price")
+    !price_node.nil?
   end
 end
