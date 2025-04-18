@@ -26,7 +26,7 @@ class ApplicationSpider < Tanakai::Base
     # user_agent: -> { ARRAY_OF_USER_AGENTS.sample }
     # Works for all engines
     user_agent:
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0",
 
     # Custom cookies, format: array of hashes.
     # Format for a single cookie: { name: "cookie name", value: "cookie value", domain: ".example.com" }
