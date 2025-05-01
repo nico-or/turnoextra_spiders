@@ -35,5 +35,5 @@ Tanakai.configure do |config|
   # Provide custom chrome binary path (default is any available chrome/chromium in the PATH):
   # config.selenium_chrome_path = "/usr/bin/chromium-browser"
   # Provide custom selenium chromedriver path (default is "/usr/local/bin/chromedriver"):
-  # config.chromedriver_path = "/usr/local/bin/chromedriver"
+  config.chromedriver_path = "/usr/bin/chromedriver"
 end
