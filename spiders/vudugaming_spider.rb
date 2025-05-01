@@ -28,7 +28,7 @@ class VudugamingSpider < ApplicationSpider
     item[:url] = absolute_url(node.at_css("h2 a")[:href], base: url)
     item[:title] = node.at_css("h2").text
     item[:price] = get_price(node)
-    item[:stock] = true
+    item[:stock] = in_stock?(node)
 
     send_item item
   end
@@ -45,5 +45,9 @@ class VudugamingSpider < ApplicationSpider
   def get_price(node)
     price_node = node.at_css("div.product-block__price")
     scan_int(price_node.text)
+  end
+
+  def in_stock?(node)
+    node.at_css(".product-block__actions form") != nil
   end
 end
