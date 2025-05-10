@@ -25,8 +25,8 @@ class EntrejuegosSpider < ApplicationSpider
   # Parse a Nokogiri::Element representing a listing and call #send_item on it
   def parse_product_node(node)
     item = {}
-    item[:url] = node.at_css(".product-title a")[:href]
-    item[:title] = node.at_css(".product-title").text
+    item[:url] = get_url(node)
+    item[:title] = get_title(node)
     item[:price] = get_price(node)
     item[:stock] = in_stock?(node)
 
@@ -42,15 +42,21 @@ class EntrejuegosSpider < ApplicationSpider
     request_to :parse, url: absolute_url(next_page[:href], base: url)
   end
 
-  def get_price(node)
-    return unless in_stock?(node)
+  def get_url(node)
+    node.at_css(".product-title a")[:href]
+  end
 
+  def get_title(node)
+    url = node.at_css("img")[:src]
+    File.basename(url, ".jpg").gsub("-", " ")
+  end
+
+  def get_price(node)
     price_node = node.at_css("span.price")
-    scan_int(price_node.text)
+    scan_int(price_node.text) if price_node
   end
 
   def in_stock?(node)
-    price_node = node.at_css("span.price")
-    !price_node.nil?
+    node.at_css("li.out_of_stock").nil?
   end
 end
