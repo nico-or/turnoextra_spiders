@@ -25,8 +25,8 @@ class MagicsurSpider < ApplicationSpider
   # Parse a Nokogiri::Element representing a listing and call #send_item on it
   def parse_product_node(node)
     item = {}
-    item[:url] = node.at_css("h2 a")[:href]
-    item[:title] = node.at_css("h2").text
+    item[:url] = get_url(node)
+    item[:title] = get_title(node)
     item[:price] = get_price(node)
     item[:stock] = true
 
@@ -38,6 +38,14 @@ class MagicsurSpider < ApplicationSpider
     return unless next_page
 
     request_to :parse, url: absolute_url(next_page[:href], base: url)
+  end
+
+  def get_url(node)
+    node.at_css("h2 a")[:href]
+  end
+
+  def get_title(node)
+    node.at_css("h2").text
   end
 
   def get_price(node)
