@@ -25,10 +25,10 @@ class DementegamesSpider < ApplicationSpider
   # parse a Nokogiri node and return an item
   def parse_product_node(node)
     item = {}
-    item[:url] = node.at_css(".product-title a")[:href]
-    item[:title] = node.at_css(".product-title").text
-    item[:price] = node.at_css("span.price")[:content].to_i
-    item[:stock] = true
+    item[:url] = get_url(node)
+    item[:title] = get_title(node)
+    item[:price] = get_price(node)
+    item[:stock] = true # Stock filtered by URL query parameter
 
     send_item item
   end
@@ -38,5 +38,17 @@ class DementegamesSpider < ApplicationSpider
     return unless next_page
 
     request_to :parse, url: absolute_url(next_page[:href], base: url)
+  end
+
+  def get_url(node)
+    node.at_css(".product-title a")[:href]
+  end
+
+  def get_title(node)
+    node.at_css(".product-title").text
+  end
+
+  def get_price(node)
+    node.at_css("span.price")[:content].to_i
   end
 end
