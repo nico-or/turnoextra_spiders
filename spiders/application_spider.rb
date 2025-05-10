@@ -62,7 +62,7 @@ class ApplicationSpider < Tanakai::Base
     # for more flexibility: `{ error: "RuntimeError", message: "404 => Net::HTTPNotFound" }`.
     # Provided `message:` will be compared with a full error message using `String#include?`. Also
     # you can use regex instead: `{ error: "RuntimeError", message: /404|403/ }`.
-    # skip_request_errors: [{ error: RuntimeError, message: "404 => Net::HTTPNotFound" }],
+    skip_request_errors: [{ error: RuntimeError, message: "404 => Net::HTTPNotFound" }],
 
     # Automatically retry provided errors with a few attempts while requesting a page.
     # If raised error matches one of the errors in the list, then this error will be caught
@@ -71,14 +71,14 @@ class ApplicationSpider < Tanakai::Base
     # If after 3 attempts there is still an exception, then the exception will be raised.
     # It is a good idea to try to retry errros like `ReadTimeout`, `HTTPBadGateway`, etc.
     # Format: same like for `skip_request_errors` option.
-    # retry_request_errors: [Net::ReadTimeout],
+    retry_request_errors: [Net::ReadTimeout],
 
     # Perform several actions before each request:
     before_request: {
       # Global option to set delay between requests.
       # Delay can be `Integer`, `Float` or `Range` (`2..5`). In case of a range,
       # delay number will be chosen randomly for each request: `rand (2..5) # => 3`
-      delay: 2..5
+      delay: 2
     }
   }
 
