@@ -25,9 +25,9 @@ class DevirSpider < ApplicationSpider
   # Parse a Nokogiri::Element representing a listing and call #send_item on it
   def parse_product_node(node)
     item = {}
-    item[:url] = node.at_css("strong a")[:href]
-    item[:title] = node.at_css("strong a").text.strip
-    item[:price] = parse_price(node)
+    item[:url] = get_url(node)
+    item[:title] = get_title(node)
+    item[:price] = get_price(node)
     item[:stock] = in_stock?(node)
 
     send_item item
@@ -48,8 +48,16 @@ class DevirSpider < ApplicationSpider
     button_text.eql?("Añadir al carrito")
   end
 
+  def get_url(node)
+    node.at_css("strong a")[:href]
+  end
+
+  def get_title(node)
+    node.at_css("strong a").text.strip
+  end
+
   # parses prices in the format 12.990,00 CLP
-  def parse_price(node)
+  def get_price(node)
     price_text = node.at_css("span.price")&.text&.strip
     return unless price_text
 
