@@ -5,7 +5,7 @@
 class FlexogamesSpider < ApplicationSpider
   @name = "flexogames_spider"
   @store = {
-    name: "template",
+    name: "Flexo's Games",
     url: "https://www.flexogames.cl/"
   }
   @start_urls = ["https://www.flexogames.cl/collections/juegos-de-mesa"]
