@@ -25,8 +25,8 @@ class EnroqueSpider < ApplicationSpider
   # Parse a Nokogiri::Element representing a listing and call #send_item on it
   def parse_product_node(node, url)
     item = {}
-    item[:url] = absolute_url(node.at_css("a.card-link")[:href], base: url)
-    item[:title] = node.at_css("a.card-link").text
+    item[:url] = get_url(node, url)
+    item[:title] = get_title(node)
     item[:price] = get_price(node)
     item[:stock] = in_stock?(node)
 
@@ -42,6 +42,14 @@ class EnroqueSpider < ApplicationSpider
   end
 
   private
+
+  def get_url(node, url)
+    absolute_url(node.at_css("a.card-link")[:href], base: url)
+  end
+
+  def get_title(node)
+    node.at_css("a.card-link").text
+  end
 
   def get_price(node)
     price_node = node.at_css("strong.price__current")
