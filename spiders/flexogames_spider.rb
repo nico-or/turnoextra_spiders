@@ -25,8 +25,8 @@ class FlexogamesSpider < ApplicationSpider
   # Parse a Nokogiri::Element representing a listing and call #send_item on it
   def parse_product_node(node, url)
     item = {}
-    item[:url] = absolute_url(node.at_css("a")[:href], base: url)
-    item[:title] = node.at_css("a span").text
+    item[:url] = get_url(node, url)
+    item[:title] = get_title(node)
     item[:price] = get_price(node)
     item[:stock] = in_stock?(node)
 
@@ -38,6 +38,14 @@ class FlexogamesSpider < ApplicationSpider
     return unless next_page
 
     request_to :parse, url: absolute_url(next_page[:href], base: url)
+  end
+
+  def get_url(node, url)
+    absolute_url(node.at_css("a")[:href], base: url)
+  end
+
+  def get_title(node)
+    node.at_css("a span").text
   end
 
   def get_price(node)
