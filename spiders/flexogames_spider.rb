@@ -29,6 +29,7 @@ class FlexogamesSpider < ApplicationSpider
     item[:title] = get_title(node)
     item[:price] = get_price(node)
     item[:stock] = in_stock?(node)
+    # item[:image_url] = get_image_url(node)
 
     send_item item
   end
@@ -58,4 +59,17 @@ class FlexogamesSpider < ApplicationSpider
   def in_stock?(node)
     node.css("dl.price--sold-out").empty?
   end
+
+  # TODO: This store loads product images lazily.
+  # The data-srcset attribute is not immediately available when using the Mechanize engine.
+  # It doesn't work with SeleniumChrome either. We need to find a way to trigger the image load.
+  #
+  # def get_image_url(node)
+  #   url = node.at_css("img")["data-srcset"].split.first
+  #   uri = URI.parse(url)
+  #   uri.query = nil
+  #   uri.scheme = "https"
+  #   uri.path = uri.path.sub(/_\d+x/, "")
+  #   uri.to_s
+  # end
 end
