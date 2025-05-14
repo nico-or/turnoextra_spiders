@@ -29,6 +29,7 @@ class EnroqueSpider < ApplicationSpider
     item[:title] = get_title(node)
     item[:price] = get_price(node)
     item[:stock] = in_stock?(node)
+    item[:image_url] = get_image_url(node)
 
     send_item item
   end
@@ -64,5 +65,13 @@ class EnroqueSpider < ApplicationSpider
     button_disabled = node.at_css("button")[:disabled]
 
     button_text.match?("carrito") && !button_disabled
+  end
+
+  def get_image_url(node)
+    url = node.at_css("img")["data-src"]
+    uri = URI.parse(url)
+    uri.query = nil
+    uri.scheme = "https"
+    uri.to_s
   end
 end
