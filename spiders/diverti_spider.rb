@@ -29,6 +29,7 @@ class DivertiSpider < ApplicationSpider
     item[:title] = get_title(node)
     item[:price] = get_price(node)
     item[:stock] = true # Stock filtered by URL query parameter
+    item[:image_url] = get_image_url(node)
 
     send_item item
   end
@@ -53,5 +54,9 @@ class DivertiSpider < ApplicationSpider
   def get_price(node)
     price_node = node.at_css("span.price")
     scan_int(price_node.text) if price_node
+  end
+
+  def get_image_url(node)
+    node.at_css("img")["data-full-size-image-url"]
   end
 end
