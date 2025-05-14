@@ -29,6 +29,7 @@ class DrJuegosSpider < ApplicationSpider
     item[:title] = get_title(node)
     item[:price] = get_price(node)
     item[:stock] = in_stock?(node) # Stock filtered by URL query parameter, but check anyway
+    item[:image_url] = get_image_url(node)
 
     send_item item
   end
@@ -57,5 +58,9 @@ class DrJuegosSpider < ApplicationSpider
 
   def in_stock?(node)
     !node.at_css("button.add-to-cart").nil?
+  end
+
+  def get_image_url(node)
+    node.at_css("img")[:src].sub("home_default", "large_default")
   end
 end
