@@ -29,6 +29,7 @@ class VudugamingSpider < ApplicationSpider
     item[:title] = get_title(node)
     item[:price] = get_price(node)
     item[:stock] = in_stock?(node)
+    item[:image_url] = get_image_url(node)
 
     send_item item
   end
@@ -57,5 +58,9 @@ class VudugamingSpider < ApplicationSpider
 
   def in_stock?(node)
     node.at_css(".product-block__actions form") != nil
+  end
+
+  def get_image_url(node)
+    node.at_css("img")["src"].split("/resize/").first
   end
 end
