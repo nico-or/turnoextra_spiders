@@ -29,6 +29,7 @@ class DevirSpider < ApplicationSpider
     item[:title] = get_title(node)
     item[:price] = get_price(node)
     item[:stock] = in_stock?(node)
+    item[:image_url] = get_image_url(node)
 
     send_item item
   end
@@ -63,5 +64,9 @@ class DevirSpider < ApplicationSpider
 
     sanitized_price = price_text.sub(/,00.+/, "")
     scan_int(sanitized_price)
+  end
+
+  def get_image_url(node)
+    node.at_css("img.product-image-photo")[:src]
   end
 end
