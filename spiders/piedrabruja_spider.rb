@@ -2,6 +2,12 @@
 
 # Piedrabruja store spider
 # Engine: shopify
+#
+# This store serves malformed HTML.
+# Many tags aren't closed properly, which causes each listing node to include all subsequent nodes.
+# Thus it's necessary to use only #at_css to find the first tag that matches the selector.
+# This also causes that we can't easily drop the empty placeholders nodes at the end of the listings array.
+#
 class PiedrabrujaSpider < ApplicationSpider
   @name = "piedrabruja_spider"
   @store = {
@@ -29,6 +35,7 @@ class PiedrabrujaSpider < ApplicationSpider
     item[:title] = get_title(node)
     item[:price] = get_price(node)
     item[:stock] = true
+    item[:image_url] = get_image_url(node)
 
     send_item item
   end
@@ -53,5 +60,17 @@ class PiedrabrujaSpider < ApplicationSpider
   def get_price(node)
     price_node = node.at_css("p.price/text()")
     scan_int(price_node.text)
+  end
+
+  # Since the store has empty nodes at the end of the HTML,
+  # we need to rescue from errors when trying to access the :src attribute.
+  def get_image_url(node)
+    url = node.at_css("img")["src"]
+    uri = URI.parse(url)
+    uri.scheme = "https"
+    uri.query = nil
+    uri.to_s
+  rescue StandardError
+    nil
   end
 end
