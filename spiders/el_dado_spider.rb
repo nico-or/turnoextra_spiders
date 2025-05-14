@@ -29,6 +29,7 @@ class ElDadoSpider < ApplicationSpider
     item[:title] = get_title(node)
     item[:price] = get_price(node)
     item[:stock] = in_stock?(node)
+    item[:image_url] = get_image_url(node)
 
     send_item item
   end
@@ -59,5 +60,9 @@ class ElDadoSpider < ApplicationSpider
     # somehow there are no prices on some items...
     # ex: https://eldado.cl/producto/dobble-31-minutos/ (10/05/2025)
     scan_int(price_node.text) if price_node
+  end
+
+  def get_image_url(node)
+    node.at_css("img")[:src]
   end
 end
