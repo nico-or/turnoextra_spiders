@@ -25,8 +25,8 @@ class ApplicationSpider < Tanakai::Base
     # Use lambda if you want to rotate user agents before each run:
     # user_agent: -> { ARRAY_OF_USER_AGENTS.sample }
     # Works for all engines
-    user_agent:
-    "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0",
+    # "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0",
+    user_agent: "TurnoExtraBot/1.0 (+https://turnoextra.cl/contact) Ruby/#{RUBY_VERSION} Tanakai/#{Tanakai::VERSION}",
 
     # Custom cookies, format: array of hashes.
     # Format for a single cookie: { name: "cookie name", value: "cookie value", domain: ".example.com" }
