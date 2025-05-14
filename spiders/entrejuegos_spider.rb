@@ -29,6 +29,7 @@ class EntrejuegosSpider < ApplicationSpider
     item[:title] = get_title(node)
     item[:price] = get_price(node)
     item[:stock] = in_stock?(node)
+    item[:image_url] = get_image_url(node)
 
     send_item item
   end
@@ -58,5 +59,9 @@ class EntrejuegosSpider < ApplicationSpider
 
   def in_stock?(node)
     node.at_css("li.out_of_stock").nil?
+  end
+
+  def get_image_url(node)
+    node.at_css("img")["data-full-size-image-url"]
   end
 end
