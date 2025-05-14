@@ -29,6 +29,7 @@ class MagicsurSpider < ApplicationSpider
     item[:title] = get_title(node)
     item[:price] = get_price(node)
     item[:stock] = true
+    item[:image_url] = get_image_url(node)
 
     send_item item
   end
@@ -51,5 +52,9 @@ class MagicsurSpider < ApplicationSpider
   def get_price(node)
     price_node = node.at_css("span.product-price")
     scan_int(price_node.text)
+  end
+
+  def get_image_url(node)
+    node.at_css("img")["data-full-size-image-url"]
   end
 end
