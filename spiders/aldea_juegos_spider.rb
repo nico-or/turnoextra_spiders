@@ -59,5 +59,7 @@ class AldeaJuegosSpider < ApplicationSpider
 
   def get_image_url(node)
     node.at_css("img")["data-full-size-image-url"]
+  rescue NoMethodError
+    nil
   end
 end

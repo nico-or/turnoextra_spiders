@@ -62,5 +62,7 @@ class PlaycenterSpider < ApplicationSpider
 
   def get_image_url(node)
     node.at_css("img")["srcset"].split(", ").last.split.first
+  rescue NoMethodError
+    nil
   end
 end

@@ -62,5 +62,7 @@ class VudugamingSpider < ApplicationSpider
 
   def get_image_url(node)
     node.at_css("img")["src"].split("/resize/").first
+  rescue NoMethodError
+    nil
   end
 end

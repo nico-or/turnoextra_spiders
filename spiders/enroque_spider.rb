@@ -73,5 +73,7 @@ class EnroqueSpider < ApplicationSpider
     uri.query = nil
     uri.scheme = "https"
     uri.to_s
+  rescue NoMethodError
+    nil
   end
 end

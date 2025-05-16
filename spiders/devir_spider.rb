@@ -68,5 +68,7 @@ class DevirSpider < ApplicationSpider
 
   def get_image_url(node)
     node.at_css("img.product-image-photo")[:src]
+  rescue NoMethodError
+    nil
   end
 end

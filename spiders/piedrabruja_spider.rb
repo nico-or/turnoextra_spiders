@@ -70,7 +70,7 @@ class PiedrabrujaSpider < ApplicationSpider
     uri.scheme = "https"
     uri.query = nil
     uri.to_s
-  rescue StandardError
+  rescue NoMethodError
     nil
   end
 end
