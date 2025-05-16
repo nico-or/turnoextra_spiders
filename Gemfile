@@ -34,3 +34,4 @@ gem "mutex_m", "~> 0.3.0"
 gem "nkf", "~> 0.2.0"
 gem "ostruct", "~> 0.6.1"
 gem "rubocop", "~> 1.74"
+
