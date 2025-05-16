@@ -12,8 +12,7 @@ class HashedStorage
   end
 
   def save(filename, data)
-    digest = digest_for(filename)
-    filepath = digested_path_for(digest)
+    filepath = digested_path_for(filename)
     return filepath if File.exist?(filepath)
 
     create_directory(filepath)
@@ -22,25 +21,20 @@ class HashedStorage
   end
 
   def read(filename)
-    digest = digest_for(filename)
-    filepath = digested_path_for(digest)
+    filepath = digested_path_for(filename)
     return unless File.exist?(filepath)
 
     File.read(filepath)
   end
 
   def exist?(filename)
-    digest = digest_for(filename)
-    File.exist?(digested_path_for(digest))
+    File.exist?(digested_path_for(filename))
   end
 
   def delete(filename)
-    digest = digest_for(filename)
-    path = digested_path_for(digest)
+    path = digested_path_for(filename)
     FileUtils.rm_f(path)
   end
-
-  private
 
   def create_directory(filepath)
     path = File.dirname(filepath)
@@ -51,18 +45,16 @@ class HashedStorage
     Digest::MD5.hexdigest(string)
   end
 
-  def digested_filename_for(filename)
-    digest_for(filename) + File.extname(filename)
-  end
-
+  # Makes a path for the given filename using a hashed directory structure.
+  # example: a digest of "abcd1234" would result in a path like "ab/cd/abcd1234"
   def digested_path_for(filename)
-    digest = digested_filename_for(filename)
+    digest = digest_for(filename)
     path = root
     idx = 0
     levels.times do
       path = File.join(path, digest[idx, level_width])
       idx += level_width
     end
-    File.join(path, digest[idx..])
+    File.join(path, digest)
   end
 end
