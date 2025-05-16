@@ -17,3 +17,6 @@ db/*.json
 .env
 
 capybara-*.png
+
+images/*
+!images/.keep
