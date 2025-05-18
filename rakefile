@@ -1,0 +1,53 @@
+# frozen_string_literal: true
+
+require "date"
+
+SPIDER_DATA_REGEX = /^(?<date>\d{8})_(?<spider_name>.+)\.csv/
+ARCHIVE_DIR = "archive"
+SOURCE_DIR = "db"
+
+def parse_date(filepath)
+  filename = File.basename(filepath)
+  match = filename.match(SPIDER_DATA_REGEX)
+  match[:date] if match
+end
+
+def path_from_date_string(date_string)
+  date = Date.parse(date_string)
+  year = date.strftime("%Y")
+  month = date.strftime("%m")
+  day = date.strftime("%d")
+  File.join(year, month, day)
+rescue Date::Error
+  raise ArgumentError, "Invalid date string: #{date_string}"
+end
+
+desc "Runs the Tanakai runner with 20 jobs."
+task :runner do
+  sh "bundle exec tanakai runner --jobs=20"
+end
+
+desc "Archives all CSV files in the db directory to the 'archive' directory."
+task :archive do
+  filepaths_glob = File.join(SOURCE_DIR, "*.csv")
+  filepaths = Dir.glob(filepaths_glob)
+
+  dates = filepaths.map { |filepath| parse_date(filepath) }.compact.uniq
+  dates.each do |date|
+    date_dir = path_from_date_string(date)
+    output_dir = File.join(ARCHIVE_DIR, date_dir)
+    mkdir_p output_dir
+  end
+
+  filepaths.each do |filepath|
+    filename = File.basename(filepath)
+    date = parse_date(filepath)
+    next unless date
+
+    date_dir = path_from_date_string(date)
+    new_filepath = File.join(ARCHIVE_DIR, date_dir, filename)
+    mv filepath, new_filepath
+  end
+end
+
+task default: :runner
