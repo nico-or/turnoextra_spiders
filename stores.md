@@ -10,6 +10,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [x] 0525 - https://juegosenroque.cl
 - [x] 0453 - https://piedrabruja.cl
 - [x] 0379 - https://devir.cl
+- [x] 0334 - https://www.guildreams.com
 - [x] 0293 - https://www.magicsur.cl
 - [ ] 2210 - https://www.lafortalezapuq.cl
 - [ ] 0911 - https://www.planetaloz.cl
@@ -28,7 +29,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [ ] 0388 - https://playcenter.cl
 - [ ] 0368 - https://www.clevertoys.cl
 - [ ] 0342 - https://fzcubes.cl
-- [ ] 0334 - https://www.guildreams.com
 - [ ] 0303 - https://mirzu.cl
 - [ ] 0271 - https://www.griffingames.cl
 - [ ] 0233 - https://playkingdom.cl
