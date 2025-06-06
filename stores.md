@@ -11,6 +11,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [x] 0453 - https://piedrabruja.cl
 - [x] 0379 - https://devir.cl
 - [x] 0334 - https://www.guildreams.com
+- [x] 0306 - https://lateka.cl
 - [x] 0293 - https://www.magicsur.cl
 - [ ] 2210 - https://www.lafortalezapuq.cl
 - [ ] 0911 - https://www.planetaloz.cl
