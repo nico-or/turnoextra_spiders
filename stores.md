@@ -2,6 +2,7 @@
 
 Aproximate number of listings were gathered from https://juegos.tabula.cl/ and manually when missing.
 
+- [x] 2210 - https://www.lafortalezapuq.cl
 - [x] 1265 - https://www.entrejuegos.cl
 - [x] 1032 - https://www.updown.cl
 - [x] 0962 - https://www.flexogames.cl
@@ -13,7 +14,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [x] 0334 - https://www.guildreams.com
 - [x] 0306 - https://lateka.cl
 - [x] 0293 - https://www.magicsur.cl
-- [ ] 2210 - https://www.lafortalezapuq.cl
 - [ ] 0911 - https://www.planetaloz.cl
 - [ ] 0827 - https://www.elpatiogeek.cl
 - [ ] 0815 - https://www.drjuegos.cl
