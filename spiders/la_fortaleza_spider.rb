@@ -52,7 +52,9 @@ class LaFortalezaSpider < ApplicationSpider
   end
 
   def get_price(node)
-    price_node = node.at_css("span.product-price-discount i")
+    discount_node = node.at_css("span.product-price-discount i")
+    regular_node = node.at_css("span.product-price")
+    price_node = discount_node || regular_node
     scan_int(price_node.text)
   end
 
