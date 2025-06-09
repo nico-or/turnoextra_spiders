@@ -7,6 +7,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [x] 1032 - https://www.updown.cl
 - [x] 0962 - https://www.flexogames.cl
 - [x] 0911 - https://www.planetaloz.cl
+- [x] 0827 - https://www.elpatiogeek.cl
 - [x] 0752 - https://www.vudugaming.cl
 - [x] 0597 - https://dementegames.cl
 - [x] 0525 - https://juegosenroque.cl
@@ -15,7 +16,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [x] 0334 - https://www.guildreams.com
 - [x] 0306 - https://lateka.cl
 - [x] 0293 - https://www.magicsur.cl
-- [ ] 0827 - https://www.elpatiogeek.cl
 - [ ] 0815 - https://www.drjuegos.cl
 - [ ] 0640 - https://www.somosjuegos.cl
 - [ ] 0535 - https://www.top8.cl
