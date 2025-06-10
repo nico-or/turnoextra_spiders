@@ -8,27 +8,30 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [x] 0962 - https://www.flexogames.cl
 - [x] 0911 - https://www.planetaloz.cl
 - [x] 0827 - https://www.elpatiogeek.cl
+- [x] 0815 - https://www.drjuegos.cl
 - [x] 0752 - https://www.vudugaming.cl
+- [x] 0640 - https://www.somosjuegos.cl
 - [x] 0597 - https://dementegames.cl
 - [x] 0535 - https://www.top8.cl
 - [x] 0525 - https://juegosenroque.cl
 - [x] 0453 - https://piedrabruja.cl
+- [x] 0405 - https://www.aldeajuegos.cl
+- [x] 0388 - https://playcenter.cl
 - [x] 0379 - https://devir.cl
 - [x] 0334 - https://www.guildreams.com
 - [x] 0306 - https://lateka.cl
 - [x] 0293 - https://www.magicsur.cl
+- [x] 0215 - https://laloseta.cl
 - [x] 0171 - https://revaruk.cl
-- [ ] 0815 - https://www.drjuegos.cl
-- [ ] 0640 - https://www.somosjuegos.cl
+- [x] 0150 - https://www.diverti.cl
+- [x] 0134 - https://eldado.cl
 - [ ] 0505 - https://www.ludi.cl
 - [ ] 0491 - https://www.labovedadelmago.cl
 - [ ] 0468 - https://www.gameofmagictienda.cl
 - [ ] 0465 - https://www.cardgame.cl
 - [ ] 0444 - https://cartonespesados.cl
 - [ ] 0433 - https://www.weplay.cl
-- [ ] 0405 - https://www.aldeajuegos.cl
 - [ ] 0405 - https://araucaniagaming.cl
-- [ ] 0388 - https://playcenter.cl
 - [ ] 0368 - https://www.clevertoys.cl
 - [ ] 0342 - https://fzcubes.cl
 - [ ] 0303 - https://mirzu.cl
@@ -45,7 +48,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [ ] 0181 - https://caramba.cl
 - [ ] 0158 - https://spells.cl
 - [ ] 0157 - https://www.lautarojuegos.cl
-- [ ] 0150 - https://www.diverti.cl
 - [ ] 0133 - https://tertulia.cl
 - [ ] 0131 - https://ludorapia.cl
 - [ ] 0117 - https://lamesadevaras.cl
