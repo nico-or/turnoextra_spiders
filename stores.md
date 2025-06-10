@@ -10,6 +10,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [x] 0827 - https://www.elpatiogeek.cl
 - [x] 0752 - https://www.vudugaming.cl
 - [x] 0597 - https://dementegames.cl
+- [x] 0535 - https://www.top8.cl
 - [x] 0525 - https://juegosenroque.cl
 - [x] 0453 - https://piedrabruja.cl
 - [x] 0379 - https://devir.cl
@@ -18,7 +19,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [x] 0293 - https://www.magicsur.cl
 - [ ] 0815 - https://www.drjuegos.cl
 - [ ] 0640 - https://www.somosjuegos.cl
-- [ ] 0535 - https://www.top8.cl
 - [ ] 0505 - https://www.ludi.cl
 - [ ] 0491 - https://www.labovedadelmago.cl
 - [ ] 0468 - https://www.gameofmagictienda.cl
