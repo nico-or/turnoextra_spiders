@@ -17,6 +17,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [x] 0334 - https://www.guildreams.com
 - [x] 0306 - https://lateka.cl
 - [x] 0293 - https://www.magicsur.cl
+- [x] 0171 - https://revaruk.cl
 - [ ] 0815 - https://www.drjuegos.cl
 - [ ] 0640 - https://www.somosjuegos.cl
 - [ ] 0505 - https://www.ludi.cl
@@ -42,7 +43,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [ ] 0188 - https://www.m4e.cl
 - [ ] 0184 - https://takanodan.cl
 - [ ] 0181 - https://caramba.cl
-- [ ] 0171 - https://revaruk.cl
 - [ ] 0158 - https://spells.cl
 - [ ] 0157 - https://www.lautarojuegos.cl
 - [ ] 0150 - https://www.diverti.cl
