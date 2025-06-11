@@ -48,6 +48,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [ ] 0181 - https://caramba.cl
 - [ ] 0158 - https://spells.cl
 - [ ] 0157 - https://www.lautarojuegos.cl
+- [ ] 0138 - https://cartonazo.com/
 - [ ] 0133 - https://tertulia.cl
 - [ ] 0131 - https://ludorapia.cl
 - [ ] 0117 - https://lamesadevaras.cl
