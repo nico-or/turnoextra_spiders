@@ -24,6 +24,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [x] 0293 - https://www.magicsur.cl
 - [x] 0215 - https://laloseta.cl
 - [x] 0171 - https://revaruk.cl
+- [x] 0158 - https://spells.cl
 - [x] 0150 - https://www.diverti.cl
 - [x] 0134 - https://eldado.cl
 - [ ] 0491 - https://www.labovedadelmago.cl
@@ -46,7 +47,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [ ] 0188 - https://www.m4e.cl
 - [ ] 0184 - https://takanodan.cl
 - [ ] 0181 - https://caramba.cl
-- [ ] 0158 - https://spells.cl
 - [ ] 0157 - https://www.lautarojuegos.cl
 - [ ] 0138 - https://cartonazo.com/
 - [ ] 0133 - https://tertulia.cl
