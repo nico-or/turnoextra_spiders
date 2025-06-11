@@ -14,6 +14,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [x] 0597 - https://dementegames.cl
 - [x] 0535 - https://www.top8.cl
 - [x] 0525 - https://juegosenroque.cl
+- [x] 0505 - https://www.ludi.cl
 - [x] 0453 - https://piedrabruja.cl
 - [x] 0405 - https://www.aldeajuegos.cl
 - [x] 0388 - https://playcenter.cl
@@ -25,7 +26,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [x] 0171 - https://revaruk.cl
 - [x] 0150 - https://www.diverti.cl
 - [x] 0134 - https://eldado.cl
-- [ ] 0505 - https://www.ludi.cl
 - [ ] 0491 - https://www.labovedadelmago.cl
 - [ ] 0468 - https://www.gameofmagictienda.cl
 - [ ] 0465 - https://www.cardgame.cl
