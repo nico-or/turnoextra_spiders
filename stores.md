@@ -46,6 +46,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [ ] 0216 - https://manahouse.cl
 - [ ] 0214 - https://www.ludoteka.cl
 - [ ] 0211 - https://chileboardgames.com
+- [ ] 0206 - https://manahouse.cl
 - [ ] 0188 - https://www.m4e.cl
 - [ ] 0184 - https://takanodan.cl
 - [ ] 0181 - https://caramba.cl
@@ -54,6 +55,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [ ] 0131 - https://ludorapia.cl
 - [ ] 0117 - https://lamesadevaras.cl
 - [ ] 0101 - https://www.unatienditadejuegos.cl
+- [ ] 0095 - https://www.elarbolitojuegos.cl
 - [ ] 0095 - https://www.catronjuegos.cl
 - [ ] 0095 - https://dondejuego.cl
 - [ ] 0085 - https://www.wargaming.cl
@@ -64,6 +66,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [ ] 0067 - https://www.cuatroemes.cl
 - [ ] 0065 - https://elkingo.com
 - [ ] 0060 - https://granjuego.cl
+- [ ] 0057 - https://tertulia.cl
 - [ ] 0050 - https://www.jugones.cl
 - [ ] 0042 - https://www.dmesa.cl
 - [ ] 0042 - https://ludopalooza.cl
