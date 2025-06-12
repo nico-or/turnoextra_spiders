@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 source "https://rubygems.org"
-# git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "~> 3.4"
 
@@ -23,15 +22,6 @@ end
 group :test do
   gem "rspec", "~> 3.13"
 end
-
-# If you want to save items to the database, require one of these gems:
-# gem 'sqlite3'
-# gem 'pg'
-# gem 'mysql2'
-
-# And use your preferred ORM/database connector:
-# gem 'activerecord', require: 'active_record'
-# gem 'sequel'
 
 gem "mechanize", "~> 2.8"
 gem "mutex_m", "~> 0.3.0"
