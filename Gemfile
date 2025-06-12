@@ -20,6 +20,10 @@ group :development do
   gem "pry"
 end
 
+group :test do
+  gem "rspec", "~> 3.13"
+end
+
 # If you want to save items to the database, require one of these gems:
 # gem 'sqlite3'
 # gem 'pg'
@@ -34,4 +38,3 @@ gem "mutex_m", "~> 0.3.0"
 gem "nkf", "~> 0.2.0"
 gem "ostruct", "~> 0.6.1"
 gem "rubocop", "~> 1.74"
-
