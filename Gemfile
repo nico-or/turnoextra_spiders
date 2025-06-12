@@ -14,17 +14,15 @@ gem "require_all"
 gem "dotenv"
 
 # To debug spiders:
-group :development do
+group :development, :test do
   gem "byebug", platforms: :mri
   gem "pry"
-end
-
-group :test do
   gem "rspec", "~> 3.13"
+  gem "rubocop", "~> 1.74"
+  gem "rubocop-rspec", "~> 3.6"
 end
 
 gem "mechanize", "~> 2.8"
 gem "mutex_m", "~> 0.3.0"
 gem "nkf", "~> 0.2.0"
 gem "ostruct", "~> 0.6.1"
-gem "rubocop", "~> 1.74"
