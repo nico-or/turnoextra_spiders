@@ -12,33 +12,39 @@ class PlanetalozSpider < ApplicationSpider
   @config = {}
 
   def parse(response, url:, data: {})
-    parse_index(response, url)
+    items = parse_index(response, url:)
+    items.each { |item| send_item item }
+
     paginate(response, url)
   end
 
-  def paginate(response, url)
+  def parse_index(response, url:, data: {})
+    listings = response.css("div#js-product-list article")
+    listings.map { |listing| parse_product_node(listing, url:) }
+  end
+
+  def parse_product_node(node, url:)
+    {
+      url: get_url(node),
+      title: get_title(node),
+      price: get_price(node),
+      stock: purchasable?(node),
+      image_url: get_image_url(node)
+    }
+  end
+
+  def next_page_url(response, url)
     next_page = response.at_css("nav.pagination li a[@rel=next]")
     return unless next_page
 
-    request_to :parse, url: absolute_url(next_page[:href], base: url)
+    absolute_url(next_page[:href], base: url)
   end
 
-  # Parse a Nokogiri::Element and call #parse_product_node on all elements
-  def parse_index(response, url, data: {})
-    nodes = response.css("div#js-product-list article")
-    nodes.each { |node| parse_product_node(node, url) }
-  end
+  private
 
-  # Parse a Nokogiri::Element representing a listing and call #send_item on it
-  def parse_product_node(node, _url)
-    item = {}
-    item[:url] = get_url(node)
-    item[:title] = get_title(node)
-    item[:price] = get_price(node)
-    item[:stock] = true # Stock filtered by URL query parameter
-    item[:image_url] = get_image_url(node)
-
-    send_item item
+  def paginate(response, url)
+    next_page_url = next_page_url(response, url)
+    request_to(:parse, url: next_page_url) if next_page_url
   end
 
   def get_url(node)
@@ -53,6 +59,11 @@ class PlanetalozSpider < ApplicationSpider
   def get_price(node)
     price_node = node.at_css("span.price")
     scan_int(price_node.text)
+  end
+
+  def purchasable?(_node)
+    # filtered with query parameters
+    true
   end
 
   def get_image_url(node)
