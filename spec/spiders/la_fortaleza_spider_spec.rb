@@ -6,6 +6,8 @@ RSpec.describe LaFortalezaSpider do
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }
 
+  it_behaves_like "a store spider"
+
   describe "#parse_index" do
     let(:response) do
       html = File.read("spec/fixtures/la_fortaleza/index_page_paginate_true.html")
