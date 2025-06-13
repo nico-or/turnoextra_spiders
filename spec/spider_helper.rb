@@ -6,7 +6,7 @@ RSpec.shared_examples "a product node parser" do
     Nokogiri::HTML(html)
   end
 
-  let(:item) { spider.send(:parse_product_node, node) }
+  let(:item) { spider.send(:parse_product_node, node, url: store_url) }
 
   it "parses the correct URL" do
     expect(item[:url]).to eq(expected[:url])

@@ -4,6 +4,7 @@ require "spider_helper"
 
 RSpec.describe EntrejuegosSpider do
   let(:spider) { described_class.new }
+  let(:store_url) { described_class.store[:url] }
 
   describe "#parse_index" do
     let(:response) do
@@ -100,8 +101,6 @@ RSpec.describe EntrejuegosSpider do
   end
 
   describe "#next_page_url" do
-    let(:url) { described_class.instance_variable_get("@store")[:url] }
-
     context "with an index page that has a next page link" do
       let(:response) do
         html = File.read("spec/fixtures/entrejuegos/index_page_paginate_true.html")
@@ -109,7 +108,7 @@ RSpec.describe EntrejuegosSpider do
       end
 
       it "has a next page" do
-        actual = spider.next_page_url(response, url)
+        actual = spider.next_page_url(response, store_url)
         expected = "https://www.entrejuegos.cl/1064-juegos-de-mesa?page=2"
         expect(actual).to eq(expected)
       end
@@ -122,7 +121,7 @@ RSpec.describe EntrejuegosSpider do
       end
 
       it "has no next page" do
-        actual = spider.next_page_url(response, url)
+        actual = spider.next_page_url(response, store_url)
         expected = nil
         expect(actual).to eq(expected)
       end
