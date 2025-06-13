@@ -1,3 +1,6 @@
+plugins:
+  - rubocop-rspec
+
 AllCops:
   NewCops: enable
 
@@ -6,3 +9,6 @@ Style/StringLiterals:
 
 Lint/UnusedMethodArgument:
   AllowUnusedKeywordArguments: true
+
+Metrics/BlockLength:
+  AllowedMethods: ["describe", "context"]
