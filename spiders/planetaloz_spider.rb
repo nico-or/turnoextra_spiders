@@ -61,9 +61,12 @@ class PlanetalozSpider < ApplicationSpider
     scan_int(price_node.text)
   end
 
-  def purchasable?(_node)
-    # filtered with query parameters
-    true
+  def in_stock?(node)
+    node.at_css("li.out_of_stock").nil?
+  end
+
+  def purchasable?(node)
+    in_stock?(node)
   end
 
   def get_image_url(node)
