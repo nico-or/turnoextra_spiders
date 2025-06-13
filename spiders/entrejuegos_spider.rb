@@ -12,18 +12,18 @@ class EntrejuegosSpider < ApplicationSpider
   @config = {}
 
   def parse(response, url:, data: {})
-    items = parse_index(response)
+    items = parse_index(response, url:)
     items.each { |item| send_item item }
 
     paginate(response, url)
   end
 
-  def parse_index(response, url: nil, data: {})
+  def parse_index(response, url:, data: {})
     listings = response.css("div#js-product-list article")
-    listings.map { |listing| parse_product_node(listing) }
+    listings.map { |listing| parse_product_node(listing, url:) }
   end
 
-  def parse_product_node(node, url: nil)
+  def parse_product_node(node, url:)
     {
       url: get_url(node),
       title: get_title(node),

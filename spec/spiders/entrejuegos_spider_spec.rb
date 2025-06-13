@@ -6,6 +6,8 @@ RSpec.describe EntrejuegosSpider do
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }
 
+  it_behaves_like "a store spider"
+
   describe "#parse_index" do
     let(:response) do
       html = File.read("spec/fixtures/entrejuegos/index_page_paginate_true.html")
@@ -13,7 +15,7 @@ RSpec.describe EntrejuegosSpider do
     end
 
     it "returns 36 items" do
-      items = spider.send(:parse_index, response)
+      items = spider.send(:parse_index, response, url: store_url)
       expect(items.length).to eq(36)
     end
   end
