@@ -23,7 +23,7 @@ class EntrejuegosSpider < ApplicationSpider
     listings.map { |listing| parse_product_node(listing) }
   end
 
-  def parse_product_node(node)
+  def parse_product_node(node, url: nil)
     {
       url: get_url(node),
       title: get_title(node),
