@@ -63,8 +63,8 @@ class LaFortalezaSpider < ApplicationSpider
     scan_int(price_node.text) if price_node
   end
 
-  def in_stock?(_node)
-    true
+  def in_stock?(node)
+    node.at_css("div.product-out-of-stock").nil?
   end
 
   def purchasable?(node)
