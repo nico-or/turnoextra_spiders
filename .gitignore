@@ -8,9 +8,11 @@
 /tmp/*
 !/tmp/.keep
 
-archive
-db/*.csv
-db/*.json
+archive/*
+!archive/.keep
+
+db/*
+!db/.keep
 
 .byebug_history
 *.swp
