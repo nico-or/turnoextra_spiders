@@ -12,33 +12,39 @@ class FlexogamesSpider < ApplicationSpider
   @config = {}
 
   def parse(response, url:, data: {})
-    parse_index(response, url: url)
+    items = parse_index(response, url:)
+    items.each { |item| send_item item }
+
     paginate(response, url)
   end
 
-  # Parse a Nokogiri::Element and call #parse_product_node on all elements
-  def parse_index(response, url: nil, data: {})
+  def parse_index(response, url:, data: {})
     listings = response.css("div#Collection ul.grid li")
-    listings.each { parse_product_node(it, url) }
+    listings.map { |listing| parse_product_node(listing, url:) }
   end
 
-  # Parse a Nokogiri::Element representing a listing and call #send_item on it
-  def parse_product_node(node, url)
-    item = {}
-    item[:url] = get_url(node, url)
-    item[:title] = get_title(node)
-    item[:price] = get_price(node)
-    item[:stock] = in_stock?(node)
-    # item[:image_url] = get_image_url(node)
-
-    send_item item
+  def parse_product_node(node, url:)
+    {
+      url: get_url(node, url),
+      title: get_title(node),
+      price: get_price(node),
+      stock: purchasable?(node),
+      image_url: get_image_url(node)
+    }
   end
+
+  def next_page_url(response, url)
+    next_page_node = response.at_css("ul.pagination li:last-child a")
+    return unless next_page_node
+
+    absolute_url(next_page_node[:href], base: url)
+  end
+
+  private
 
   def paginate(response, url)
-    next_page = response.at_css("ul.pagination li:last-child a")
-    return unless next_page
-
-    request_to :parse, url: absolute_url(next_page[:href], base: url)
+    next_page_url = next_page_url(response, url)
+    request_to(:parse, url: next_page_url) if next_page_url
   end
 
   def get_url(node, url)
@@ -60,16 +66,14 @@ class FlexogamesSpider < ApplicationSpider
     node.css("dl.price--sold-out").empty?
   end
 
+  def purchasable?(node)
+    in_stock?(node)
+  end
+
   # TODO: This store loads product images lazily.
   # The data-srcset attribute is not immediately available when using the Mechanize engine.
   # It doesn't work with SeleniumChrome either. We need to find a way to trigger the image load.
-  #
-  # def get_image_url(node)
-  #   url = node.at_css("img")["data-srcset"].split.first
-  #   uri = URI.parse(url)
-  #   uri.query = nil
-  #   uri.scheme = "https"
-  #   uri.path = uri.path.sub(/_\d+x/, "")
-  #   uri.to_s
-  # end
+  def get_image_url(_node)
+    nil
+  end
 end
