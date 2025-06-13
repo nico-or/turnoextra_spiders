@@ -1,5 +1,4 @@
-require "tanakai"
-require_relative "../config/boot"
+require_relative "tanakai_helper"
 
 RSpec.shared_examples "a product node parser" do
   let(:node) do
