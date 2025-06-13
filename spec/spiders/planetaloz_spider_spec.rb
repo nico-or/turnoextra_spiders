@@ -52,6 +52,22 @@ RSpec.describe PlanetalozSpider do
 
       it_behaves_like "a product node parser"
     end
+
+    context "with an out-of-stock index product node" do
+      let(:filename) { "spec/fixtures/planetaloz/product_index_node_out_of_stock.html" }
+
+      let(:expected) do
+        {
+          url: "https://www.planetaloz.cl/juegos-de-mesa/15-dobble-kids.html",
+          title: "dobble kids",
+          price: 14_000,
+          stock: false,
+          image_url: "https://www.planetaloz.cl/11995-large_default/dobble-kids.jpg"
+        }
+      end
+
+      it_behaves_like "a product node parser"
+    end
   end
 
   describe "#next_page_url" do
