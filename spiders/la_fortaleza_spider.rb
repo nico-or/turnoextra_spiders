@@ -12,34 +12,39 @@ class LaFortalezaSpider < ApplicationSpider
   @config = {}
 
   def parse(response, url:, data: {})
-    parse_index(response, url:)
-    paginate(response, url:)
+    items = parse_index(response, url:)
+    items.each { |item| send_item item }
+
+    paginate(response, url)
   end
 
-  # Parse a Nokogiri::Element and call #parse_product_node on all elements
   def parse_index(response, url:, data: {})
     nodes = response.css("div.products figure.product")
-    nodes.each { |node| parse_product_node(node, url:) }
+    nodes.map { |node| parse_product_node(node, url:) }
   end
 
-  # Parse a Nokogiri::Element representing a listing and call #send_item on it
   def parse_product_node(node, url:)
-    item = {}
-
-    item[:url] = get_url(node, url)
-    item[:title] = get_title(node)
-    item[:price] = get_price(node)
-    item[:stock] = in_stock?(node)
-    item[:image_url] = get_image_url(node)
-
-    send_item item
+    {
+      url: get_url(node, url),
+      title: get_title(node),
+      price: get_price(node),
+      stock: purchasable?(node),
+      image_url: get_image_url(node)
+    }
   end
 
-  def paginate(response, url:)
-    next_page = response.at_css("nav.pagination-next-prev a[@class=next]")
-    return unless next_page
+  def next_page_url(response, url)
+    next_page_node = response.at_css("nav.pagination-next-prev a[@class=next]")
+    return unless next_page_node
 
-    request_to :parse, url: absolute_url(next_page[:href], base: url)
+    absolute_url(next_page_node[:href], base: url)
+  end
+
+  private
+
+  def paginate(response, url)
+    next_url = next_page_url(response, url)
+    request_to(:parse, url: next_url) if next_url
   end
 
   def get_url(node, url)
@@ -55,16 +60,20 @@ class LaFortalezaSpider < ApplicationSpider
     discount_node = node.at_css("span.product-price-discount i")
     regular_node = node.at_css("span.product-price")
     price_node = discount_node || regular_node
-    scan_int(price_node.text)
+    scan_int(price_node.text) if price_node
   end
 
   def in_stock?(_node)
     true
   end
 
+  def purchasable?(node)
+    in_stock?(node)
+  end
+
   def get_image_url(node)
     # example: https://cdnx.jumpseller.com/la-fortaleza-punta-arenas1/image/13909331/thumb/230/260?1610821805
-    node.at_css("img")[:src].split("/thumb").first
+    node.at_css("img")[:src]&.split("/thumb")&.first
   rescue NoMethodError
     nil
   end
