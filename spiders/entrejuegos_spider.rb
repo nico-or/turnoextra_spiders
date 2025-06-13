@@ -28,7 +28,7 @@ class EntrejuegosSpider < ApplicationSpider
       url: get_url(node),
       title: get_title(node),
       price: get_price(node),
-      stock: in_stock?(node),
+      stock: purchasable?(node),
       image_url: get_image_url(node)
     }
   end
@@ -62,7 +62,22 @@ class EntrejuegosSpider < ApplicationSpider
   end
 
   def in_stock?(node)
-    node.at_css("li.out_of_stock").nil?
+    out_of_stock_banner = node.at_css("li.out_of_stock")
+    out_of_stock_banner.nil?
+  end
+
+  def price?(node)
+    # example: https://www.entrejuegos.cl/juegos-de-mesa/16717-everdell-spirecrest.html
+    # sometimes listings appear in the index but don't have a price element
+    # when that happens, the 'add to cart' button is also disabled
+    # this is different from products marked as 'out of stock'
+    # which have a price tag element
+    price_node = node.at_css("span.price")
+    !price_node.nil?
+  end
+
+  def purchasable?(node)
+    in_stock?(node) && price?(node)
   end
 
   def get_image_url(node)
