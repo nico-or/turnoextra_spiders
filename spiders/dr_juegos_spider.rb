@@ -52,7 +52,7 @@ class DrJuegosSpider < ApplicationSpider
   end
 
   def get_title(node)
-    node.at_css("h5").text
+    node.at_css("h5").text.strip
   end
 
   def get_price(node)
