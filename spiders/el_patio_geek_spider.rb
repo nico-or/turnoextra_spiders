@@ -65,8 +65,12 @@ class ElPatioGeekSpider < ApplicationSpider
   end
 
   def get_image_url(node, url)
-    image_url = node.css("img").last["srcset"].split[-2]
-    absolute_url(image_url, base: url)
+    image_url = node.at_css("img")["srcset"].split[-2]
+    absolute_url(image_url, base: url).then do |url|
+      uri = URI.parse(url)
+      uri.query = nil
+      uri.to_s
+    end
   rescue NoMethodError
     nil
   end
