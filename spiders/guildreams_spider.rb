@@ -63,8 +63,7 @@ class GuildreamsSpider < ApplicationSpider
   end
 
   def in_stock?(node)
-    button = node.at_css("button")
-    !button.text.match?(/agotado/i)
+    node.at_css("div.bs-stock").nil?
   end
 
   def purchasable?(node)
