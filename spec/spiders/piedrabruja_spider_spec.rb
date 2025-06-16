@@ -77,7 +77,7 @@ RSpec.describe PiedrabrujaSpider do
 
       it "has no next page" do
         actual = spider.next_page_url(response, store_url)
-        expected = nil
+        expected = "https://www.piedrabruja.cl/collections/juegos-de-mesa?page=9"
         expect(actual).to eq(expected)
       end
     end
