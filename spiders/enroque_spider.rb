@@ -65,13 +65,7 @@ class EnroqueSpider < ApplicationSpider
   end
 
   def in_stock?(node)
-    # Posible values: 'Preventa', 'Agregar al carrito'
-    button_text = node.at_css("button span").text.strip.downcase
-
-    # Posible values: 'disabled', nil
-    button_disabled = node.at_css("button")[:disabled]
-
-    button_text.match?("carrito") && !button_disabled
+    node.at_css("span.product-label--sold-out").nil?
   end
 
   def purchasable?(node)
