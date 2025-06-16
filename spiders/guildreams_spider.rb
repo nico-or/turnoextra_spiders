@@ -59,6 +59,8 @@ class GuildreamsSpider < ApplicationSpider
 
   def get_price(node)
     price_node = node.at_css("div.bs-product-final-price")
+    return unless price_node
+
     scan_int(price_node.text)
   end
 
