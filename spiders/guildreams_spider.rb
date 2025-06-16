@@ -12,37 +12,41 @@ class GuildreamsSpider < ApplicationSpider
   @config = {}
 
   def parse(response, url:, data: {})
-    parse_index(response, url: url)
+    items = parse_index(response, url:)
+    items.each { |item| send_item item }
+
     paginate(response, url)
   end
 
-  # Parse a Nokogiri::Element and call #parse_product_node on all elements
-  def parse_index(response, url: nil, data: {})
+  def parse_index(response, url:, data: {})
     listings = response.css("div.bs-product")
-    listings.each { parse_product_node(it, url) }
+    listings.map { |listing| parse_product_node(listing, url:) }
   end
 
-  # Parse a Nokogiri::Element representing a listing and call #send_item on it
-  def parse_product_node(node, url)
-    item = {}
-    item[:url] = get_url(node, url)
-    item[:title] = get_title(node)
-    item[:price] = get_price(node)
-    item[:stock] = in_stock?(node)
-    item[:image_url] = get_image_url(node)
-
-    send_item item
+  def parse_product_node(node, url:)
+    {
+      url: get_url(node, url),
+      title: get_title(node),
+      price: get_price(node),
+      stock: purchasable?(node),
+      image_url: get_image_url(node)
+    }
   end
 
-  def paginate(response, url)
+  def next_page_url(response, url)
     navigation_nodes = response.css("ul.pagination a.page-link")
-    next_page = navigation_nodes.select { |n| n["data-nf"] }.last # data-nf marks arrow (prev, next) links
-    return unless next_page
+    next_page_node = navigation_nodes.select { |n| n["data-nf"] }.last # data-nf marks arrow (prev, next) links
+    return unless next_page_node
 
-    request_to :parse, url: absolute_url(next_page[:href], base: url)
+    absolute_url(next_page_node[:href], base: url)
   end
 
   private
+
+  def paginate(response, url)
+    next_page_url = next_page_url(response, url)
+    request_to(:parse, url: next_page_url) if next_page_url
+  end
 
   def get_url(node, url)
     rel_url = node.at_css("a")[:href]
@@ -61,6 +65,10 @@ class GuildreamsSpider < ApplicationSpider
   def in_stock?(node)
     button = node.at_css("button")
     !button.text.match?(/agotado/i)
+  end
+
+  def purchasable?(node)
+    in_stock?(node)
   end
 
   def get_image_url(node)
