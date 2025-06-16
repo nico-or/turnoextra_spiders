@@ -65,13 +65,13 @@ class DevirSpider < ApplicationSpider
     node.at_css("strong a").text.strip
   end
 
-  # parses prices in the format 12.990,00 CLP
   def get_price(node)
-    price_text = node.at_css("span.price")&.text&.strip
-    return unless price_text
+    price_node = node.at_css("span.price")
+    return unless price_node
 
-    sanitized_price = price_text.sub(/,00.+/, "")
-    scan_int(sanitized_price)
+    # Example text: 12.990,00 CLP
+    clean_price_text = price_node.text.split(",00").first.strip
+    scan_int(clean_price_text)
   end
 
   def get_image_url(node)
