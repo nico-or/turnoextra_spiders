@@ -71,7 +71,8 @@ end
 RSpec.shared_examples "a product node parser" do
   let(:node) do
     html = File.read(filename)
-    Nokogiri::HTML(html)
+    # Nokogiri nests the HTML snippet in document > html > body >...
+    Nokogiri::HTML(html).at_css("body").first_element_child
   end
 
   let(:item) { spider.send(:parse_product_node, node, url: store_url) }
