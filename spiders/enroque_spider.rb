@@ -8,7 +8,11 @@ class EnroqueSpider < ApplicationSpider
     name: "enroque",
     url: "https://www.juegosenroque.cl/"
   }
-  @start_urls = ["https://www.juegosenroque.cl/collections/todos-los-juegos-de-mesa"]
+  @start_urls = [
+    "https://www.juegosenroque.cl/collections/todos-los-juegos-de-mesa",
+    "https://www.juegosenroque.cl/collections/preventas",
+    "https://www.juegosenroque.cl/collections/ofertas"
+  ]
   @config = {}
 
   def parse(response, url:, data: {})
