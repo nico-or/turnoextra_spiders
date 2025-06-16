@@ -61,8 +61,8 @@ class AldeaJuegosSpider < ApplicationSpider
     scan_int(price_node.text)
   end
 
-  def in_stock?(_node)
-    true
+  def in_stock?(node)
+    node.at_css("li.out_of_stock").nil?
   end
 
   def purchasable?(node)
