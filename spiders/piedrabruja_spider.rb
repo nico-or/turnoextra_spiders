@@ -62,7 +62,7 @@ class PiedrabrujaSpider < ApplicationSpider
   end
 
   def get_price(node)
-    price_node = node.at_css("p.price/text()")
+    price_node = node.at_css("p.price").children.last
     scan_int(price_node.text)
   end
 
