@@ -49,9 +49,8 @@ class DevirSpider < ApplicationSpider
   end
 
   def in_stock?(node)
-    button_node = node.css("div.actions-primary")
-    button_text = button_node.text.strip
-    button_text.eql?("Añadir al carrito")
+    # check the presence of the add to cart form
+    node.at_css("form")&.attr("data-role") == "tocart-form"
   end
 
   def purchasable?(node)
