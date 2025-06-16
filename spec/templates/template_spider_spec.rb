@@ -3,6 +3,7 @@
 require "spider_helper"
 
 TemplateSpider = Class.new
+
 RSpec.describe TemplateSpider, :template do
   let(:fixture_directory) { "" }
   let(:spider) { described_class.new }
