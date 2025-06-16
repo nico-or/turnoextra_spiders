@@ -40,6 +40,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [ ] 0342 - https://fzcubes.cl
 - [ ] 0303 - https://mirzu.cl
 - [ ] 0271 - https://www.griffingames.cl
+- [ ] 0270 - https://tentami.cl/
 - [ ] 0223 - https://shivano.cl
 - [ ] 0222 - https://aukinkochile.com
 - [ ] 0216 - https://vortexjuegos.cl
