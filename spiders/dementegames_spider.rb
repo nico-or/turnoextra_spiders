@@ -8,7 +8,7 @@ class DementegamesSpider < ApplicationSpider
     name: "Demente Games",
     url: "https://www.dementegames.cl/"
   }
-  @start_urls = ["https://dementegames.cl/10-juegos-de-mesa?page=1&q=Disponibilidad-Inmediata/Existencias-En+stock"]
+  @start_urls = ["https://dementegames.cl/10-juegos-de-mesa?q=Existencias-En+stock"]
   @config = {}
 
   def parse(response, url:, data: {})
