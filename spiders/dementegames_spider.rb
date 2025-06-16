@@ -34,8 +34,9 @@ class DementegamesSpider < ApplicationSpider
   end
 
   def next_page_url(response, url)
+    # This store doesn't disable the next page link on the last pagination result
     next_page = response.at_css("nav.pagination li a[rel=next]")
-    return unless next_page
+    return if next_page.nil? || next_page.classes.include?("disabled")
 
     absolute_url(next_page[:href], base: url)
   end
@@ -52,15 +53,15 @@ class DementegamesSpider < ApplicationSpider
   end
 
   def get_title(node)
-    node.at_css(".product-title").text
+    node.at_css(".product-title").text.strip
   end
 
   def get_price(node)
     node.at_css("span.price")[:content].to_i
   end
 
-  def in_stock?(_node)
-    true
+  def in_stock?(node)
+    node.at_css("form button")["disabled"].nil?
   end
 
   def purchasable?(node)
