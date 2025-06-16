@@ -12,37 +12,40 @@ class SomosJuegosSpider < ApplicationSpider
   @config = {}
 
   def parse(response, url:, data: {})
-    parse_index(response, url: url)
+    items = parse_index(response, url:)
+    items.each { |item| send_item item }
+
     paginate(response, url)
   end
 
-  # Parse a Nokogiri::Element and call #parse_product_node on all elements
-  def parse_index(response, url: nil, data: {})
+  def parse_index(response, url:, data: {})
     listings = response.css("div#filter-results ul.grid li.js-pagination-result")
-    listings.each { parse_product_node(it, url) }
+    listings.map { |listing| parse_product_node(listing, url:) }
   end
 
-  # Parse a Nokogiri::Element representing a listing and call #send_item on it
-  def parse_product_node(node, url)
-    item = {}
-    item[:url] = get_url(node, url)
-    item[:title] = get_title(node)
-    item[:price] = get_price(node)
-    item[:stock] = in_stock?(node)
-    item[:image_url] = get_image_url(node)
+  def parse_product_node(node, url:)
+    {
+      url: get_url(node, url),
+      title: get_title(node),
+      price: get_price(node),
+      stock: purchasable?(node),
+      image_url: get_image_url(node)
+    }
+  end
 
-    send_item item
+  def next_page_url(response, url)
+    pagination_links = response.css("nav ul.pagination a")
+    next_page = pagination_links.find { /siguiente/i.match?(it.text) }
+    return unless next_page
+
+    absolute_url(next_page[:href], base: url)
   end
 
   private
 
   def paginate(response, url)
-    pagination_links = response.css("nav ul.pagination a")
-    next_page_link = pagination_links.find { /siguiente/i.match?(it.text) }
-    next_page_url = next_page_link[:href]
-    return unless next_page_url
-
-    request_to :parse, url: absolute_url(next_page_url, base: url)
+    next_page_url = next_page_url(response, url)
+    request_to(:parse, url: next_page_url) if next_page_url
   end
 
   def get_url(node, url)
@@ -60,6 +63,10 @@ class SomosJuegosSpider < ApplicationSpider
 
   def in_stock?(node)
     node.at_css("span.product-label--sold-out").nil?
+  end
+
+  def purchasable?(node)
+    in_stock?(node)
   end
 
   def get_image_url(node)
