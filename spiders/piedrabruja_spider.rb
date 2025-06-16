@@ -40,7 +40,9 @@ class PiedrabrujaSpider < ApplicationSpider
   end
 
   def next_page_url(response, url)
-    next_page = response.css("a").find { it.text.include?("más productos") }
+    # In the last page, the a#load-more-button element links back to the previous page
+    # We rely on the ApplicationSpider :skip_duplicate_requests setting to avoid a loop
+    next_page = response.at_css("a#load-more-button")
     return unless next_page
 
     absolute_url(next_page[:href], base: url)
