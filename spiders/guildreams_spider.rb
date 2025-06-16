@@ -34,8 +34,7 @@ class GuildreamsSpider < ApplicationSpider
   end
 
   def next_page_url(response, url)
-    navigation_nodes = response.css("ul.pagination a.page-link")
-    next_page_node = navigation_nodes.select { |n| n["data-nf"] }.last # data-nf marks arrow (prev, next) links
+    next_page_node = response.at_css("ul.pagination li:last-child a.page-link[data-nf]")
     return unless next_page_node
 
     absolute_url(next_page_node[:href], base: url)
