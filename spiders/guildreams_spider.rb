@@ -54,7 +54,7 @@ class GuildreamsSpider < ApplicationSpider
   end
 
   def get_title(node)
-    node.at_css("h2").text
+    node.at_css("h2").text.strip
   end
 
   def get_price(node)
