@@ -66,6 +66,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [ ] 0069 - https://ghostgamecenter.cl
 - [ ] 0067 - https://www.cuatroemes.cl
 - [ ] 0065 - https://elkingo.com
+- [ ] 0060 - https://www.ovniplay.cl/
 - [ ] 0060 - https://granjuego.cl
 - [ ] 0057 - https://tertulia.cl
 - [ ] 0050 - https://www.jugones.cl
