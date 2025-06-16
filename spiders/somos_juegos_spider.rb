@@ -34,8 +34,7 @@ class SomosJuegosSpider < ApplicationSpider
   end
 
   def next_page_url(response, url)
-    pagination_links = response.css("nav ul.pagination a")
-    next_page = pagination_links.find { /siguiente/i.match?(it.text) }
+    next_page = response.at_css("nav ul.pagination li:last-child a")
     return unless next_page
 
     absolute_url(next_page[:href], base: url)
