@@ -12,37 +12,41 @@ class LaTekaSpider < ApplicationSpider
   @config = {}
 
   def parse(response, url:, data: {})
-    parse_index(response, url: url)
+    items = parse_index(response, url:)
+    items.each { |item| send_item item }
+
     paginate(response, url)
   end
 
-  # Parse a Nokogiri::Element and call #parse_product_node on all elements
-  def parse_index(response, url: nil, data: {})
+  def parse_index(response, url:, data: {})
     listings = response.css("ul#product-grid div.card")
-    listings.each { parse_product_node(it, url) }
+    listings.map { |listing| parse_product_node(listing, url:) }
   end
 
-  # Parse a Nokogiri::Element representing a listing and call #send_item on it
-  def parse_product_node(node, url)
-    item = {}
-    item[:url] = get_url(node, url)
-    item[:title] = get_title(node)
-    item[:price] = get_price(node)
-    item[:stock] = in_stock?(node)
-    item[:image_url] = get_image_url(node)
-
-    send_item item
+  def parse_product_node(node, url:)
+    {
+      url: get_url(node, url),
+      title: get_title(node),
+      price: get_price(node),
+      stock: purchasable?(node),
+      image_url: get_image_url(node)
+    }
   end
 
-  def paginate(response, url)
+  def next_page_url(response, url)
     # yes, the store has backward styles for next and prev links...
     next_page = response.at_css("nav.pagination a.pagination__item--prev")
     return unless next_page
 
-    request_to :parse, url: absolute_url(next_page[:href], base: url)
+    absolute_url(next_page[:href], base: url)
   end
 
   private
+
+  def paginate(response, url)
+    next_page_url = next_page_url(response, url)
+    request_to(:parse, url: next_page_url) if next_page_url
+  end
 
   def get_url(node, url)
     rel_url = node.at_css("h3 a")[:href]
@@ -59,8 +63,11 @@ class LaTekaSpider < ApplicationSpider
   end
 
   def in_stock?(node)
-    add_to_cart_button = node.at_css("product-form button")
-    add_to_cart_button["disabled"].nil?
+    node.at_css("product-form button")["disabled"].nil?
+  end
+
+  def purchasable?(node)
+    in_stock?(node)
   end
 
   def get_image_url(node)
