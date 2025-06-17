@@ -61,8 +61,12 @@ class LaLosetaSpider < ApplicationSpider
     scan_int(price_node.text) if price_node
   end
 
-  def purchasable?(_node)
-    true
+  def in_stock?(node)
+    !node.at_css("a.add_to_cart_button").nil?
+  end
+
+  def purchasable?(node)
+    in_stock?(node)
   end
 
   def get_image_url(node)
