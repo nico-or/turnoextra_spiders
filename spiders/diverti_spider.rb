@@ -34,8 +34,9 @@ class DivertiSpider < ApplicationSpider
   end
 
   def next_page_url(response, url)
-    next_page_node = response.at_css("nav.pagination li a[@rel=next]")
-    return unless next_page_node
+    # This store doesn't disable the next page link on the last pagination result
+    next_page_node = response.at_css("nav.pagination li a[rel=next]")
+    return if next_page_node.nil? || next_page_node.classes.include?("disabled")
 
     absolute_url(next_page_node[:href], base: url)
   end
