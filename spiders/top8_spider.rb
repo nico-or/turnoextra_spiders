@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Top8 store spider
-# engine: ?
+# Engine: bsale.cl
 class Top8Spider < ApplicationSpider
   @name = "top8_spider"
   @store = {
