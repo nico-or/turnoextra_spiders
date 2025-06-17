@@ -85,7 +85,11 @@ class Top8Spider < ApplicationSpider
   end
 
   def get_image_url(node)
-    node.at_css("img")["src"]
+    node.at_css("img")["src"].then do |url|
+      uri = URI.parse(url)
+      uri.query = nil
+      uri.to_s
+    end
   rescue NoMethodError
     nil
   end
