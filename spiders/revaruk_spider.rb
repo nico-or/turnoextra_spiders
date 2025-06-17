@@ -61,7 +61,7 @@ class RevarukSpider < ApplicationSpider
   end
 
   def in_stock?(node)
-    node.classes.include?("instock")
+    !node.classes.include?("outofstock")
   end
 
   def purchasable?(node)
