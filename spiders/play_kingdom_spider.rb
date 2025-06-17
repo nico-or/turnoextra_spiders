@@ -34,8 +34,8 @@ class PlayKingdomSpider < ApplicationSpider
   end
 
   def next_page_url(response, url)
-    next_page = response.css("div.category-pager a").last
-    return unless next_page[:href]
+    next_page = response.at_css("div.category-pager a:last-child[href]")
+    return unless next_page
 
     absolute_url(next_page[:href], base: url)
   end
@@ -57,12 +57,12 @@ class PlayKingdomSpider < ApplicationSpider
   end
 
   def get_price(node)
-    price_node = node.css("div.list-price span").first
+    price_node = node.at_css("div.list-price span:first-child")
     scan_int(price_node.text)
   end
 
   def in_stock?(node)
-    !node.at_css("a").classes.include?("not-available")
+    !node.at_css("form button").nil?
   end
 
   def purchasable?(node)
