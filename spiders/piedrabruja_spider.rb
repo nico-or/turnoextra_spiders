@@ -40,10 +40,11 @@ class PiedrabrujaSpider < ApplicationSpider
   end
 
   def next_page_url(response, url)
-    # In the last page, the a#load-more-button element links back to the previous page
-    # We rely on the ApplicationSpider :skip_duplicate_requests setting to avoid a loop
-    next_page = response.at_css("a#load-more-button")
-    return unless next_page
+    # Each page after the first hast more than one a#load-more-button element... :sigh:
+    # The last page is a back to home with href='#root'.
+    # I don't want to find out how the spider will behave there, so I added a guard
+    next_page = response.css("a#load-more-button").last
+    return if next_page.nil? || next_page[:href] == "#root"
 
     absolute_url(next_page[:href], base: url)
   end

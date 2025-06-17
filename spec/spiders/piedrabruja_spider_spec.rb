@@ -64,7 +64,7 @@ RSpec.describe PiedrabrujaSpider do
 
       it "has a next page" do
         actual = spider.next_page_url(response, store_url)
-        expected = "https://www.piedrabruja.cl/collections/juegos-de-mesa?page=2"
+        expected = "https://www.piedrabruja.cl/collections/juegos-de-mesa?page=3&phcursor=eyJhbGciOiJIUzI1NiJ9.eyJzayI6InByb2R1Y3RfY3JlYXRlZF9hdCIsInN2IjoiMjAyNS0wNC0xMVQyMDo1NzoxMi4wMDBaIiwiZCI6ImYiLCJ1aWQiOjQwNTkyMDg2MzM1NzY4LCJsIjo0OCwibyI6MCwiciI6IkNEUCIsInYiOjF9.MGnC-RJk7T_vpFFoj1udwQq5sd4mmi2aMM0gAM6VDqg"
         expect(actual).to eq(expected)
       end
     end
@@ -77,7 +77,7 @@ RSpec.describe PiedrabrujaSpider do
 
       it "has no next page" do
         actual = spider.next_page_url(response, store_url)
-        expected = "https://www.piedrabruja.cl/collections/juegos-de-mesa?page=9"
+        expected = nil
         expect(actual).to eq(expected)
       end
     end
