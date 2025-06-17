@@ -8,7 +8,7 @@ class LaTekaSpider < ApplicationSpider
     name: "La Teka",
     url: "https://lateka.cl"
   }
-  @start_urls = ["https://lateka.cl/collections/juegos-de-mesa?page=1"]
+  @start_urls = ["https://lateka.cl/collections/juegos-de-mesa?filter.v.availability=1"]
   @config = {}
 
   def parse(response, url:, data: {})
