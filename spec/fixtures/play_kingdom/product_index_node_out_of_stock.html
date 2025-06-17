@@ -1,0 +1,69 @@
+<div class="col-lg-3 col-md-4 col-6 px-2">
+  <div class="product-block border text-center mb-3 rounded trsn">
+    <a
+      href="/mazescape-hipnos"
+      class="product-image border-bottom d-block not-available"
+    >
+      <img
+        class="w-100 trsn"
+        src="https://cdnx.jumpseller.com/play-kingdom/image/30354105/resize/300/300?1671462176"
+        srcset="
+          https://cdnx.jumpseller.com/play-kingdom/image/30354105/resize/300/300?1671462176 1x,
+          https://cdnx.jumpseller.com/play-kingdom/image/30354105/resize/600/600?1671462176 2x
+        "
+        title=""
+        alt="Mazescape Hipnos"
+      />
+    </a>
+
+    <div class="caption">
+      <div class="brand-name">
+        <h3>
+          <a href="/mazescape-hipnos" title="Mazescape Hipnos"
+            >Mazescape Hipnos</a
+          >
+        </h3>
+      </div>
+
+      <div class="list-price">
+        <span class="product-block-list">$10.000</span>
+      </div>
+
+      <div class="mt-2 trsn btn_container">
+        <a
+          class="btn btn-outline-dark btn-block disabled"
+          href="/mazescape-hipnos"
+          >No Disponible</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function verifyQuantity(productID, componentID) {
+      const quantityInput = document.querySelector(
+        "#input-qty-" + productID + "-" + componentID
+      );
+      const maxAmount = quantityInput.max;
+      if (parseInt(quantityInput.value) > parseInt(maxAmount)) {
+        quantityInput.classList.add("maxStockQty");
+        quantityInput.value = maxAmount;
+      } else {
+        quantityInput.classList.remove("maxStockQty");
+        if (quantityInput.value == 0) quantityInput.value = 1;
+      }
+    }
+
+    if ("" == "") {
+      document
+        .querySelector("#input-qty-17181484-")
+        .addEventListener("change", () => verifyQuantity("17181484", ""));
+      document
+        .querySelector("#quantity-up-17181484-")
+        .addEventListener("click", () => verifyQuantity("17181484", ""));
+      document
+        .querySelector("#quantity-down-17181484-")
+        .addEventListener("click", () => verifyQuantity("17181484", ""));
+    }
+  </script>
+</div>
