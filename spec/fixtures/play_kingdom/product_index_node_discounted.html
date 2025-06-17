@@ -1,0 +1,114 @@
+<div class="col-lg-3 col-md-4 col-6 px-2">
+  <div class="product-block border text-center mb-3 rounded trsn">
+    <a href="/lacrimosa" class="product-image border-bottom d-block">
+      <span class="badge status-tag sale">Oferta -30%</span>
+
+      <img
+        class="w-100 trsn"
+        src="https://cdnx.jumpseller.com/play-kingdom/image/30152818/resize/300/300?1670693400"
+        srcset="
+          https://cdnx.jumpseller.com/play-kingdom/image/30152818/resize/300/300?1670693400 1x,
+          https://cdnx.jumpseller.com/play-kingdom/image/30152818/resize/600/600?1670693400 2x
+        "
+        title=""
+        alt="Lacrimosa"
+      />
+    </a>
+
+    <div class="caption">
+      <div class="brand-name">
+        <h3><a href="/lacrimosa" title="Lacrimosa">Lacrimosa</a></h3>
+      </div>
+
+      <div class="list-price">
+        <span class="product-block-normal">$45.490</span>
+        <span class="product-block-discount text-muted">$64.990</span>
+      </div>
+
+      <div class="mt-2 trsn btn_container">
+        <form
+          id="product-form-17086023-"
+          action="/cart/add/17086023"
+          method="post"
+          enctype="multipart/form-data"
+          name="buy"
+        >
+          <div class="row adc-form no-gutters product-stock product-available">
+            <div class="col-md-8 d-md-block d-none">
+              <div class="quantity mr-md-2 mb-md-0 mb-2">
+                <div class="product-qty">
+                  <div
+                    class="quantity-nav quantity-button quantity-down"
+                    id="quantity-down-17086023-"
+                    onclick="Jumpseller.decrementCounter('input-qty-17086023-')"
+                  >
+                    -
+                  </div>
+                  <input
+                    type="number"
+                    class="qty form-control text-center"
+                    id="input-qty-17086023-"
+                    name="qty"
+                    min="1"
+                    value="1"
+                    max="1"
+                  />
+                  <div
+                    class="quantity-nav quantity-button quantity-up"
+                    id="quantity-up-17086023-"
+                    onclick="Jumpseller.incrementCounter('input-qty-17086023-')"
+                  >
+                    +
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <button
+                type="button"
+                onclick="addToCart('17086023', 'Lacrimosa', $('#input-qty-17086023-').val(), getProductOptions('#product-form-17086023-'));"
+                class="adc btn btn-block btn-primary"
+                value="Comprar"
+              >
+                <i class="linear-icon icon-0337-cart-plus"></i>
+              </button>
+            </div>
+          </div>
+          <input
+            type="hidden"
+            name="authenticity_token"
+            value="ugpAqym6FKHGX4VtEUKtSrEczEbNet6tKh9SU0r8OeFjo0qMl-H5VIiyM6bxQhbqd2SQXLoORnhPEDOXw4CQtw"
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function verifyQuantity(productID, componentID) {
+      const quantityInput = document.querySelector(
+        "#input-qty-" + productID + "-" + componentID
+      );
+      const maxAmount = quantityInput.max;
+      if (parseInt(quantityInput.value) > parseInt(maxAmount)) {
+        quantityInput.classList.add("maxStockQty");
+        quantityInput.value = maxAmount;
+      } else {
+        quantityInput.classList.remove("maxStockQty");
+        if (quantityInput.value == 0) quantityInput.value = 1;
+      }
+    }
+
+    if ("" == "") {
+      document
+        .querySelector("#input-qty-17086023-")
+        .addEventListener("change", () => verifyQuantity("17086023", ""));
+      document
+        .querySelector("#quantity-up-17086023-")
+        .addEventListener("click", () => verifyQuantity("17086023", ""));
+      document
+        .querySelector("#quantity-down-17086023-")
+        .addEventListener("click", () => verifyQuantity("17086023", ""));
+    }
+  </script>
+</div>
