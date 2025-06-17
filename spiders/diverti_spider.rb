@@ -61,8 +61,12 @@ class DivertiSpider < ApplicationSpider
     scan_int(price_node.text) if price_node
   end
 
-  def purchasable?(_node)
-    true
+  def in_stock?(node)
+    node.at_css("div.ago").text.empty?
+  end
+
+  def purchasable?(node)
+    in_stock?(node)
   end
 
   def get_image_url(node)
