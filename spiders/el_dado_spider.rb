@@ -71,7 +71,12 @@ class ElDadoSpider < ApplicationSpider
   end
 
   def get_image_url(node)
-    node.at_css("img")[:src]
+    # Example: https://eldado.cl/wp-content/uploads/2024/09/pw-gift-card-150x150.png
+    full_url = node.at_css("img")["src"]
+    match = full_url.match(/(?<base>.+?)(?<size>-\d+x\d+)?(?<ext>\.\w+)$/)
+    return unless match
+
+    "#{match[:base]}#{match[:ext]}"
   rescue NoMethodError
     nil
   end
