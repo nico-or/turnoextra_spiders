@@ -26,36 +26,40 @@ class Top8Spider < ApplicationSpider
   @config = {}
 
   def parse(response, url:, data: {})
-    parse_index(response, url: url)
+    items = parse_index(response, url:)
+    items.each { |item| send_item item }
+
     paginate(response, url)
   end
 
-  # Parse a Nokogiri::Element and call #parse_product_node on all elements
   def parse_index(response, url:, data: {})
-    nodes = response.css("div.bs-collection section.grid__item")
-    nodes.each { |node| parse_product_node(node, url) }
+    listings = response.css("div.bs-collection section.grid__item")
+    listings.map { |listing| parse_product_node(listing, url:) }
   end
 
-  # Parse a Nokogiri::Element representing a listing and call #send_item on it
-  def parse_product_node(node, url)
-    item = {}
-    item[:url] = get_url(node, url)
-    item[:title] = get_title(node)
-    item[:price] = get_price(node)
-    item[:stock] = in_stock?(node)
-    item[:image_url] = get_image_url(node)
-
-    send_item item
+  def parse_product_node(node, url:)
+    {
+      url: get_url(node, url),
+      title: get_title(node),
+      price: get_price(node),
+      stock: purchasable?(node),
+      image_url: get_image_url(node)
+    }
   end
 
-  def paginate(response, url)
-    next_page = response.at_css("ul.pagination li:last-child a")
-    return unless next_page
+  def next_page_url(response, url)
+    next_page_node = response.at_css("ul.pagination li:last-child a")
+    return unless next_page_node
 
-    request_to :parse, url: absolute_url(next_page[:href], base: url)
+    absolute_url(next_page_node[:href], base: url)
   end
 
   private
+
+  def paginate(response, url)
+    next_page_url = next_page_url(response, url)
+    request_to(:parse, url: next_page_url) if next_page_url
+  end
 
   def get_url(node, url)
     rel_url = node.at_css("a")[:href]
@@ -74,6 +78,10 @@ class Top8Spider < ApplicationSpider
   def in_stock?(node)
     # only present in out-of-stock items
     node.at_css("div.bs-collection__stock").nil?
+  end
+
+  def purchasable?(node)
+    in_stock?(node)
   end
 
   def get_image_url(node)
