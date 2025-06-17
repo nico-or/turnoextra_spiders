@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Guildreams store spider
-# engine: ?
+# Engine: bsale.cl
 class GuildreamsSpider < ApplicationSpider
   @name = "guildreams_spider"
   @store = {
