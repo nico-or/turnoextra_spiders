@@ -69,7 +69,7 @@ class SpellsSpider < ApplicationSpider
   end
 
   def get_image_url(node)
-    node.at_css("img")["data-srcset"].split(", ").last.split.first
+    node.at_css("img")["srcset"].split(",").last.split.first
   rescue NoMethodError
     nil
   end
