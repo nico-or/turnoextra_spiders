@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # La Teka store spider
-# engine: ?
+# engine: Shopify
 class LaTekaSpider < ApplicationSpider
   @name = "la_teka_spider"
   @store = {
