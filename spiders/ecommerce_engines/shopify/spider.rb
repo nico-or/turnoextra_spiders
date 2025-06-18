@@ -48,10 +48,6 @@ module EcommerceEngines
         node.at_css(selector).nil?
       end
 
-      def purchasable?(node)
-        in_stock?(node)
-      end
-
       def format_image_url(url)
         uri = URI.parse(url)
         uri.scheme = "https"

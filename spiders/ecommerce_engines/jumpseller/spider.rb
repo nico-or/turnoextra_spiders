@@ -21,10 +21,6 @@ module EcommerceEngines
         absolute_url(rel_url, base: url)
       end
 
-      def purchasable?(node)
-        in_stock?(node)
-      end
-
       def get_image_url(node, split_string)
         # example: https://cdnx.jumpseller.com/store-name/image/13909331/split_string/230/260?1610821805
         node.at_css("img")["src"]&.split("/#{split_string}")&.first
