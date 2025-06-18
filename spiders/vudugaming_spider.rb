@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 # VuduGaming store spider
-# Engine: jumpseller
-class VudugamingSpider < ApplicationSpider
+class VudugamingSpider < EcommerceEngines::Jumpseller::Spider
   @name = "vudugaming_spider"
   @store = {
     name: "VuduGaming",
@@ -11,26 +10,9 @@ class VudugamingSpider < ApplicationSpider
   @start_urls = ["https://www.vudugaming.cl/juegos-de-mesa"]
   @config = {}
 
-  def parse(response, url:, data: {})
-    items = parse_index(response, url:)
-    items.each { |item| send_item item }
-
-    paginate(response, url)
-  end
-
   def parse_index(response, url:, data: {})
     listings = response.css("article.product-block")
     listings.map { |listing| parse_product_node(listing, url:) }
-  end
-
-  def parse_product_node(node, url:)
-    {
-      url: get_url(node, url),
-      title: get_title(node),
-      price: get_price(node),
-      stock: purchasable?(node),
-      image_url: get_image_url(node)
-    }
   end
 
   def next_page_url(response, url)
@@ -41,15 +23,6 @@ class VudugamingSpider < ApplicationSpider
   end
 
   private
-
-  def paginate(response, url)
-    next_page_url = next_page_url(response, url)
-    request_to(:parse, url: next_page_url) if next_page_url
-  end
-
-  def get_url(node, url)
-    absolute_url(node.at_css("h2 a")[:href], base: url)
-  end
 
   def get_title(node)
     node.at_css("h2").text.strip
@@ -64,13 +37,7 @@ class VudugamingSpider < ApplicationSpider
     !node.at_css(".product-block__actions form").nil?
   end
 
-  def purchasable?(node)
-    in_stock?(node)
-  end
-
   def get_image_url(node)
-    node.at_css("img")["src"].split("/resize/").first
-  rescue NoMethodError
-    nil
+    super(node, "resize")
   end
 end
