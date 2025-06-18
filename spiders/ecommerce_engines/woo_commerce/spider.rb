@@ -1,6 +1,16 @@
 module EcommerceEngines
   module WooCommerce
     class Spider < ApplicationSpider
+      class << self
+        attr_reader :img_url_strategy
+
+        def image_url_strategy(strategy)
+          raise ArgumentError, "Unknown strategy: #{strategy}" unless %i[sized srcset].include?(strategy)
+
+          @img_url_strategy = strategy
+        end
+      end
+
       def parse(response, url:, data: {})
         items = parse_index(response, url:)
         items.each { |item| send_item item }
@@ -59,9 +69,27 @@ module EcommerceEngines
       end
 
       def get_image_url(node)
-        node.at_css("img")["srcset"].split(",").last.split.first
+        case self.class.img_url_strategy
+        when :srcset
+          image_url_from_srcset(node)
+        when :sized
+          image_url_from_sized(node)
+        end
       rescue NoMethodError
         nil
+      end
+
+      def image_url_from_srcset(node)
+        node.at_css("img")["srcset"].split(",").last.split.first
+      end
+
+      def image_url_from_sized(node)
+        # Example URL: "https://example.com/wp-content/uploads/yyyy/mm/filename-300x300.png"
+        full_url = node.at_css("img")["src"]
+        match = full_url.match(/(?<base>.+?)(?<size>-\d+x\d+)?(?<ext>\.\w+)$/)
+        return unless match
+
+        "#{match[:base]}#{match[:ext]}"
       end
     end
   end
