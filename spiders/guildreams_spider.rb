@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 # Guildreams store spider
-# Engine: bsale.cl
-class GuildreamsSpider < ApplicationSpider
+class GuildreamsSpider < EcommerceEngines::Bsale::Spider
   @name = "guildreams_spider"
   @store = {
     name: "Guildreams",
@@ -11,73 +10,29 @@ class GuildreamsSpider < ApplicationSpider
   @start_urls = ["https://www.guildreams.com/collection/juegos-de-mesa?order=id&way=DESC&limit=24&page=1"]
   @config = {}
 
-  def parse(response, url:, data: {})
-    items = parse_index(response, url:)
-    items.each { |item| send_item item }
-
-    paginate(response, url)
-  end
-
   def parse_index(response, url:, data: {})
-    listings = response.css("div.bs-product")
-    listings.map { |listing| parse_product_node(listing, url:) }
-  end
-
-  def parse_product_node(node, url:)
-    {
-      url: get_url(node, url),
-      title: get_title(node),
-      price: get_price(node),
-      stock: purchasable?(node),
-      image_url: get_image_url(node)
-    }
+    super(response, url:, selector: "div.bs-product")
   end
 
   def next_page_url(response, url)
-    next_page_node = response.at_css("ul.pagination li:last-child a.page-link[data-nf]")
-    return unless next_page_node
-
-    absolute_url(next_page_node[:href], base: url)
+    super(response, url, "ul.pagination li:last-child a.page-link[data-nf]")
   end
 
   private
-
-  def paginate(response, url)
-    next_page_url = next_page_url(response, url)
-    request_to(:parse, url: next_page_url) if next_page_url
-  end
-
-  def get_url(node, url)
-    rel_url = node.at_css("a")[:href]
-    absolute_url(rel_url, base: url)
-  end
 
   def get_title(node)
     node.at_css("h2").text.strip
   end
 
   def get_price(node)
-    price_node = node.at_css("div.bs-product-final-price")
-    return unless price_node
-
-    scan_int(price_node.text)
+    super(node, "div.bs-product-final-price")
   end
 
   def in_stock?(node)
-    node.at_css("div.bs-stock").nil?
-  end
-
-  def purchasable?(node)
-    in_stock?(node)
+    super(node, "div.bs-stock")
   end
 
   def get_image_url(node)
-    node.at_css("img")["data-src"].then do |url|
-      uri = URI.parse(url)
-      uri.query = nil
-      uri.to_s
-    end
-  rescue NoMethodError
-    nil
+    super(node, "data-src")
   end
 end
