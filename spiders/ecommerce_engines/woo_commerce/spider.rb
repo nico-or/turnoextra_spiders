@@ -14,13 +14,6 @@ module EcommerceEngines
         end
       end
 
-      def parse(response, url:, data: {})
-        items = parse_index(response, url:)
-        items.each { |item| send_item item }
-
-        paginate(response, url)
-      end
-
       def parse_index(response, url:, data: {})
         listings = response.css("ul.products li.product")
         listings.map { |listing| parse_product_node(listing, url:) }

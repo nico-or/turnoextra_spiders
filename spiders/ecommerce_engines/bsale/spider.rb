@@ -4,13 +4,6 @@ module EcommerceEngines
   module Bsale
     # Base spider class for all stores build with Bsale
     class Spider < ApplicationSpider
-      def parse(response, url:, data: {})
-        items = parse_index(response, url:)
-        items.each { |item| send_item item }
-
-        paginate(response, url)
-      end
-
       def parse_index(response, url:, selector:, data: {})
         listings = response.css(selector)
         listings.map { |listing| parse_product_node(listing, url:) }

@@ -4,13 +4,6 @@ module EcommerceEngines
   module PrestaShop
     # Base spider class for all stores build with PrestaShop
     class Spider < ApplicationSpider
-      def parse(response, url:, data: {})
-        items = parse_index(response, url:)
-        items.each { |item| send_item item }
-
-        paginate(response, url)
-      end
-
       def parse_index(response, url:, data: {})
         listings = response.css("div#js-product-list article")
         listings.map { |listing| parse_product_node(listing, url:) }
