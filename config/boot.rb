@@ -2,23 +2,21 @@
 
 # require project gems
 require "bundler/setup"
-Bundler.require(:default, Tanakai.env)
+Bundler.require(:default)
 
 # require custom ENV variables located in .env file
 require "dotenv/load"
 
-# require initializers
-Dir.glob(File.join("./config/initializers", "*.rb"), &method(:require))
+# Setup Zeitwerk loader
+loader = Zeitwerk::Loader.new
 
-# require helpers
-Dir.glob(File.join("./helpers", "*.rb"), &method(:require))
+loader.push_dir(File.expand_path("./config/initializers"))
+loader.push_dir(File.expand_path("../helpers", __dir__))
+loader.push_dir(File.expand_path("../pipelines", __dir__))
+loader.push_dir(File.expand_path("../spiders", __dir__))
 
-# require pipelines
-Dir.glob(File.join("./pipelines", "*.rb"), &method(:require))
-
-# require spiders recursively in the `spiders/` folder
-require_relative "../spiders/application_spider"
-Dir.glob(File.join("./spiders", "*.rb"), &method(:require))
+loader.setup
+loader.eager_load
 
 # require Tanakai configuration
 require_relative "application"
