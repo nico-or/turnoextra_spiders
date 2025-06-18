@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 # Enroque store spider
-# Engine: shopify
-class EnroqueSpider < ApplicationSpider
+class EnroqueSpider < EcommerceEngines::Shopify::Spider
   @name = "enroque_spider"
   @store = {
     name: "enroque",
@@ -15,69 +14,31 @@ class EnroqueSpider < ApplicationSpider
   ]
   @config = {}
 
-  def parse(response, url:, data: {})
-    items = parse_index(response, url:)
-    items.each { |item| send_item item }
-
-    paginate(response, url)
-  end
-
   def parse_index(response, url:, data: {})
-    listings = response.css("div#filter-results li.js-pagination-result")
-    listings.map { |listing| parse_product_node(listing, url:) }
-  end
-
-  def parse_product_node(node, url:)
-    {
-      url: get_url(node, url),
-      title: get_title(node),
-      price: get_price(node),
-      stock: purchasable?(node),
-      image_url: get_image_url(node)
-    }
+    super(response, url:, selector: "div#filter-results li.js-pagination-result")
   end
 
   def next_page_url(response, url)
-    next_page = response.at_css("nav ul.pagination li:last-child a")
-    return unless next_page
-
-    absolute_url(next_page[:href], base: url)
+    super(response, url, "nav ul.pagination li:last-child a")
   end
 
   private
 
-  def paginate(response, url)
-    next_page_url = next_page_url(response, url)
-    request_to(:parse, url: next_page_url) if next_page_url
-  end
-
-  def get_url(node, url)
-    absolute_url(node.at_css("a.card-link")[:href], base: url)
-  end
-
   def get_title(node)
-    node.at_css("a.card-link").text
+    super(node, "a.card-link")
   end
 
   def get_price(node)
-    price_node = node.at_css("strong.price__current")
-    scan_int(price_node.text)
+    super(node, "strong.price__current")
   end
 
   def in_stock?(node)
-    node.at_css("span.product-label--sold-out").nil?
-  end
-
-  def purchasable?(node)
-    in_stock?(node)
+    super(node, "span.product-label--sold-out")
   end
 
   def get_image_url(node)
     url = node.at_css("img")["data-src"]
-    uri = URI.parse(url)
-    uri.query = nil
-    uri.scheme = "https"
-    uri.to_s
+    format_image_url(url)
   rescue NoMethodError
     nil
   end
