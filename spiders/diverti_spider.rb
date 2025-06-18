@@ -62,7 +62,7 @@ class DivertiSpider < ApplicationSpider
   end
 
   def in_stock?(node)
-    node.at_css("div.ago").text.empty?
+    node.at_css("div.ago").text.strip.empty?
   end
 
   def purchasable?(node)
