@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 module EcommerceEngines
   module PrestaShop
+    # Base spider class for all stores build with PrestaShop
     class Spider < ApplicationSpider
       def parse(response, url:, data: {})
         items = parse_index(response, url:)
