@@ -18,7 +18,7 @@ Dir.glob(File.join("./pipelines", "*.rb"), &method(:require))
 
 # require spiders recursively in the `spiders/` folder
 require_relative "../spiders/application_spider"
-require_all "spiders"
+Dir.glob(File.join("./spiders", "*.rb"), &method(:require))
 
 # require Tanakai configuration
 require_relative "application"

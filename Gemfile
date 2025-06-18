@@ -7,9 +7,6 @@ ruby "~> 3.4"
 # Framework
 gem "tanakai", "~> 1.7"
 
-# Require files in directory and child directories recursively
-gem "require_all"
-
 # Dotenv
 gem "dotenv"
 
