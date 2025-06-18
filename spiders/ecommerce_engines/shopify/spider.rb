@@ -28,11 +28,6 @@ module EcommerceEngines
 
       private
 
-      def paginate(response, url)
-        next_page_url = next_page_url(response, url)
-        request_to(:parse, url: next_page_url) if next_page_url
-      end
-
       def get_url(node, url)
         rel_url = node.at_css("a")[:href]
         absolute_url(rel_url, base: url)
