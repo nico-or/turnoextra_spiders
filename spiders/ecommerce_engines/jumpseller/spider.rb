@@ -4,13 +4,6 @@ module EcommerceEngines
   module Jumpseller
     # Base spider class for all stores build with Jumpseller
     class Spider < ApplicationSpider
-      def parse(response, url:, data: {})
-        items = parse_index(response, url:)
-        items.each { |item| send_item item }
-
-        paginate(response, url)
-      end
-
       def parse_product_node(node, url:)
         {
           url: get_url(node, url),

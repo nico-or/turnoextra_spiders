@@ -85,4 +85,11 @@ class ApplicationSpider < Tanakai::Base
   class << self
     attr_reader :store
   end
+
+  def parse(response, url:, data: {})
+    items = parse_index(response, url:)
+    items.each { |item| send_item item }
+
+    paginate(response, url)
+  end
 end
