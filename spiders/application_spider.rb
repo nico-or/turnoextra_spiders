@@ -92,4 +92,11 @@ class ApplicationSpider < Tanakai::Base
 
     paginate(response, url)
   end
+
+  private
+
+  def paginate(response, url)
+    next_page_url = next_page_url(response, url)
+    request_to(:parse, url: next_page_url) if next_page_url
+  end
 end
