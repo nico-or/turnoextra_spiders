@@ -9,4 +9,6 @@ class RevarukSpider < EcommerceEngines::WooCommerce::Spider
   }
   @start_urls = ["https://revaruk.cl/product-category/juegos-de-mesa"]
   @config = {}
+
+  image_url_strategy(:srcset)
 end
