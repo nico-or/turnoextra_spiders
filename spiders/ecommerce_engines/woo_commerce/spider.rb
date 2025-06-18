@@ -55,10 +55,6 @@ module EcommerceEngines
         !node.classes.include?("outofstock")
       end
 
-      def purchasable?(node)
-        in_stock?(node)
-      end
-
       def get_image_url(node)
         case self.class.img_url_strategy
         when :srcset

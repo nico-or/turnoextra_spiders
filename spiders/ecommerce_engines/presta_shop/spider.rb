@@ -45,10 +45,6 @@ module EcommerceEngines
         node.at_css("li.out_of_stock").nil?
       end
 
-      def purchasable?(node)
-        in_stock?(node)
-      end
-
       def get_image_url(node)
         node.at_css("img")["data-full-size-image-url"]
       rescue NoMethodError

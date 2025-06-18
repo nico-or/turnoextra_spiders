@@ -44,10 +44,6 @@ module EcommerceEngines
         node.at_css(selector).nil?
       end
 
-      def purchasable?(node)
-        in_stock?(node)
-      end
-
       def get_image_url(node, attribute)
         node.at_css("img").attr(attribute).then do |url|
           uri = URI.parse(url)
