@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "tanakai_helper"
 
 RSpec.shared_examples "a store spider" do

@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 module EcommerceEngines
   module WooCommerce
+    # Base spider class for all stores build with WooCommerce
     class Spider < ApplicationSpider
       class << self
         attr_reader :img_url_strategy

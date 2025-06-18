@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Class to handle downloading images from a list of URLs.
 class ImageDownloader
   def initialize(urls:, storage:, logger:, progname:)
