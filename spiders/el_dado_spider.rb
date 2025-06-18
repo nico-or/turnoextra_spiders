@@ -15,14 +15,5 @@ class ElDadoSpider < EcommerceEngines::WooCommerce::Spider
     listings.map { |listing| parse_product_node(listing, url:) }
   end
 
-  def get_image_url(node)
-    # Example: https://eldado.cl/wp-content/uploads/2024/09/pw-gift-card-150x150.png
-    full_url = node.at_css("img")["src"]
-    match = full_url.match(/(?<base>.+?)(?<size>-\d+x\d+)?(?<ext>\.\w+)$/)
-    return unless match
-
-    "#{match[:base]}#{match[:ext]}"
-  rescue NoMethodError
-    nil
-  end
+  image_url_strategy(:sized)
 end

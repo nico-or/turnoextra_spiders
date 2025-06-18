@@ -9,4 +9,6 @@ class UpdownSpider < EcommerceEngines::WooCommerce::Spider
   }
   @start_urls = ["https://www.updown.cl/categoria-producto/juegos-de-mesa/"]
   @config = {}
+
+  image_url_strategy(:srcset)
 end
