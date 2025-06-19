@@ -14,26 +14,13 @@ class DevirSpider < ApplicationSpider
   selector :index_product, "div.products li.item"
   selector :next_page, "a[title='Siguiente']"
   selector :title, "strong a"
-
-  def parse_product_node(node, url:)
-    {
-      url: get_url(node),
-      title: get_title(node),
-      price: get_price(node),
-      stock: purchasable?(node),
-      image_url: get_image_url(node)
-    }
-  end
+  selector :url, "strong a"
 
   private
 
   def in_stock?(node)
     # check the presence of the add to cart form
     node.at_css("form")&.attr("data-role") == "tocart-form"
-  end
-
-  def get_url(node)
-    node.at_css("strong a")[:href]
   end
 
   def get_price(node)
@@ -45,7 +32,7 @@ class DevirSpider < ApplicationSpider
     scan_int(clean_price_text)
   end
 
-  def get_image_url(node)
+  def get_image_url(node, _url)
     node.at_css("img.product-image-photo")[:src]
   rescue NoMethodError
     nil

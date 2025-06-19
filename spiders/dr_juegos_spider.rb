@@ -12,14 +12,11 @@ class DrJuegosSpider < EcommerceEngines::PrestaShop::Spider
 
   selector :title, "h5"
   selector :stock, "div.product-availability span.unavailable"
+  selector :url, "h5 a"
 
   private
 
-  def get_url(node)
-    node.at_css("h5 a")[:href]
-  end
-
-  def get_image_url(node)
+  def get_image_url(node, _url)
     node.at_css("img")[:src].sub("home_default", "large_default")
   rescue NoMethodError
     nil

@@ -9,24 +9,11 @@ module EcommerceEngines
       selector :title, ".product-title"
       selector :price, "span.price"
       selector :stock, "li.out_of_stock"
-
-      def parse_product_node(node, url:)
-        {
-          url: get_url(node),
-          title: get_title(node),
-          price: get_price(node),
-          stock: purchasable?(node),
-          image_url: get_image_url(node)
-        }
-      end
+      selector :url, ".product-title a"
 
       private
 
-      def get_url(node)
-        node.at_css(".product-title a")[:href]
-      end
-
-      def get_image_url(node)
+      def get_image_url(node, _url)
         node.at_css("img")["data-full-size-image-url"]
       rescue NoMethodError
         nil
