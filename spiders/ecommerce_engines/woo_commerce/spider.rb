@@ -14,17 +14,9 @@ module EcommerceEngines
         end
       end
 
-      def parse_index(response, url:, data: {})
-        listings = response.css("ul.products li.product")
-        listings.map { |listing| parse_product_node(listing, url:) }
-      end
-
-      def next_page_url(response, url)
-        next_page = response.at_css("nav.woocommerce-pagination li a.next")
-        return unless next_page
-
-        absolute_url(next_page[:href], base: url)
-      end
+      selector :index_product, "ul.products li.product"
+      selector :next_page, "nav.woocommerce-pagination li a.next"
+      selector :title, "h2"
 
       def parse_product_node(node, url:)
         {
@@ -40,10 +32,6 @@ module EcommerceEngines
 
       def get_url(node)
         node.at_css("a")[:href]
-      end
-
-      def get_title(node)
-        node.at_css("h2").text.strip
       end
 
       def get_price(node)
