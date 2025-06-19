@@ -17,22 +17,9 @@ module EcommerceEngines
       selector :index_product, "ul.products li.product"
       selector :next_page, "nav.woocommerce-pagination li a.next"
       selector :title, "h2"
-
-      def parse_product_node(node, url:)
-        {
-          url: get_url(node),
-          title: get_title(node),
-          price: get_price(node),
-          stock: purchasable?(node),
-          image_url: get_image_url(node)
-        }
-      end
+      selector :url, "a"
 
       private
-
-      def get_url(node)
-        node.at_css("a")[:href]
-      end
 
       def get_price(node)
         price_node = node.css("span.price bdi").last
@@ -43,7 +30,7 @@ module EcommerceEngines
         !node.classes.include?("outofstock")
       end
 
-      def get_image_url(node)
+      def get_image_url(node, _url)
         case self.class.img_url_strategy
         when :srcset
           image_url_from_srcset(node)

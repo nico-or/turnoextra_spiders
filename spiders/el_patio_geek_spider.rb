@@ -21,7 +21,7 @@ class ElPatioGeekSpider < EcommerceEngines::Shopify::Spider
     true
   end
 
-  def get_image_url(node)
+  def get_image_url(node, _url)
     url = node.at_css("img")["srcset"].split[-2]
     format_image_url(url)
   rescue NoMethodError

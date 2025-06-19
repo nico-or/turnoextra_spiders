@@ -22,7 +22,7 @@ class EnroqueSpider < EcommerceEngines::Shopify::Spider
 
   private
 
-  def get_image_url(node)
+  def get_image_url(node, _url)
     url = node.at_css("img")["data-src"]
     format_image_url(url)
   rescue NoMethodError
