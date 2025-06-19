@@ -15,6 +15,7 @@ class LaFortalezaSpider < EcommerceEngines::Jumpseller::Spider
   selector :url, "a"
   selector :title, "h5"
   selector :stock, "div.product-out-of-stock"
+  selector :image_split, "thumb"
 
   private
 
@@ -29,9 +30,5 @@ class LaFortalezaSpider < EcommerceEngines::Jumpseller::Spider
   def get_price(node)
     price_node = discount_price(node) || regular_price(node)
     scan_int(price_node.text) if price_node
-  end
-
-  def get_image_url(node)
-    super(node, "thumb")
   end
 end
