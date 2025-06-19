@@ -14,9 +14,8 @@ class PiedrabrujaSpider < EcommerceEngines::Shopify::Spider
   @start_urls = ["https://piedrabruja.cl/collections/juegos-de-mesa?page=1"]
   @config = {}
 
-  def parse_index(response, url:, data: {})
-    super(response, url:, data:, selector: "ul#collection li.product-card")
-  end
+  selector :index_product, "ul#collection li.product-card"
+  selector :title, "h3"
 
   def next_page_url(response, url)
     # Each page after the first hast more than one a#load-more-button element... :sigh:
@@ -29,10 +28,6 @@ class PiedrabrujaSpider < EcommerceEngines::Shopify::Spider
   end
 
   private
-
-  def get_title(node)
-    super(node, "h3")
-  end
 
   def get_price(node)
     price_node = node.at_css("p.price").children.last
