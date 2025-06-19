@@ -16,10 +16,5 @@ class VudugamingSpider < EcommerceEngines::Jumpseller::Spider
   selector :title, "h2"
   selector  :price, "div.product-block__price"
   selector  :stock, "div.product-block__actions a[title]"
-
-  private
-
-  def get_image_url(node)
-    super(node, "resize")
-  end
+  selector :image_split, "resize"
 end
