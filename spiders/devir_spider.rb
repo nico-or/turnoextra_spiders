@@ -11,18 +11,9 @@ class DevirSpider < ApplicationSpider
   @start_urls = ["https://devir.cl/juegos-de-mesa?p=1"]
   @config = {}
 
-  def parse(response, url:, data: {})
-    items = parse_index(response, url:)
-    items.each { |item| send_item item }
-
-    paginate(response, url)
-  end
-
-  def parse_index(response, url:, data: {})
-    listings = response.css("div.products li.item")
-
-    listings.map { |listing| parse_product_node(listing, url:) }
-  end
+  selector :index_product, "div.products li.item"
+  selector :next_page, "a[title='Siguiente']"
+  selector :title, "strong a"
 
   def parse_product_node(node, url:)
     {
@@ -34,35 +25,15 @@ class DevirSpider < ApplicationSpider
     }
   end
 
-  def next_page_url(response, url)
-    next_page = response.at_css('a[title="Siguiente"]')
-    return unless next_page
-
-    absolute_url(next_page[:href], base: url)
-  end
-
   private
-
-  def paginate(response, url)
-    next_url = next_page_url(response, url)
-    request_to(:parse, url: next_url) if next_url
-  end
 
   def in_stock?(node)
     # check the presence of the add to cart form
     node.at_css("form")&.attr("data-role") == "tocart-form"
   end
 
-  def purchasable?(node)
-    in_stock?(node)
-  end
-
   def get_url(node)
     node.at_css("strong a")[:href]
-  end
-
-  def get_title(node)
-    node.at_css("strong a").text.strip
   end
 
   def get_price(node)
