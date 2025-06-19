@@ -42,7 +42,7 @@ class PiedrabrujaSpider < EcommerceEngines::Shopify::Spider
 
   # Since the store has empty nodes at the end of the HTML,
   # we need to rescue from errors when trying to access the :src attribute.
-  def get_image_url(node)
+  def get_image_url(node, _url)
     url = node.at_css("img")["src"]
     format_image_url(url)
   rescue NoMethodError

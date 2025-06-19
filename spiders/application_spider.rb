@@ -127,6 +127,16 @@ class ApplicationSpider < Tanakai::Base
     absolute_url(next_page_node[:href], base: url)
   end
 
+  def parse_product_node(node, url:)
+    {
+      url: get_url(node, url),
+      title: get_title(node),
+      price: get_price(node),
+      stock: purchasable?(node),
+      image_url: get_image_url(node, url)
+    }
+  end
+
   private
 
   def paginate(response, url)
@@ -134,7 +144,7 @@ class ApplicationSpider < Tanakai::Base
     request_to(:parse, url: next_page_url) if next_page_url
   end
 
-  def get_url(node, url)
+  def get_url(node, url = nil)
     selector = get_selector(:url)
     rel_url = node.at_css(selector)["href"]
     absolute_url(rel_url, base: url)
