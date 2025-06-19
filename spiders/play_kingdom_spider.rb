@@ -9,32 +9,16 @@ class PlayKingdomSpider < EcommerceEngines::Jumpseller::Spider
   }
   @start_urls = ["https://playkingdom.cl/juegos-de-mesa"]
   @config = {}
-
-  def parse_index(response, url:, data: {})
-    listings = response.css("div.row div.product-block")
-    listings.map { |listing| parse_product_node(listing, url:) }
-  end
-
-  def next_page_url(response, url)
-    next_page = response.at_css("div.category-pager a:last-child[href]")
-    return unless next_page
-
-    absolute_url(next_page[:href], base: url)
-  end
+  selector :index_product, "div.row div.product-block"
+  selector :next_page, "div.category-pager a:last-child[href]"
+  selector :price, "div.list-price span:first-child"
+  selector :url, "a"
+  selector :stock, "a.btn.disabled"
 
   private
 
   def get_title(node)
     node.at_css("h3 a")[:title]
-  end
-
-  def get_price(node)
-    price_node = node.at_css("div.list-price span:first-child")
-    scan_int(price_node.text)
-  end
-
-  def in_stock?(node)
-    !node.at_css("form button").nil?
   end
 
   def get_image_url(node)
