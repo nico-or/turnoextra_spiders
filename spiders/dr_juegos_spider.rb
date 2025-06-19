@@ -10,18 +10,13 @@ class DrJuegosSpider < EcommerceEngines::PrestaShop::Spider
   @start_urls = ["https://www.drjuegos.cl/2-todos-los-productos?q=Disponibilidad-En+stock"]
   @config = {}
 
+  selector :title, "h5"
+  selector :stock, "div.product-availability span.unavailable"
+
   private
 
   def get_url(node)
     node.at_css("h5 a")[:href]
-  end
-
-  def get_title(node)
-    node.at_css("h5").text.strip
-  end
-
-  def in_stock?(node)
-    !node.at_css("button.add-to-cart").nil?
   end
 
   def get_image_url(node)
