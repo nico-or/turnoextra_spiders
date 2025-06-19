@@ -10,14 +10,6 @@ class MagicsurSpider < EcommerceEngines::PrestaShop::Spider
   @start_urls = ["https://www.magicsur.cl/15-juegos-de-mesa-magicsur-chile"]
   @config = {}
 
-  private
-
-  def get_price(node)
-    price_node = node.at_css("span.product-price")
-    scan_int(price_node.text)
-  end
-
-  def in_stock?(node)
-    !node.at_css("form button.add-to-cart").nil?
-  end
+  selector :price, "span.product-price"
+  selector :stock, "div.product-add-cart a.btn"
 end
