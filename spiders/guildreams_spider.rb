@@ -10,29 +10,12 @@ class GuildreamsSpider < EcommerceEngines::Bsale::Spider
   @start_urls = ["https://www.guildreams.com/collection/juegos-de-mesa?order=id&way=DESC&limit=24&page=1"]
   @config = {}
 
-  def parse_index(response, url:, data: {})
-    super(response, url:, selector: "div.bs-product")
-  end
-
-  def next_page_url(response, url)
-    super(response, url, "ul.pagination li:last-child a.page-link[data-nf]")
-  end
-
-  private
-
-  def get_title(node)
-    node.at_css("h2").text.strip
-  end
-
-  def get_price(node)
-    super(node, "div.bs-product-final-price")
-  end
-
-  def in_stock?(node)
-    super(node, "div.bs-stock")
-  end
-
-  def get_image_url(node)
-    super(node, "data-src")
-  end
+  selector :index_product, "div.bs-product"
+  selector :next_page, "ul.pagination li:last-child a.page-link[data-nf]"
+  selector :title, "h2"
+  selector :stock, "div.bs-stock"
+  selector :price, "div.bs-product-final-price"
+  selector :url, "a"
+  selector :image_tag, "img"
+  selector :image_attr, "data-src"
 end

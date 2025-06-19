@@ -24,29 +24,12 @@ class Top8Spider < EcommerceEngines::Bsale::Spider
   ]
   @config = {}
 
-  def parse_index(response, url:, data: {})
-    super(response, url:, selector: "div.bs-collection section.grid__item")
-  end
-
-  def next_page_url(response, url)
-    super(response, url, "ul.pagination li:last-child a")
-  end
-
-  private
-
-  def get_title(node)
-    node.at_css("a")[:title]
-  end
-
-  def get_price(node)
-    super(node, "div.bs-collection__product-final-price")
-  end
-
-  def in_stock?(node)
-    super(node, "div.bs-collection__stock")
-  end
-
-  def get_image_url(node)
-    super(node, "src")
-  end
+  selector :index_product, "div.bs-collection section.grid__item"
+  selector :next_page, "ul.pagination li:last-child a"
+  selector :title,  "h3.bs-collection__product-title"
+  selector :stock,  "div.bs-collection__stock"
+  selector :price,  "div.bs-collection__product-final-price"
+  selector :url, "a"
+  selector :image_tag, "img"
+  selector :image_attr, "src"
 end
