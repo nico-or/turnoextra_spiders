@@ -84,13 +84,39 @@ class ApplicationSpider < Tanakai::Base
 
   class << self
     attr_reader :store
+
+    def selectors
+      @selectors ||= {}
+    end
+
+    def selector(key, selector)
+      selectors[key] = selector
+    end
+  end
+
+  def get_selector(key)
+    self.class.selectors[key] || raise(KeyError, "Missing selector for: #{key}")
   end
 
   def parse(response, url:, data: {})
-    items = parse_index(response, url:)
+    items = parse_index(response, url:, data:)
     items.each { |item| send_item item }
 
     paginate(response, url)
+  end
+
+  def parse_index(response, url:, data: {})
+    selector = get_selector(:index_product)
+    listings = response.css(selector)
+    listings.map { |listing| parse_product_node(listing, url:) }
+  end
+
+  def next_page_url(response, url)
+    selector = get_selector(:next_page)
+    next_page_node = response.at_css(selector)
+    return unless next_page_node
+
+    absolute_url(next_page_node[:href], base: url)
   end
 
   private
@@ -98,6 +124,30 @@ class ApplicationSpider < Tanakai::Base
   def paginate(response, url)
     next_page_url = next_page_url(response, url)
     request_to(:parse, url: next_page_url) if next_page_url
+  end
+
+  def get_url(node, url)
+    selector = get_selector(:url)
+    rel_url = node.at_css(selector)["href"]
+    absolute_url(rel_url, base: url)
+  end
+
+  def get_title(node)
+    selector = get_selector(:title)
+    node.at_css(selector).text.strip
+  end
+
+  def get_price(node)
+    selector = get_selector(:price)
+    price_node = node.at_css(selector)
+    return unless price_node
+
+    scan_int(price_node.text)
+  end
+
+  def in_stock?(node)
+    selector = get_selector(:stock)
+    node.at_css(selector).nil?
   end
 
   def purchasable?(node)
