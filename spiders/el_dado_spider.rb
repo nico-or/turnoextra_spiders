@@ -10,10 +10,7 @@ class ElDadoSpider < EcommerceEngines::WooCommerce::Spider
   @start_urls = ["https://eldado.cl/catalogo-de-juegos"]
   @config = {}
 
-  def parse_index(response, url:, data: {})
-    listings = response.css("div.product-grid-items div.product-type-simple")
-    listings.map { |listing| parse_product_node(listing, url:) }
-  end
+  selector :index_product, "div.product-grid-items div.product-type-simple"
 
   image_url_strategy(:sized)
 end
