@@ -14,27 +14,13 @@ class EnroqueSpider < EcommerceEngines::Shopify::Spider
   ]
   @config = {}
 
-  def parse_index(response, url:, data: {})
-    super(response, url:, selector: "div#filter-results li.js-pagination-result")
-  end
-
-  def next_page_url(response, url)
-    super(response, url, "nav ul.pagination li:last-child a")
-  end
+  selector :index_product, "div#filter-results li.js-pagination-result"
+  selector :next_page, "nav ul.pagination li:last-child a"
+  selector :title, "a.card-link"
+  selector :price, "strong.price__current"
+  selector :stock, "span.product-label--sold-out"
 
   private
-
-  def get_title(node)
-    super(node, "a.card-link")
-  end
-
-  def get_price(node)
-    super(node, "strong.price__current")
-  end
-
-  def in_stock?(node)
-    super(node, "span.product-label--sold-out")
-  end
 
   def get_image_url(node)
     url = node.at_css("img")["data-src"]

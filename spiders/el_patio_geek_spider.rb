@@ -10,23 +10,12 @@ class ElPatioGeekSpider < EcommerceEngines::Shopify::Spider
   @start_urls = ["https://www.elpatiogeek.cl/collections/all"]
   @config = {}
 
-  def parse_index(response, url:, data: {})
-    super(response, url:, selector: "div.grid-uniform div.grid-item")
-  end
-
-  def next_page_url(response, url)
-    super(response, url, "ul.pagination-custom li:last-child a")
-  end
+  selector :index_product, "div.grid-uniform div.grid-item"
+  selector :next_page, "ul.pagination-custom li:last-child a"
+  selector :title, "p"
+  selector :price, "div.product-item--price small"
 
   private
-
-  def get_title(node)
-    super(node, "p")
-  end
-
-  def get_price(node)
-    super(node, "div.product-item--price small")
-  end
 
   def purchasable?(_node)
     true

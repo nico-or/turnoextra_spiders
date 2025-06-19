@@ -10,27 +10,13 @@ class FlexogamesSpider < EcommerceEngines::Shopify::Spider
   @start_urls = ["https://www.flexogames.cl/collections/juegos-de-mesa"]
   @config = {}
 
-  def parse_index(response, url:, data: {})
-    super(response, url:, selector: "div#Collection ul.grid li", data:)
-  end
-
-  def next_page_url(response, url)
-    super(response, url, "ul.pagination li:last-child a")
-  end
+  selector :index_product, "div#Collection ul.grid li"
+  selector :next_page, "ul.pagination li:last-child a"
+  selector :title, "a span"
+  selector :price, "dl span.price-item"
+  selector :stock, "dl.price--sold-out"
 
   private
-
-  def get_title(node)
-    super(node, "a span")
-  end
-
-  def get_price(node)
-    super(node, "dl span.price-item")
-  end
-
-  def in_stock?(node)
-    super(node, "dl.price--sold-out")
-  end
 
   # TODO: This store loads product images lazily.
   # The data-srcset attribute is not immediately available when using the Mechanize engine.
