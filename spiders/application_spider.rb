@@ -92,6 +92,14 @@ class ApplicationSpider < Tanakai::Base
     def selector(key, selector)
       selectors[key] = selector
     end
+
+    def inherited(subclass)
+      super
+      subclass.instance_variable_set(
+        :@selectors,
+        selectors.dup
+      )
+    end
   end
 
   def get_selector(key)
