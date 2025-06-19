@@ -14,14 +14,11 @@ class PlayKingdomSpider < EcommerceEngines::Jumpseller::Spider
   selector :price, "div.list-price span:first-child"
   selector :url, "a"
   selector :stock, "a.btn.disabled"
+  selector :image_split, "resize"
 
   private
 
   def get_title(node)
     node.at_css("h3 a")[:title]
-  end
-
-  def get_image_url(node)
-    super(node, "resize")
   end
 end
