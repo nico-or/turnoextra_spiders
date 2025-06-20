@@ -16,6 +16,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [x] 0525 - https://juegosenroque.cl
 - [x] 0505 - https://www.ludi.cl
 - [x] 0453 - https://piedrabruja.cl
+- [x] 0444 - https://cartonespesados.cl
 - [x] 0405 - https://www.aldeajuegos.cl
 - [x] 0388 - https://playcenter.cl
 - [x] 0379 - https://devir.cl
@@ -33,7 +34,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [ ] 0491 - https://www.labovedadelmago.cl
 - [ ] 0468 - https://www.gameofmagictienda.cl
 - [ ] 0465 - https://www.cardgame.cl
-- [ ] 0444 - https://cartonespesados.cl
 - [ ] 0433 - https://www.weplay.cl
 - [ ] 0405 - https://araucaniagaming.cl
 - [ ] 0368 - https://www.clevertoys.cl
