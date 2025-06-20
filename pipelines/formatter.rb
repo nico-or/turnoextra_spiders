@@ -5,6 +5,7 @@ class Formatter < Tanakai::Pipeline
   def process_item(item, options: {})
     item[:title] = format_title(item[:title])
     item[:url] = format_url(item[:url])
+    item[:image_url] = format_url(item[:image_url])
 
     item
   end
