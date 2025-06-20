@@ -21,6 +21,8 @@ class Formatter < Tanakai::Pipeline
     uri.query = nil
     uri.fragment = nil
     uri.to_s
+  rescue URI::InvalidURIError
+    nil
   end
 
   def format_url(url)
