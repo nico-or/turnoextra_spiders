@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
-require "tanakai_helper"
+require "pipeline_helper"
 
 RSpec.describe Formatter do
+  subject(:formatted_item) { pipeline.process_item(item) }
+
   let(:pipeline) do
     instance = described_class.new
     instance.spider = Tanakai::Base.new
@@ -11,45 +13,33 @@ RSpec.describe Formatter do
 
   let(:item) do
     {
-      url: "https://www.example.com/item/1",
-      title: "Example Item",
+      url: url,
+      title: title,
       price: 123_456,
       stock: true,
-      image_url: "https://www.example.com/item/1.jpg"
+      image_url: image_url
     }
   end
 
+  let(:title) { "Example Item" }
+  let(:url) { "https://www.example.com/item/1" }
+  let(:image_url) { "https://www.example.com/item/1.jpg" }
+
   describe "#format_title" do
-    it "formats the item title" do
-      item[:title] = " Example Item \n"
-      formated_item = pipeline.process_item(item)
-      expect(formated_item[:title]).to eq("Example Item")
+    context "when title has extra whitespace" do
+      let(:title) { " Example Item \n" }
+
+      it "strips whitespace from the title" do
+        expect(formatted_item[:title]).to eq("Example Item")
+      end
     end
   end
 
   describe "#format_url" do
-    it "removes url query parameters" do
-      item[:url] = "https://lateka.cl/products/7-wonders-edifice-expansion?_pos=232&_fid=c752bb366&_ss=c"
-      formated_item = pipeline.process_item(item)
-      expect(formated_item[:url]).to eq("https://lateka.cl/products/7-wonders-edifice-expansion")
-    end
+    it_behaves_like "a URL sanitizer", :url
+  end
 
-    it "removes url fragment" do
-      item[:url] = "https://lateka.cl/products/7-wonders-edifice-expansion#example"
-      formated_item = pipeline.process_item(item)
-      expect(formated_item[:url]).to eq("https://lateka.cl/products/7-wonders-edifice-expansion")
-    end
-
-    it "removes url query parameters and fragments" do
-      item[:url] = "https://lateka.cl/products/7-wonders-edifice-expansion?_pos=232&_fid=c752bb366&_ss=c#example"
-      formated_item = pipeline.process_item(item)
-      expect(formated_item[:url]).to eq("https://lateka.cl/products/7-wonders-edifice-expansion")
-    end
-
-    it "removes image_url query parameters and fragments" do
-      item[:image_url] = "https://www.flexogames.cl/cdn/shop/files/tabriz_2048x.png?v=1749599354#example"
-      formated_item = pipeline.process_item(item)
-      expect(formated_item[:image_url]).to eq("https://www.flexogames.cl/cdn/shop/files/tabriz_2048x.png")
-    end
+  describe "#format_image_url" do
+    it_behaves_like "a URL sanitizer", :image_url
   end
 end
