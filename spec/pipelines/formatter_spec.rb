@@ -2,7 +2,7 @@
 
 require "tanakai_helper"
 
-RSpec.describe TitleFormatter do
+RSpec.describe Formatter do
   let(:pipeline) do
     instance = described_class.new
     instance.spider = Tanakai::Base.new
@@ -23,5 +23,11 @@ RSpec.describe TitleFormatter do
     item[:title] = " Example Item \n"
     formated_item = pipeline.process_item(item)
     expect(formated_item[:title]).to eq("Example Item")
+  end
+
+  it "removes url query parameters" do
+    item[:url] = "https://lateka.cl/products/7-wonders-edifice-expansion?_pos=232&_fid=c752bb366&_ss=c"
+    formated_item = pipeline.process_item(item)
+    expect(formated_item[:url]).to eq("https://lateka.cl/products/7-wonders-edifice-expansion")
   end
 end
