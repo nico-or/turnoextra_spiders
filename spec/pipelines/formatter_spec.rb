@@ -19,27 +19,31 @@ RSpec.describe Formatter do
     }
   end
 
-  it "formats the item title" do
-    item[:title] = " Example Item \n"
-    formated_item = pipeline.process_item(item)
-    expect(formated_item[:title]).to eq("Example Item")
+  describe "#format_title" do
+    it "formats the item title" do
+      item[:title] = " Example Item \n"
+      formated_item = pipeline.process_item(item)
+      expect(formated_item[:title]).to eq("Example Item")
+    end
   end
 
-  it "removes url query parameters" do
-    item[:url] = "https://lateka.cl/products/7-wonders-edifice-expansion?_pos=232&_fid=c752bb366&_ss=c"
-    formated_item = pipeline.process_item(item)
-    expect(formated_item[:url]).to eq("https://lateka.cl/products/7-wonders-edifice-expansion")
-  end
+  describe "#format_url" do
+    it "removes url query parameters" do
+      item[:url] = "https://lateka.cl/products/7-wonders-edifice-expansion?_pos=232&_fid=c752bb366&_ss=c"
+      formated_item = pipeline.process_item(item)
+      expect(formated_item[:url]).to eq("https://lateka.cl/products/7-wonders-edifice-expansion")
+    end
 
-  it "removes url fragment" do
-    item[:url] = "https://lateka.cl/products/7-wonders-edifice-expansion#example"
-    formated_item = pipeline.process_item(item)
-    expect(formated_item[:url]).to eq("https://lateka.cl/products/7-wonders-edifice-expansion")
-  end
+    it "removes url fragment" do
+      item[:url] = "https://lateka.cl/products/7-wonders-edifice-expansion#example"
+      formated_item = pipeline.process_item(item)
+      expect(formated_item[:url]).to eq("https://lateka.cl/products/7-wonders-edifice-expansion")
+    end
 
-  it "removes url query parameters and fragments" do
-    item[:url] = "https://lateka.cl/products/7-wonders-edifice-expansion?_pos=232&_fid=c752bb366&_ss=c#example"
-    formated_item = pipeline.process_item(item)
-    expect(formated_item[:url]).to eq("https://lateka.cl/products/7-wonders-edifice-expansion")
+    it "removes url query parameters and fragments" do
+      item[:url] = "https://lateka.cl/products/7-wonders-edifice-expansion?_pos=232&_fid=c752bb366&_ss=c#example"
+      formated_item = pipeline.process_item(item)
+      expect(formated_item[:url]).to eq("https://lateka.cl/products/7-wonders-edifice-expansion")
+    end
   end
 end
