@@ -30,4 +30,16 @@ RSpec.describe Formatter do
     formated_item = pipeline.process_item(item)
     expect(formated_item[:url]).to eq("https://lateka.cl/products/7-wonders-edifice-expansion")
   end
+
+  it "removes url fragment" do
+    item[:url] = "https://lateka.cl/products/7-wonders-edifice-expansion#example"
+    formated_item = pipeline.process_item(item)
+    expect(formated_item[:url]).to eq("https://lateka.cl/products/7-wonders-edifice-expansion")
+  end
+
+  it "removes url query parameters and fragments" do
+    item[:url] = "https://lateka.cl/products/7-wonders-edifice-expansion?_pos=232&_fid=c752bb366&_ss=c#example"
+    formated_item = pipeline.process_item(item)
+    expect(formated_item[:url]).to eq("https://lateka.cl/products/7-wonders-edifice-expansion")
+  end
 end
