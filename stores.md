@@ -23,6 +23,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [x] 0334 - https://www.guildreams.com
 - [x] 0306 - https://lateka.cl
 - [x] 0293 - https://www.magicsur.cl
+- [x] 0270 - https://tentami.cl/
 - [x] 0233 - https://playkingdom.cl
 - [x] 0215 - https://laloseta.cl
 - [x] 0171 - https://revaruk.cl
@@ -40,7 +41,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [ ] 0342 - https://fzcubes.cl
 - [ ] 0303 - https://mirzu.cl
 - [ ] 0271 - https://www.griffingames.cl
-- [ ] 0270 - https://tentami.cl/
 - [ ] 0223 - https://shivano.cl
 - [ ] 0222 - https://aukinkochile.com
 - [ ] 0216 - https://vortexjuegos.cl
