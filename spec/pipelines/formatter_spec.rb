@@ -45,5 +45,11 @@ RSpec.describe Formatter do
       formated_item = pipeline.process_item(item)
       expect(formated_item[:url]).to eq("https://lateka.cl/products/7-wonders-edifice-expansion")
     end
+
+    it "removes image_url query parameters and fragments" do
+      item[:image_url] = "https://www.flexogames.cl/cdn/shop/files/tabriz_2048x.png?v=1749599354#example"
+      formated_item = pipeline.process_item(item)
+      expect(formated_item[:image_url]).to eq("https://www.flexogames.cl/cdn/shop/files/tabriz_2048x.png")
+    end
   end
 end
