@@ -7,7 +7,7 @@ class LaTekaSpider < EcommerceEngines::Shopify::Spider
     name: "La Teka",
     url: "https://lateka.cl"
   }
-  @start_urls = ["https://lateka.cl/collections/juegos-de-mesa?filter.v.availability=1"]
+  @start_urls = ["https://lateka.cl/collections/juegos-de-mesa"]
   @config = {}
 
   selector :index_product, "ul#product-grid div.card"
