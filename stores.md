@@ -31,6 +31,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [x] 0150 - https://www.diverti.cl
 - [x] 0138 - https://cartonazo.com/
 - [x] 0134 - https://eldado.cl
+- [x] 0060 - https://www.ovniplay.cl/
 - [x] 0016 - https://topotoken.cl
 - [ ] 0491 - https://www.labovedadelmago.cl
 - [ ] 0468 - https://www.gameofmagictienda.cl
@@ -66,7 +67,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [ ] 0069 - https://ghostgamecenter.cl
 - [ ] 0067 - https://www.cuatroemes.cl
 - [ ] 0065 - https://elkingo.com
-- [ ] 0060 - https://www.ovniplay.cl/
 - [ ] 0060 - https://granjuego.cl
 - [ ] 0057 - https://tertulia.cl
 - [ ] 0050 - https://www.jugones.cl
