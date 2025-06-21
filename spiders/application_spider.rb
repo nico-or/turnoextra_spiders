@@ -171,4 +171,8 @@ class ApplicationSpider < Tanakai::Base
   def purchasable?(node)
     in_stock?(node)
   end
+
+  def absolute_url(rel_url, base:)
+    URI.join(base, rel_url).to_s
+  end
 end
