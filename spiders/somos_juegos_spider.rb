@@ -11,7 +11,7 @@ class SomosJuegosSpider < EcommerceEngines::Shopify::Spider
   @config = {}
 
   selector :index_product, "div#filter-results ul.grid li.js-pagination-result"
-  selector :next_page, "nav ul.pagination li:last-child a"
+  selector :next_page, "nav ul.pagination li:last-child a[href]"
   selector :title, "p a"
   selector :price, "strong.price__current"
   selector :stock, "span.product-label--sold-out"
