@@ -53,6 +53,7 @@ task :archive do
 end
 
 SPIDER_TEMPLATE_PATH = "templates/spider.rb.erb"
+SPIDER_SPEC_TEMPLATE_PATH = "spec/templates/spider_spec.rb.erb"
 SPIDER_DIRECTORY_PATH = "spiders"
 
 namespace :spider do
@@ -71,6 +72,13 @@ namespace :spider do
     spider_template = ERB.new(File.read(SPIDER_TEMPLATE_PATH))
     template_output = spider_template.result_with_hash({ class_name:, spider_name:, base_class:, store_name: })
     File.write(spider_path, template_output)
+
+    # Create new spider spec file
+    out_path = "spec/spiders/#{spider_name}_spec.rb"
+    fixture_directory = camel_store_name.underscore
+    spider_spec_template = ERB.new(File.read(SPIDER_SPEC_TEMPLATE_PATH))
+    template_output = spider_spec_template.result_with_hash({ class_name:, fixture_directory: })
+    File.write(out_path, template_output)
   end
 end
 

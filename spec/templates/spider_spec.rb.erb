@@ -2,10 +2,8 @@
 
 require "spider_helper"
 
-TemplateSpider = Class.new
-
-RSpec.describe TemplateSpider, :template do
-  let(:fixture_directory) { "" }
+RSpec.describe <%= class_name %> do
+  let(:fixture_directory) { "<%= fixture_directory %>" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }
 
@@ -17,9 +15,9 @@ RSpec.describe TemplateSpider, :template do
       Nokogiri::HTML(html)
     end
 
-    it "returns 20 items" do
+    it "returns 0 items" do
       items = spider.send(:parse_index, response, url: store_url)
-      expect(items.length).to eq(20)
+      expect(items.length).to eq(0)
     end
   end
 
