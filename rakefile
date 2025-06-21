@@ -3,6 +3,7 @@
 require "active_support/inflector"
 require "date"
 require "erb"
+require "pathname"
 
 SPIDER_DATA_REGEX = /^(?<date>\d{8})_(?<spider_name>.+)\.csv/
 ARCHIVE_DIR = "archive"
@@ -52,6 +53,7 @@ task :archive do
   end
 end
 
+STORE_FIXTURE_TEMPLATE_PATH = "spec/templates/fixture"
 SPIDER_TEMPLATE_PATH = "templates/spider.rb.erb"
 SPIDER_SPEC_TEMPLATE_PATH = "spec/templates/spider_spec.rb.erb"
 SPIDER_DIRECTORY_PATH = "spiders"
@@ -79,6 +81,15 @@ namespace :spider do
     spider_spec_template = ERB.new(File.read(SPIDER_SPEC_TEMPLATE_PATH))
     template_output = spider_spec_template.result_with_hash({ class_name:, fixture_directory: })
     File.write(out_path, template_output)
+
+    # Copy fixture templates
+    fixture_path = "spec/fixtures/#{camel_store_name.underscore}"
+    FileUtils.mkdir_p(fixture_path)
+    # NOTE: FileUtils.cp_r(src,out) copies the files into fixture_path/fixture/*.html
+    Pathname.glob("#{STORE_FIXTURE_TEMPLATE_PATH}/*").each do |file|
+      out_filename = File.join(fixture_path, file.basename)
+      FileUtils.cp_r(file, fixture_path) unless File.exist?(out_filename)
+    end
   end
 end
 
