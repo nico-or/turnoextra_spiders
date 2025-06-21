@@ -38,6 +38,22 @@ RSpec.describe GameOfMagicSpider do
       it_behaves_like "a product node parser"
     end
 
+    context "with a subtitled index product node" do
+      let(:filename) { File.join("spec/fixtures", fixture_directory, "product_index_node_subtitled.html") }
+
+      let(:expected) do
+        {
+          url: "https://www.gameofmagictienda.cl/product/happy-little-dinosaurs",
+          title: "Happy Little Dinosaurs",
+          price: 22_990,
+          stock: true,
+          image_url: "https://dojiw2m9tvv09.cloudfront.net/55673/product/M_disenosintitulo-995190.png"
+        }
+      end
+
+      it_behaves_like "a product node parser"
+    end
+
     context "with a discounted price index product node" do
       let(:filename) { File.join("spec/fixtures", fixture_directory, "product_index_node_discounted.html") }
 
