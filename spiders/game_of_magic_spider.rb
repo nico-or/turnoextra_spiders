@@ -10,7 +10,8 @@ class GameOfMagicSpider < EcommerceEngines::Bsale::Spider
 
   @start_urls = [
     "https://www.gameofmagictienda.cl/collection/juegos-de-mesa",
-    "https://www.gameofmagictienda.cl/collection/preventa-juegos-de-mesa"
+    "https://www.gameofmagictienda.cl/collection/preventa-juegos-de-mesa",
+    "https://www.gameofmagictienda.cl/collection/juegos-a-pedido"
   ]
   @config = {}
 

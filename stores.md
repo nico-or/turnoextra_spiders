@@ -11,12 +11,12 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - [x] 0815 - https://www.drjuegos.cl
 - [x] 0752 - https://www.vudugaming.cl
 - [x] 0640 - https://www.somosjuegos.cl
+- [x] 0600 - https://www.gameofmagictienda.cl
 - [x] 0597 - https://dementegames.cl
 - [x] 0558 - https://www.labovedadelmago.cl
 - [x] 0535 - https://www.top8.cl
 - [x] 0525 - https://juegosenroque.cl
 - [x] 0505 - https://www.ludi.cl
-- [x] 0480 - https://www.gameofmagictienda.cl
 - [x] 0453 - https://piedrabruja.cl
 - [x] 0444 - https://cartonespesados.cl
 - [x] 0405 - https://www.aldeajuegos.cl
