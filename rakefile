@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+require "active_support/inflector"
 require "date"
+require "erb"
 
 SPIDER_DATA_REGEX = /^(?<date>\d{8})_(?<spider_name>.+)\.csv/
 ARCHIVE_DIR = "archive"
@@ -47,6 +49,28 @@ task :archive do
     date_dir = path_from_date_string(date)
     new_filepath = File.join(ARCHIVE_DIR, date_dir, filename)
     mv filepath, new_filepath
+  end
+end
+
+SPIDER_TEMPLATE_PATH = "templates/spider.rb.erb"
+SPIDER_DIRECTORY_PATH = "spiders"
+
+namespace :spider do
+  desc "Create a new spider"
+  task :new, %i[store_name] do |_t, args|
+    camel_store_name = args[:store_name]
+    store_name = camel_store_name.titleize
+    class_name = "#{camel_store_name}Spider"
+    spider_name = "#{camel_store_name.underscore}_spider"
+    spider_filename = "#{spider_name}.rb"
+    base_class = "ApplicationSpider"
+    spider_path = File.join(SPIDER_DIRECTORY_PATH, spider_filename)
+    raise ArgumentError, "Spider already exists" if File.exist?(spider_path)
+
+    # Create new spider file
+    spider_template = ERB.new(File.read(SPIDER_TEMPLATE_PATH))
+    template_output = spider_template.result_with_hash({ class_name:, spider_name:, base_class:, store_name: })
+    File.write(spider_path, template_output)
   end
 end
 

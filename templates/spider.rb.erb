@@ -1,0 +1,11 @@
+# frozen_string_literal: true
+
+# <%= store_name %> store spider
+class <%= class_name %> < <%= base_class %>
+  @name = "<%= spider_name %>"
+  @store = {
+    name: "<%= store_name %>",
+    url: ""
+  }
+  @start_urls = [""]
+end
