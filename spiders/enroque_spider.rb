@@ -15,7 +15,7 @@ class EnroqueSpider < EcommerceEngines::Shopify::Spider
   @config = {}
 
   selector :index_product, "div#filter-results li.js-pagination-result"
-  selector :next_page, "nav ul.pagination li:last-child a"
+  selector :next_page, "nav ul.pagination li:last-child a[href]"
   selector :title, "a.card-link"
   selector :price, "strong.price__current"
   selector :stock, "span.product-label--sold-out"
