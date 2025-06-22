@@ -31,6 +31,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0306) https://lateka.cl
 - (0293) https://www.magicsur.cl
 - (0270) https://tentami.cl/
+- (0240) https://fzcubes.cl
 - (0233) https://playkingdom.cl
 - (0215) https://laloseta.cl
 - (0171) https://revaruk.cl
@@ -43,7 +44,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
-- (0342) https://fzcubes.cl
 - (0303) https://mirzu.cl
 - (0271) https://www.griffingames.cl
 - (0223) https://shivano.cl
