@@ -24,6 +24,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0444) https://araucaniagaming.cl
 - (0385) https://playcenter.cl
 - (0380) https://devir.cl
+- (0372) https://mirzu.cl
 - (0360) https://www.clevertoys.cl
 - (0338) https://www.top8.cl
 - (0333) https://www.guildreams.com
@@ -44,7 +45,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
-- (0303) https://mirzu.cl
 - (0271) https://www.griffingames.cl
 - (0223) https://shivano.cl
 - (0222) https://aukinkochile.com
