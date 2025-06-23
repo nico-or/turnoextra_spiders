@@ -35,6 +35,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0268) https://tentami.cl/
 - (0240) https://fzcubes.cl
 - (0226) https://playkingdom.cl
+- (0222) https://shivano.cl
 - (0208) https://laloseta.cl
 - (0180) https://revaruk.cl
 - (0161) https://cartonazo.com/
@@ -46,7 +47,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
-- (0223) https://shivano.cl
 - (0222) https://aukinkochile.com
 - (0216) https://vortexjuegos.cl
 - (0216) https://manahouse.cl
