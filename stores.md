@@ -47,7 +47,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
-- (0222) https://aukinkochile.com
 - (0216) https://vortexjuegos.cl
 - (0216) https://manahouse.cl
 - (0214) https://www.ludoteka.cl
@@ -55,7 +54,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0206) https://manahouse.cl
 - (0188) https://www.m4e.cl
 - (0184) https://takanodan.cl
-- (0181) https://caramba.cl
 - (0157) https://www.lautarojuegos.cl
 - (0133) https://tertulia.cl
 - (0131) https://ludorapia.cl
@@ -90,3 +88,5 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 ## Backlog
 
 - (0433) https://www.weplay.cl (responds with 403 Forbidden to mechanize agent)
+- (0222) https://aukinkochile.com (tienda enfocada en juguetes infantiles. [juegos de mesa](https://aukinkochile.com/web/categoria-producto/juegos-de-mesa/))
+- (0178) https://caramba.cl (tienda enfocada en juguetes infantiles. [juegos de mesa](https://caramba.cl/collections/juegos-de-mesa))
