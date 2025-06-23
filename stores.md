@@ -49,7 +49,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
-- (0214) https://www.ludoteka.cl
 - (0211) https://chileboardgames.com
 - (0188) https://www.m4e.cl
 - (0184) https://takanodan.cl
@@ -89,3 +88,4 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0433) https://www.weplay.cl (responds with 403 Forbidden to mechanize agent)
 - (0222) https://aukinkochile.com (tienda enfocada en juguetes infantiles. [juegos de mesa](https://aukinkochile.com/web/categoria-producto/juegos-de-mesa/))
 - (0178) https://caramba.cl (tienda enfocada en juguetes infantiles. [juegos de mesa](https://caramba.cl/collections/juegos-de-mesa))
+- (0214) https://www.ludoteka.cl (carga contenido dinámicamente, probar un loop haciendo `GET https://www.ludoteka.cl/l/m/CATEGORIA/100?pagina=1`)
