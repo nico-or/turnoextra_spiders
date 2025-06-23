@@ -1,5 +1,20 @@
 # frozen_string_literal: true
 
+# HashedStorage is a file storage interface that organizes files using a directory
+# structure based on the MD5 hash of each file's name.
+#
+# This approach helps avoid filesystem performance issues when storing many files
+# by distributing them across nested directories. The depth and width of the
+# directory structure are configurable.
+#
+# Example:
+#   storage = HashedStorage.new("/tmp/storage", level_width: 2, levels: 2)
+#   storage.save("example.txt", "Hello, world!")
+#   content = storage.read("example.txt") # => "Hello, world!"
+#
+# Given a filename like "example.txt", its MD5 hash (e.g., "1a79a4d60de6718e8e5b326e338ae533")
+# would be used to generate a path like:
+#   /tmp/storage/1a/79/1a79a4d60de6718e8e5b326e338ae533
 class HashedStorage
   attr_reader :root, :level_width, :levels
 

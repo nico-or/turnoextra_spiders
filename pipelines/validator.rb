@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Validates an item attributes
 class Validator < Tanakai::Pipeline
   def process_item(item, options: {})
     # No duplicates

@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
+# Methods defined here are available for any spider
+# Part of Tanakai proyect definition
 module ApplicationHelper
-  # Put here custom methods which are will be available for any spider
   def scan_int(string)
     string.scan(/\d/).join.to_i
   end
