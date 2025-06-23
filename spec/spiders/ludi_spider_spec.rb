@@ -29,7 +29,7 @@ RSpec.describe LudiSpider do
         {
           url: "https://www.ludi.cl/producto/sticker-coleccionable-del-turco/",
           title: "Sticker Coleccionable del Turco",
-          price: 2000,
+          price: 2_000,
           stock: true,
           image_url: "https://www.ludi.cl/wp-content/uploads/2022/05/Caratula-7.jpg"
         }

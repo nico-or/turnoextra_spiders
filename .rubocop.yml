@@ -7,6 +7,10 @@ AllCops:
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
+Style/NumericLiterals:
+  MinDigits: 4
+  Strict: true
+
 Lint/UnusedMethodArgument:
   AllowUnusedKeywordArguments: true
 
