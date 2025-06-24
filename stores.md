@@ -43,6 +43,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0196) https://kaiojuegos.cl/
 - (0190) https://www.atomicrainbow.cl/
 - (0184) https://www.m4e.cl
+- (0184) https://www.juegosgori.cl/
 - (0180) https://revaruk.cl
 - (0161) https://cartonazo.com/
 - (0157) https://spells.cl
@@ -55,7 +56,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 ## To Do
 
 - (0252) https://www.bluecard.cl/
-- (0184) https://www.juegosgori.cl/
 - (0184) https://takanodan.cl
 - (0157) https://www.lautarojuegos.cl
 - (0156) https://www.chucaojuegos.cl/
