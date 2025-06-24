@@ -48,13 +48,13 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0157) https://spells.cl
 - (0151) https://www.diverti.cl
 - (0134) https://eldado.cl
+- (0094) https://area52.cl/
 - (0051) https://www.ovniplay.cl/
 - (0016) https://topotoken.cl
 
 ## To Do
 
 - (0252) https://www.bluecard.cl/
-- (0192) https://area52.cl/
 - (0184) https://www.juegosgori.cl/
 - (0184) https://takanodan.cl
 - (0157) https://www.lautarojuegos.cl
