@@ -51,12 +51,21 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
+- (0280) https://www.atomicrainbow.cl/
+- (0252) https://www.bluecard.cl/
+- (0197) https://kaiojuegos.cl/
+- (0192) https://area52.cl/
+- (0184) https://www.juegosgori.cl/
 - (0184) https://takanodan.cl
 - (0157) https://www.lautarojuegos.cl
+- (0156) https://www.chucaojuegos.cl/
 - (0133) https://tertulia.cl
 - (0131) https://ludorapia.cl
 - (0117) https://lamesadevaras.cl
+- (0114) https://www.jugones.cl/
+- (0110) https://kimunaustral.cl/
 - (0101) https://www.unatienditadejuegos.cl
+- (0098) https://carontejuegosdemesa.cl/
 - (0095) https://www.elarbolitojuegos.cl
 - (0095) https://www.catronjuegos.cl
 - (0095) https://dondejuego.cl
@@ -69,7 +78,9 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0065) https://elkingo.com
 - (0060) https://granjuego.cl
 - (0057) https://tertulia.cl
-- (0050) https://www.jugones.cl
+- (0051) https://www.juegosdelbosque.cl/
+- (0050) https://buhojuegosdemesa.cl
+- (0045) https://tiendalamadriguera.cl
 - (0042) https://www.dmesa.cl
 - (0042) https://ludopalooza.cl
 - (0036) https://www.rivendelelconcilio.cl
@@ -77,6 +88,8 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0031) https://www.ratademesa.cl
 - (0030) https://store.asmodee.cl
 - (0025) https://www.gamingplace.cl
+- (0025) https://eldesafiostore.cl/
+- (0024) https://www.juegomania.cl/
 - (0024) https://www.juegomania.cl
 - (0022) https://www.playset.cl
 - (0014) https://www.juguemosotra.cl
@@ -85,6 +98,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## Backlog
 
+- (0500) https://gatoarcano.cl (carga contenido dinámicamente, probar un loop haciendo `GET https://gatoarcano.cl/product-category/juegos-de-mesa/?jsf=epro-archive-products&pagenum=1`)
 - (0433) https://www.weplay.cl (responds with 403 Forbidden to mechanize agent)
 - (0222) https://aukinkochile.com (tienda enfocada en juguetes infantiles. [juegos de mesa](https://aukinkochile.com/web/categoria-producto/juegos-de-mesa/))
 - (0178) https://caramba.cl (tienda enfocada en juguetes infantiles. [juegos de mesa](https://caramba.cl/collections/juegos-de-mesa))
