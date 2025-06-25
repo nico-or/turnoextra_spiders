@@ -46,6 +46,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0184) https://www.juegosgori.cl/
 - (0183) https://takanodan.cl
 - (0180) https://revaruk.cl
+- (0165) https://www.lautarojuegos.cl
 - (0161) https://cartonazo.com/
 - (0157) https://spells.cl
 - (0151) https://www.diverti.cl
@@ -57,7 +58,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
-- (0157) https://www.lautarojuegos.cl
 - (0156) https://www.chucaojuegos.cl/
 - (0133) https://tertulia.cl
 - (0131) https://ludorapia.cl
