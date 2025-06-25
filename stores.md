@@ -50,13 +50,13 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0157) https://spells.cl
 - (0151) https://www.diverti.cl
 - (0134) https://eldado.cl
+- (0104) https://www.bluecard.cl/
 - (0094) https://area52.cl/
 - (0051) https://www.ovniplay.cl/
 - (0016) https://topotoken.cl
 
 ## To Do
 
-- (0252) https://www.bluecard.cl/
 - (0157) https://www.lautarojuegos.cl
 - (0156) https://www.chucaojuegos.cl/
 - (0133) https://tertulia.cl
