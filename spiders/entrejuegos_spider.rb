@@ -10,12 +10,9 @@ class EntrejuegosSpider < EcommerceEngines::PrestaShop::Spider
   @start_urls = ["https://www.entrejuegos.cl/1064-juegos-de-mesa?page=1"]
   @config = {}
 
-  private
+  title_strategy :slug
 
-  def get_title(node)
-    url = node.at_css("img")[:src]
-    File.basename(url, ".jpg").gsub("-", " ")
-  end
+  private
 
   def price?(node)
     # example: https://www.entrejuegos.cl/juegos-de-mesa/16717-everdell-spirecrest.html

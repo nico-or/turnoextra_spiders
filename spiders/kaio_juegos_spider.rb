@@ -10,10 +10,5 @@ class KaioJuegosSpider < EcommerceEngines::PrestaShop::Spider
   }
   @start_urls = ["https://kaiojuegos.cl/18-juegos-de-mesa"]
 
-  private
-
-  def get_title(node)
-    url = node.at_css("img")[:src]
-    File.basename(url, ".jpg").gsub("-", " ")
-  end
+  title_strategy :slug
 end

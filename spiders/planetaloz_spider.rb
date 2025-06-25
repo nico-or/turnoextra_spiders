@@ -10,10 +10,5 @@ class PlanetalozSpider < EcommerceEngines::PrestaShop::Spider
   @start_urls = ["https://www.planetaloz.cl/14-juegos-de-mesa?q=Disponibilidad-En+stock"]
   @config = {}
 
-  private
-
-  def get_title(node)
-    url = node.at_css("img")[:src]
-    File.basename(url, ".jpg").gsub("-", " ")
-  end
+  title_strategy :slug
 end
