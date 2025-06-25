@@ -53,12 +53,12 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0134) https://eldado.cl
 - (0104) https://www.bluecard.cl/
 - (0094) https://area52.cl/
+- (0089) https://www.chucaojuegos.cl/
 - (0051) https://www.ovniplay.cl/
 - (0016) https://topotoken.cl
 
 ## To Do
 
-- (0156) https://www.chucaojuegos.cl/
 - (0133) https://tertulia.cl
 - (0131) https://ludorapia.cl
 - (0117) https://lamesadevaras.cl
