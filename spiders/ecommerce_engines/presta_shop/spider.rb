@@ -14,7 +14,7 @@ module EcommerceEngines
       private
 
       def get_image_url(node, _url)
-        node.at_css("img")["data-full-size-image-url"]
+        node.at_css("img")["src"].sub("home_default", "large_default")
       rescue NoMethodError
         nil
       end

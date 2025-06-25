@@ -31,7 +31,7 @@ RSpec.describe MagicsurSpider do
           title: "Exit: Robo en el Misisipi",
           price: 12_990,
           stock: true,
-          image_url: "https://www.magicsur.cl/18977-thickbox_default/exit-robo-en-el-misisipi.jpg"
+          image_url: "https://www.magicsur.cl/18977-large_default/exit-robo-en-el-misisipi.jpg"
         }
       end
 
@@ -47,7 +47,7 @@ RSpec.describe MagicsurSpider do
           title: "Tiny Epic Game Of Thrones",
           price: 28_792,
           stock: true,
-          image_url: "https://www.magicsur.cl/29091-thickbox_default/tiny-epic-game-of-thrones.jpg"
+          image_url: "https://www.magicsur.cl/29091-large_default/tiny-epic-game-of-thrones.jpg"
         }
       end
 
@@ -63,7 +63,7 @@ RSpec.describe MagicsurSpider do
           title: "Dobble Infantil",
           price: 12_990,
           stock: false,
-          image_url: "https://www.magicsur.cl/18533-thickbox_default/dobble-infantil.jpg"
+          image_url: "https://www.magicsur.cl/18533-large_default/dobble-infantil.jpg"
         }
       end
 
@@ -79,7 +79,7 @@ RSpec.describe MagicsurSpider do
           title: "Just One",
           price: 23_000,
           stock: false,
-          image_url: "https://www.magicsur.cl/5043-thickbox_default/just-one.jpg"
+          image_url: "https://www.magicsur.cl/5043-large_default/just-one.jpg"
         }
       end
 

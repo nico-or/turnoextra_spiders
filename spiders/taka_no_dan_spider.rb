@@ -24,10 +24,4 @@ class TakaNoDanSpider < EcommerceEngines::PrestaShop::Spider
   def get_title(node)
     node.at_css("h3 a")[:title]
   end
-
-  def get_image_url(node, _url)
-    node.at_css("img")[:src].sub("home_default", "large_default")
-  rescue NoMethodError
-    nil
-  end
 end
