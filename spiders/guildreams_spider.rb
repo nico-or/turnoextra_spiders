@@ -15,7 +15,5 @@ class GuildreamsSpider < EcommerceEngines::Bsale::Spider
   selector :title, "h2"
   selector :stock, "div.bs-stock"
   selector :price, "div.bs-product-final-price"
-  selector :url, "a"
-  selector :image_tag, "img"
   selector :image_attr, "data-src"
 end

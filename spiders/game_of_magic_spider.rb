@@ -15,12 +15,5 @@ class GameOfMagicSpider < EcommerceEngines::Bsale::Spider
   ]
   @config = {}
 
-  selector :index_product, "div.bs-collection section.grid__item"
-  selector :next_page, "ul.pagination li:last-child a"
-  selector :title,  "a[@class='bs-collection__product-info']/h3/text()"
-  selector :stock,  "div.bs-collection__stock"
-  selector :price,  "div.bs-collection__product-final-price"
-  selector :url, "a"
-  selector :image_tag, "img"
-  selector :image_attr, "src"
+  selector :title, "a[@class='bs-collection__product-info']/h3/text()"
 end
