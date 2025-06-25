@@ -25,9 +25,28 @@ module EcommerceEngines
 
       private
 
-      def title_from_slug(node)
-        url = node.at_css("img")["src"]
+      # Parses product title from product image url slug
+      # Example: https://www.example.com/vendorID-home_default/name-slug.jpg
+      def image_slug_title(node)
+        url = node.at_css("img[alt]")&.attr("src")
+        return unless url
+
         File.basename(url, ".jpg").gsub("-", " ")
+      end
+
+      # Parses product title from product url slug
+      # Example: https://www.example.com/category/vendorID-name-slug.html
+      def product_slug_title(node)
+        url = node.at_css("a")&.attr("href")
+        return unless url
+
+        File.basename(url, ".html").split("-")[1..].join(" ")
+      end
+
+      # Long product titles are truncated with ellipsis.
+      # Product title is parsed from url slugs as a fallback
+      def title_from_slug(node)
+        image_slug_title(node) || product_slug_title(node)
       end
 
       def get_title(node)

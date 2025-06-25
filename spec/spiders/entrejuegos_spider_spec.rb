@@ -100,6 +100,22 @@ RSpec.describe EntrejuegosSpider do
 
       it_behaves_like "a product node parser"
     end
+
+    context "with a regular product with bad picture index product node" do
+      let(:filename) { "spec/fixtures/entrejuegos/product_index_node_bad_picture.html" }
+
+      let(:expected) do
+        {
+          url: "https://www.entrejuegos.cl/familiares/16751-adventure-land.html",
+          title: "adventure land",
+          price: 34_990,
+          stock: true,
+          image_url: "https://www.entrejuegos.cl/img/p/es-default-large_default.jpg"
+        }
+      end
+
+      it_behaves_like "a product node parser"
+    end
   end
 
   describe "#next_page_url" do
