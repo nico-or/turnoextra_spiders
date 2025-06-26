@@ -54,6 +54,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0119) https://lamesadevaras.cl
 - (0109) https://tertulia.cl
 - (0104) https://www.bluecard.cl/
+- (0100) https://www.unatienditadejuegos.cl
 - (0100) https://ludorapia.cl
 - (0094) https://area52.cl/
 - (0091) https://kimunaustral.cl/
@@ -64,7 +65,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
-- (0101) https://www.unatienditadejuegos.cl
 - (0098) https://carontejuegosdemesa.cl/
 - (0095) https://www.elarbolitojuegos.cl
 - (0095) https://www.catronjuegos.cl
