@@ -51,6 +51,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0157) https://spells.cl
 - (0151) https://www.diverti.cl
 - (0134) https://eldado.cl
+- (0119) https://lamesadevaras.cl
 - (0109) https://tertulia.cl
 - (0104) https://www.bluecard.cl/
 - (0100) https://ludorapia.cl
@@ -61,7 +62,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
-- (0117) https://lamesadevaras.cl
 - (0114) https://www.jugones.cl/
 - (0110) https://kimunaustral.cl/
 - (0101) https://www.unatienditadejuegos.cl
