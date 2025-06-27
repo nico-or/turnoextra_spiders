@@ -66,7 +66,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
-- (0095) https://www.elarbolitojuegos.cl
 - (0095) https://www.catronjuegos.cl
 - (0095) https://dondejuego.cl
 - (0085) https://www.wargaming.cl
@@ -102,3 +101,4 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0222) https://aukinkochile.com (tienda enfocada en juguetes infantiles. [juegos de mesa](https://aukinkochile.com/web/categoria-producto/juegos-de-mesa/))
 - (0178) https://caramba.cl (tienda enfocada en juguetes infantiles. [juegos de mesa](https://caramba.cl/collections/juegos-de-mesa))
 - (0214) https://www.ludoteka.cl (carga contenido dinámicamente, probar un loop haciendo `GET https://www.ludoteka.cl/l/m/CATEGORIA/100?pagina=1`)
+- (0095) https://www.elarbolitojuegos.cl (2025/06/27 - sitio en mantenimiento)
