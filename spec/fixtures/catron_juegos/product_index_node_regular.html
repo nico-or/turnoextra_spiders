@@ -1,0 +1,78 @@
+<div class="col-xl-3 col-md-4 col-6 px-md-2 px-1 mb-md-3 mb-2">
+  <div class="product-block round round-sm trsn" data-productid="8133661">
+    <div>
+      <a href="/el-solitario" class="position-relative d-block mb-2">
+        <img
+          class="w-100 trsn d-block"
+          src="https://cdnx.jumpseller.com/catron-juegos-y-pasatiempos/image/13409391/resize/450/450?1640883786"
+          data-srcset="https://cdnx.jumpseller.com/catron-juegos-y-pasatiempos/image/13409391/resize/450/450?1640883786 1x, https://cdnx.jumpseller.com/catron-juegos-y-pasatiempos/image/13409391/resize/800/800?1640883786 2x"
+          title="El Solitario"
+          alt="El Solitario"
+        />
+      </a>
+
+      <div class="caption text-left p-md-3 p-2">
+        <div class="brand-name trsn with-brand">
+          <h3><a href="/el-solitario">El Solitario</a></h3>
+        </div>
+
+        <div class="prices">
+          <span class="product-price">$2.100</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="trsn">
+      <form
+        action="/cart/add/8133661"
+        method="post"
+        enctype="multipart/form-data"
+        name="buy"
+      >
+        <div class="row adc-form no-gutters border-top">
+          <div class="col-sm-8 d-sm-block d-none">
+            <div class="product-qty">
+              <input
+                type="number"
+                class="text-center rounded-0 border-0 form-control"
+                name="qty"
+                min="1"
+                value="1"
+                onchange="verifyAddToCartQuantity(this)"
+              />
+              <div class="quantity-nav text-center">
+                <div
+                  class="quantity-button quantity-down"
+                  onclick="decrementCartFromProductBlock(this)"
+                >
+                  -
+                </div>
+                <div
+                  class="quantity-button quantity-up"
+                  onclick="incrementCartFromProductBlock(this)"
+                >
+                  +
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-12">
+            <button
+              type="button"
+              onclick="addToCartFromProductBlock(this)"
+              class="adc btn btn-block primary rounded-0 px-0"
+              value="Agregar al Carro"
+            >
+              <i class="linear-icon icon-0333-bag2"></i>
+            </button>
+          </div>
+        </div>
+        <input
+          type="hidden"
+          name="authenticity_token"
+          value="eFK5mt5rIZX5ePPu9C4fGpeR0P359iDLv6CnSfZCLSLiWBb2G1MzGlnUPTCywLyvUT7WjZ7AL24T5aWIFQ4kdg"
+        />
+      </form>
+    </div>
+  </div>
+</div>

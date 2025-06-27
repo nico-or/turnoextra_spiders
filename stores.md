@@ -57,6 +57,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0100) https://www.unatienditadejuegos.cl
 - (0100) https://ludorapia.cl
 - (0094) https://area52.cl/
+- (0091) https://www.catronjuegos.cl
 - (0091) https://kimunaustral.cl/
 - (0090) https://www.jugones.cl/
 - (0089) https://www.chucaojuegos.cl/
@@ -66,7 +67,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
-- (0095) https://www.catronjuegos.cl
 - (0095) https://dondejuego.cl
 - (0085) https://www.wargaming.cl
 - (0084) https://elarcanista.cl
