@@ -53,16 +53,16 @@ RSpec.describe SomosJuegosSpider do
       it_behaves_like "a product node parser"
     end
 
-    context "with an out-of-stock index product node" do
-      let(:filename) { "spec/fixtures/somos_juegos/product_index_node_out_of_stock.html" }
+    context "with an no_image index product node" do
+      let(:filename) { "spec/fixtures/somos_juegos/product_index_node_no_image.html" }
 
       let(:expected) do
         {
-          url: "https://www.somosjuegos.cl/collections/juegos-de-mesa/products/juego-de-mesa-llamagedon-salta-pal-lao",
-          title: "Llamagedón",
-          price: 14_990,
-          stock: false,
-          image_url: "https://www.somosjuegos.cl/cdn/shop/files/caja-ab5e9ead-6cbc-4455-9ff6-f9b84b63e058.png"
+          url: "https://www.somosjuegos.cl/collections/juegos-de-mesa/products/pack-juicio-final-con-aji",
+          title: "Pack Juicio Final Con Aji",
+          price: 27_986,
+          stock: true,
+          image_url: nil
         }
       end
 
