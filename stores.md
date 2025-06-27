@@ -61,11 +61,11 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0090) https://www.jugones.cl/
 - (0089) https://www.chucaojuegos.cl/
 - (0051) https://www.ovniplay.cl/
+- (0025) https://carontejuegosdemesa.cl/
 - (0016) https://topotoken.cl
 
 ## To Do
 
-- (0098) https://carontejuegosdemesa.cl/
 - (0095) https://www.elarbolitojuegos.cl
 - (0095) https://www.catronjuegos.cl
 - (0095) https://dondejuego.cl
