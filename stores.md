@@ -61,6 +61,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0091) https://kimunaustral.cl/
 - (0090) https://www.jugones.cl/
 - (0089) https://www.chucaojuegos.cl/
+- (0081) https://www.wargaming.cl
 - (0064) https://dondejuego.cl
 - (0051) https://www.ovniplay.cl/
 - (0025) https://carontejuegosdemesa.cl/
@@ -68,7 +69,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
-- (0085) https://www.wargaming.cl
 - (0084) https://elarcanista.cl
 - (0082) https://www.soletta.cl
 - (0077) https://www.cafe2d6.cl
