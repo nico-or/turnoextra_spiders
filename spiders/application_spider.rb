@@ -71,14 +71,14 @@ class ApplicationSpider < Tanakai::Base
     # If after 3 attempts there is still an exception, then the exception will be raised.
     # It is a good idea to try to retry errros like `ReadTimeout`, `HTTPBadGateway`, etc.
     # Format: same like for `skip_request_errors` option.
-    retry_request_errors: [Net::ReadTimeout],
+    retry_request_errors: [Net::ReadTimeout, Net::HTTPTooManyRequests],
 
     # Perform several actions before each request:
     before_request: {
       # Global option to set delay between requests.
       # Delay can be `Integer`, `Float` or `Range` (`2..5`). In case of a range,
       # delay number will be chosen randomly for each request: `rand (2..5) # => 3`
-      delay: 2
+      delay: (2..4)
     }
   }
 
