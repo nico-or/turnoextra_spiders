@@ -63,13 +63,13 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0089) https://www.chucaojuegos.cl/
 - (0081) https://www.wargaming.cl
 - (0064) https://dondejuego.cl
+- (0055) https://elarcanista.cl
 - (0051) https://www.ovniplay.cl/
 - (0025) https://carontejuegosdemesa.cl/
 - (0016) https://topotoken.cl
 
 ## To Do
 
-- (0084) https://elarcanista.cl
 - (0082) https://www.soletta.cl
 - (0077) https://www.cafe2d6.cl
 - (0069) https://ghostgamecenter.cl
