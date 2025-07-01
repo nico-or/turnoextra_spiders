@@ -73,12 +73,12 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0051) https://www.ovniplay.cl/
 - (0047) https://tiendalamadriguera.cl
 - (0045) https://www.juegosdelbosque.cl/
+- (0041) https://www.dmesa.cl
 - (0025) https://carontejuegosdemesa.cl/
 - (0016) https://topotoken.cl
 
 ## To Do
 
-- (0042) https://www.dmesa.cl
 - (0042) https://ludopalooza.cl
 - (0036) https://www.rivendelelconcilio.cl
 - (0033) https://latribugames.cl
