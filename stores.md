@@ -65,6 +65,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0081) https://www.cafe2d6.cl
 - (0077) https://www.soletta.cl
 - (0069) https://ghostgamecenter.cl
+- (0068) https://buhojuegosdemesa.cl
 - (0064) https://dondejuego.cl
 - (0062) https://elkingo.com
 - (0056) https://www.cuatroemes.cl
@@ -76,7 +77,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
-- (0050) https://buhojuegosdemesa.cl
 - (0045) https://tiendalamadriguera.cl
 - (0042) https://www.dmesa.cl
 - (0042) https://ludopalooza.cl
