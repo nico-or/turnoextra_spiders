@@ -75,7 +75,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
-- (0060) https://granjuego.cl
 - (0051) https://www.juegosdelbosque.cl/
 - (0050) https://buhojuegosdemesa.cl
 - (0045) https://tiendalamadriguera.cl
@@ -102,3 +101,4 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0178) https://caramba.cl (tienda enfocada en juguetes infantiles. [juegos de mesa](https://caramba.cl/collections/juegos-de-mesa))
 - (0214) https://www.ludoteka.cl (carga contenido dinámicamente, probar un loop haciendo `GET https://www.ludoteka.cl/l/m/CATEGORIA/100?pagina=1`)
 - (0095) https://www.elarbolitojuegos.cl (2025/06/27 - sitio en mantenimiento)
+- (0060) https://granjuego.cl (carga contenido dinámicamente, probar con selenium engine)
