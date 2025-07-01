@@ -152,7 +152,7 @@ class ApplicationSpider < Tanakai::Base
 
   def get_title(node)
     selector = get_selector(:title)
-    node.at_css(selector).text.strip
+    node.at_css(selector).text.gsub(/\s+/, " ").strip
   end
 
   def get_price(node)
