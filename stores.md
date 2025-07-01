@@ -71,13 +71,13 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0056) https://www.cuatroemes.cl
 - (0055) https://elarcanista.cl
 - (0051) https://www.ovniplay.cl/
+- (0047) https://tiendalamadriguera.cl
 - (0045) https://www.juegosdelbosque.cl/
 - (0025) https://carontejuegosdemesa.cl/
 - (0016) https://topotoken.cl
 
 ## To Do
 
-- (0045) https://tiendalamadriguera.cl
 - (0042) https://www.dmesa.cl
 - (0042) https://ludopalooza.cl
 - (0036) https://www.rivendelelconcilio.cl
