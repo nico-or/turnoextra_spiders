@@ -66,6 +66,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0077) https://www.soletta.cl
 - (0069) https://ghostgamecenter.cl
 - (0064) https://dondejuego.cl
+- (0056) https://www.cuatroemes.cl
 - (0055) https://elarcanista.cl
 - (0051) https://www.ovniplay.cl/
 - (0025) https://carontejuegosdemesa.cl/
@@ -73,7 +74,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
-- (0067) https://www.cuatroemes.cl
 - (0065) https://elkingo.com
 - (0060) https://granjuego.cl
 - (0051) https://www.juegosdelbosque.cl/
