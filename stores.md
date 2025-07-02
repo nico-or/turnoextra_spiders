@@ -49,6 +49,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0165) https://www.lautarojuegos.cl
 - (0161) https://cartonazo.com/
 - (0157) https://spells.cl
+- (0151) https://www.winterland.cl/
 - (0151) https://www.diverti.cl
 - (0134) https://eldado.cl
 - (0119) https://lamesadevaras.cl
