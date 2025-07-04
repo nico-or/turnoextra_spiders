@@ -78,6 +78,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0041) https://www.dmesa.cl
 - (0035) https://www.rivendelelconcilio.cl
 - (0031) https://www.ratademesa.cl
+- (0025) https://eldesafiostore.cl/
 - (0025) https://carontejuegosdemesa.cl/
 - (0024) https://www.gamingplace.cl
 - (0022) https://latribugames.cl
@@ -85,7 +86,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
-- (0025) https://eldesafiostore.cl/
 - (0024) https://www.juegomania.cl/
 - (0024) https://www.juegomania.cl
 - (0022) https://www.playset.cl
