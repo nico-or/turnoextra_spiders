@@ -82,12 +82,12 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0025) https://eldesafiostore.cl/
 - (0025) https://carontejuegosdemesa.cl/
 - (0024) https://www.gamingplace.cl
+- (0022) https://www.playset.cl
 - (0022) https://latribugames.cl
 - (0016) https://topotoken.cl
 
 ## To Do
 
-- (0022) https://www.playset.cl
 - (0014) https://www.juguemosotra.cl
 - (0010) https://juegalos.cl
 - (0005) https://www.dracarysgames.cl
