@@ -15,9 +15,9 @@ RSpec.describe PlayKingdomSpider do
       Nokogiri::HTML(html)
     end
 
-    it "returns 19 items" do
+    it "returns 30 items" do
       items = spider.send(:parse_index, response, url: store_url)
-      expect(items.length).to eq(19)
+      expect(items.length).to eq(30)
     end
   end
 
@@ -59,11 +59,27 @@ RSpec.describe PlayKingdomSpider do
 
       let(:expected) do
         {
-          url: "https://playkingdom.cl/mazescape-hipnos",
-          title: "Mazescape Hipnos",
-          price: 10_000,
+          url: "https://playkingdom.cl/juego-de-mesa-mascarade-nueva-edicion",
+          title: "Mascarade Nueva Edicion",
+          price: 18_990,
           stock: false,
-          image_url: "https://cdnx.jumpseller.com/play-kingdom/image/30354105"
+          image_url: "https://cdnx.jumpseller.com/play-kingdom/image/29939341"
+        }
+      end
+
+      it_behaves_like "a product node parser"
+    end
+
+    context "with an unavailable index product node" do
+      let(:filename) { File.join("spec/fixtures", fixture_directory, "product_index_node_unavailable.html") }
+
+      let(:expected) do
+        {
+          url: "https://playkingdom.cl/mojate-el-potito",
+          title: "Mójate el potito",
+          price: 14_990,
+          stock: false,
+          image_url: "https://cdnx.jumpseller.com/play-kingdom/image/29939227"
         }
       end
 
