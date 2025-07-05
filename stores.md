@@ -88,10 +88,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
-- (0014) https://www.juguemosotra.cl
-- (0010) https://juegalos.cl
-- (0005) https://www.dracarysgames.cl
-
 ## Backlog
 
 - (0500) https://gatoarcano.cl (carga contenido dinámicamente, probar un loop haciendo `GET https://gatoarcano.cl/product-category/juegos-de-mesa/?jsf=epro-archive-products&pagenum=1`)
@@ -102,3 +98,9 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0095) https://www.elarbolitojuegos.cl (2025/06/27 - sitio en mantenimiento)
 - (0060) https://granjuego.cl (carga contenido dinámicamente, probar con selenium engine)
 - (0030) https://store.asmodee.cl (carga contenido dinámicamente, probar con selenium engine)
+
+## Excluded
+
+- (0014) https://www.juguemosotra.cl, (sin actividad en rrss hace más de 1 año)
+- (0010) https://juegalos.cl, (sin actividad en rrss hace más de 1 año)
+- (0005) https://www.dracarysgames.cl, (sin actividad en rrss hace más de 1 año)
