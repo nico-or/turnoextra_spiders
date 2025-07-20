@@ -78,7 +78,7 @@ class ApplicationSpider < Tanakai::Base
       # Global option to set delay between requests.
       # Delay can be `Integer`, `Float` or `Range` (`2..5`). In case of a range,
       # delay number will be chosen randomly for each request: `rand (2..5) # => 3`
-      delay: (2..4)
+      delay: 2
     }
   }
 

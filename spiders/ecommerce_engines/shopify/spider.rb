@@ -4,6 +4,10 @@ module EcommerceEngines
   module Shopify
     # Base spider class for all stores build with Shopify
     class Spider < ApplicationSpider
+      @config = {
+        delay: 4
+      }
+
       selector :url, "a"
 
       def format_image_url(url)
