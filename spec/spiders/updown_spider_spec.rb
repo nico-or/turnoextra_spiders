@@ -14,9 +14,9 @@ RSpec.describe UpdownSpider do
       Nokogiri::HTML(html)
     end
 
-    it "returns 32 items" do
+    it "returns 12 items" do
       items = spider.send(:parse_index, response, url: store_url)
-      expect(items.length).to eq(32)
+      expect(items.length).to eq(12)
     end
   end
 
@@ -26,11 +26,11 @@ RSpec.describe UpdownSpider do
 
       let(:expected) do
         {
-          url: "https://www.updown.cl/producto/rcg-random-card-generator/",
-          title: "RCG – Random Card Generator",
-          price: 15_990,
+          url: "https://www.updown.cl/producto/fundas-stronghold-mini-european-44x68mm/",
+          title: "Fundas Stronghold Mini European 44x68mm",
+          price: 1_990,
           stock: true,
-          image_url: "https://www.updown.cl/wp-content/uploads/2025/06/original-34.jpeg"
+          image_url: "https://www.updown.cl/wp-content/uploads/2025/07/original-294.jpeg"
         }
       end
 
@@ -42,11 +42,11 @@ RSpec.describe UpdownSpider do
 
       let(:expected) do
         {
-          url: "https://www.updown.cl/producto/sonora/",
-          title: "Sonora",
-          price: 22_990,
+          url: "https://www.updown.cl/producto/star-realms-escenarios/",
+          title: "Star Realms: Escenarios",
+          price: 2_480,
           stock: true,
-          image_url: "https://www.updown.cl/wp-content/uploads/2025/06/original-15.jpeg"
+          image_url: "https://www.updown.cl/wp-content/uploads/2024/11/standard_resolution-610.jpg"
         }
       end
 
