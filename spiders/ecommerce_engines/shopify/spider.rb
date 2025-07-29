@@ -5,7 +5,9 @@ module EcommerceEngines
     # Base spider class for all stores build with Shopify
     class Spider < ApplicationSpider
       @config = {
-        delay: 4
+        before_request: {
+          delay: 4..6
+        }
       }
 
       selector :url, "a"
