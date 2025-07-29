@@ -6,6 +6,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 - (1406) https://www.lafortalezapuq.cl
 - (1361) https://www.entrejuegos.cl
+- (1231) https://www.mirax.cl/
 - (1045) https://www.flexogames.cl
 - (0989) https://www.updown.cl
 - (0982) https://www.planetaloz.cl
