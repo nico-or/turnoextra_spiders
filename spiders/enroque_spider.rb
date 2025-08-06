@@ -8,9 +8,7 @@ class EnroqueSpider < EcommerceEngines::Shopify::Spider
     url: "https://www.juegosenroque.cl/"
   }
   @start_urls = [
-    "https://www.juegosenroque.cl/collections/todos-los-juegos-de-mesa",
-    "https://www.juegosenroque.cl/collections/preventas",
-    "https://www.juegosenroque.cl/collections/ofertas"
+    "https://www.juegosenroque.cl/collections/todos-los-juegos-de-mesa"
   ]
   @config = {}
 
