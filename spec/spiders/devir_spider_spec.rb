@@ -38,17 +38,16 @@ RSpec.describe DevirSpider do
       it_behaves_like "a product node parser"
     end
 
-    context "with a discounted price index product node",
-            skip: "no listings were in discount at the time of writting" do
+    context "with a discounted price index product node" do
       let(:filename) { File.join("spec/fixtures", fixture_directory, "product_index_node_discounted.html") }
 
       let(:expected) do
         {
-          url: "",
-          title: "",
-          price: 0,
+          url: "https://devir.cl/qawale",
+          title: "Qawale",
+          price: 27_891,
           stock: true,
-          image_url: ""
+          image_url: "https://devirinvestments.s3.eu-west-1.amazonaws.com/img/catalog/product/3421271373117-1200-face3d.jpg"
         }
       end
 

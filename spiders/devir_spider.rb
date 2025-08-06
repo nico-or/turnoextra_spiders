@@ -24,11 +24,10 @@ class DevirSpider < ApplicationSpider
   end
 
   def get_price(node)
-    price_node = node.at_css("span.price")
+    price_node = node.at_css("span[data-price-type=finalPrice]")
     return unless price_node
 
-    # Example text: 12.990,00 CLP
-    clean_price_text = price_node.text.split(",00").first.strip
+    clean_price_text = price_node.attr("data-price-amount")
     scan_int(clean_price_text)
   end
 
