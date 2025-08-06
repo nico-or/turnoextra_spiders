@@ -38,17 +38,16 @@ RSpec.describe WargamingSpider do
       it_behaves_like "a product node parser"
     end
 
-    context "with a discounted price index product node",
-            skip: "no listings were in discount at the time of writting" do
+    context "with a discounted price index product node" do
       let(:filename) { File.join("spec/fixtures", fixture_directory, "product_index_node_discounted.html") }
 
       let(:expected) do
         {
-          url: "",
-          title: "",
-          price: 0,
+          url: "https://www.wargaming.cl/product/azul-pabellones-acristalados-expansion",
+          title: "AZUL: PABELLONES ACRISTALADOS (EXPANSIÓN)",
+          price: 10_493,
           stock: true,
-          image_url: ""
+          image_url: "https://dojiw2m9tvv09.cloudfront.net/16153/product/M_azul8564.jpg"
         }
       end
 
