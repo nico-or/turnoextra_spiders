@@ -115,3 +115,13 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0014) https://www.juguemosotra.cl, (sin actividad en rrss hace más de 1 año)
 - (0010) https://juegalos.cl, (sin actividad en rrss hace más de 1 año)
 - (0005) https://www.dracarysgames.cl, (sin actividad en rrss hace más de 1 año)
+
+## No website
+
+- Ilusiones Industriales
+- Juedh Store
+- La Aventura De Arqui
+- La Forja de Stone
+- Posada del Hechicero
+- Tienda Himura
+- Turno Zero
