@@ -90,6 +90,15 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
+- (0335) https://www.ludipuerto.cl/
+- (0105) https://laposadadeldado.cl/
+- (0091) https://www.laguaridadeldragon.cl/
+- (0089) https://www.gamehousecoyhaique.cl/
+- (0079) https://www.calabozotienda.cl/
+- (0066) https://jugandoando.cl/
+- (0023) https://www.hellstoresing.cl/
+- (0002) https://onplaygames.cl/
+
 ## Backlog
 
 - (0500) https://gatoarcano.cl (carga contenido dinámicamente, probar un loop haciendo `GET https://gatoarcano.cl/product-category/juegos-de-mesa/?jsf=epro-archive-products&pagenum=1`)
