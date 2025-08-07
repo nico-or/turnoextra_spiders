@@ -35,6 +35,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0274) https://www.griffingames.cl
 - (0268) https://tentami.cl/
 - (0240) https://fzcubes.cl
+- (0234) https://www.ludipuerto.cl/
 - (0226) https://playkingdom.cl
 - (0225) https://manahouse.cl
 - (0222) https://shivano.cl
@@ -90,7 +91,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
-- (0335) https://www.ludipuerto.cl/
 - (0105) https://laposadadeldado.cl/
 - (0091) https://www.laguaridadeldragon.cl/
 - (0089) https://www.gamehousecoyhaique.cl/
