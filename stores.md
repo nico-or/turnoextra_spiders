@@ -84,6 +84,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0035) https://www.rivendelelconcilio.cl
 - (0032) https://www.juegomania.cl/
 - (0031) https://www.ratademesa.cl
+- (0030) https://www.gamehousecoyhaique.cl/
 - (0025) https://eldesafiostore.cl/
 - (0025) https://carontejuegosdemesa.cl/
 - (0024) https://www.gamingplace.cl
@@ -93,7 +94,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
-- (0089) https://www.gamehousecoyhaique.cl/
 - (0079) https://www.calabozotienda.cl/
 - (0066) https://jugandoando.cl/
 - (0023) https://www.hellstoresing.cl/
