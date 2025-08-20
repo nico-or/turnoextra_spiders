@@ -75,6 +75,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0067) https://jugandoando.cl/
 - (0064) https://dondejuego.cl
 - (0062) https://elkingo.com
+- (0059) https://www.calabozotienda.cl/
 - (0056) https://www.cuatroemes.cl
 - (0055) https://elarcanista.cl
 - (0051) https://www.ovniplay.cl/
@@ -95,7 +96,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## To Do
 
-- (0079) https://www.calabozotienda.cl/
 - (0023) https://www.hellstoresing.cl/
 - (0002) https://onplaygames.cl/
 

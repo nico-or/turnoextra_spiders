@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Calabozo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="https://www.calabozotienda.cl/img-calabozo/Logo-Calabozo.png">
+        <style>
+            @font-face {
+            font-family: "DIMCondensed";
+            src: url("https://www.calabozotienda.cl/fonts/DIN Condensed.ttf");
+            }
+        </style>
+                
+        <!-- visor de fotos -->
+        <link rel="stylesheet" href="https://www.calabozotienda.cl/css/style.css">
+        <link rel="stylesheet" href="https://www.calabozotienda.cl/css/RedesSociales.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" integrity="sha256-HAaDW5o2+LelybUhfuk0Zh2Vdk8Y2W2UeKmbaXhalfA=" crossorigin="anonymous" />
+        <script>
+            var token = "dm2ie5M5vCoJXf38iqsciv5yHpPXArUTb3MjDISY";
+            var url = "https://www.calabozotienda.cl";
+        </script>
+        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+        <link rel="stylesheet" href="https://www.calabozotienda.cl/css/app.css">
+
+
+        <!-- Carga dinamicamente el numero de items en el carro  -->
+        <script type="text/javascript">
+           /* function actualizar(){
+                location.reload(true);
+                document.getElementById("agregar").focus();
+                },1000;
+            //Función para actualizar cada 5 segundos(5000 milisegundos)
+            //setInterval("actualizar()",1000);*/
+            </script>
+
+    </head>
+
+    <body>
+        <!-- Header. contains the header -->
+        <header id="header" class="">
+    <div class="fluid-container" style="background-color: #000">
+        <div class="row" style="margin-right:0px; margin-left:0px;">
+            <div class="col-md-2 col-sm-12">
+                                    <a id="inicio" href="https://www.calabozotienda.cl">
+                        <img class="img-fluid d-block" src="https://www.calabozotienda.cl/Assets/LogoSuperior/LogoSuperior1_09202021171509.png" width="200px" style="margin-right: auto;
+                        margin-left: auto;">
+                    </a>
+                            </div>
+            <div class="col-md-6 col-sm-12" style="margin:auto">
+                <form id="buscador" class="form-inline">
+                    <div class="input-group" style="width: 100%;">
+                        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Buscar">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary text-white" type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4 col-sm-12 text-center" style="margin:auto; display:flex; align-items: center; justify-content: center;">
+                <div class="cart-menu align-items-center d-flex" style="width: 100%">
+                    <div class="sidebar-social" style="width: 100%">
+                      <ul class="ListaNavegacion" >
+                        <li >
+                          <a                           href="https://www.calabozotienda.cl/login"
+                           ><i class="fa fa-user fa-2x" style="color: #C52828"></i>
+                                                    <span class=" text-white">Mi cuenta</span>
+                                                    </a>
+                        </li>
+                        <li >
+                          <a href="https://www.calabozotienda.cl/carrito/show" class="cart"><i class="fa fa-shopping-cart" style="color: #C52828"></i>
+                            <span class=" text-white">Carrito</span>
+                            <span id="CantidadCarro" data-action="cart-can" class="badge rounded-circle text-center">0</span>
+                          </a>
+                        </li>
+
+                        <li >
+                            <a href="https://www.calabozotienda.cl/TrackingPublic" class="cart"><i class="fa fa-truck" style="color: #C52828"></i>
+                                <span class=" text-white">Seguimiento</span>
+                            </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+
+            <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar11">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar11">
+                <ul class="navbar-nav mr-auto flex-wrap w-75 ">
+                    <li class="nav-item"  id="inicio"><a class="nav-link" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl" ><b>INICIO</b></a></li>
+                    <!-- <li class="nav-item"><a class="nav-link tienda" data-family="" href="" ><b>Tienda</b></a></li> -->
+                                        <div class="dropdown show ">
+                        <a class=" nav-item nav-link " style="font-family: DIMCondensed;font-size: 20px"  href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        CATEGORIAS
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        <a class="dropdown-item" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/tienda/familia/ACCESORIOS%20-%20ARCHIVADORES%2C%20CARPETAS%20Y%20HOJAS">
+                                <b>ACCESORIOS - ARCHIVADORES, CARPETAS Y HOJAS</b></a>
+                                                        <a class="dropdown-item" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/tienda/familia/ACCESORIOS%20-%20PLAYMATS%2C%20DADOS%20Y%20BOLSAS">
+                                <b>ACCESORIOS - PLAYMATS, DADOS Y BOLSAS</b></a>
+                                                        <a class="dropdown-item" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/tienda/familia/ACCESORIOS%20-%20PORTAMAZOS">
+                                <b>ACCESORIOS - PORTAMAZOS</b></a>
+                                                        <a class="dropdown-item" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/tienda/familia/ACCESORIOS%20-%20PROTECTORES">
+                                <b>ACCESORIOS - PROTECTORES</b></a>
+                                                        <a class="dropdown-item" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/tienda/familia/EVENTOS">
+                                <b>EVENTOS</b></a>
+                                                        <a class="dropdown-item" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/tienda/familia/HEROCLIX">
+                                <b>HEROCLIX</b></a>
+                                                        <a class="dropdown-item" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/tienda/familia/JUEGOS%20DE%20MESA">
+                                <b>JUEGOS DE MESA</b></a>
+                                                        <a class="dropdown-item" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/tienda/familia/JUEGOS%20DE%20ROL">
+                                <b>JUEGOS DE ROL</b></a>
+                                                        <a class="dropdown-item" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/tienda/familia/LIBROS%2C%20COMICS%2C%20PELUCHES%20Y%20OTROS">
+                                <b>LIBROS, COMICS, PELUCHES Y OTROS</b></a>
+                                                        <a class="dropdown-item" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/tienda/familia/LIVING%20CARD%20GAMES">
+                                <b>LIVING CARD GAMES</b></a>
+                                                        <a class="dropdown-item" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/tienda/familia/PINTURAS%20Y%20FIGURAS">
+                                <b>PINTURAS Y FIGURAS</b></a>
+                                                        <a class="dropdown-item" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/tienda/familia/PREVENTAS">
+                                <b>PREVENTAS</b></a>
+                                                        <a class="dropdown-item" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/tienda/familia/TCG%20-%20ALTERED">
+                                <b>TCG - ALTERED</b></a>
+                                                        <a class="dropdown-item" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/tienda/familia/TCG%20-%20MAGIC%20THE%20GATHERING">
+                                <b>TCG - MAGIC THE GATHERING</b></a>
+                                                        <a class="dropdown-item" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/tienda/familia/TCG%20-%20MITOS%20Y%20LEYENDAS">
+                                <b>TCG - MITOS Y LEYENDAS</b></a>
+                                                        <a class="dropdown-item" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/tienda/familia/TCG%20-%20POKEMON">
+                                <b>TCG - POKEMON</b></a>
+                                                        <a class="dropdown-item" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/tienda/familia/TCG%20-%20STAR%20WARS%20UNLIMITED">
+                                <b>TCG - STAR WARS UNLIMITED</b></a>
+                                                        <a class="dropdown-item" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/tienda/familia/TCG%20-%20YU-GI-OH">
+                                <b>TCG - YU-GI-OH</b></a>
+                                                    </div>
+                      </div>
+
+                      <li class="nav-item"  id="inicio"><a class="nav-link" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/pagina/nosotros" ><b>SOBRE NOSOTROS</b></a></li>
+                      <li class="nav-item"  id="inicio"><a class="nav-link" style="font-family: DIMCondensed;font-size: 20px" href="https://www.calabozotienda.cl/pagina/terminos" ><b>TÉRMINOS DE USO</b></a></li>
+                </ul>
+            </div>
+            <!-- iconos sociales -->
+            <div class="d-flex flex-row order-2 order-lg-3" style="margin-right: 10px;">
+                <ul class="navbar-nav flex-row">
+                    <li class="nav-item" style="padding-right: 6px;"><a class="nav-link px-2" href="https://www.facebook.com/elcalabozotienda/" target="_blank"><span class="fa fa-facebook"></span></a></li>
+                    <li class="nav-item" style="padding-right: 6px;"><a class="nav-link px-2" href="https://www.instagram.com/calabozo_tienda/" target="_blank"><span class="fa fa-instagram"></span></a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="collapse" id="addProducto">
+        </div>
+    </div>
+</header>
+        <!-- Content Wrapper. Contains page content -->
+        <section class="content">
+    
+
+<div class="section container">
+    <div class="col-12 text-center">
+        <div class="section container">
+        
+        <nav aria-label="Page navigation example" class="justify-content-between">
+            <div class=" row">
+                <div class=" col-md-6 d-none d-sm-block">
+                    <ul class="pagination text-center" >
+                                                <li class="page-item" >
+                            <div class="form-inline m-3">
+                                <div class="col-12 form-inline">
+                                    <label class="mr-sm-2">Ordenar </label>
+                                    <div class="justify-content-around">
+                                    <select name="Ordenamiento" id="Ordenamiento" class="form-control w-100" onchange="Ordenamiento()">
+                                        <option value="PA" >De menor a mayor precio</option>
+                                        <option value="PD" >De mayor a menor precio</option>
+                                        <option value="AZ"  selected >De la A a la Z</option>
+                                        <option value="ZA" >De la Z a la A</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6 d-none d-sm-block">
+                    <ul class="pagination justify-content-end text-center">
+                        
+                        <li class="">
+                            <ul class="pagination justify-content-end text-center">
+                                                                                                <li class="page-item text-center"> <a class="page-link text-center" href="https://www.calabozotienda.cl/tienda/familia/JUEGOS DE MESA/2">Siguiente</a></li>
+                                                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+
+                
+
+                <div class="col-6 d-md-none d-lg-none" style="padding-left: 0px">
+                    <ul class="pagination text-center" >
+                                                <li class="page-item" >
+                            <div class="form-inline">
+                                <div class="col-12 form-inline">
+                                    <label class="">Ordenar </label>
+                                    <div class="justify-content-around">
+                                    <select style="font-size: 14px" name="OrdenamientoResponsivo" id="OrdenamientoResponsivo" class="form-control w-100" onchange="OrdenamientoResponsivo()">
+                                        <option value="PA" >De menor a mayor precio</option>
+                                        <option value="PD" >De mayor a menor precio</option>
+                                        <option value="AZ"  selected >De la A a la Z</option>
+                                        <option value="ZA" >De la Z a la A</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-6 d-md-none d-lg-none" style="margin-top: 30px">
+                    <ul class="pagination justify-content-end text-center" style="font-size: 12px">
+                        
+                        <li class="page-item">
+                            <ul class="pagination justify-content-end text-center">
+                                <li class=" page-item text-center"> <a class="page-link text-center" href="https://www.calabozotienda.cl/tienda/familia/JUEGOS DE MESA/0" tabindex="-1">Anterior</a></li>
+                                                                <li class="page-item text-center"> <a class="page-link text-center" href="https://www.calabozotienda.cl/tienda/familia/JUEGOS DE MESA/2">Siguiente</a></li>
+                                                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+        <h2 class=" font-color" style="font-family: DIMCondensed;font-size: 30px;"><b>PRODUCTOS </b></h2>
+    </div>
+            <div class="row">
+                                                        <div class="col-sm-4 Prod-item">
+                        <div class="card mb-3 box-shadow">
+                                                        <a href="https://www.calabozotienda.cl/ProdInfo/297">
+                                <img class="card-img-top" style="height:200px; width: 100%; display: block;object-fit: scale-down;" src="https://www.calabozotienda.cl/Imagenes-Articulos/297/297_20211104191238.jpg" data-holder-rendered="true">
+                            </a>
+                           <!-- <img class="card-img-top viewProd" alt="Producto" data-sku="" data-togle="modal" data-target="modalProd" style="height: auto; width: 100%; display: block;" src="https://www.calabozotienda.cl/Imagenes-Articulos/297/297_20211104191238.jpg" data-holder-rendered="true"> -->
+                            <div class="card-body">
+                                <p class="card-text" style="text-align: left;">
+                                    
+                                                                        <span>7 Wonders</span><br>
+                                                                        <strong>Marca: </strong>SIN MARCA<br>
+                                    <strong>Familia: </strong>JUEGOS DE MESA<br>
+                                                                        <strong>Precio: <span style="font-weight: bold;" class="font-color">$49.990</span></strong><br>
+                                </p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="btn-group">
+                                        <a href="https://www.calabozotienda.cl/ProdInfo/297"
+                                            class="btn btn-sm btn-outline-dark">
+                                            <i class="fa fa-eye" aria-hidden="true"></i> Ver
+                                        </a>
+
+                                                                                <button id="agregar" style="" data-sku="297" data-img="Imagenes-Articulos/297/297_20211104191238.jpg" data-precio="49990" data-descripcion="7 Wonders"
+                                            data-PrecioSinDescuento ="49990" data-talla="" data-color=""
+                                            type="button" class="addProd btn btn-sm btn-primary"
+                                            onclick=" setTimeout('CantidadCarro()',200)">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                            Agregar al Carrito
+                                        </button>
+                                        <p style="display: none"></p>
+                                                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                                        <div class="col-sm-4 Prod-item">
+                        <div class="card mb-3 box-shadow">
+                                                        <a href="https://www.calabozotienda.cl/ProdInfo/173">
+                                <img class="card-img-top" style="height:200px; width: 100%; display: block;object-fit: scale-down;" src="https://www.calabozotienda.cl/Imagenes-Articulos/173/173_1_20250214010419088.png" data-holder-rendered="true">
+                            </a>
+                           <!-- <img class="card-img-top viewProd" alt="Producto" data-sku="" data-togle="modal" data-target="modalProd" style="height: auto; width: 100%; display: block;" src="https://www.calabozotienda.cl/Imagenes-Articulos/173/173_1_20250214010419088.png" data-holder-rendered="true"> -->
+                            <div class="card-body">
+                                <p class="card-text" style="text-align: left;">
+                                    
+                                                                        <span>Azul Duel</span><br>
+                                                                        <strong>Marca: </strong><br>
+                                    <strong>Familia: </strong>JUEGOS DE MESA<br>
+                                                                        <strong>Precio: <span style="font-weight: bold;" class="font-color">$27.990</span></strong><br>
+                                </p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="btn-group">
+                                        <a href="https://www.calabozotienda.cl/ProdInfo/173"
+                                            class="btn btn-sm btn-outline-dark">
+                                            <i class="fa fa-eye" aria-hidden="true"></i> Ver
+                                        </a>
+
+                                                                                <button id="agregar" style="" data-sku="173" data-img="Imagenes-Articulos/173/173_1_20250214010419088.png" data-precio="27990" data-descripcion="Azul Duel"
+                                            data-PrecioSinDescuento ="27990" data-talla="" data-color=""
+                                            type="button" class="addProd btn btn-sm btn-primary"
+                                            onclick=" setTimeout('CantidadCarro()',200)">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                            Agregar al Carrito
+                                        </button>
+                                        <p style="display: none"></p>
+                                                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                                        <div class="col-sm-4 Prod-item">
+                        <div class="card mb-3 box-shadow">
+                                                        <a href="https://www.calabozotienda.cl/ProdInfo/123">
+                                <img class="card-img-top" style="height:200px; width: 100%; display: block;object-fit: scale-down;" src="https://www.calabozotienda.cl/Imagenes-Articulos/123/123_1_20230331130043426.jpg" data-holder-rendered="true">
+                            </a>
+                           <!-- <img class="card-img-top viewProd" alt="Producto" data-sku="" data-togle="modal" data-target="modalProd" style="height: auto; width: 100%; display: block;" src="https://www.calabozotienda.cl/Imagenes-Articulos/123/123_1_20230331130043426.jpg" data-holder-rendered="true"> -->
+                            <div class="card-body">
+                                <p class="card-text" style="text-align: left;">
+                                    
+                                                                        <span>Carcassonne</span><br>
+                                                                        <strong>Marca: </strong>SIN MARCA<br>
+                                    <strong>Familia: </strong>JUEGOS DE MESA<br>
+                                                                        <strong>Precio: <span style="font-weight: bold;" class="font-color">$27.990</span></strong><br>
+                                </p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="btn-group">
+                                        <a href="https://www.calabozotienda.cl/ProdInfo/123"
+                                            class="btn btn-sm btn-outline-dark">
+                                            <i class="fa fa-eye" aria-hidden="true"></i> Ver
+                                        </a>
+
+                                                                                <button id="agregar" style="" data-sku="123" data-img="Imagenes-Articulos/123/123_1_20230331130043426.jpg" data-precio="27990" data-descripcion="Carcassonne"
+                                            data-PrecioSinDescuento ="27990" data-talla="" data-color=""
+                                            type="button" class="addProd btn btn-sm btn-primary"
+                                            onclick=" setTimeout('CantidadCarro()',200)">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                            Agregar al Carrito
+                                        </button>
+                                        <p style="display: none"></p>
+                                                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                                        <div class="col-sm-4 Prod-item">
+                        <div class="card mb-3 box-shadow">
+                                                        <a href="https://www.calabozotienda.cl/ProdInfo/567">
+                                <img class="card-img-top" style="height:200px; width: 100%; display: block;object-fit: scale-down;" src="https://www.calabozotienda.cl/Imagenes-Articulos/567/567_1_20250119221556841.jpg" data-holder-rendered="true">
+                            </a>
+                           <!-- <img class="card-img-top viewProd" alt="Producto" data-sku="" data-togle="modal" data-target="modalProd" style="height: auto; width: 100%; display: block;" src="https://www.calabozotienda.cl/Imagenes-Articulos/567/567_1_20250119221556841.jpg" data-holder-rendered="true"> -->
+                            <div class="card-body">
+                                <p class="card-text" style="text-align: left;">
+                                    
+                                                                        <span>Catan - El Duelo</span><br>
+                                                                        <strong>Marca: </strong>DEVIR<br>
+                                    <strong>Familia: </strong>JUEGOS DE MESA<br>
+                                                                        <strong>Precio: <span style="font-weight: bold;" class="font-color">$25.990</span></strong><br>
+                                </p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="btn-group">
+                                        <a href="https://www.calabozotienda.cl/ProdInfo/567"
+                                            class="btn btn-sm btn-outline-dark">
+                                            <i class="fa fa-eye" aria-hidden="true"></i> Ver
+                                        </a>
+
+                                                                                <button id="agregar" style="" data-sku="567" data-img="Imagenes-Articulos/567/567_1_20250119221556841.jpg" data-precio="25990" data-descripcion="Catan - El Duelo"
+                                            data-PrecioSinDescuento ="25990" data-talla="" data-color=""
+                                            type="button" class="addProd btn btn-sm btn-primary"
+                                            onclick=" setTimeout('CantidadCarro()',200)">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                            Agregar al Carrito
+                                        </button>
+                                        <p style="display: none"></p>
+                                                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                                        <div class="col-sm-4 Prod-item">
+                        <div class="card mb-3 box-shadow">
+                                                        <a href="https://www.calabozotienda.cl/ProdInfo/309">
+                                <img class="card-img-top" style="height:200px; width: 100%; display: block;object-fit: scale-down;" src="https://www.calabozotienda.cl/Imagenes-Articulos/309/309_20211106183732.jpg" data-holder-rendered="true">
+                            </a>
+                           <!-- <img class="card-img-top viewProd" alt="Producto" data-sku="" data-togle="modal" data-target="modalProd" style="height: auto; width: 100%; display: block;" src="https://www.calabozotienda.cl/Imagenes-Articulos/309/309_20211106183732.jpg" data-holder-rendered="true"> -->
+                            <div class="card-body">
+                                <p class="card-text" style="text-align: left;">
+                                    
+                                                                        <span>Catan el Juego de Cartas</span><br>
+                                                                        <strong>Marca: </strong>DEVIR<br>
+                                    <strong>Familia: </strong>JUEGOS DE MESA<br>
+                                                                        <strong>Precio: <span style="font-weight: bold;" class="font-color">$11.390</span></strong><br>
+                                </p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="btn-group">
+                                        <a href="https://www.calabozotienda.cl/ProdInfo/309"
+                                            class="btn btn-sm btn-outline-dark">
+                                            <i class="fa fa-eye" aria-hidden="true"></i> Ver
+                                        </a>
+
+                                                                                <button id="agregar" style="" data-sku="309" data-img="Imagenes-Articulos/309/309_20211106183732.jpg" data-precio="11390" data-descripcion="Catan el Juego de Cartas"
+                                            data-PrecioSinDescuento ="11390" data-talla="" data-color=""
+                                            type="button" class="addProd btn btn-sm btn-primary"
+                                            onclick=" setTimeout('CantidadCarro()',200)">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                            Agregar al Carrito
+                                        </button>
+                                        <p style="display: none"></p>
+                                                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                                        <div class="col-sm-4 Prod-item">
+                        <div class="card mb-3 box-shadow">
+                                                        <a href="https://www.calabozotienda.cl/ProdInfo/125">
+                                <img class="card-img-top" style="height:200px; width: 100%; display: block;object-fit: scale-down;" src="https://www.calabozotienda.cl/Imagenes-Articulos/125/125_20211028014103.jpg" data-holder-rendered="true">
+                            </a>
+                           <!-- <img class="card-img-top viewProd" alt="Producto" data-sku="" data-togle="modal" data-target="modalProd" style="height: auto; width: 100%; display: block;" src="https://www.calabozotienda.cl/Imagenes-Articulos/125/125_20211028014103.jpg" data-holder-rendered="true"> -->
+                            <div class="card-body">
+                                <p class="card-text" style="text-align: left;">
+                                    
+                                                                        <span>Catan Juego Base</span><br>
+                                                                        <strong>Marca: </strong>SIN MARCA<br>
+                                    <strong>Familia: </strong>JUEGOS DE MESA<br>
+                                                                        <strong>Precio: <span style="font-weight: bold;" class="font-color">$35.990</span></strong><br>
+                                </p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="btn-group">
+                                        <a href="https://www.calabozotienda.cl/ProdInfo/125"
+                                            class="btn btn-sm btn-outline-dark">
+                                            <i class="fa fa-eye" aria-hidden="true"></i> Ver
+                                        </a>
+
+                                                                                <button id="agregar" style="" data-sku="125" data-img="Imagenes-Articulos/125/125_20211028014103.jpg" data-precio="35990" data-descripcion="Catan Juego Base"
+                                            data-PrecioSinDescuento ="35990" data-talla="" data-color=""
+                                            type="button" class="addProd btn btn-sm btn-primary"
+                                            onclick=" setTimeout('CantidadCarro()',200)">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                            Agregar al Carrito
+                                        </button>
+                                        <p style="display: none"></p>
+                                                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                                        <div class="col-sm-4 Prod-item">
+                        <div class="card mb-3 box-shadow">
+                                                        <a href="https://www.calabozotienda.cl/ProdInfo/344">
+                                <img class="card-img-top" style="height:200px; width: 100%; display: block;object-fit: scale-down;" src="https://www.calabozotienda.cl/Imagenes-Articulos/344/344_1_20220518134718683.jpg" data-holder-rendered="true">
+                            </a>
+                           <!-- <img class="card-img-top viewProd" alt="Producto" data-sku="" data-togle="modal" data-target="modalProd" style="height: auto; width: 100%; display: block;" src="https://www.calabozotienda.cl/Imagenes-Articulos/344/344_1_20220518134718683.jpg" data-holder-rendered="true"> -->
+                            <div class="card-body">
+                                <p class="card-text" style="text-align: left;">
+                                    
+                                                                        <span>Checkpoint Charlie</span><br>
+                                                                        <strong>Marca: </strong>DEVIR<br>
+                                    <strong>Familia: </strong>JUEGOS DE MESA<br>
+                                                                        <strong>Precio: <span style="font-weight: bold;" class="font-color">$18.690</span></strong><br>
+                                </p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="btn-group">
+                                        <a href="https://www.calabozotienda.cl/ProdInfo/344"
+                                            class="btn btn-sm btn-outline-dark">
+                                            <i class="fa fa-eye" aria-hidden="true"></i> Ver
+                                        </a>
+
+                                                                                <button id="agregar" style="" data-sku="344" data-img="Imagenes-Articulos/344/344_1_20220518134718683.jpg" data-precio="18690" data-descripcion="Checkpoint Charlie"
+                                            data-PrecioSinDescuento ="18690" data-talla="" data-color=""
+                                            type="button" class="addProd btn btn-sm btn-primary"
+                                            onclick=" setTimeout('CantidadCarro()',200)">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                            Agregar al Carrito
+                                        </button>
+                                        <p style="display: none"></p>
+                                                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                                        <div class="col-sm-4 Prod-item">
+                        <div class="card mb-3 box-shadow">
+                                                        <a href="https://www.calabozotienda.cl/ProdInfo/108">
+                                <img class="card-img-top" style="height:200px; width: 100%; display: block;object-fit: scale-down;" src="https://www.calabozotienda.cl/Imagenes-Articulos/108/108_1_20240718212322808.jpg" data-holder-rendered="true">
+                            </a>
+                           <!-- <img class="card-img-top viewProd" alt="Producto" data-sku="" data-togle="modal" data-target="modalProd" style="height: auto; width: 100%; display: block;" src="https://www.calabozotienda.cl/Imagenes-Articulos/108/108_1_20240718212322808.jpg" data-holder-rendered="true"> -->
+                            <div class="card-body">
+                                <p class="card-text" style="text-align: left;">
+                                    
+                                                                        <span>Código Secreto</span><br>
+                                                                        <strong>Marca: </strong>DEVIR<br>
+                                    <strong>Familia: </strong>JUEGOS DE MESA<br>
+                                                                        <strong>Precio: <span style="font-weight: bold;" class="font-color">$20.000</span></strong><br>
+                                </p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="btn-group">
+                                        <a href="https://www.calabozotienda.cl/ProdInfo/108"
+                                            class="btn btn-sm btn-outline-dark">
+                                            <i class="fa fa-eye" aria-hidden="true"></i> Ver
+                                        </a>
+
+                                                                                <button id="agregar" style="" data-sku="108" data-img="Imagenes-Articulos/108/108_1_20240718212322808.jpg" data-precio="20000" data-descripcion="Código Secreto"
+                                            data-PrecioSinDescuento ="20000" data-talla="" data-color=""
+                                            type="button" class="addProd btn btn-sm btn-primary"
+                                            onclick=" setTimeout('CantidadCarro()',200)">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                            Agregar al Carrito
+                                        </button>
+                                        <p style="display: none"></p>
+                                                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                                        <div class="col-sm-4 Prod-item">
+                        <div class="card mb-3 box-shadow">
+                                                        <a href="https://www.calabozotienda.cl/ProdInfo/314">
+                                <img class="card-img-top" style="height:200px; width: 100%; display: block;object-fit: scale-down;" src="https://www.calabozotienda.cl/Imagenes-Articulos/314/314_20211106183839.jpg" data-holder-rendered="true">
+                            </a>
+                           <!-- <img class="card-img-top viewProd" alt="Producto" data-sku="" data-togle="modal" data-target="modalProd" style="height: auto; width: 100%; display: block;" src="https://www.calabozotienda.cl/Imagenes-Articulos/314/314_20211106183839.jpg" data-holder-rendered="true"> -->
+                            <div class="card-body">
+                                <p class="card-text" style="text-align: left;">
+                                    
+                                                                        <span>Cortex Challenge</span><br>
+                                                                        <strong>Marca: </strong>SIN MARCA<br>
+                                    <strong>Familia: </strong>JUEGOS DE MESA<br>
+                                                                        <strong>Precio: <span style="font-weight: bold;" class="font-color">$15.590</span></strong><br>
+                                </p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="btn-group">
+                                        <a href="https://www.calabozotienda.cl/ProdInfo/314"
+                                            class="btn btn-sm btn-outline-dark">
+                                            <i class="fa fa-eye" aria-hidden="true"></i> Ver
+                                        </a>
+
+                                                                                <button id="agregar" style="" data-sku="314" data-img="Imagenes-Articulos/314/314_20211106183839.jpg" data-precio="15590" data-descripcion="Cortex Challenge"
+                                            data-PrecioSinDescuento ="15590" data-talla="" data-color=""
+                                            type="button" class="addProd btn btn-sm btn-primary"
+                                            onclick=" setTimeout('CantidadCarro()',200)">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                            Agregar al Carrito
+                                        </button>
+                                        <p style="display: none"></p>
+                                                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                                        <div class="col-sm-4 Prod-item">
+                        <div class="card mb-3 box-shadow">
+                                                        <a href="https://www.calabozotienda.cl/ProdInfo/131">
+                                <img class="card-img-top" style="height:200px; width: 100%; display: block;object-fit: scale-down;" src="https://www.calabozotienda.cl/Imagenes-Articulos/131/131_20211104184712.png" data-holder-rendered="true">
+                            </a>
+                           <!-- <img class="card-img-top viewProd" alt="Producto" data-sku="" data-togle="modal" data-target="modalProd" style="height: auto; width: 100%; display: block;" src="https://www.calabozotienda.cl/Imagenes-Articulos/131/131_20211104184712.png" data-holder-rendered="true"> -->
+                            <div class="card-body">
+                                <p class="card-text" style="text-align: left;">
+                                    
+                                                                        <span>Dixit Anniversary</span><br>
+                                                                        <strong>Marca: </strong>SIN MARCA<br>
+                                    <strong>Familia: </strong>JUEGOS DE MESA<br>
+                                                                        <strong>Precio: <span style="font-weight: bold;" class="font-color">$20.500</span></strong><br>
+                                </p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="btn-group">
+                                        <a href="https://www.calabozotienda.cl/ProdInfo/131"
+                                            class="btn btn-sm btn-outline-dark">
+                                            <i class="fa fa-eye" aria-hidden="true"></i> Ver
+                                        </a>
+
+                                                                                <button id="agregar" style="" data-sku="131" data-img="Imagenes-Articulos/131/131_20211104184712.png" data-precio="20500" data-descripcion="Dixit Anniversary"
+                                            data-PrecioSinDescuento ="20500" data-talla="" data-color=""
+                                            type="button" class="addProd btn btn-sm btn-primary"
+                                            onclick=" setTimeout('CantidadCarro()',200)">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                            Agregar al Carrito
+                                        </button>
+                                        <p style="display: none"></p>
+                                                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                                        <div class="col-sm-4 Prod-item">
+                        <div class="card mb-3 box-shadow">
+                                                        <a href="https://www.calabozotienda.cl/ProdInfo/129">
+                                <img class="card-img-top" style="height:200px; width: 100%; display: block;object-fit: scale-down;" src="https://www.calabozotienda.cl/Imagenes-Articulos/129/129_20211104184617.jpg" data-holder-rendered="true">
+                            </a>
+                           <!-- <img class="card-img-top viewProd" alt="Producto" data-sku="" data-togle="modal" data-target="modalProd" style="height: auto; width: 100%; display: block;" src="https://www.calabozotienda.cl/Imagenes-Articulos/129/129_20211104184617.jpg" data-holder-rendered="true"> -->
+                            <div class="card-body">
+                                <p class="card-text" style="text-align: left;">
+                                    
+                                                                        <span>Dixit Juego Base</span><br>
+                                                                        <strong>Marca: </strong>SIN MARCA<br>
+                                    <strong>Familia: </strong>JUEGOS DE MESA<br>
+                                                                        <strong>Precio: <span style="font-weight: bold;" class="font-color">$30.990</span></strong><br>
+                                </p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="btn-group">
+                                        <a href="https://www.calabozotienda.cl/ProdInfo/129"
+                                            class="btn btn-sm btn-outline-dark">
+                                            <i class="fa fa-eye" aria-hidden="true"></i> Ver
+                                        </a>
+
+                                                                                <button id="agregar" style="" data-sku="129" data-img="Imagenes-Articulos/129/129_20211104184617.jpg" data-precio="30990" data-descripcion="Dixit Juego Base"
+                                            data-PrecioSinDescuento ="30990" data-talla="" data-color=""
+                                            type="button" class="addProd btn btn-sm btn-primary"
+                                            onclick=" setTimeout('CantidadCarro()',200)">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                            Agregar al Carrito
+                                        </button>
+                                        <p style="display: none"></p>
+                                                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                                        <div class="col-sm-4 Prod-item">
+                        <div class="card mb-3 box-shadow">
+                                                        <a href="https://www.calabozotienda.cl/ProdInfo/268">
+                                <img class="card-img-top" style="height:200px; width: 100%; display: block;object-fit: scale-down;" src="https://www.calabozotienda.cl/Imagenes-Articulos/268/268_20211104191114.jpg" data-holder-rendered="true">
+                            </a>
+                           <!-- <img class="card-img-top viewProd" alt="Producto" data-sku="" data-togle="modal" data-target="modalProd" style="height: auto; width: 100%; display: block;" src="https://www.calabozotienda.cl/Imagenes-Articulos/268/268_20211104191114.jpg" data-holder-rendered="true"> -->
+                            <div class="card-body">
+                                <p class="card-text" style="text-align: left;">
+                                    
+                                                                        <span>Dobble</span><br>
+                                                                        <strong>Marca: </strong>SIN MARCA<br>
+                                    <strong>Familia: </strong>JUEGOS DE MESA<br>
+                                                                        <strong>Precio: <span style="font-weight: bold;" class="font-color">$12.490</span></strong><br>
+                                </p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="btn-group">
+                                        <a href="https://www.calabozotienda.cl/ProdInfo/268"
+                                            class="btn btn-sm btn-outline-dark">
+                                            <i class="fa fa-eye" aria-hidden="true"></i> Ver
+                                        </a>
+
+                                                                                <button id="agregar" style="" data-sku="268" data-img="Imagenes-Articulos/268/268_20211104191114.jpg" data-precio="12490" data-descripcion="Dobble"
+                                            data-PrecioSinDescuento ="12490" data-talla="" data-color=""
+                                            type="button" class="addProd btn btn-sm btn-primary"
+                                            onclick=" setTimeout('CantidadCarro()',200)">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                            Agregar al Carrito
+                                        </button>
+                                        <p style="display: none"></p>
+                                                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+            
+            <div class="section col-12">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                                                                        
+                                                                                                                                                                                                                                        
+                        
+                        <li class="page-item d-none d-sm-block font-color active"><a class="page-link font-color" href="#">1</a></li>
+
+                        
+                                                                                    <li class="page-item d-none d-sm-block font-color"><a class="page-link font-color" href="https://www.calabozotienda.cl/tienda/familia/JUEGOS DE MESA/2">2</a></li>
+                                                                                                                <li class="page-item d-none d-sm-block font-color"><a class="page-link font-color" href="https://www.calabozotienda.cl/tienda/familia/JUEGOS DE MESA/3">3</a></li>
+                                                                                                                <li class="page-item d-none d-sm-block font-color"><a class="page-link font-color" href="https://www.calabozotienda.cl/tienda/familia/JUEGOS DE MESA/4">4</a></li>
+                                                                                                                <li class="page-item d-none d-sm-block font-color"><a class="page-link font-color" href="https://www.calabozotienda.cl/tienda/familia/JUEGOS DE MESA/5">5</a></li>
+                                                    
+                        
+                                                    <li class="page-item d-none d-sm-block font-color">
+                                <a class="page-link font-color" href="https://www.calabozotienda.cl/tienda/familia/JUEGOS DE MESA/2">Siguiente</a>
+                            </li>
+                                                
+                                                <li class="page-item d-none d-sm-block font-color">
+                            <a class="page-link font-color " href="https://www.calabozotienda.cl/tienda/familia/JUEGOS DE MESA/7">&Uacute;ltima P&aacute;gina</a>
+                        </li>
+                        
+                        
+
+                                                                                                    
+                        <li class="page-item d-md-none d-lg-none active font-color"><a class="page-link font-color" href="#">1</a></li>
+
+                        
+                                                                                    <li class="page-item d-md-none d-lg-none font-color" ><a class="page-link font-color" href="https://www.calabozotienda.cl/tienda/familia/JUEGOS DE MESA/2">2</a></li>
+                                                                                                                <li class="page-item d-md-none d-lg-none font-color" ><a class="page-link font-color" href="https://www.calabozotienda.cl/tienda/familia/JUEGOS DE MESA/3">3</a></li>
+                                                    
+                                                    <li class="page-item d-md-none d-lg-none font-color" >
+                                <a class="page-link font-color" style="padding-top: 10px;padding-bottom: 11px" href="https://www.calabozotienda.cl/tienda/familia/JUEGOS DE MESA/2"><i class="fa fa-angle-right fa-lg"></i></a>
+                            </li>
+                                            </ul>
+                </nav>
+            </div>
+            </div>
+
+</div>
+</section>        <!-- Footer. contains the footer -->
+        <footer id="footer">
+    <div class="" style="background-color: black;">
+        <div class="container">
+            <div class="row">
+                <div class="p-4 col-md-4">
+                    <p><a href="https://api.whatsapp.com/send?phone=56934613599" target="_blank" class="text-white"><i class="fa d-inline mr-3 text-muted fa-phone"></i>+56 - 934613599</a></p>
+                </div>
+                <div class="p-4 col-md-4">
+                    <p><a href="mailto:contacto@calabozotienda.cl" class="text-white" style="font-size: 16px"><i class="fa d-inline mr-3 text-muted fa-envelope-o"></i>contacto@calabozotienda.cl</a></p>
+                </div>
+                <div class="p-4 col-md-4">
+                    <p><a href="https://www.google.com/maps/place/Libertador+Gral.+Bernardo+O'Higgins+950,+Concepci%C3%B3n,+B%C3%ADo+B%C3%ADo/@-36.8261616,-73.0459803,17z/data=!3m1!4b1!4m5!3m4!1s0x9669b5d22c0e5781:0x70dd0de7c8eef8a5!8m2!3d-36.8261616!4d-73.0459803" class="text-white" target="_blank"><i class="fa d-inline mr-3 fa-map-marker text-muted"></i>O'Higgins 950B, Concepción, Bío Bío</a></p>
+                </div>
+
+                <div class=" col-md-3">
+
+                </div>
+                <div class=" col-md-3">
+                                            <img class="img-fluid d-block w-100" src="https://www.calabozotienda.cl/Assets/LogoInferior/LogoInferior1_09202021133231.png"> <br>
+                                    </div>
+                <div class=" col-md-3">
+                    <img src="https://www.calabozotienda.cl/img-calabozo/logo_mercado.png" style="width: 100%"><br>
+                    <img src="https://www.calabozotienda.cl/img-calabozo/icon-payment-methods.png" style="width: 100%">
+                </div>
+                <div class=" col-md-3">
+
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12 mt-3">
+                                        <p class="text-center text-white" style="margin-bottom: 0px">Desarrollado por Wikets Software 2025</p>
+                    <p class="text-center text-white"><a href="https://www.wikets.cl/" class=" text-white">www.wikets.cl</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="MensajeCantidad" class="modal fade">
+            <div class="modal-dialog modal-login">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" style="color: #000; font-weight: bold">Mensaje</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p style="font-weight: bold">Solo se puede agregar al carro una unidad del producto seleccionado por compra.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="FaltaStock" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title font-color" id="exampleModalLabel">Falta de stock</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>No hay stock suficiente del artículo seleccionado</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <a href="https://api.whatsapp.com/send?phone=56934613599" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+        <a href="mailto:contacto@calabozotienda.cl" class="correo" target="_blank"> <i class="fa fa-envelope correo-icon"></i></i></a>
+
+        <!-- Alert -->
+        <div id="Alert" style="width: 500px; position: fixed; left: 20px; bottom: 0px; z-index: 9999;"></div>
+
+        <script src="https://www.calabozotienda.cl/js/app.js"></script>
+
+        
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <!-- visor de fotos -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js" integrity="sha256-Y1rRlwTzT5K5hhCBfAFWABD4cU13QGuRN6P5apfWzVs=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js.map"></script>
+
+        <!-- mascara de input -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/css/inputmask.min.css" rel="stylesheet"/>
+        <script src="https://www.calabozotienda.cl/js/jquery.rut.js"></script>
+
+        <script>
+    function Ordenamiento(){
+        var Seleccion = document.getElementById('Ordenamiento');
+        var URLactual = window.location;
+        var url= "https://www.calabozotienda.cl/Ordenamiento";
+        console.log(Seleccion.value);
+        $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url:url,
+                type: 'POST',
+                    data: {
+                        "_token": "dm2ie5M5vCoJXf38iqsciv5yHpPXArUTb3MjDISY",
+                        Orden:Seleccion.value,
+                    },
+                    success: function( data ){
+                        location.reload();
+                    },
+                    error: function (xhr, b, c) {
+                        console.log("xhr=" + xhr + " b=" + b + " c=" + c);
+                    }
+                });
+    }
+</script>
+<script>
+    function OrdenamientoResponsivo(){
+        var Seleccion = document.getElementById('OrdenamientoResponsivo');
+        var URLactual = window.location;
+        var url= "https://www.calabozotienda.cl/Ordenamiento";
+        console.log(Seleccion.value);
+        $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url:url,
+                type: 'POST',
+                    data: {
+                        "_token": "dm2ie5M5vCoJXf38iqsciv5yHpPXArUTb3MjDISY",
+                        Orden:Seleccion.value,
+                    },
+                    success: function( data ){
+                        location.reload();
+                    },
+                    error: function (xhr, b, c) {
+                        console.log("xhr=" + xhr + " b=" + b + " c=" + c);
+                    }
+                });
+    }
+</script>
+
+
+        <script>
+            function CantidadCarro(){
+                var url= "https://www.calabozotienda.cl/CantidadCarro";
+                //await sleep(1000);
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url:url,
+                    type: 'POST',
+                    data: {
+                        "_token": "dm2ie5M5vCoJXf38iqsciv5yHpPXArUTb3MjDISY",
+                    },
+                    success: function( data ){
+                        var Cantidad =  document.getElementById('CantidadCarro');
+                        console.log(data);
+                        Cantidad.innerHTML= data;
+                        var Botton = document.getElementById('agregar');
+                    },
+                    error: function (xhr, b, c) {
+                        console.log("xhr=" + xhr + " b=" + b + " c=" + c);
+                    }
+                });
+            }
+
+        </script>
+    </body>
+</html>
