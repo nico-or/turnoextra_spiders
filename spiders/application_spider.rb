@@ -175,6 +175,7 @@ class ApplicationSpider < Tanakai::Base
   end
 
   def absolute_url(rel_url, base:)
-    URI.join(base, rel_url).to_s
+    uri = Addressable::URI.parse(rel_url).normalize
+    URI.join(base, uri).to_s
   end
 end
