@@ -15,9 +15,9 @@ RSpec.describe PiedrabrujaSpider do
       Nokogiri::HTML(html)
     end
 
-    it "returns 53 items" do
+    it "returns 24 items" do
       items = spider.send(:parse_index, response, url: store_url)
-      expect(items.length).to eq(53)
+      expect(items.length).to eq(24)
     end
   end
 
@@ -27,11 +27,11 @@ RSpec.describe PiedrabrujaSpider do
 
       let(:expected) do
         {
-          url: "https://www.piedrabruja.cl/products/dinosaur-building-blocks",
-          title: "Dinosaur Building Blocks",
-          price: 14_990,
+          url: "https://www.piedrabruja.cl/products/talisman-5th-edicion",
+          title: "Talisman 5th Edicion",
+          price: 59_990,
           stock: true,
-          image_url: "https://piedrabruja.cl/cdn/shop/files/Dinosaur_Building_Blocks_Portada.webp"
+          image_url: "https://piedrabruja.cl/cdn/shop/files/Talisman_5th_Edicion_Portada.webp"
         }
       end
 
@@ -43,11 +43,11 @@ RSpec.describe PiedrabrujaSpider do
 
       let(:expected) do
         {
-          url: "https://www.piedrabruja.cl/products/bundle-nemesis-expansiones",
-          title: "Bundle Nemesis: Expansiones",
-          price: 66_980,
+          url: "https://www.piedrabruja.cl/products/love-letter-eco-box",
+          title: "Love Letter Eco Box",
+          price: 12_990,
           stock: true,
-          image_url: "https://piedrabruja.cl/cdn/shop/files/tazasD_D.png"
+          image_url: "https://piedrabruja.cl/cdn/shop/files/Love-Letter-Eco-Box-Portada.png"
         }
       end
 
@@ -64,7 +64,7 @@ RSpec.describe PiedrabrujaSpider do
 
       it "has a next page" do
         actual = spider.next_page_url(response, store_url)
-        expected = "https://www.piedrabruja.cl/collections/juegos-de-mesa?page=3&phcursor=eyJhbGciOiJIUzI1NiJ9.eyJzayI6InByb2R1Y3RfY3JlYXRlZF9hdCIsInN2IjoiMjAyNS0wNC0xMVQyMDo1NzoxMi4wMDBaIiwiZCI6ImYiLCJ1aWQiOjQwNTkyMDg2MzM1NzY4LCJsIjo0OCwibyI6MCwiciI6IkNEUCIsInYiOjF9.MGnC-RJk7T_vpFFoj1udwQq5sd4mmi2aMM0gAM6VDqg"
+        expected = "https://www.piedrabruja.cl/collections/juegos-de-mesa?page=2"
         expect(actual).to eq(expected)
       end
     end

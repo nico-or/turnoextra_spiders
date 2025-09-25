@@ -14,26 +14,25 @@ class PiedrabrujaSpider < EcommerceEngines::Shopify::Spider
   @start_urls = ["https://piedrabruja.cl/collections/juegos-de-mesa?page=1"]
   @config = {}
 
-  selector :index_product, "ul#collection li.product-card"
-  selector :title, "h3"
-
-  def next_page_url(response, url)
-    # Each page after the first hast more than one a#load-more-button element... :sigh:
-    # The last page is a back to home with href='#root'.
-    # I don't want to find out how the spider will behave there, so I added a guard
-    next_page = response.css("a#load-more-button").last
-    return if next_page.nil? || next_page[:href] == "#root"
-
-    absolute_url(next_page[:href], base: url)
-  end
+  selector :next_page, "div.pagination a[@rel=next]"
+  selector :index_product, "div.product-list div.product-item"
+  selector :title, "a.product-item__title"
 
   private
 
+  def regular_price(node)
+    node.at_css("span.price")
+  end
+
+  def discount_price(node)
+    node.at_css("span.price--highlight")
+  end
+
   def get_price(node)
-    price_node = node.at_css("p.price").children.last
+    price_node = discount_price(node) || regular_price(node)
     return unless price_node
 
-    scan_int(price_node.text)
+    scan_int(price_node.children.last.text)
   end
 
   def in_stock?(_node)
