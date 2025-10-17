@@ -15,9 +15,9 @@ RSpec.describe CatronJuegosSpider do
       Nokogiri::HTML(html)
     end
 
-    it "returns 40 items" do
+    it "returns 30 items" do
       items = spider.send(:parse_index, response, url: store_url)
-      expect(items.length).to eq(40)
+      expect(items.length).to eq(30)
     end
   end
 
@@ -43,11 +43,11 @@ RSpec.describe CatronJuegosSpider do
 
       let(:expected) do
         {
-          url: "https://www.catronjuegos.cl/set-4-conos-lenteja-franklin",
-          title: "Set 4 Conos Lenteja Franklin",
-          price: 6_990,
+          url: "https://www.catronjuegos.cl/mesa-cornilleau-competition-540-ittf",
+          title: "Mesa Cornilleau Competition 540 Ittf",
+          price: 998_000,
           stock: true,
-          image_url: "https://cdnx.jumpseller.com/catron-juegos-y-pasatiempos/image/30063257"
+          image_url: "https://cdnx.jumpseller.com/catron-juegos-y-pasatiempos/image/13411069"
         }
       end
 
@@ -59,11 +59,11 @@ RSpec.describe CatronJuegosSpider do
 
       let(:expected) do
         {
-          url: "https://www.catronjuegos.cl/rumino",
-          title: "Ruminó",
-          price: 8_500,
+          url: "https://www.catronjuegos.cl/tablero-chino",
+          title: "Tablero Chino",
+          price: 5_990,
           stock: false,
-          image_url: "https://cdnx.jumpseller.com/catron-juegos-y-pasatiempos/image/51465666"
+          image_url: "https://cdnx.jumpseller.com/catron-juegos-y-pasatiempos/image/13410352"
         }
       end
 
