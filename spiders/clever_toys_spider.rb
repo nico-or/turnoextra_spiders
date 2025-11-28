@@ -9,14 +9,14 @@ class CleverToysSpider < EcommerceEngines::WooCommerce::Spider
     url: "https://www.clevertoys.cl/"
   }
   @start_urls = [
-    "https://www.clevertoys.cl/categoria-producto/juegos-de-mesa/aventuras/",
-    "https://www.clevertoys.cl/categoria-producto/juegos-de-mesa/cartas/",
-    "https://www.clevertoys.cl/categoria-producto/juegos-de-mesa/cooperativo/",
-    "https://www.clevertoys.cl/categoria-producto/juegos-de-mesa/estrategia/",
-    "https://www.clevertoys.cl/categoria-producto/juegos-de-mesa/familiar/",
-    "https://www.clevertoys.cl/categoria-producto/juegos-de-mesa/infantil/",
-    "https://www.clevertoys.cl/categoria-producto/juegos-de-mesa/party-game/",
-    "https://www.clevertoys.cl/categoria-producto/juegos-de-mesa/wargame/"
+    "https://www.clevertoys.cl/categoria-producto/juegos-de-mesa/aventuras/?per_page=36",
+    "https://www.clevertoys.cl/categoria-producto/juegos-de-mesa/cartas/?per_page=36",
+    "https://www.clevertoys.cl/categoria-producto/juegos-de-mesa/cooperativo/?per_page=36",
+    "https://www.clevertoys.cl/categoria-producto/juegos-de-mesa/estrategia/?per_page=36",
+    "https://www.clevertoys.cl/categoria-producto/juegos-de-mesa/familiar/?per_page=36",
+    "https://www.clevertoys.cl/categoria-producto/juegos-de-mesa/infantil/?per_page=36",
+    "https://www.clevertoys.cl/categoria-producto/juegos-de-mesa/party-game/?per_page=36",
+    "https://www.clevertoys.cl/categoria-producto/juegos-de-mesa/wargame/?per_page=36"
   ]
 
   selector :index_product, "div.products div.product"
