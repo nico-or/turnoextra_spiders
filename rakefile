@@ -27,7 +27,7 @@ end
 
 desc "Runs the Tanakai runner with 10 jobs."
 task :runner do
-  sh "bundle exec tanakai runner --jobs=10"
+  sh "bundle exec tanakai runner --jobs=20"
 end
 
 desc "Archives all CSV files in the db directory to the 'archive' directory."
