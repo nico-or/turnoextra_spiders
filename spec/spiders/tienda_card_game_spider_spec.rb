@@ -15,9 +15,9 @@ RSpec.describe TiendaCardGameSpider do
       Nokogiri::HTML(html)
     end
 
-    it "returns 25 items" do
+    it "returns 15 items" do
       items = spider.send(:parse_index, response, url: store_url)
-      expect(items.length).to eq(25)
+      expect(items.length).to eq(15)
     end
   end
 
@@ -27,18 +27,18 @@ RSpec.describe TiendaCardGameSpider do
 
       let(:expected) do
         {
-          url: "https://www.cardgame.cl/collections/juegos-de-mesa/products/aventureros-al-tren-londres",
-          title: "¡AVENTUREROS AL TREN! LONDRES",
-          price: 19_990,
+          url: "https://www.cardgame.cl/product/3-ring-circus-solitary-deck",
+          title: "3 Ring Circus Solitary Deck",
+          price: 1_990,
           stock: true,
-          image_url: "https://www.cardgame.cl/cdn/shop/products/74784258-3ad2-488d-baef-30a946773fd5_2048x.jpg"
+          image_url: "https://dojiw2m9tvv09.cloudfront.net/114464/product/3-ring-circus-solitary-deck8965.jpg"
         }
       end
 
       it_behaves_like "a product node parser"
     end
 
-    context "with a discounted price index product node" do
+    context "with a discounted price index product node", skip: "no discounted products" do
       let(:filename) { File.join("spec/fixtures", fixture_directory, "product_index_node_discounted.html") }
 
       let(:expected) do
@@ -59,11 +59,11 @@ RSpec.describe TiendaCardGameSpider do
 
       let(:expected) do
         {
-          url: "https://www.cardgame.cl/collections/juegos-de-mesa/products/la-feria-de-las-pulgas-de-titirilquen",
-          title: "31 MINUTOS: LA FERIA DE LAS PULGAS DE TITIRILQUÉN",
-          price: 12_990,
+          url: "https://www.cardgame.cl/product/nemesis-lockdown",
+          title: "Némesis: Lockdown",
+          price: 174_990,
           stock: false,
-          image_url: "https://www.cardgame.cl/cdn/shop/products/LaFeria_3D_2048x.png"
+          image_url: "https://dojiw2m9tvv09.cloudfront.net/114464/product/71c56yfa1wl-ac-sl15000754.png"
         }
       end
 
@@ -80,7 +80,7 @@ RSpec.describe TiendaCardGameSpider do
 
       it "has a next page" do
         actual = spider.next_page_url(response, store_url)
-        expected = "https://www.cardgame.cl/collections/juegos-de-mesa?page=2&phcursor=eyJhbGciOiJIUzI1NiJ9.eyJzayI6InByb2R1Y3RfdGl0bGUiLCJzdiI6IkFHUklDT0xBOiBCT1NRVUVTIFkgQ0VOQUdBTEVTIiwiZCI6ImYiLCJ1aWQiOjM3MDUxOTg1MTMzODUwLCJsIjoyNSwibyI6MCwiciI6IkNEUCIsInYiOjF9.4liuPLpfawcdw-YZAFUcCnJYzSDF4pm4REtk4A0pbgY"
+        expected = "https://www.cardgame.cl/collection/juegos-de-mesa?order=price&way=ASC&limit=15&page=2"
         expect(actual).to eq(expected)
       end
     end
