@@ -73,6 +73,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0069) https://ghostgamecenter.cl
 - (0068) https://laposadadeldado.cl/
 - (0068) https://buhojuegosdemesa.cl
+- (0067) https://onplaygames.cl/
 - (0067) https://jugandoando.cl/
 - (0064) https://dondejuego.cl
 - (0062) https://elkingo.com
@@ -98,7 +99,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 ## To Do
 
 - (0023) https://www.hellstoresing.cl/
-- (0002) https://onplaygames.cl/
 
 ## Backlog
 
