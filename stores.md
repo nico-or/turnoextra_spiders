@@ -21,6 +21,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0520) https://piedrabruja.cl
 - (0495) https://www.ludi.cl
 - (0472) https://www.cardgame.cl
+- (0467) https://gatoarcano.cl
 - (0457) https://cartonespesados.cl
 - (0444) https://araucaniagaming.cl
 - (0385) https://playcenter.cl
@@ -101,7 +102,6 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 
 ## Backlog
 
-- (0500) https://gatoarcano.cl (carga contenido dinámicamente, probar un loop haciendo `GET https://gatoarcano.cl/product-category/juegos-de-mesa/?jsf=epro-archive-products&pagenum=1`)
 - (0433) https://www.weplay.cl (responds with 403 Forbidden to mechanize agent)
 - (0222) https://aukinkochile.com (tienda enfocada en juguetes infantiles. [juegos de mesa](https://aukinkochile.com/web/categoria-producto/juegos-de-mesa/))
 - (0178) https://caramba.cl (tienda enfocada en juguetes infantiles. [juegos de mesa](https://caramba.cl/collections/juegos-de-mesa))
