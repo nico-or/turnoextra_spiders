@@ -19,6 +19,10 @@ group :development, :test do
   gem "rubocop-rspec", "~> 3.6"
 end
 
+group :development do
+  gem "flog"
+end
+
 gem "mechanize", "~> 2.8"
 gem "mutex_m", "~> 0.3.0"
 gem "nkf", "~> 0.2.0"

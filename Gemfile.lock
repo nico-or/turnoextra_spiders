@@ -54,6 +54,10 @@ GEM
       concurrent-ruby (~> 1.1)
       webrick (~> 1.7)
       websocket-driver (~> 0.7)
+    flog (4.9.1)
+      path_expander (~> 2.0)
+      prism (~> 1.7)
+      sexp_processor (~> 4.8)
     headless (3.0.0)
     http-cookie (1.1.0)
       domain_name (~> 0.5)
@@ -109,12 +113,13 @@ GEM
     parser (3.3.10.0)
       ast (~> 2.4.1)
       racc
+    path_expander (2.0.0)
     pmap (1.1.1)
     poltergeist (1.18.1)
       capybara (>= 2.1, < 4)
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
-    prism (1.6.0)
+    prism (1.7.0)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -170,6 +175,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
+    sexp_processor (4.17.5)
     tanakai (1.7.5)
       activesupport
       addressable
@@ -222,6 +228,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   dotenv
+  flog
   mechanize (~> 2.8)
   mutex_m (~> 0.3.0)
   nkf (~> 0.2.0)
@@ -234,7 +241,7 @@ DEPENDENCIES
   zeitwerk (~> 2.7)
 
 RUBY VERSION
-   ruby 3.4.7p58
+  ruby 3.4.7p58
 
 BUNDLED WITH
-   4.0.1
+  4.0.1
