@@ -21,6 +21,7 @@ end
 
 group :development do
   gem "flog"
+  gem "reek"
 end
 
 gem "mechanize", "~> 2.8"
