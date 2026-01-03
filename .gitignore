@@ -1,24 +1,11 @@
-/.bundle
-/cache
-/node_modules
-
-/log/*
-!/log/.keep
-
-/tmp/*
-!/tmp/.keep
-
 archive/*
 !archive/.keep
 
 db/*
 !db/.keep
 
-.byebug_history
-*.swp
-.env
+log/*
+!log/.keep
 
-capybara-*.png
-
-images/*
-!images/.keep
+tmp/*
+!tmp/.keep
