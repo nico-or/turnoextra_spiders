@@ -11,7 +11,7 @@ RSpec.describe MagicsurSpider do
 
   describe "#parse_index" do
     let(:response) do
-      html = File.read(File.join("spec/fixtures", fixture_directory, "index_page_paginate_true.html"))
+      html = File.read(File.join("spec/fixtures/stores", fixture_directory, "index_page_paginate_true.html"))
       Nokogiri::HTML(html)
     end
 
@@ -23,7 +23,7 @@ RSpec.describe MagicsurSpider do
 
   describe "#parse_index_node" do
     context "with a regular index product node" do
-      let(:filename) { File.join("spec/fixtures", fixture_directory, "product_index_node_regular.html") }
+      let(:filename) { File.join("spec/fixtures/stores", fixture_directory, "product_index_node_regular.html") }
 
       let(:expected) do
         {
@@ -39,7 +39,7 @@ RSpec.describe MagicsurSpider do
     end
 
     context "with a discounted price index product node" do
-      let(:filename) { File.join("spec/fixtures", fixture_directory, "product_index_node_discounted.html") }
+      let(:filename) { File.join("spec/fixtures/stores", fixture_directory, "product_index_node_discounted.html") }
 
       let(:expected) do
         {
@@ -55,7 +55,7 @@ RSpec.describe MagicsurSpider do
     end
 
     context "with an out-of-stock index product node" do
-      let(:filename) { File.join("spec/fixtures", fixture_directory, "product_index_node_out_of_stock.html") }
+      let(:filename) { File.join("spec/fixtures/stores", fixture_directory, "product_index_node_out_of_stock.html") }
 
       let(:expected) do
         {
@@ -71,7 +71,7 @@ RSpec.describe MagicsurSpider do
     end
 
     context "with an unavailable index product node" do
-      let(:filename) { File.join("spec/fixtures", fixture_directory, "product_index_node_unavailable.html") }
+      let(:filename) { File.join("spec/fixtures/stores", fixture_directory, "product_index_node_unavailable.html") }
 
       let(:expected) do
         {
@@ -90,7 +90,7 @@ RSpec.describe MagicsurSpider do
   describe "#next_page_url" do
     context "with an index page that has a next page link" do
       let(:response) do
-        html = File.read(File.join("spec/fixtures", fixture_directory, "index_page_paginate_true.html"))
+        html = File.read(File.join("spec/fixtures/stores", fixture_directory, "index_page_paginate_true.html"))
         Nokogiri::HTML(html)
       end
 
@@ -103,7 +103,7 @@ RSpec.describe MagicsurSpider do
 
     context "with an index page that hasn't a next page link" do
       let(:response) do
-        html = File.read(File.join("spec/fixtures", fixture_directory, "index_page_paginate_false.html"))
+        html = File.read(File.join("spec/fixtures/stores", fixture_directory, "index_page_paginate_false.html"))
         Nokogiri::HTML(html)
       end
 
