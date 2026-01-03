@@ -11,9 +11,9 @@ require "dotenv/load"
 loader = Zeitwerk::Loader.new
 
 loader.push_dir(File.expand_path("./config/initializers"))
-loader.push_dir(File.expand_path("../helpers", __dir__))
-loader.push_dir(File.expand_path("../pipelines", __dir__))
-loader.push_dir(File.expand_path("../spiders", __dir__))
+loader.push_dir(File.expand_path("../app/helpers", __dir__))
+loader.push_dir(File.expand_path("../app/pipelines", __dir__))
+loader.push_dir(File.expand_path("../app/spiders", __dir__))
 
 loader.setup
 loader.eager_load
