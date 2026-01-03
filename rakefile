@@ -56,7 +56,7 @@ end
 STORE_FIXTURE_TEMPLATE_PATH = "spec/templates/fixture"
 SPIDER_TEMPLATE_PATH = "templates/spider.rb.erb"
 SPIDER_SPEC_TEMPLATE_PATH = "spec/templates/spider_spec.rb.erb"
-SPIDER_DIRECTORY_PATH = "spiders"
+SPIDER_DIRECTORY_PATH = "app/spiders"
 
 namespace :spider do
   desc "Create a new spider"
@@ -83,7 +83,7 @@ namespace :spider do
     File.write(out_path, template_output)
 
     # Copy fixture templates
-    fixture_path = "spec/fixtures/#{camel_store_name.underscore}"
+    fixture_path = "spec/fixtures/stores/#{camel_store_name.underscore}"
     FileUtils.mkdir_p(fixture_path)
     # NOTE: FileUtils.cp_r(src,out) copies the files into fixture_path/fixture/*.html
     Pathname.glob("#{STORE_FIXTURE_TEMPLATE_PATH}/*").each do |file|
