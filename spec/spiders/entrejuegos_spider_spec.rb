@@ -3,6 +3,7 @@
 require "spider_helper"
 
 RSpec.describe EntrejuegosSpider do
+  let(:fixture_directory) { "entrejuegos" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }
 
@@ -10,7 +11,7 @@ RSpec.describe EntrejuegosSpider do
 
   describe "#parse_index" do
     let(:response) do
-      html = File.read("spec/fixtures/entrejuegos/index_page_paginate_true.html")
+      html = File.read(File.join("spec/fixtures", fixture_directory, "index_page_paginate_true.html"))
       Nokogiri::HTML(html)
     end
 
@@ -22,7 +23,7 @@ RSpec.describe EntrejuegosSpider do
 
   describe "#parse_index_node" do
     context "with a regular index product node" do
-      let(:filename) { "spec/fixtures/entrejuegos/product_index_node_regular.html" }
+      let(:filename) { File.join("spec/fixtures", fixture_directory, "product_index_node_regular.html") }
 
       let(:expected) do
         {
@@ -38,7 +39,7 @@ RSpec.describe EntrejuegosSpider do
     end
 
     context "with a truncated name index product node" do
-      let(:filename) { "spec/fixtures/entrejuegos/product_index_node_truncated_name.html" }
+      let(:filename) { File.join("spec/fixtures", fixture_directory, "product_index_node_truncated_name.html") }
 
       let(:expected) do
         {
@@ -54,7 +55,7 @@ RSpec.describe EntrejuegosSpider do
     end
 
     context "with a discounted price index product node" do
-      let(:filename) { "spec/fixtures/entrejuegos/product_index_node_discounted.html" }
+      let(:filename) { File.join("spec/fixtures", fixture_directory, "product_index_node_discounted.html") }
 
       let(:expected) do
         {
@@ -70,7 +71,7 @@ RSpec.describe EntrejuegosSpider do
     end
 
     context "with an out of stock index product node" do
-      let(:filename) { "spec/fixtures/entrejuegos/product_index_node_out_of_stock.html" }
+      let(:filename) { File.join("spec/fixtures", fixture_directory, "product_index_node_out_of_stock.html") }
 
       let(:expected) do
         {
@@ -86,7 +87,7 @@ RSpec.describe EntrejuegosSpider do
     end
 
     context "with a disabled index product node" do
-      let(:filename) { "spec/fixtures/entrejuegos/product_index_node_disabled.html" }
+      let(:filename) { File.join("spec/fixtures", fixture_directory, "product_index_node_disabled.html") }
 
       let(:expected) do
         {
@@ -102,7 +103,7 @@ RSpec.describe EntrejuegosSpider do
     end
 
     context "with a regular product with bad picture index product node" do
-      let(:filename) { "spec/fixtures/entrejuegos/product_index_node_bad_picture.html" }
+      let(:filename) { File.join("spec/fixtures", fixture_directory, "product_index_node_bad_picture.html") }
 
       let(:expected) do
         {
@@ -121,7 +122,7 @@ RSpec.describe EntrejuegosSpider do
   describe "#next_page_url" do
     context "with an index page that has a next page link" do
       let(:response) do
-        html = File.read("spec/fixtures/entrejuegos/index_page_paginate_true.html")
+        html = File.read(File.join("spec/fixtures", fixture_directory, "index_page_paginate_true.html"))
         Nokogiri::HTML(html)
       end
 
@@ -134,7 +135,7 @@ RSpec.describe EntrejuegosSpider do
 
     context "with an index page that hasn't a next page link" do
       let(:response) do
-        html = File.read("spec/fixtures/entrejuegos/index_page_paginate_false.html")
+        html = File.read(File.join("spec/fixtures", fixture_directory, "index_page_paginate_false.html"))
         Nokogiri::HTML(html)
       end
 
