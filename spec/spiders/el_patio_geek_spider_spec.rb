@@ -3,6 +3,7 @@
 require "spider_helper"
 
 RSpec.describe ElPatioGeekSpider do
+  let(:fixture_directory) { "el_patio_geek" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }
 
@@ -10,7 +11,7 @@ RSpec.describe ElPatioGeekSpider do
 
   describe "#parse_index" do
     let(:response) do
-      html = File.read("spec/fixtures/el_patio_geek/index_page_paginate_true.html")
+      html = File.read(File.join("spec/fixtures", fixture_directory, "index_page_paginate_true.html"))
       Nokogiri::HTML(html)
     end
 
@@ -22,7 +23,7 @@ RSpec.describe ElPatioGeekSpider do
 
   describe "#parse_index_node" do
     context "with a regular index product node" do
-      let(:filename) { "spec/fixtures/el_patio_geek/product_index_node_regular.html" }
+      let(:filename) { File.join("spec/fixtures", fixture_directory, "product_index_node_regular.html") }
 
       let(:expected) do
         {
@@ -38,7 +39,7 @@ RSpec.describe ElPatioGeekSpider do
     end
 
     context "with a discounted price index product node" do
-      let(:filename) { "spec/fixtures/el_patio_geek/product_index_node_discounted.html" }
+      let(:filename) { File.join("spec/fixtures", fixture_directory, "product_index_node_discounted.html") }
 
       let(:expected) do
         {
@@ -57,7 +58,7 @@ RSpec.describe ElPatioGeekSpider do
   describe "#next_page_url" do
     context "with an index page that has a next page link" do
       let(:response) do
-        html = File.read("spec/fixtures/el_patio_geek/index_page_paginate_true.html")
+        html = File.read(File.join("spec/fixtures", fixture_directory, "index_page_paginate_true.html"))
         Nokogiri::HTML(html)
       end
 
@@ -70,7 +71,7 @@ RSpec.describe ElPatioGeekSpider do
 
     context "with an index page that hasn't a next page link" do
       let(:response) do
-        html = File.read("spec/fixtures/el_patio_geek/index_page_paginate_false.html")
+        html = File.read(File.join("spec/fixtures", fixture_directory, "index_page_paginate_false.html"))
         Nokogiri::HTML(html)
       end
 
