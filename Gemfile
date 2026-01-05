@@ -13,6 +13,7 @@ gem "dotenv"
 # To debug spiders:
 group :development, :test do
   gem "byebug", platforms: :mri
+  gem "parallel_rspec"
   gem "pry"
   gem "rspec", "~> 3.13"
   gem "rubocop", "~> 1.74"
