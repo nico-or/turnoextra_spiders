@@ -9,12 +9,7 @@ class JuegoManiaSpider < EcommerceEngines::Jumpseller::Spider
   }
   @start_urls = ["https://www.juegomania.cl/juegos-de-mesa"]
 
-  selector :index_product, "article.product-block"
-  selector :next_page, "ul.pager li.next a"
-  selector :url, "a"
-  selector :title, "a.product-block__name"
   selector :stock, "div.product-block__label--status"
-  selector :image_split, "resize"
 
   private
 

@@ -9,13 +9,6 @@ class LudorapiaSpider < EcommerceEngines::Jumpseller::Spider
   }
   @start_urls = ["https://ludorapia.jumpseller.com/juegos-de-mesa"]
 
-  selector :index_product, "div.product-block"
-  selector :next_page, "ul.pager li.next a"
-  selector :url, "a"
-  selector :title, "a.product-block__name"
-  selector :stock, "div.product-block__disabled"
-  selector :image_split, "thumb"
-
   private
 
   def regular_price(node)

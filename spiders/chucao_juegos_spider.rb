@@ -9,13 +9,6 @@ class ChucaoJuegosSpider < EcommerceEngines::Jumpseller::Spider
   }
   @start_urls = ["https://www.chucaojuegos.cl/catalogo-completo"]
 
-  selector :index_product, "div.product-block"
-  selector :next_page, "ul.pager li.next a"
-  selector :url, "a"
-  selector :title, "a.product-block__name"
-  selector :stock, "div.product-block__disabled"
-  selector :image_split, "thumb"
-
   private
 
   def get_price(node)

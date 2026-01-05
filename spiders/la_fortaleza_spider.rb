@@ -12,10 +12,8 @@ class LaFortalezaSpider < EcommerceEngines::Jumpseller::Spider
 
   selector :index_product, "div.products figure.product"
   selector :next_page, "nav.pagination-next-prev a[@class=next]"
-  selector :url, "a"
   selector :title, "h5"
   selector :stock, "div.product-out-of-stock"
-  selector :image_split, "thumb"
 
   private
 

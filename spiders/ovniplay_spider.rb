@@ -10,12 +10,7 @@ class OvniplaySpider < EcommerceEngines::Jumpseller::Spider
   @start_urls = ["https://www.ovniplay.cl/juegos-de-mesa"]
   @config = {}
 
-  selector :index_product, "div.product-block"
-  selector :next_page, "ul.pager li.next a"
-  selector :url, "a"
-  selector :title, "a.product-block__name"
   selector :stock, "span.badge.unavailable"
-  selector :image_split, "resize"
 
   private
 

@@ -9,11 +9,8 @@ class GamingPlaceSpider < EcommerceEngines::Jumpseller::Spider
   }
   @start_urls = ["https://www.gamingplace.cl/juegos-de-mesa"]
 
-  selector :index_product, "div.row div.product-block"
   selector :next_page, "div.category-pager a:last-child[href]"
-  selector :url, "a"
   selector :stock, "a.not-available"
-  selector :image_split, "resize"
 
   private
 

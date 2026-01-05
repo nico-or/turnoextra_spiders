@@ -4,12 +4,19 @@ module EcommerceEngines
   module Jumpseller
     # Base spider class for all stores build with Jumpseller
     class Spider < ApplicationSpider
+      SPLIT_REGEX = %r{/(resize|thumb)}
+
+      selector :index_product, ".product-block"
+      selector :next_page, "li.next a"
+      selector :url, "a"
+      selector :title, "a.product-block__name"
+      selector :price, "div.product-block__price"
+      selector :stock, "div.product-block__disabled"
+
       private
 
       def get_image_url(node, _url)
-        split_string = get_selector(:image_split)
-        # example: https://cdnx.jumpseller.com/store-name/image/13909331/split_string/230/260?1610821805
-        node.at_css("img")["src"]&.split("/#{split_string}")&.first
+        node.at_css("img")["src"]&.split(SPLIT_REGEX)&.first
       rescue NoMethodError
         nil
       end

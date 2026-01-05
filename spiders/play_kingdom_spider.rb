@@ -10,11 +10,5 @@ class PlayKingdomSpider < EcommerceEngines::Jumpseller::Spider
   @start_urls = ["https://playkingdom.cl/juegos-de-mesa"]
   @config = {}
 
-  selector :index_product, "article.product-block"
-  selector :next_page, "ul.pager li.next a"
-  selector :title, "a.product-block__name"
-  selector :price, "div.product-block__price"
-  selector :url, "a"
   selector :stock, "div.product-block__label--status"
-  selector :image_split, "thumb"
 end
