@@ -19,7 +19,7 @@ class ApplicationSpider < Tanakai::Base
   }
 
   class << self
-    attr_reader :store
+    attr_reader :store, :index_parser_factory
 
     def selectors
       @selectors ||= {}
@@ -74,6 +74,10 @@ class ApplicationSpider < Tanakai::Base
   end
 
   private
+
+  def index_page_parser(node, base_url:)
+    self.class.index_parser_factory.build(node, base_url:)
+  end
 
   def paginate(response, url)
     next_page_url = next_page_url(response, url)
