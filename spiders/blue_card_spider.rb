@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Blue Card store spider
-class BlueCardSpider < EcommerceEngines::Bsale::Spider
+class BlueCardSpider < ApplicationSpider
   @name = "blue_card_spider"
   @store = {
     name: "Blue Card",
@@ -11,5 +11,9 @@ class BlueCardSpider < EcommerceEngines::Bsale::Spider
 
   @index_parser_factory = ParserFactory.new(
     EcommerceEngines::Bsale::ProductIndexPageParser
+  )
+
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Bsale::ProductCardParser
   )
 end
