@@ -20,7 +20,7 @@ class ApplicationSpider < Tanakai::Base
   }
 
   class << self
-    attr_reader :store, :index_parser_factory
+    attr_reader :store, :index_parser_factory, :product_parser_factory
 
     def selectors
       @selectors ||= {}
@@ -61,6 +61,24 @@ class ApplicationSpider < Tanakai::Base
   end
 
   def parse_product_node(node, url:)
+    if self.class.product_parser_factory
+      new_parse_product_node(node, base_url: url)
+    else
+      old_parse_product_node(node, url:)
+    end
+  end
+
+  private
+
+  def index_page_parser(node, base_url:)
+    self.class.index_parser_factory.build(node, base_url:)
+  end
+
+  def product_parser(node, base_url:)
+    self.class.product_parser_factory.build(node, base_url:)
+  end
+
+  def old_parse_product_node(node, url:)
     {
       url: get_url(node, url),
       title: get_title(node),
@@ -70,10 +88,15 @@ class ApplicationSpider < Tanakai::Base
     }
   end
 
-  private
-
-  def index_page_parser(node, base_url:)
-    self.class.index_parser_factory.build(node, base_url:)
+  def new_parse_product_node(node, base_url:)
+    parser = product_parser(node, base_url:)
+    {
+      url: parser.url,
+      title: parser.title,
+      price: parser.price,
+      stock: parser.purchasable?,
+      image_url: parser.image_url
+    }
   end
 
   def paginate(response, url)
