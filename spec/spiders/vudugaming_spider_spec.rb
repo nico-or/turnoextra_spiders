@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe VudugamingSpider do
+RSpec.describe VudugamingSpider, :spider, engine: :jumpseller do
   let(:fixture_directory) { "vudugaming" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

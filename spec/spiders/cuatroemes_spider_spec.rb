@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe CuatroemesSpider do
+RSpec.describe CuatroemesSpider, :spider, engine: :jumpseller do
   let(:fixture_directory) { "cuatroemes" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

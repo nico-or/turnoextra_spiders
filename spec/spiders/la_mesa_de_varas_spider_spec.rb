@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe LaMesaDeVarasSpider do
+RSpec.describe LaMesaDeVarasSpider, :spider, engine: :prestashop do
   let(:fixture_directory) { "la_mesa_de_varas" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

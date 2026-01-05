@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe GamehouseCoyhaiqueSpider do
+RSpec.describe GamehouseCoyhaiqueSpider, :spider, engine: :bsale do
   let(:fixture_directory) { "gamehouse_coyhaique" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

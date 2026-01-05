@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe DivertiSpider do
+RSpec.describe DivertiSpider, :spider, engine: :prestashop do
   let(:fixture_directory) { "diverti" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

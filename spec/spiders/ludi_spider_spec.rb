@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe LudiSpider do
+RSpec.describe LudiSpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "ludi" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe GameOfMagicSpider do
+RSpec.describe GameOfMagicSpider, :spider, engine: :bsale do
   let(:fixture_directory) { "game_of_magic" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

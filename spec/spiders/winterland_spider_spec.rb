@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe WinterlandSpider do
+RSpec.describe WinterlandSpider, :spider, engine: :bsale do
   let(:fixture_directory) { "winterland" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

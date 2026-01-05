@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe LaMafiaJuegosSpider do
+RSpec.describe LaMafiaJuegosSpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "la_mafia_juegos" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

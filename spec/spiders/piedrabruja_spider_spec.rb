@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe PiedrabrujaSpider do
+RSpec.describe PiedrabrujaSpider, :spider, engine: :shopify do
   let(:fixture_directory) { "piedrabruja" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe TertuliaSpider do
+RSpec.describe TertuliaSpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "tertulia" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

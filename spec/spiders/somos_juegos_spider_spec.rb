@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe SomosJuegosSpider do
+RSpec.describe SomosJuegosSpider, :spider, engine: :shopify do
   let(:fixture_directory) { "somos_juegos" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

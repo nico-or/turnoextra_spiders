@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe TiendaCardGameSpider do
+RSpec.describe TiendaCardGameSpider, :spider, engine: :bsale do
   let(:fixture_directory) { "tienda_card_game" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

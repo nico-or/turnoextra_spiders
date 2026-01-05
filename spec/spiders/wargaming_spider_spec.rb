@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe WargamingSpider do
+RSpec.describe WargamingSpider, :spider, engine: :bsale do
   let(:fixture_directory) { "wargaming" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

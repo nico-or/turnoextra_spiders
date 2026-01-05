@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe SpellsSpider do
+RSpec.describe SpellsSpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "spells" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

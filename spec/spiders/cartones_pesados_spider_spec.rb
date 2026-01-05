@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe CartonesPesadosSpider do
+RSpec.describe CartonesPesadosSpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "cartones_pesados" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

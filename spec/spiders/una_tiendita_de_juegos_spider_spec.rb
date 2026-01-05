@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe UnaTienditaDeJuegosSpider do
+RSpec.describe UnaTienditaDeJuegosSpider, :spider, engine: :jumpseller do
   let(:fixture_directory) { "una_tiendita_de_juegos" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

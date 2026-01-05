@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe JugandoAndoSpider do
+RSpec.describe JugandoAndoSpider, :spider, engine: :custom do
   let(:fixture_directory) { "jugando_ando" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

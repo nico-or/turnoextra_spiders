@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe FzcubesSpider do
+RSpec.describe FzcubesSpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "fzcubes" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

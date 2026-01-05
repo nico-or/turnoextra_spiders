@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe TentamiSpider do
+RSpec.describe TentamiSpider, :spider, engine: :shopify do
   let(:fixture_directory) { "tentami" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

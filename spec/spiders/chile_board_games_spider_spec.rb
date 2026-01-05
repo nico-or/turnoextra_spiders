@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe ChileBoardGamesSpider do
+RSpec.describe ChileBoardGamesSpider, :spider, engine: :shopify do
   let(:fixture_directory) { "chile_board_games" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

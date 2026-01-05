@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe OnPlaySpider do
+RSpec.describe OnPlaySpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "on_play" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe RivendelElConcilioSpider do
+RSpec.describe RivendelElConcilioSpider, :spider, engine: :jumpseller do
   let(:fixture_directory) { "rivendel_el_concilio" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

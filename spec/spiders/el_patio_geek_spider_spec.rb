@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe ElPatioGeekSpider do
+RSpec.describe ElPatioGeekSpider, :spider, engine: :shopify do
   let(:fixture_directory) { "el_patio_geek" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

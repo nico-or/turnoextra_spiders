@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe GhostGameCenterSpider do
+RSpec.describe GhostGameCenterSpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "ghost_game_center" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe ElArcanistaSpider do
+RSpec.describe ElArcanistaSpider, :spider, engine: :shopify do
   let(:fixture_directory) { "el_arcanista" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

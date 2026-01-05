@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe FlexogamesSpider do
+RSpec.describe FlexogamesSpider, :spider, engine: :shopify do
   let(:fixture_directory) { "flexogames" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

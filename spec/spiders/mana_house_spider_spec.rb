@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe ManaHouseSpider do
+RSpec.describe ManaHouseSpider, :spider, engine: :shopify do
   let(:fixture_directory) { "mana_house" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

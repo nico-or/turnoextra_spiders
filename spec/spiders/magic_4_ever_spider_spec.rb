@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe Magic4EverSpider do # rubocop:disable RSpec/SpecFilePathFormat
+RSpec.describe Magic4EverSpider, :spider, engine: :jumpseller do # rubocop:disable RSpec/SpecFilePathFormat
   let(:fixture_directory) { "magic_4_ever" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

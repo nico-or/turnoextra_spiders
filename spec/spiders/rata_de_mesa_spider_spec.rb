@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe RataDeMesaSpider do
+RSpec.describe RataDeMesaSpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "rata_de_mesa" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

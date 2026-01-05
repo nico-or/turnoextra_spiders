@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe OvniplaySpider do
+RSpec.describe OvniplaySpider, :spider, engine: :jumpseller do
   let(:fixture_directory) { "ovniplay" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

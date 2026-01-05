@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe AtomicRainbowSpider do
+RSpec.describe AtomicRainbowSpider, :spider, engine: :jumpseller do
   let(:fixture_directory) { "atomic_rainbow" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

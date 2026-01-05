@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe DementegamesSpider do
+RSpec.describe DementegamesSpider, :spider, engine: :prestashop do
   let(:fixture_directory) { "dementegames" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe KimunAustralSpider do
+RSpec.describe KimunAustralSpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "kimun_austral" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

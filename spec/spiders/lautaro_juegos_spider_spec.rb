@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe LautaroJuegosSpider do
+RSpec.describe LautaroJuegosSpider, :spider, engine: :jumpseller do
   let(:fixture_directory) { "lautaro_juegos" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

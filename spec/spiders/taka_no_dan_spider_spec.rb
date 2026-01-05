@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe TakaNoDanSpider do
+RSpec.describe TakaNoDanSpider, :spider, engine: :prestashop do
   let(:fixture_directory) { "taka_no_dan" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

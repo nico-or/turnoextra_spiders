@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe UpdownSpider do
+RSpec.describe UpdownSpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "updown" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe MagicsurSpider do
+RSpec.describe MagicsurSpider, :spider, engine: :prestashop do
   let(:fixture_directory) { "magicsur" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

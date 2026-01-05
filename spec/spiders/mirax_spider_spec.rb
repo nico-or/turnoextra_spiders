@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe MiraxSpider do
+RSpec.describe MiraxSpider, :spider, engine: :custom do
   let(:fixture_directory) { "mirax" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

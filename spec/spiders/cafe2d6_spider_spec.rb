@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe Cafe2d6Spider do
+RSpec.describe Cafe2d6Spider, :spider, engine: :shopify do
   let(:fixture_directory) { "cafe2d6" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

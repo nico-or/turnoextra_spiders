@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe PlaycenterSpider do
+RSpec.describe PlaycenterSpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "playcenter" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

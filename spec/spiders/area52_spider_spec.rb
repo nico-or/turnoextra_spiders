@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe Area52Spider do
+RSpec.describe Area52Spider, :spider, engine: :shopify do
   let(:fixture_directory) { "area52" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe TopoTokenSpider do
+RSpec.describe TopoTokenSpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "topo_token" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

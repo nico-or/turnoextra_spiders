@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe PlanetalozSpider do
+RSpec.describe PlanetalozSpider, :spider, engine: :prestashop do
   let(:fixture_directory) { "planetaloz" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

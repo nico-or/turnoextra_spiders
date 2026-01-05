@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe ElDadoSpider do
+RSpec.describe ElDadoSpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "el_dado" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

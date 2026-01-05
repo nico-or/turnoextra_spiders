@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe LaPosadaDelDadoSpider do
+RSpec.describe LaPosadaDelDadoSpider, :spider, engine: :shopify do
   let(:fixture_directory) { "la_posada_del_dado" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

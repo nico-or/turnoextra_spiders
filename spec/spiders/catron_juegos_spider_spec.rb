@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe CatronJuegosSpider do
+RSpec.describe CatronJuegosSpider, :spider, engine: :jumpseller do
   let(:fixture_directory) { "catron_juegos" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

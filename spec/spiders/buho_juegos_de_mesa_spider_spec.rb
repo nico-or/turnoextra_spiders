@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe BuhoJuegosDeMesaSpider do
+RSpec.describe BuhoJuegosDeMesaSpider, :spider, engine: :shopify do
   let(:fixture_directory) { "buho_juegos_de_mesa" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe PlayKingdomSpider do
+RSpec.describe PlayKingdomSpider, :spider, engine: :jumpseller do
   let(:fixture_directory) { "play_kingdom" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

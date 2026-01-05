@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe DevirSpider do
+RSpec.describe DevirSpider, :spider, engine: :custom do
   let(:fixture_directory) { "devir" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

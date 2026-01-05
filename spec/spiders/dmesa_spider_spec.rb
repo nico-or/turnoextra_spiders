@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe DmesaSpider do
+RSpec.describe DmesaSpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "dmesa" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

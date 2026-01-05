@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe LaTekaSpider do
+RSpec.describe LaTekaSpider, :spider, engine: :shopify do
   let(:fixture_directory) { "la_teka" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

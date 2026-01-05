@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe VortexJuegosSpider do
+RSpec.describe VortexJuegosSpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "vortex_juegos" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

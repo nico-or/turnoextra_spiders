@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe CaronteJuegosDeMesaSpider do
+RSpec.describe CaronteJuegosDeMesaSpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "caronte_juegos_de_mesa" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

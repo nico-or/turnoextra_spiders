@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe AldeaJuegosSpider do
+RSpec.describe AldeaJuegosSpider, :spider, engine: :prestashop do
   let(:fixture_directory) { "aldea_juegos" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

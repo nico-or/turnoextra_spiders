@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe SolettaSpider do
+RSpec.describe SolettaSpider, :spider, engine: :bsale do
   let(:fixture_directory) { "soletta" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

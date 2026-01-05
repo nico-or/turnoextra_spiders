@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe LaBovedaDelMagoSpider do
+RSpec.describe LaBovedaDelMagoSpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "la_boveda_del_mago" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

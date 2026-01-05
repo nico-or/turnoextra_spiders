@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe ElCalabozoSpider do
+RSpec.describe ElCalabozoSpider, :spider, engine: :custom do
   let(:fixture_directory) { "el_calabozo" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

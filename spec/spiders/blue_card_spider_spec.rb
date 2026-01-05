@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe BlueCardSpider do
+RSpec.describe BlueCardSpider, :spider, engine: :bsale do
   let(:fixture_directory) { "blue_card" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

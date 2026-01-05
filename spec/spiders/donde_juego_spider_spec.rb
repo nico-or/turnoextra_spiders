@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe DondeJuegoSpider do
+RSpec.describe DondeJuegoSpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "donde_juego" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

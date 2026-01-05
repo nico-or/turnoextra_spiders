@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe Top8Spider do
+RSpec.describe Top8Spider, :spider, engine: :bsale do
   let(:fixture_directory) { "top8" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

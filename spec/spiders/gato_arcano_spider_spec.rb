@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe GatoArcanoSpider do
+RSpec.describe GatoArcanoSpider, :spider, engine: :woocommerce do
   let(:fixture_directory) { "gato_arcano" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }

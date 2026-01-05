@@ -2,7 +2,7 @@
 
 require "spider_helper"
 
-RSpec.describe GuildreamsSpider do
+RSpec.describe GuildreamsSpider, :spider, engine: :bsale do
   let(:fixture_directory) { "guildreams" }
   let(:spider) { described_class.new }
   let(:store_url) { described_class.store[:url] }
