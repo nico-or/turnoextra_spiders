@@ -22,10 +22,6 @@ class BuhoJuegosDeMesaSpider < EcommerceEngines::Shopify::Spider
     scan_int(price_node.children.last.text)
   end
 
-  def get_image_url(_node, _url)
-    nil
-  end
-
   def in_stock?(_node)
     true
   end

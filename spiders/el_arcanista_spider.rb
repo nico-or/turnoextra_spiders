@@ -17,6 +17,7 @@ class ElArcanistaSpider < EcommerceEngines::Shopify::Spider
   selector :title, "a.product-name"
   selector :price, "span.item-price"
   selector :stock, "span.badge-sold"
+  selector :image_attr, "data-src"
 
   def next_page_url(response, url)
     node = response.at_css("infinite-scroll")
@@ -24,14 +25,5 @@ class ElArcanistaSpider < EcommerceEngines::Shopify::Spider
 
     rel_url = node["data-url"]
     absolute_url(rel_url, base: url)
-  end
-
-  private
-
-  def get_image_url(node, _url)
-    url = node.at_css("img")["data-src"]
-    format_image_url(url)
-  rescue NoMethodError
-    nil
   end
 end

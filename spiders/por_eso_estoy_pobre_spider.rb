@@ -14,13 +14,4 @@ class PorEsoEstoyPobreSpider < EcommerceEngines::Shopify::Spider
   selector :title, "h3 a"
   selector :price, "div.price__regular span.price-item--regular"
   selector :stock, "div.price--sold-out"
-
-  private
-
-  def get_image_url(node, _url)
-    url = node.at_css("img")["src"]
-    format_image_url(url)
-  rescue NoMethodError
-    nil
-  end
 end

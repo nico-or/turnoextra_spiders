@@ -32,11 +32,4 @@ class Cafe2d6Spider < EcommerceEngines::Shopify::Spider
     price_node = discount_price_node(node) || regular_price_node(node)
     scan_int(price_node.text)
   end
-
-  def get_image_url(node, _url)
-    url = node.at_css("img")["src"]
-    format_image_url(url)
-  rescue NoMethodError
-    nil
-  end
 end

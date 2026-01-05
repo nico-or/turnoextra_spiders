@@ -14,11 +14,4 @@ class LudopaloozaSpider < EcommerceEngines::Shopify::Spider
   selector :title, "h3"
   selector :price, "span.price-item--sale"
   selector :stock, "product-form button[disabled]"
-
-  def get_image_url(node, _url)
-    url = node.at_css("img")["src"]
-    format_image_url(url)
-  rescue NoMethodError
-    nil
-  end
 end

@@ -15,13 +15,4 @@ class FlexogamesSpider < EcommerceEngines::Shopify::Spider
   selector :title, "a span"
   selector :price, "dl span.price-item"
   selector :stock, "dl.price--sold-out"
-
-  private
-
-  # TODO: This store loads product images lazily.
-  # The data-srcset attribute is not immediately available when using the Mechanize engine.
-  # It doesn't work with SeleniumChrome either. We need to find a way to trigger the image load.
-  def get_image_url(_node, _url)
-    nil
-  end
 end

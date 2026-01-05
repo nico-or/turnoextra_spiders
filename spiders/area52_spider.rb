@@ -20,11 +20,4 @@ class Area52Spider < EcommerceEngines::Shopify::Spider
   def in_stock?(node)
     node.at_css("span.badge")&.text != "Agotado"
   end
-
-  def get_image_url(node, _url)
-    url = node.at_css("img")["src"]
-    format_image_url(url)
-  rescue NoMethodError
-    nil
-  end
 end

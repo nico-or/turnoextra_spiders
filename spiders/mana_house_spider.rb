@@ -14,13 +14,5 @@ class ManaHouseSpider < EcommerceEngines::Shopify::Spider
   selector :title, "a.product-grid-item__title"
   selector :price, "a.product-grid-item__price"
   selector :stock, "div.product__badge div.product__badge__item--sold"
-
-  private
-
-  def get_image_url(node, _url)
-    url = node.at_css("img")["srcset"].split[-2]
-    format_image_url(url)
-  rescue NoMethodError
-    nil
-  end
+  selector :image_attr, "srcset"
 end

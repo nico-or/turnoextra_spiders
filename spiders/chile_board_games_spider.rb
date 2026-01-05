@@ -14,13 +14,5 @@ class ChileBoardGamesSpider < EcommerceEngines::Shopify::Spider
   selector :title, "a span"
   selector :price, "dl span.price-item"
   selector :stock, "dl.price--sold-out"
-
-  private
-
-  def get_image_url(node, _url)
-    url = node.at_css("img")["srcset"].split[-2]
-    format_image_url(url)
-  rescue NoMethodError
-    nil
-  end
+  selector :image_attr, "srcset"
 end

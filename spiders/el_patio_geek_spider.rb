@@ -14,17 +14,11 @@ class ElPatioGeekSpider < EcommerceEngines::Shopify::Spider
   selector :next_page, "ul.pagination-custom li:last-child a"
   selector :title, "p"
   selector :price, "div.product-item--price small"
+  selector :image_attr, "srcset"
 
   private
 
   def purchasable?(_node)
     true
-  end
-
-  def get_image_url(node, _url)
-    url = node.at_css("img")["srcset"].split[-2]
-    format_image_url(url)
-  rescue NoMethodError
-    nil
   end
 end
