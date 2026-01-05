@@ -10,5 +10,9 @@ class KaioJuegosSpider < EcommerceEngines::PrestaShop::Spider
   }
   @start_urls = ["https://kaiojuegos.cl/18-juegos-de-mesa"]
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Prestashop::ProductIndexPageParser
+  )
+
   title_strategy :slug
 end

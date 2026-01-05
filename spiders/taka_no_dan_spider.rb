@@ -13,8 +13,14 @@ class TakaNoDanSpider < EcommerceEngines::PrestaShop::Spider
     "https://takanodan.cl/213-mixto"
   ]
 
-  selector :index_product, "ul.product_list li.ajax_block_product"
-  selector :next_page, "ul.pagination li#pagination_next_bottom a[href]"
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Prestashop::ProductIndexPageParser,
+    selectors: {
+      index_product: "ul.product_list li.ajax_block_product",
+      next_page: "ul.pagination li#pagination_next_bottom a[href]"
+    }
+  )
+
   selector :title, "h3.name a"
   selector :url, "h3.name a"
   selector :price, "span.product-price"

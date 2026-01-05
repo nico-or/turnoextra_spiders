@@ -10,6 +10,10 @@ class EntrejuegosSpider < EcommerceEngines::PrestaShop::Spider
   @start_urls = ["https://www.entrejuegos.cl/1064-juegos-de-mesa?page=1"]
   @config = {}
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Prestashop::ProductIndexPageParser
+  )
+
   title_strategy :slug
 
   private

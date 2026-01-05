@@ -9,5 +9,9 @@ class LaMesaDeVarasSpider < EcommerceEngines::PrestaShop::Spider
   }
   @start_urls = ["https://lamesadevaras.cl/9-juegos-de-mesa"]
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Prestashop::ProductIndexPageParser
+  )
+
   title_strategy :slug
 end

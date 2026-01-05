@@ -10,6 +10,10 @@ class MagicsurSpider < EcommerceEngines::PrestaShop::Spider
   @start_urls = ["https://www.magicsur.cl/15-juegos-de-mesa-magicsur-chile"]
   @config = {}
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Prestashop::ProductIndexPageParser
+  )
+
   selector :price, "span.product-price"
   selector :stock, "div.product-add-cart a.btn"
 end
