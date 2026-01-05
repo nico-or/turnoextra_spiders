@@ -8,4 +8,8 @@ class BlueCardSpider < EcommerceEngines::Bsale::Spider
     url: "https://www.bluecard.cl/"
   }
   @start_urls = ["https://www.bluecard.cl/collection/juegos-de-mesa"]
+
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Bsale::ProductIndexPageParser
+  )
 end

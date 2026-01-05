@@ -23,4 +23,8 @@ class Top8Spider < EcommerceEngines::Bsale::Spider
     "https://www.top8.cl/collection/dungeons-dragons"
   ]
   @config = {}
+
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Bsale::ProductIndexPageParser
+  )
 end

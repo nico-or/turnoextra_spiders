@@ -9,4 +9,8 @@ class TiendaCardGameSpider < EcommerceEngines::Bsale::Spider
   }
   @start_urls = ["https://www.cardgame.cl/collection/juegos-de-mesa"]
   @config = {}
+
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Bsale::ProductIndexPageParser
+  )
 end

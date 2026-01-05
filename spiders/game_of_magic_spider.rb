@@ -15,5 +15,9 @@ class GameOfMagicSpider < EcommerceEngines::Bsale::Spider
   ]
   @config = {}
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Bsale::ProductIndexPageParser
+  )
+
   selector :title, "a[@class='bs-collection__product-info']/h3/text()"
 end

@@ -10,8 +10,14 @@ class GuildreamsSpider < EcommerceEngines::Bsale::Spider
   @start_urls = ["https://www.guildreams.com/collection/juegos-de-mesa?order=id&way=DESC&limit=24&page=1"]
   @config = {}
 
-  selector :index_product, "div.bs-product"
-  selector :next_page, "ul.pagination li:last-child a.page-link[data-nf]"
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Bsale::ProductIndexPageParser,
+    selectors: {
+      index_product: "div.bs-product",
+      next_page: "ul.pagination li:last-child a.page-link[data-nf]"
+    }
+  )
+
   selector :title, "h2"
   selector :stock, "div.bs-stock"
   selector :price, "div.bs-product-final-price"

@@ -8,4 +8,8 @@ class WinterlandSpider < EcommerceEngines::Bsale::Spider
     url: "https://www.winterland.cl/"
   }
   @start_urls = ["https://www.winterland.cl/collection/todos"]
+
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Bsale::ProductIndexPageParser
+  )
 end

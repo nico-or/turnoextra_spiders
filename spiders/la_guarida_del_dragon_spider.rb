@@ -11,4 +11,8 @@ class LaGuaridaDelDragonSpider < EcommerceEngines::Bsale::Spider
     "https://www.laguaridadeldragon.cl/collection/juegos",
     "https://www.laguaridadeldragon.cl/collection/miniaturas"
   ]
+
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Bsale::ProductIndexPageParser
+  )
 end

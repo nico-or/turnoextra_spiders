@@ -8,4 +8,8 @@ class WargamingSpider < EcommerceEngines::Bsale::Spider
     url: "https://www.wargaming.cl/"
   }
   @start_urls = ["https://www.wargaming.cl/collection/juegos-de-mesa"]
+
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Bsale::ProductIndexPageParser
+  )
 end
