@@ -10,13 +10,9 @@ class DementegamesSpider < EcommerceEngines::PrestaShop::Spider
   @start_urls = ["https://dementegames.cl/10-juegos-de-mesa?q=Existencias-En+stock"]
   @config = {}
 
+  @index_parser_factory = ParserFactory.new(
+    Stores::DementeGames::ProductIndexPageParser
+  )
+
   selector :stock, "form button[disabled]"
-
-  def next_page_url(response, url)
-    # This store doesn't disable the next page link on the last pagination result
-    next_page = response.at_css("nav.pagination li a[rel=next]")
-    return if next_page.nil? || next_page.classes.include?("disabled")
-
-    absolute_url(next_page[:href], base: url)
-  end
 end
