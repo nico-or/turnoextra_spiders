@@ -1,7 +1,7 @@
 class ParserFactory
   attr_reader :klass, :selectors
 
-  def initialize(klass:, selectors:)
+  def initialize(klass, selectors: {})
     @klass = klass
     @selectors = selectors
   end
