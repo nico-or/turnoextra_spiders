@@ -9,6 +9,10 @@ class CuatroemesSpider < EcommerceEngines::Jumpseller::Spider
   }
   @start_urls = ["https://www.cuatroemes.cl/tienda"]
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Jumpseller::ProductIndexPageParser
+  )
+
   private
 
   def in_stock?(_node)

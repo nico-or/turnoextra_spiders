@@ -10,8 +10,14 @@ class LaFortalezaSpider < EcommerceEngines::Jumpseller::Spider
   @start_urls = ["https://www.lafortalezapuq.cl/jdm"]
   @config = {}
 
-  selector :index_product, "div.products figure.product"
-  selector :next_page, "nav.pagination-next-prev a[@class=next]"
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Jumpseller::ProductIndexPageParser,
+    selectors: {
+      index_product: "div.products figure.product",
+      next_page: "nav.pagination-next-prev a[@class=next]"
+    }
+  )
+
   selector :title, "h5"
   selector :stock, "div.product-out-of-stock"
 

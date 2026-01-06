@@ -9,6 +9,10 @@ class ChucaoJuegosSpider < EcommerceEngines::Jumpseller::Spider
   }
   @start_urls = ["https://www.chucaojuegos.cl/catalogo-completo"]
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Jumpseller::ProductIndexPageParser
+  )
+
   private
 
   def get_price(node)

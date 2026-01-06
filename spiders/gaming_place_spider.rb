@@ -9,7 +9,13 @@ class GamingPlaceSpider < EcommerceEngines::Jumpseller::Spider
   }
   @start_urls = ["https://www.gamingplace.cl/juegos-de-mesa"]
 
-  selector :next_page, "div.category-pager a:last-child[href]"
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Jumpseller::ProductIndexPageParser,
+    selectors: {
+      next_page: "div.category-pager a:last-child[href]"
+    }
+  )
+
   selector :stock, "a.not-available"
 
   private

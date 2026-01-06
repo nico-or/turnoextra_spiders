@@ -10,6 +10,10 @@ class OvniplaySpider < EcommerceEngines::Jumpseller::Spider
   @start_urls = ["https://www.ovniplay.cl/juegos-de-mesa"]
   @config = {}
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Jumpseller::ProductIndexPageParser
+  )
+
   selector :stock, "span.badge.unavailable"
 
   private

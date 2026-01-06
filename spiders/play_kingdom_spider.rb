@@ -10,5 +10,9 @@ class PlayKingdomSpider < EcommerceEngines::Jumpseller::Spider
   @start_urls = ["https://playkingdom.cl/juegos-de-mesa"]
   @config = {}
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Jumpseller::ProductIndexPageParser
+  )
+
   selector :stock, "div.product-block__label--status"
 end

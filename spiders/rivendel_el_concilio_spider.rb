@@ -9,7 +9,13 @@ class RivendelElConcilioSpider < EcommerceEngines::Jumpseller::Spider
   }
   @start_urls = ["https://www.rivendelelconcilio.cl/juegos-de-mesa"]
 
-  selector :next_page, "div.category-pager a:last-child[href]"
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Jumpseller::ProductIndexPageParser,
+    selectors: {
+      next_page: "div.category-pager a:last-child[href]"
+    }
+  )
+
   selector :price, "div.price span.block-price"
   selector :stock, "a.btn.gray"
 

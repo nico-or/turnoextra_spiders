@@ -9,6 +9,10 @@ class JuegoManiaSpider < EcommerceEngines::Jumpseller::Spider
   }
   @start_urls = ["https://www.juegomania.cl/juegos-de-mesa"]
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Jumpseller::ProductIndexPageParser
+  )
+
   selector :stock, "div.product-block__label--status"
 
   private

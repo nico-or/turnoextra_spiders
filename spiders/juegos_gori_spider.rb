@@ -9,6 +9,10 @@ class JuegosGoriSpider < EcommerceEngines::Jumpseller::Spider
   }
   @start_urls = ["https://www.juegosgori.cl/juegos-de-mesa"]
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Jumpseller::ProductIndexPageParser
+  )
+
   private
 
   def regular_price(node)

@@ -9,5 +9,9 @@ class JuegosDelBosqueSpider < EcommerceEngines::Jumpseller::Spider
   }
   @start_urls = ["https://www.juegosdelbosque.cl/juego-de-mesa"]
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Jumpseller::ProductIndexPageParser
+  )
+
   selector :stock, "div.product-block__label--status"
 end

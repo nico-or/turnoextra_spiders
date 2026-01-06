@@ -9,5 +9,9 @@ class CatronJuegosSpider < EcommerceEngines::Jumpseller::Spider
   }
   @start_urls = ["https://www.catronjuegos.cl/juegos-de-interior/de-mesa"]
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Jumpseller::ProductIndexPageParser
+  )
+
   selector :stock, "div.product-block__actions > a"
 end

@@ -10,6 +10,10 @@ class VudugamingSpider < EcommerceEngines::Jumpseller::Spider
   @start_urls = ["https://www.vudugaming.cl/juegos-de-mesa"]
   @config = {}
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::Jumpseller::ProductIndexPageParser
+  )
+
   selector :title, "h2"
   selector :stock, "div.product-block__actions a[title]"
 end
