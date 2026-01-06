@@ -10,8 +10,14 @@ class SomosJuegosSpider < EcommerceEngines::Shopify::Spider
   @start_urls = ["https://www.somosjuegos.cl/collections/juegos-de-mesa"]
   @config = {}
 
-  selector :index_product, "div#filter-results ul.grid li.js-pagination-result"
-  selector :next_page, "nav ul.pagination li:last-child a[href]"
+  @index_parser_factory = ParserFactory.new(
+    Base::ProductIndexPageParser,
+    selectors: {
+      index_product: "div#filter-results ul.grid li.js-pagination-result",
+      next_page: "nav ul.pagination li:last-child a[href]"
+    }
+  )
+
   selector :title, "p a"
   selector :price, "span.price__current"
   selector :stock, "span.product-label--sold-out"

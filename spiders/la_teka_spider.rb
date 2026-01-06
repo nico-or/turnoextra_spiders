@@ -10,8 +10,14 @@ class LaTekaSpider < EcommerceEngines::Shopify::Spider
   @start_urls = ["https://lateka.cl/collections/juegos-de-mesa"]
   @config = {}
 
-  selector :index_product, "ul#product-grid div.card"
-  selector :next_page, "nav.pagination a.pagination__item--prev"
+  @index_parser_factory = ParserFactory.new(
+    Base::ProductIndexPageParser,
+    selectors: {
+      index_product: "ul#product-grid div.card",
+      next_page: "nav.pagination a.pagination__item--prev"
+    }
+  )
+
   selector :title, "h3"
   selector :price, "span.price-item--sale"
   selector :stock, "product-form button[disabled]"

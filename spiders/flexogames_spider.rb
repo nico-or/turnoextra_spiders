@@ -10,8 +10,14 @@ class FlexogamesSpider < EcommerceEngines::Shopify::Spider
   @start_urls = ["https://www.flexogames.cl/collections/juegos-de-mesa"]
   @config = {}
 
-  selector :index_product, "div#Collection ul.grid li"
-  selector :next_page, "ul.pagination li:last-child a"
+  @index_parser_factory = ParserFactory.new(
+    Base::ProductIndexPageParser,
+    selectors: {
+      index_product: "div#Collection ul.grid li",
+      next_page: "ul.pagination li:last-child a"
+    }
+  )
+
   selector :title, "a span"
   selector :price, "dl span.price-item"
   selector :stock, "dl.price--sold-out"

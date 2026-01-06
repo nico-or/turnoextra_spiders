@@ -9,8 +9,14 @@ class ManaHouseSpider < EcommerceEngines::Shopify::Spider
   }
   @start_urls = ["https://manahouse.cl/collections/juegos-de-mesa"]
 
-  selector :index_product, "div.collection__products div.product-grid-item"
-  selector :next_page, "div.pagination span.next a[href]"
+  @index_parser_factory = ParserFactory.new(
+    Base::ProductIndexPageParser,
+    selectors: {
+      index_product: "div.collection__products div.product-grid-item",
+      next_page: "div.pagination span.next a[href]"
+    }
+  )
+
   selector :title, "a.product-grid-item__title"
   selector :price, "a.product-grid-item__price"
   selector :stock, "div.product__badge div.product__badge__item--sold"

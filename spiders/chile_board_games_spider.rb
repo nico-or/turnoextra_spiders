@@ -9,8 +9,14 @@ class ChileBoardGamesSpider < EcommerceEngines::Shopify::Spider
   }
   @start_urls = ["https://chileboardgames.com/collections/todos-los-juegos"]
 
-  selector :index_product, "div#Collection ul.grid li"
-  selector :next_page, "ul.pagination li:last-child a"
+  @index_parser_factory = ParserFactory.new(
+    Base::ProductIndexPageParser,
+    selectors: {
+      index_product: "div#Collection ul.grid li",
+      next_page: "ul.pagination li:last-child a"
+    }
+  )
+
   selector :title, "a span"
   selector :price, "dl span.price-item"
   selector :stock, "dl.price--sold-out"

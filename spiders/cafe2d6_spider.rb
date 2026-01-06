@@ -9,8 +9,14 @@ class Cafe2d6Spider < EcommerceEngines::Shopify::Spider
   }
   @start_urls = ["https://www.cafe2d6.cl/collections/all"]
 
-  selector :index_product, "ul#main-collection-product-grid li.item"
-  selector :next_page, "div.pager li:last-child a[href]"
+  @index_parser_factory = ParserFactory.new(
+    Base::ProductIndexPageParser,
+    selectors: {
+      index_product: "ul#main-collection-product-grid li.item",
+      next_page: "div.pager li:last-child a[href]"
+    }
+  )
+
   selector :url, "a"
   selector :title, "h3"
   selector :stock, "a.add-to-agotado"

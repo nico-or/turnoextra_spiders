@@ -14,8 +14,14 @@ class PiedrabrujaSpider < EcommerceEngines::Shopify::Spider
   @start_urls = ["https://piedrabruja.cl/collections/juegos-de-mesa?page=1"]
   @config = {}
 
-  selector :next_page, "div.pagination a[@rel=next]"
-  selector :index_product, "div.product-list div.product-item"
+  @index_parser_factory = ParserFactory.new(
+    Base::ProductIndexPageParser,
+    selectors: {
+      index_product: "div.product-list div.product-item",
+      next_page: "div.pagination a[@rel=next]"
+    }
+  )
+
   selector :title, "a.product-item__title"
 
   private

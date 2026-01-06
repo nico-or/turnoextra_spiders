@@ -9,8 +9,14 @@ class LaPosadaDelDadoSpider < EcommerceEngines::Shopify::Spider
   }
   @start_urls = ["https://laposadadeldado.cl/collections/juegos-de-mesa"]
 
-  selector :next_page, "link[rel=next]"
-  selector :index_product, "ul#product-grid > li"
+  @index_parser_factory = ParserFactory.new(
+    Base::ProductIndexPageParser,
+    selectors: {
+      index_product: "ul#product-grid > li",
+      next_page: "link[rel=next]"
+    }
+  )
+
   selector :title, "h3 a"
   selector :price, "div.price__regular span.price-item--regular"
   selector :stock, "div.price--sold-out"

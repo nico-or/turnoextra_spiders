@@ -10,8 +10,14 @@ class ElPatioGeekSpider < EcommerceEngines::Shopify::Spider
   @start_urls = ["https://www.elpatiogeek.cl/collections/all"]
   @config = {}
 
-  selector :index_product, "div.grid-uniform div.grid-item"
-  selector :next_page, "ul.pagination-custom li:last-child a"
+  @index_parser_factory = ParserFactory.new(
+    Base::ProductIndexPageParser,
+    selectors: {
+      index_product: "div.grid-uniform div.grid-item",
+      next_page: "ul.pagination-custom li:last-child a"
+    }
+  )
+
   selector :title, "p"
   selector :price, "div.product-item--price small"
   selector :image_attr, "srcset"
