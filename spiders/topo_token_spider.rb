@@ -10,6 +10,10 @@ class TopoTokenSpider < EcommerceEngines::WooCommerce::Spider
   @start_urls = ["https://topotoken.cl/tienda"]
   @config = {}
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser
+  )
+
   private
 
   def protected?(node)

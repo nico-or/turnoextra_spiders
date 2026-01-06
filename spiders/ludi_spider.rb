@@ -10,5 +10,9 @@ class LudiSpider < EcommerceEngines::WooCommerce::Spider
   @start_urls = ["https://www.ludi.cl/tienda"]
   @config = {}
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser
+  )
+
   image_url_strategy(:sized)
 end

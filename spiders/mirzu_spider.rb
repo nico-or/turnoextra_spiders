@@ -9,5 +9,9 @@ class MirzuSpider < EcommerceEngines::WooCommerce::Spider
   }
   @start_urls = ["https://mirzu.cl/tienda/"]
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser
+  )
+
   image_url_strategy(:sized)
 end

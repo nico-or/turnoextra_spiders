@@ -9,5 +9,9 @@ class ElKingoSpider < EcommerceEngines::WooCommerce::Spider
   }
   @start_urls = ["https://elkingo.com/productos/?wpf=filtro&wpf_cols=3&wpf_en-stock=1&wpf_categorias=juego-de-mesa"]
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser
+  )
+
   image_url_strategy(:sized)
 end

@@ -9,6 +9,10 @@ class RataDeMesaSpider < EcommerceEngines::WooCommerce::Spider
   }
   @start_urls = ["https://www.ratademesa.cl/tienda/"]
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser
+  )
+
   selector :title, "h2.woocommerce-loop-product__title"
 
   image_url_strategy(:sized)

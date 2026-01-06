@@ -10,5 +10,9 @@ class LaBovedaDelMagoSpider < EcommerceEngines::WooCommerce::Spider
   @start_urls = ["https://www.labovedadelmago.cl/page/1/"]
   @config = {}
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser
+  )
+
   image_url_strategy(:sized)
 end

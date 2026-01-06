@@ -10,5 +10,9 @@ class SpellsSpider < EcommerceEngines::WooCommerce::Spider
   @start_urls = ["https://spells.cl/categoria-producto/juegos-de-mesa"]
   @config = {}
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser
+  )
+
   image_url_strategy(:srcset)
 end

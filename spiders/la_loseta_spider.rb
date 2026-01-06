@@ -10,5 +10,9 @@ class LaLosetaSpider < EcommerceEngines::WooCommerce::Spider
   @start_urls = ["https://laloseta.cl/catalogo/swoof1/product_cat-juego-de-mesa/instock/"]
   @config = {}
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser
+  )
+
   image_url_strategy(:sized)
 end

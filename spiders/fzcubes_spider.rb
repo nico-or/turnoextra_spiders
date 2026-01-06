@@ -9,5 +9,9 @@ class FzcubesSpider < EcommerceEngines::WooCommerce::Spider
   }
   @start_urls = ["https://fzcubes.cl/categoria-producto/juegos-de-mesa/"]
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser
+  )
+
   image_url_strategy(:sized)
 end

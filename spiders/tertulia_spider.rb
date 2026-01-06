@@ -9,5 +9,9 @@ class TertuliaSpider < EcommerceEngines::WooCommerce::Spider
   }
   @start_urls = ["https://tertulia.cl/categoria-producto/juego-de-mesa/"]
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser
+  )
+
   image_url_strategy(:sized)
 end

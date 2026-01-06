@@ -10,8 +10,14 @@ class CartonesPesadosSpider < EcommerceEngines::WooCommerce::Spider
   @start_urls = ["https://cartonespesados.cl/shop/"]
   @config = {}
 
-  selector :index_product, "ul li.product"
-  selector :next_page, "a.wp-block-query-pagination-next"
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser,
+    selectors: {
+      index_product: "ul li.product",
+      next_page: "a.wp-block-query-pagination-next"
+    }
+  )
+
   selector :title, "h3 a"
 
   private

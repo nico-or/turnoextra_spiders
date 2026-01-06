@@ -9,6 +9,12 @@ class DondeJuegoSpider < EcommerceEngines::WooCommerce::Spider
   }
   @start_urls = ["https://dondejuego.cl/categoria-producto/juegos-de-mesa/"]
 
-  selector :index_product, "ul.products li.product-type-simple"
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser,
+    selectors: {
+      index_product: "ul.products li.product-type-simple"
+    }
+  )
+
   image_url_strategy(:sized)
 end

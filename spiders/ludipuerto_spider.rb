@@ -9,7 +9,13 @@ class LudipuertoSpider < EcommerceEngines::WooCommerce::Spider
   }
   @start_urls = ["https://www.ludipuerto.cl/categoria-producto/juegos-de-mesa/"]
 
-  selector :index_product, "div.products div.product"
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser,
+    selectors: {
+      index_product: "div.products div.product"
+    }
+  )
+
   selector :title, "h3"
 
   image_url_strategy(:sized)

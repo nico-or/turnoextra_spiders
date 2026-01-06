@@ -9,7 +9,13 @@ class GhostGameCenterSpider < EcommerceEngines::WooCommerce::Spider
   }
   @start_urls = ["https://ghostgamecenter.cl/juegos-de-mesa-2/"]
 
-  selector :index_product, "div.wd-products div.wd-product"
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser,
+    selectors: {
+      index_product: "div.wd-products div.wd-product"
+    }
+  )
+
   selector :title, "h3.wd-entities-title a"
 
   image_url_strategy(:sized)

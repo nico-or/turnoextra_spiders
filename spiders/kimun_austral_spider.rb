@@ -9,5 +9,9 @@ class KimunAustralSpider < EcommerceEngines::WooCommerce::Spider
   }
   @start_urls = ["https://kimunaustral.cl/shop/"]
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser
+  )
+
   image_url_strategy(:sized)
 end

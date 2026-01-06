@@ -10,8 +10,14 @@ class UpdownSpider < EcommerceEngines::WooCommerce::Spider
   @start_urls = ["https://www.updown.cl/categoria-producto/juegos-de-mesa/"]
   @config = {}
 
-  selector :next_page, "ul.page-numbers a.next"
-  selector :index_product, "div.wd-products div.wd-product"
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser,
+    selectors: {
+      index_product: "div.wd-products div.wd-product",
+      next_page: "ul.page-numbers a.next"
+    }
+  )
+
   selector :title, "h3"
 
   image_url_strategy(:srcset)

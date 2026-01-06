@@ -9,7 +9,13 @@ class GriffinGamesSpider < EcommerceEngines::WooCommerce::Spider
   }
   @start_urls = ["https://www.griffingames.cl/categoria-producto/juegos-de-mesa/"]
 
-  selector :next_page, "ul.page-numbers a.next"
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser,
+    selectors: {
+      next_page: "ul.page-numbers a.next"
+    }
+  )
+
   selector :title, "h3 a"
   image_url_strategy(:sized)
 end

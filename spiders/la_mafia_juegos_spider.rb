@@ -9,6 +9,10 @@ class LaMafiaJuegosSpider < EcommerceEngines::WooCommerce::Spider
   }
   @start_urls = ["https://lamafiajuegos.cl/shop/"]
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser
+  )
+
   image_url_strategy(:sized)
 
   def get_price(node)

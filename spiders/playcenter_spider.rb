@@ -10,5 +10,9 @@ class PlaycenterSpider < EcommerceEngines::WooCommerce::Spider
   @start_urls = ["https://playcenter.cl/categoria-producto/juegos-de-mesa"]
   @config = {}
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser
+  )
+
   image_url_strategy(:sized)
 end

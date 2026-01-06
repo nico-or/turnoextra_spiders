@@ -10,5 +10,9 @@ class CartonazoSpider < EcommerceEngines::WooCommerce::Spider
   @start_urls = ["https://cartonazo.com/categoria-producto/juego-de-mesa"]
   @config = {}
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser
+  )
+
   image_url_strategy(:srcset)
 end

@@ -9,7 +9,12 @@ class GatoArcanoSpider < EcommerceEngines::WooCommerce::Spider
   }
   @start_urls = ["https://gatoarcano.cl/product-category/juegos-de-mesa/"]
 
-  selector :next_page, "link[rel=next]"
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser,
+    selectors: {
+      next_page: "link[rel=next]"
+    }
+  )
 
   image_url_strategy(:sized)
 end

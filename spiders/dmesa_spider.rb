@@ -9,8 +9,14 @@ class DmesaSpider < EcommerceEngines::WooCommerce::Spider
   }
   @start_urls = ["https://www.dmesa.cl/product-category/juegos-de-mesa/"]
 
-  selector :index_product, "article.product"
-  selector :next_page, "link[rel=next]"
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser,
+    selectors: {
+      index_product: "article.product",
+      next_page: "link[rel=next]"
+    }
+  )
+
   selector :title, "div.elementor-heading-title"
   selector :url, "div.elementor-heading-title a"
 

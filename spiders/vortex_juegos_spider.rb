@@ -9,5 +9,8 @@ class VortexJuegosSpider < EcommerceEngines::WooCommerce::Spider
   }
   @start_urls = ["https://vortexjuegos.cl/tienda/?filter_stock_status=instock"]
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser
+  )
   image_url_strategy(:sized)
 end

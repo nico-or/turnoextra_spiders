@@ -9,6 +9,10 @@ class AraucaniaGamingSpider < EcommerceEngines::WooCommerce::Spider
   }
   @start_urls = ["https://araucaniagaming.cl/productos/juegosdemesa/"]
 
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser
+  )
+
   selector :title, "h3"
   selector :url, "h3 a"
 

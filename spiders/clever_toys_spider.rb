@@ -19,8 +19,14 @@ class CleverToysSpider < EcommerceEngines::WooCommerce::Spider
     "https://www.clevertoys.cl/categoria-producto/juegos-de-mesa/wargame/?per_page=36"
   ]
 
-  selector :index_product, "div.products div.product"
-  selector :next_page, "div.products-footer a.woodmart-load-more[href]"
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser,
+    selectors: {
+      index_product: "div.products div.product",
+      next_page: "div.products-footer a.woodmart-load-more[href]"
+    }
+  )
+
   selector :title, "h3.product-title a"
   selector :url, "h3.product-title a"
   selector :price, "span.price span.amount"

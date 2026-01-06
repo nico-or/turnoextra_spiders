@@ -10,7 +10,12 @@ class OnPlaySpider < EcommerceEngines::WooCommerce::Spider
 
   @start_urls = ["https://onplaygames.cl/categoria-producto/juego-de-mesa/"]
 
-  selector :next_page, "nav.ct-pagination a[rel=next]"
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser,
+    selectors: {
+      next_page: "nav.ct-pagination a[rel=next]"
+    }
+  )
 
   image_url_strategy(:sized)
 end

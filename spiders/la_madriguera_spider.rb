@@ -9,7 +9,12 @@ class LaMadrigueraSpider < EcommerceEngines::WooCommerce::Spider
   }
   @start_urls = ["https://tiendalamadriguera.cl/product-category/juegos-de-mesa/"]
 
-  selector :next_page, "div.paginator ol.wp-paginate li a.next"
+  @index_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductIndexPageParser,
+    selectors: {
+      next_page: "div.paginator ol.wp-paginate li a.next"
+    }
+  )
 
   image_url_strategy(:sized)
 end
