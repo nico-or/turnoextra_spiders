@@ -166,6 +166,8 @@ GEM
     rainbow (3.1.1)
     rake (13.3.1)
     rbcat (0.2.3)
+    rbs (3.10.0)
+      logger
     reek (6.5.0)
       dry-schema (~> 1.13)
       logger (~> 1.6)
@@ -204,6 +206,10 @@ GEM
     rubocop-rspec (3.8.0)
       lint_roller (~> 1.1)
       rubocop (~> 1.81)
+    ruby-lsp (0.26.4)
+      language_server-protocol (~> 3.17.0)
+      prism (>= 1.2, < 2.0)
+      rbs (>= 3, < 5)
     ruby-progressbar (1.13.0)
     rubyntlm (0.6.5)
       base64
@@ -279,6 +285,7 @@ DEPENDENCIES
   rspec (~> 3.13)
   rubocop (~> 1.74)
   rubocop-rspec (~> 3.6)
+  ruby-lsp (~> 0.26.4)
   tanakai (~> 1.7)
   zeitwerk (~> 2.7)
 

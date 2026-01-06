@@ -23,6 +23,7 @@ end
 group :development do
   gem "flog"
   gem "reek"
+  gem "ruby-lsp", "~> 0.26.4"
 end
 
 gem "mechanize", "~> 2.8"
