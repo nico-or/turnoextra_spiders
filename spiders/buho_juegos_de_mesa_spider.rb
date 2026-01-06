@@ -9,8 +9,14 @@ class BuhoJuegosDeMesaSpider < EcommerceEngines::Shopify::Spider
   }
   @start_urls = ["https://buhojuegosdemesa.cl/collections/catalogo"]
 
-  selector :index_product, "div.grid.grid--uniform div.grid__item"
-  selector :next_page, "div.pagination span.next a"
+  @index_parser_factory = ParserFactory.new(
+    Base::ProductIndexPageParser,
+    selectors: {
+      index_product: "div.grid.grid--uniform div.grid__item",
+      next_page: "div.pagination span.next a"
+    }
+  )
+
   selector :title, "div.product-card__name"
 
   private
