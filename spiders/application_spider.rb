@@ -88,7 +88,9 @@ class ApplicationSpider < Tanakai::Base
   end
 
   def new_product_nodes(response, base_url:)
-    index_page_parser(response, base_url:).product_nodes
+    index_page_parser(response, base_url:)
+      .product_nodes
+      .map { |node| parse_product_node(node, url: base_url) }
   end
 
   def old_next_page_url(response, url)
