@@ -50,11 +50,13 @@ class ApplicationSpider < Tanakai::Base
   end
 
   def parse_index(response, url:, data: {})
-    if self.class.index_parser_factory
-      new_product_nodes(response, base_url: url)
-    else
-      old_product_nodes(response, url:)
-    end
+    product_nodes =
+      if self.class.index_parser_factory
+        new_product_nodes(response, base_url: url)
+      else
+        old_product_nodes(response, url:)
+      end
+    product_nodes.map { |node| parse_product_node(node, url:) }
   end
 
   def next_page_url(response, url)
@@ -83,14 +85,11 @@ class ApplicationSpider < Tanakai::Base
 
   def old_product_nodes(response, url:)
     selector = get_selector(:index_product)
-    listings = response.css(selector)
-    listings.map { |listing| parse_product_node(listing, url:) }
+    response.css(selector)
   end
 
   def new_product_nodes(response, base_url:)
-    index_page_parser(response, base_url:)
-      .product_nodes
-      .map { |node| parse_product_node(node, url: base_url) }
+    index_page_parser(response, base_url:).product_nodes
   end
 
   def old_next_page_url(response, url)
