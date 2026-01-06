@@ -12,18 +12,13 @@ class ElArcanistaSpider < EcommerceEngines::Shopify::Spider
     "https://elarcanista.cl/collections/party-games"
   ]
 
-  selector :index_product, "product-card"
+  @index_parser_factory = ParserFactory.new(
+    Stores::ElArcanista::ProductIndexPageParser
+  )
+
   selector :url, "a.product-name"
   selector :title, "a.product-name"
   selector :price, "span.item-price"
   selector :stock, "span.badge-sold"
   selector :image_attr, "data-src"
-
-  def next_page_url(response, url)
-    node = response.at_css("infinite-scroll")
-    return unless node
-
-    rel_url = node["data-url"]
-    absolute_url(rel_url, base: url)
-  end
 end
