@@ -9,8 +9,14 @@ class JugandoAndoSpider < ApplicationSpider
   }
   @start_urls = ["https://jugandoando.cl/categoria/todos-los-juegos-28092"]
 
-  selector :index_product, "div.container div.row div.position-relative"
-  selector :next_page, "ul.pagination li a[@rel=next]"
+  @index_parser_factory = ParserFactory.new(
+    Base::ProductIndexPageParser,
+    selectors: {
+      index_product: "div.container div.row div.position-relative",
+      next_page: "ul.pagination li a[@rel=next]",
+    }
+  )
+
   selector :url, "a"
   selector :title, "h3"
   selector :price, "span.text-nowrap"

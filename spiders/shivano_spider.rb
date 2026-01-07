@@ -10,8 +10,14 @@ class ShivanoSpider < ApplicationSpider
 
   @start_urls = ["https://shivano.cl/12-juegos-de-mesa?p=1"]
 
-  selector :index_product, "ul.product_list li.ajax_block_product"
-  selector :next_page, "ul.pagination li#pagination_next a[href]"
+  @index_parser_factory = ParserFactory.new(
+    Base::ProductIndexPageParser,
+    selectors: {
+      index_product: "ul.product_list li.ajax_block_product",
+      next_page: "ul.pagination li#pagination_next a[href]",
+    }
+  )
+
   selector :title, "h5 a.product-name span.list-name"
   selector :url, "h5 a.product-name"
   selector :price, "span.price"

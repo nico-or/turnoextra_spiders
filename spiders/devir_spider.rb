@@ -11,8 +11,14 @@ class DevirSpider < ApplicationSpider
   @start_urls = ["https://devir.cl/juegos-de-mesa?p=1"]
   @config = {}
 
-  selector :index_product, "div.products li.item"
-  selector :next_page, "a[title='Siguiente']"
+  @index_parser_factory = ParserFactory.new(
+    Base::ProductIndexPageParser,
+    selectors: {
+      index_product: "div.products li.item",
+      next_page: "a[title='Siguiente']",
+    }
+  )
+
   selector :title, "strong a"
   selector :url, "strong a"
 

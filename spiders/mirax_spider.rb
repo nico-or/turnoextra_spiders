@@ -25,13 +25,19 @@ class MiraxSpider < ApplicationSpider
   # example: https://www.mirax.cl/detalles.php?codigo=ID
   @pipelines = %i[validator saver]
 
-  selector :index_product, "section.catalog-grid div.tile"
+  @index_parser_factory = ParserFactory.new(
+    Base::ProductIndexPageParser,
+    selectors: {
+      index_product: "section.catalog-grid div.tile",
+      next_page: "ul.pagination a.fa-angle-right",
+    }
+  )
+
   selector :url, "div.descripcion-producto a"
   selector :title, "div.descripcion-producto a"
   selector :price, "div.precio a"
   selector :stock, "a.add-cart-btn.avisame"
 
-  selector :next_page, "ul.pagination a.fa-angle-right"
 
   private
 
