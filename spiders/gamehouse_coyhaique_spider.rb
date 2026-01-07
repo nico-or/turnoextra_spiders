@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Gamehouse Coyhaique store spider
-class GamehouseCoyhaiqueSpider < EcommerceEngines::Bsale::Spider
+class GamehouseCoyhaiqueSpider < ApplicationSpider
   @name = "gamehouse_coyhaique_spider"
   @store = {
     name: "Gamehouse Coyhaique",
@@ -13,5 +13,10 @@ class GamehouseCoyhaiqueSpider < EcommerceEngines::Bsale::Spider
     EcommerceEngines::Bsale::ProductIndexPageParser
   )
 
-  selector :title, "h3[@class='bs-collection__product-title']/text()"
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Bsale::ProductCardParser,
+    selectors: {
+      title: "h3[@class='bs-collection__product-title']/text()"
+    }
+  )
 end
