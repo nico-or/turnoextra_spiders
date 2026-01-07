@@ -61,11 +61,14 @@ class ApplicationSpider < Tanakai::Base
   end
 
   def parse_product_node(node, url:)
-    if self.class.product_parser_factory
-      new_parse_product_node(node, base_url: url)
-    else
-      old_parse_product_node(node, url:)
-    end
+    parser = product_parser(node, base_url: url)
+    {
+      url: parser.url,
+      title: parser.title,
+      price: parser.price,
+      stock: parser.purchasable?,
+      image_url: parser.image_url
+    }
   end
 
   private
@@ -75,28 +78,11 @@ class ApplicationSpider < Tanakai::Base
   end
 
   def product_parser(node, base_url:)
-    self.class.product_parser_factory.build(node, base_url:)
-  end
-
-  def old_parse_product_node(node, url:)
-    {
-      url: get_url(node, url),
-      title: get_title(node),
-      price: get_price(node),
-      stock: purchasable?(node),
-      image_url: get_image_url(node, url)
-    }
-  end
-
-  def new_parse_product_node(node, base_url:)
-    parser = product_parser(node, base_url:)
-    {
-      url: parser.url,
-      title: parser.title,
-      price: parser.price,
-      stock: parser.purchasable?,
-      image_url: parser.image_url
-    }
+    if self.class.product_parser_factory
+      self.class.product_parser_factory.build(node, base_url:)
+    else
+      Base::LegacyProductParser.new(node, base_url:, spider: self)
+    end
   end
 
   def paginate(response, url)
