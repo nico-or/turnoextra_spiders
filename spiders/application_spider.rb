@@ -3,6 +3,7 @@
 # Base class for Store spiders
 class ApplicationSpider < Tanakai::Base
   include ApplicationHelper
+  extend Gem::Deprecate
 
   @engine = :mechanize
   @pipelines = %i[formatter validator saver]
@@ -111,7 +112,7 @@ class ApplicationSpider < Tanakai::Base
   end
 
   def absolute_url(rel_url, base:)
-    uri = Addressable::URI.parse(rel_url).normalize
-    URI.join(base, uri).to_s
+    Helpers.absolute_url(rel_url, base_url: base)
   end
+  deprecate(:absolute_url, :"Helpers.absolute_url", 2_026, 2)
 end
