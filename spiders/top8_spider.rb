@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Top8 store spider
-class Top8Spider < EcommerceEngines::Bsale::Spider
+class Top8Spider < ApplicationSpider
   @name = "top8_spider"
   @store = {
     name: "Top8",
@@ -26,5 +26,9 @@ class Top8Spider < EcommerceEngines::Bsale::Spider
 
   @index_parser_factory = ParserFactory.new(
     EcommerceEngines::Bsale::ProductIndexPageParser
+  )
+
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Bsale::ProductCardParser
   )
 end
