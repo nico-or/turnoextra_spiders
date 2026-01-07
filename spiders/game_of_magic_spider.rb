@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Game of Magic store spider
-class GameOfMagicSpider < EcommerceEngines::Bsale::Spider
+class GameOfMagicSpider < ApplicationSpider
   @name = "game_of_magic_spider"
   @store = {
     name: "Game of Magic",
@@ -19,5 +19,10 @@ class GameOfMagicSpider < EcommerceEngines::Bsale::Spider
     EcommerceEngines::Bsale::ProductIndexPageParser
   )
 
-  selector :title, "a[@class='bs-collection__product-info']/h3/text()"
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Bsale::ProductCardParser,
+    selectors: {
+      title: "a[@class='bs-collection__product-info']/h3/text()"
+    }
+  )
 end
