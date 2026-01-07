@@ -9,15 +9,13 @@ class JugonesSpider < ApplicationSpider
   }
   @start_urls = ["https://www.jugones.cl/juegos-de-mesa"]
 
-  selector :index_product, "div.producto"
+  @index_parser_factory = ParserFactory.new(
+    Stores::Jugones::ProductIndexPageParser
+  )
+
   selector :title, "a.modelo"
   selector :url, "a.modelo"
   selector :stock, "a.precio.reserva"
-
-  # TODO: prevent method argument test from forcing rubocop magic comments
-  def next_page_url(response, url) # rubocop:disable Lint/UnusedMethodArgument
-    nil
-  end
 
   private
 
