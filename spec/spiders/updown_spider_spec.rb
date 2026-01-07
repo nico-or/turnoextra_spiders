@@ -54,7 +54,6 @@ RSpec.describe UpdownSpider, :spider, engine: :woocommerce do
       it_behaves_like "a product node parser"
     end
 
-
     context "with an out-of-stock product node" do
       let(:filename) { File.join("spec/fixtures/stores", fixture_directory, "product_index_node_out_of_stock.html") }
 

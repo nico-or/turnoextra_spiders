@@ -18,7 +18,7 @@ class ElCalabozoSpider < ApplicationSpider
   selector :stock, "span.badge-danger"
   selector :image_url, "img"
 
-  def next_page_url(response, url)
+  def next_page_url(response, url) # rubocop:disable Lint/UnusedMethodArgument
     selector = get_selector(:next_page)
     next_page_node = response.at_css(selector)
     return unless next_page_node

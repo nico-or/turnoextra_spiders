@@ -19,7 +19,7 @@ class DmesaSpider < EcommerceEngines::WooCommerce::Spider
   private
 
   def get_price(node)
-    price_node = node.css("div[data-widget_type='woocommerce-product-price.default'] span.woocommerce-Price-amount").last
+    price_node = node.css("div[data-widget_type='woocommerce-product-price.default'] span.woocommerce-Price-amount").last # rubocop:disable Layout/LineLength
     return unless price_node
 
     scan_int(price_node.text)

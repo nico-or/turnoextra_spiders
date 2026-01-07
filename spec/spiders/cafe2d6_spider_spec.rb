@@ -28,7 +28,7 @@ RSpec.describe Cafe2d6Spider, :spider, engine: :shopify do
       let(:expected) do
         {
           url: "https://www.cafe2d6.cl/collections/all/products/7-wonders-duel-lotr-duelo-por-la-tierra-media",
-          title: "7 Wonders Duel: Lord of the Rings – Duelo por la Tierra Media | Juego de Estrategia para 2 Jugadores, Inspirado en El Señor de los Anillos",
+          title: "7 Wonders Duel: Lord of the Rings – Duelo por la Tierra Media | Juego de Estrategia para 2 Jugadores, Inspirado en El Señor de los Anillos", # rubocop:disable Layout/LineLength
           price: 31_900,
           stock: true,
           image_url: "https://www.cafe2d6.cl/cdn/shop/files/el-senor-de-los-anillos-duelo-por-la-tierra-media-1_400x400_crop_center.jpg"

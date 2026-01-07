@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Base class for Store spiders
 class ApplicationSpider < Tanakai::Base
   include ApplicationHelper
 
