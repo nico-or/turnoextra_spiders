@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Wargaming store spider
-class WargamingSpider < EcommerceEngines::Bsale::Spider
+class WargamingSpider < ApplicationSpider
   @name = "wargaming_spider"
   @store = {
     name: "Wargaming",
@@ -11,5 +11,9 @@ class WargamingSpider < EcommerceEngines::Bsale::Spider
 
   @index_parser_factory = ParserFactory.new(
     EcommerceEngines::Bsale::ProductIndexPageParser
+  )
+
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Bsale::ProductCardParser
   )
 end
