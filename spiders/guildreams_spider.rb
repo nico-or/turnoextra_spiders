@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Guildreams store spider
-class GuildreamsSpider < EcommerceEngines::Bsale::Spider
+class GuildreamsSpider < ApplicationSpider
   @name = "guildreams_spider"
   @store = {
     name: "Guildreams",
@@ -18,8 +18,13 @@ class GuildreamsSpider < EcommerceEngines::Bsale::Spider
     }
   )
 
-  selector :title, "h2"
-  selector :stock, "div.bs-stock"
-  selector :price, "div.bs-product-final-price"
-  selector :image_attr, "data-src"
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Bsale::ProductCardParser,
+    selectors: {
+      title: "h2",
+      stock: "div.bs-stock",
+      price: "div.bs-product-final-price",
+      image_attr: "data-src"
+    }
+  )
 end
