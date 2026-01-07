@@ -50,21 +50,13 @@ class ApplicationSpider < Tanakai::Base
   end
 
   def parse_index(response, url:, data: {})
-    product_nodes =
-      if self.class.index_parser_factory
-        new_product_nodes(response, base_url: url)
-      else
-        old_product_nodes(response, url:)
-      end
-    product_nodes.map { |node| parse_product_node(node, url:) }
+    index_page_parser(response, base_url: url)
+      .product_nodes
+      .map { |node| parse_product_node(node, url:) }
   end
 
   def next_page_url(response, url)
-    if self.class.index_parser_factory
-      new_next_page_url(response, base_url: url)
-    else
-      old_next_page_url(response, url)
-    end
+    index_page_parser(response, base_url: url).next_page_url
   end
 
   def parse_product_node(node, url:)
@@ -81,27 +73,6 @@ class ApplicationSpider < Tanakai::Base
 
   def index_page_parser(node, base_url:)
     self.class.index_parser_factory.build(node, base_url:)
-  end
-
-  def old_product_nodes(response, url:)
-    selector = get_selector(:index_product)
-    response.css(selector)
-  end
-
-  def new_product_nodes(response, base_url:)
-    index_page_parser(response, base_url:).product_nodes
-  end
-
-  def old_next_page_url(response, url)
-    selector = get_selector(:next_page)
-    next_page_node = response.at_css(selector)
-    return unless next_page_node
-
-    absolute_url(next_page_node[:href], base: url)
-  end
-
-  def new_next_page_url(response, base_url:)
-    index_page_parser(response, base_url:).next_page_url
   end
 
   def paginate(response, url)

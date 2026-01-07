@@ -14,8 +14,6 @@ module EcommerceEngines
         end
       end
 
-      selector :index_product, "ul.products li.product"
-      selector :next_page, "nav.woocommerce-pagination li a.next"
       selector :title, "h2"
       selector :url, "a"
 

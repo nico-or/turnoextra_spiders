@@ -16,8 +16,6 @@ module EcommerceEngines
         end
       end
 
-      selector :index_product, "div#js-product-list article"
-      selector :next_page, "nav.pagination li a[@rel=next]"
       selector :title, ".product-title"
       selector :price, "span.price"
       selector :stock, "li.out_of_stock"
