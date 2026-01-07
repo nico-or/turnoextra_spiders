@@ -15,9 +15,9 @@ RSpec.describe UpdownSpider, :spider, engine: :woocommerce do
       Nokogiri::HTML(html)
     end
 
-    it "returns 12 items" do
+    it "returns 40 items" do
       items = spider.send(:parse_index, response, url: store_url)
-      expect(items.length).to eq(12)
+      expect(items.length).to eq(40)
     end
   end
 

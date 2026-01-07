@@ -10,7 +10,7 @@ class UpdownSpider < EcommerceEngines::WooCommerce::Spider
   @start_urls = ["https://www.updown.cl/categoria-producto/juegos-de-mesa/"]
   @config = {}
 
-  selector :next_page, "link[rel=next]"
+  selector :next_page, "ul.page-numbers a.next"
   selector :index_product, "div.wd-products div.wd-product"
   selector :title, "h3"
 
