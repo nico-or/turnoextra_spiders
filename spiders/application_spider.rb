@@ -84,7 +84,7 @@ class ApplicationSpider < Tanakai::Base
   def get_url(node, url = nil)
     selector = get_selector(:url)
     rel_url = node.at_css(selector)["href"]
-    absolute_url(rel_url, base: url)
+    Helpers.absolute_url(rel_url, base_url: url)
   end
 
   def get_title(node)

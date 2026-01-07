@@ -38,6 +38,6 @@ class JugonesSpider < ApplicationSpider
     return unless rel_url
 
     rel_url.sub!(%r{cache/\d+x\d+_\d+_}, "productos/")
-    absolute_url(rel_url, base: url)
+    Helpers.absolute_url(rel_url, base_url: url)
   end
 end

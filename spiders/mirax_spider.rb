@@ -43,6 +43,6 @@ class MiraxSpider < ApplicationSpider
 
   def get_image_url(node, url)
     rel_url = node.at_css("img").attr("src")
-    absolute_url(rel_url, base: url)
+    Helpers.absolute_url(rel_url, base_url: url)
   end
 end

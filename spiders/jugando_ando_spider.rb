@@ -31,6 +31,6 @@ class JugandoAndoSpider < ApplicationSpider
     img_node = node.at_css("div.bg-img")
     return unless img_node
 
-    absolute_url(img_node["data-bg"], base: url)
+    Helpers.absolute_url(img_node["data-bg"], base_url: url)
   end
 end
