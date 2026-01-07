@@ -27,11 +27,11 @@ RSpec.describe UpdownSpider, :spider, engine: :woocommerce do
 
       let(:expected) do
         {
-          url: "https://www.updown.cl/producto/fundas-stronghold-mini-european-44x68mm/",
-          title: "Fundas Stronghold Mini European 44x68mm",
-          price: 1_990,
+          url: "https://www.updown.cl/producto/dice-throne-marvel-caja-1-bruja-escarlata-thor-loki-y-spider-man/",
+          title: "Dice Throne Marvel Caja 1 (Bruja Escarlata, Thor, Loki y Spider-Man) + Correcciones",
+          price: 72_990,
           stock: true,
-          image_url: "https://www.updown.cl/wp-content/uploads/2025/07/original-294.jpeg"
+          image_url: "https://www.updown.cl/wp-content/uploads/2025/11/standard_resolution-167.jpg"
         }
       end
 
@@ -43,11 +43,28 @@ RSpec.describe UpdownSpider, :spider, engine: :woocommerce do
 
       let(:expected) do
         {
-          url: "https://www.updown.cl/producto/star-realms-escenarios/",
-          title: "Star Realms: Escenarios",
-          price: 2_480,
+          url: "https://www.updown.cl/producto/dominant-species/",
+          title: "Dominant Species",
+          price: 99_990,
           stock: true,
-          image_url: "https://www.updown.cl/wp-content/uploads/2024/11/standard_resolution-610.jpg"
+          image_url: "https://www.updown.cl/wp-content/uploads/2025/11/standard_resolution-22.jpg"
+        }
+      end
+
+      it_behaves_like "a product node parser"
+    end
+
+
+    context "with an out-of-stock product node" do
+      let(:filename) { File.join("spec/fixtures/stores", fixture_directory, "product_index_node_out_of_stock.html") }
+
+      let(:expected) do
+        {
+          url: "https://www.updown.cl/producto/dominion/",
+          title: "Dominion",
+          price: 36_990,
+          stock: false,
+          image_url: "https://www.updown.cl/wp-content/uploads/2025/09/standard_resolution-726.jpg"
         }
       end
 
