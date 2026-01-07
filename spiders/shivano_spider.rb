@@ -14,7 +14,7 @@ class ShivanoSpider < ApplicationSpider
     Base::ProductIndexPageParser,
     selectors: {
       index_product: "ul.product_list li.ajax_block_product",
-      next_page: "ul.pagination li#pagination_next a[href]",
+      next_page: "ul.pagination li#pagination_next a[href]"
     }
   )
 

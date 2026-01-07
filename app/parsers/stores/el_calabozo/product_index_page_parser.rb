@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module Stores
   module ElCalabozo
     class ProductIndexPageParser < EcommerceEngines::Bsale::ProductIndexPageParser
       def default_selectors
         {
           index_product: "div.Prod-item",
-          next_page: "li.page-item.active + li.d-none a",
+          next_page: "li.page-item.active + li.d-none a"
         }
       end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module EcommerceEngines
   module WooCommerce
     class ProductIndexPageParser < Base::ProductIndexPageParser

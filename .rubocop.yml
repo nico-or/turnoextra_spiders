@@ -16,3 +16,6 @@ Lint/UnusedMethodArgument:
 
 Metrics/BlockLength:
   AllowedMethods: ["describe", "context"]
+
+Style/Documentation:
+  Enabled: false

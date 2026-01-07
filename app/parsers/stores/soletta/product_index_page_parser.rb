@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Stores
   module Soletta
     class ProductIndexPageParser < EcommerceEngines::Bsale::ProductIndexPageParser

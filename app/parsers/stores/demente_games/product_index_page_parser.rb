@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Stores
   module DementeGames
     class ProductIndexPageParser < EcommerceEngines::Prestashop::ProductIndexPageParser

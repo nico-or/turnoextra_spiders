@@ -13,7 +13,7 @@ class JugandoAndoSpider < ApplicationSpider
     Base::ProductIndexPageParser,
     selectors: {
       index_product: "div.container div.row div.position-relative",
-      next_page: "ul.pagination li a[@rel=next]",
+      next_page: "ul.pagination li a[@rel=next]"
     }
   )
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Stores
   module Diverti
     class ProductIndexPageParser < EcommerceEngines::Prestashop::ProductIndexPageParser

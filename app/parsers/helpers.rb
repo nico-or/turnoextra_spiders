@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Helpers
   def self.absolute_url(rel_url, base_url:)
     uri = Addressable::URI.parse(rel_url).normalize

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module EcommerceEngines
   module Bsale
     class ProductIndexPageParser < Base::ProductIndexPageParser

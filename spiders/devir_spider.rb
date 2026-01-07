@@ -15,7 +15,7 @@ class DevirSpider < ApplicationSpider
     Base::ProductIndexPageParser,
     selectors: {
       index_product: "div.products li.item",
-      next_page: "a[title='Siguiente']",
+      next_page: "a[title='Siguiente']"
     }
   )
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Stores
   module ElArcanista
     class ProductIndexPageParser < Base::ProductIndexPageParser

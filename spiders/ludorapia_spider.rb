@@ -10,7 +10,7 @@ class LudorapiaSpider < EcommerceEngines::Jumpseller::Spider
   @start_urls = ["https://ludorapia.jumpseller.com/juegos-de-mesa"]
 
   @index_parser_factory = ParserFactory.new(
-    EcommerceEngines::Jumpseller::ProductIndexPageParser,
+    EcommerceEngines::Jumpseller::ProductIndexPageParser
   )
 
   private

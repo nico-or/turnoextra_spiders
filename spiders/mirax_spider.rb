@@ -29,7 +29,7 @@ class MiraxSpider < ApplicationSpider
     Base::ProductIndexPageParser,
     selectors: {
       index_product: "section.catalog-grid div.tile",
-      next_page: "ul.pagination a.fa-angle-right",
+      next_page: "ul.pagination a.fa-angle-right"
     }
   )
 
@@ -37,7 +37,6 @@ class MiraxSpider < ApplicationSpider
   selector :title, "div.descripcion-producto a"
   selector :price, "div.precio a"
   selector :stock, "a.add-cart-btn.avisame"
-
 
   private
 

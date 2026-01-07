@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'support/parsers_helper'
+require "support/parsers_helper"
 
 RSpec.describe Helpers do
   let(:base_url) { "https://example.com/" }

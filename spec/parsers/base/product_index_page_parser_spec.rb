@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "support/parsers_helper"
 
 RSpec.describe Base::ProductIndexPageParser do
@@ -26,14 +28,14 @@ RSpec.describe Base::ProductIndexPageParser do
 
   let(:base_url) { "https://www.example.com" }
 
-  let(:subject) do
+  let(:parser) do
     node = Nokogiri::HTML5.parse(html)
     described_class.new(node, base_url:, selectors:)
   end
 
   describe "#product_nodes" do
     it "returns 2 nodes" do
-      result = subject.product_nodes
+      result = parser.product_nodes
       expect(result.length).to eq(2)
     end
   end
@@ -41,7 +43,7 @@ RSpec.describe Base::ProductIndexPageParser do
   describe "#next_page_url" do
     it "returns the correct url" do
       expected = "https://www.example.com/products/?page=2"
-      result = subject.next_page_url
+      result = parser.next_page_url
       expect(result).to eq(expected)
     end
   end

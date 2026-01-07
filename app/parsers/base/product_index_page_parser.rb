@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Base
   class ProductIndexPageParser
     attr_reader :node, :base_url, :selectors
