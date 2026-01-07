@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # La Guarida Del Dragon store spider
-class LaGuaridaDelDragonSpider < EcommerceEngines::Bsale::Spider
+class LaGuaridaDelDragonSpider < ApplicationSpider
   @name = "la_guarida_del_dragon_spider"
   @store = {
     name: "La Guarida Del Dragon",
@@ -14,5 +14,9 @@ class LaGuaridaDelDragonSpider < EcommerceEngines::Bsale::Spider
 
   @index_parser_factory = ParserFactory.new(
     EcommerceEngines::Bsale::ProductIndexPageParser
+  )
+
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Bsale::ProductCardParser
   )
 end
