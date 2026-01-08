@@ -5,6 +5,7 @@ module Stores
     # TODO: rename parser since it's used by multiple spiders:
     # - LaTribuGamesSpider
     # - LautaroJuegosSpider
+    # - Magic4EverSpider
     class ProductCardParser < EcommerceEngines::Jumpseller::ProductCardParser
       # TODO: remove explicit super.merge call
       def default_selectors

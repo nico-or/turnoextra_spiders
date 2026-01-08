@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Magic 4 Ever store spider
-class Magic4EverSpider < EcommerceEngines::Jumpseller::Spider
+class Magic4EverSpider < ApplicationSpider
   @name = "magic_4_ever_spider"
   @store = {
     name: "Magic 4 Ever",
@@ -16,12 +16,10 @@ class Magic4EverSpider < EcommerceEngines::Jumpseller::Spider
     }
   )
 
-  selector :price, "div.price span.block-price"
-  selector :stock, "a.btn.gray"
-
-  private
-
-  def get_title(node)
-    node.at_css("img")[:title].strip
-  end
+  @product_parser_factory = ParserFactory.new(
+    Stores::LaTribuGames::ProductCardParser,
+    selectors: {
+      price: "div.price span.block-price"
+    }
+  )
 end
