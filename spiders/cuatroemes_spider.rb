@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Cuatroemes store spider
-class CuatroemesSpider < EcommerceEngines::Jumpseller::Spider
+class CuatroemesSpider < ApplicationSpider
   @name = "cuatroemes_spider"
   @store = {
     name: "Cuatroemes",
@@ -13,9 +13,7 @@ class CuatroemesSpider < EcommerceEngines::Jumpseller::Spider
     EcommerceEngines::Jumpseller::ProductIndexPageParser
   )
 
-  private
-
-  def in_stock?(_node)
-    true
-  end
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Jumpseller::ProductCardParser
+  )
 end
