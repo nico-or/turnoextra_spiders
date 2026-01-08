@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Chucao Juegos store spider
-class ChucaoJuegosSpider < EcommerceEngines::Jumpseller::Spider
+class ChucaoJuegosSpider < ApplicationSpider
   @name = "chucao_juegos_spider"
   @store = {
     name: "Chucao Juegos",
@@ -13,12 +13,7 @@ class ChucaoJuegosSpider < EcommerceEngines::Jumpseller::Spider
     EcommerceEngines::Jumpseller::ProductIndexPageParser
   )
 
-  private
-
-  def get_price(node)
-    price_node = node.at_css("div.product-block__price span:first-child")
-    return unless price_node
-
-    scan_int(price_node.text)
-  end
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Jumpseller::ProductCardParser
+  )
 end
