@@ -16,7 +16,6 @@ class JuegoManiaSpider < ApplicationSpider
   @product_parser_factory = ParserFactory.new(
     EcommerceEngines::Jumpseller::ProductCardParser,
     selectors: {
-      stock: "div.product-block__label--status",
       price: "div.product-block__price--new,
       div.product-block__price:last-child,
       div.product-block__price span:first-child"

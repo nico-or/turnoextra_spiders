@@ -14,9 +14,6 @@ class UnaTienditaDeJuegosSpider < ApplicationSpider
   )
 
   @product_parser_factory = ParserFactory.new(
-    EcommerceEngines::Jumpseller::ProductCardParser,
-    selectors: {
-      stock: "div.product-block__label--status"
-    }
+    EcommerceEngines::Jumpseller::ProductCardParser
   )
 end
