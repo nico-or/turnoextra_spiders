@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # VuduGaming store spider
-class VudugamingSpider < EcommerceEngines::Jumpseller::Spider
+class VudugamingSpider < ApplicationSpider
   @name = "vudugaming_spider"
   @store = {
     name: "VuduGaming",
@@ -14,6 +14,11 @@ class VudugamingSpider < EcommerceEngines::Jumpseller::Spider
     EcommerceEngines::Jumpseller::ProductIndexPageParser
   )
 
-  selector :title, "h2"
-  selector :stock, "div.product-block__actions a[title]"
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Jumpseller::ProductCardParser,
+    selectors: {
+      title: "h2",
+      stock: "div.product-block__actions a[title]"
+    }
+  )
 end
