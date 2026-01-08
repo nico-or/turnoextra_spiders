@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Play Kingdom store spider
-class PlayKingdomSpider < EcommerceEngines::Jumpseller::Spider
+class PlayKingdomSpider < ApplicationSpider
   @name = "play_kingdom_spider"
   @store = {
     name: "Play Kingdom",
@@ -14,5 +14,10 @@ class PlayKingdomSpider < EcommerceEngines::Jumpseller::Spider
     EcommerceEngines::Jumpseller::ProductIndexPageParser
   )
 
-  selector :stock, "div.product-block__label--status"
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Jumpseller::ProductCardParser,
+    selectors: {
+      stock: "div.product-block__label--status"
+    }
+  )
 end
