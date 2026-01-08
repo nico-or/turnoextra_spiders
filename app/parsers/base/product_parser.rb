@@ -15,23 +15,23 @@ module Base
     end
 
     def url
-      rel_url = node.at_css(selectors[:url])[:href]
+      rel_url = node.at(selectors[:url])[:href]
       Helpers.absolute_url(rel_url, base_url:)
     end
 
     def title
-      node.at_css(selectors[:title])&.text&.strip || ""
+      node.at(selectors[:title])&.text&.strip || ""
     end
 
     def price
-      price_node = node.at_css(selectors[:price])
+      price_node = node.at(selectors[:price])
       return unless price_node
 
       Helpers.scan_int(price_node.text)
     end
 
     def stock?
-      node.at_css(selectors[:stock]).nil?
+      node.at(selectors[:stock]).nil?
     end
 
     def purchasable?

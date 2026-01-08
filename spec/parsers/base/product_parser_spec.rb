@@ -44,7 +44,7 @@ RSpec.describe Base::ProductParser do
     end
 
     it "returns an empty string if title node is missing" do
-      allow(parser.node).to receive(:at_css).with(".product-title").and_return(nil)
+      allow(parser.node).to receive(:at).with(".product-title").and_return(nil)
       expect(parser.title).to eq("")
     end
   end
@@ -55,7 +55,7 @@ RSpec.describe Base::ProductParser do
     end
 
     it "returns nil if price node is missing" do
-      allow(parser.node).to receive(:at_css).with(".price-amount").and_return(nil)
+      allow(parser.node).to receive(:at).with(".price-amount").and_return(nil)
       expect(parser.price).to be_nil
     end
   end
