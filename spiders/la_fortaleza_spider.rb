@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # La Fortaleza store spider
-class LaFortalezaSpider < EcommerceEngines::Jumpseller::Spider
+class LaFortalezaSpider < ApplicationSpider
   @name = "la_fortaleza_spider"
   @store = {
     name: "La Fortaleza",
@@ -18,21 +18,12 @@ class LaFortalezaSpider < EcommerceEngines::Jumpseller::Spider
     }
   )
 
-  selector :title, "h5"
-  selector :stock, "div.product-out-of-stock"
-
-  private
-
-  def discount_price(node)
-    node.at_css("span.product-price-discount i")
-  end
-
-  def regular_price(node)
-    node.at_css("span.product-price")
-  end
-
-  def get_price(node)
-    price_node = discount_price(node) || regular_price(node)
-    scan_int(price_node.text) if price_node
-  end
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Jumpseller::ProductCardParser,
+    selectors: {
+      title: "h5",
+      stock: "div.product-out-of-stock",
+      price: "span.product-price-discount i, span.product-price"
+    }
+  )
 end
