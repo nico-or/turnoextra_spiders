@@ -6,6 +6,7 @@ module Stores
     # - LaTribuGamesSpider
     # - LautaroJuegosSpider
     # - Magic4EverSpider
+    # - RivendelElConcilioSpider
     class ProductCardParser < EcommerceEngines::Jumpseller::ProductCardParser
       # TODO: remove explicit super.merge call
       def default_selectors

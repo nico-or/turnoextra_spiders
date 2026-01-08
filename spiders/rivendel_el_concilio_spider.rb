@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Rivendel El Concilio store spider
-class RivendelElConcilioSpider < EcommerceEngines::Jumpseller::Spider
+class RivendelElConcilioSpider < ApplicationSpider
   @name = "rivendel_el_concilio_spider"
   @store = {
     name: "Rivendel El Concilio",
@@ -16,12 +16,10 @@ class RivendelElConcilioSpider < EcommerceEngines::Jumpseller::Spider
     }
   )
 
-  selector :price, "div.price span.block-price"
-  selector :stock, "a.btn.gray"
-
-  private
-
-  def get_title(node)
-    node.at_css("img")[:title].strip
-  end
+  @product_parser_factory = ParserFactory.new(
+    Stores::LaTribuGames::ProductCardParser,
+    selectors: {
+      price: "div.price span.block-price"
+    }
+  )
 end
