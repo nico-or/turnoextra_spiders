@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Juegos Del Bosque store spider
-class JuegosDelBosqueSpider < EcommerceEngines::Jumpseller::Spider
+class JuegosDelBosqueSpider < ApplicationSpider
   @name = "juegos_del_bosque_spider"
   @store = {
     name: "Juegos Del Bosque",
@@ -13,5 +13,10 @@ class JuegosDelBosqueSpider < EcommerceEngines::Jumpseller::Spider
     EcommerceEngines::Jumpseller::ProductIndexPageParser
   )
 
-  selector :stock, "div.product-block__label--status"
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Jumpseller::ProductCardParser,
+    selectors: {
+      stock: "div.product-block__label--status"
+    }
+  )
 end
