@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Gaming Place store spider
-class GamingPlaceSpider < EcommerceEngines::Jumpseller::Spider
+class GamingPlaceSpider < ApplicationSpider
   @name = "gaming_place_spider"
   @store = {
     name: "Gaming Place",
@@ -16,26 +16,12 @@ class GamingPlaceSpider < EcommerceEngines::Jumpseller::Spider
     }
   )
 
-  selector :stock, "a.not-available"
-
-  private
-
-  def get_title(node)
-    node.at_css("img")[:alt].strip
-  end
-
-  def regular_price(node)
-    node.at_css("div.list-price span.product-block-list")
-  end
-
-  def discount_price(node)
-    node.at_css("div.list-price span.product-block-normal")
-  end
-
-  def get_price(node)
-    price_node = discount_price(node) || regular_price(node)
-    return unless price_node
-
-    scan_int(price_node.text)
-  end
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Jumpseller::ProductCardParser,
+    selectors: {
+      title: "h4 a",
+      stock: "a.not-available",
+      price: ".product-block-normal, .product-block-list"
+    }
+  )
 end
