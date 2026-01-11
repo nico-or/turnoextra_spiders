@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Diverti store spider
-class DivertiSpider < EcommerceEngines::PrestaShop::Spider
+class DivertiSpider < ApplicationSpider
   @name = "diverti_spider"
   @store = {
     name: "Diverti",
@@ -14,9 +14,7 @@ class DivertiSpider < EcommerceEngines::PrestaShop::Spider
     Stores::Diverti::ProductIndexPageParser
   )
 
-  private
-
-  def in_stock?(node)
-    node.at_css("div.ago").text.strip.empty?
-  end
+  @product_parser_factory = ParserFactory.new(
+    Stores::Diverti::ProductCardParser
+  )
 end
