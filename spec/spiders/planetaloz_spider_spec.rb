@@ -44,7 +44,7 @@ RSpec.describe PlanetalozSpider, :spider, engine: :prestashop do
       let(:expected) do
         {
           url: "https://www.planetaloz.cl/juegos-de-mesa/8803-happy-mochi-clutch-box.html",
-          title: "happy mochi clutch box",
+          title: "Happy Mochi - Clutch Box",
           price: 10_800,
           stock: true,
           image_url: "https://www.planetaloz.cl/20546-large_default/happy-mochi-clutch-box.jpg"
@@ -60,7 +60,7 @@ RSpec.describe PlanetalozSpider, :spider, engine: :prestashop do
       let(:expected) do
         {
           url: "https://www.planetaloz.cl/juegos-de-mesa/15-dobble-kids.html",
-          title: "dobble kids",
+          title: "Dobble Kids",
           price: 14_000,
           stock: false,
           image_url: "https://www.planetaloz.cl/11995-large_default/dobble-kids.jpg"

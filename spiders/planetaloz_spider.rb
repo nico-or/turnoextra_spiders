@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Planetaloz spider
-class PlanetalozSpider < EcommerceEngines::PrestaShop::Spider
+class PlanetalozSpider < ApplicationSpider
   @name = "planetaloz_spider"
   @store = {
     name: "Planetaloz",
@@ -14,5 +14,7 @@ class PlanetalozSpider < EcommerceEngines::PrestaShop::Spider
     EcommerceEngines::Prestashop::ProductIndexPageParser
   )
 
-  title_strategy :slug
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Prestashop::ProductCardParser
+  )
 end
