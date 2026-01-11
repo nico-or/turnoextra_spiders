@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Taka No Dan store spider
-class TakaNoDanSpider < EcommerceEngines::PrestaShop::Spider
+class TakaNoDanSpider < ApplicationSpider
   @name = "taka_no_dan_spider"
   @store = {
     name: "Taka No Dan",
@@ -21,13 +21,12 @@ class TakaNoDanSpider < EcommerceEngines::PrestaShop::Spider
     }
   )
 
-  selector :title, "h3.name a"
-  selector :url, "h3.name a"
-  selector :price, "span.product-price"
-
-  private
-
-  def get_title(node)
-    node.at_css("h3 a")[:title]
-  end
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Prestashop::ProductCardParser,
+    selectors: {
+      title: "h3.name a",
+      url: "h3.name a",
+      price: "span.product-price"
+    }
+  )
 end
