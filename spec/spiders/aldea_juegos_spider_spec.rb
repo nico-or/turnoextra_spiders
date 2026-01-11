@@ -44,7 +44,7 @@ RSpec.describe AldeaJuegosSpider, :spider, engine: :prestashop do
       let(:expected) do
         {
           url: "https://www.aldeajuegos.cl/familiar/4036-wizard-724373627809.html",
-          title: "wizard",
+          title: "Wizard",
           price: 11_042,
           stock: true,
           image_url: "https://www.aldeajuegos.cl/7817-large_default/wizard.jpg"
@@ -60,7 +60,7 @@ RSpec.describe AldeaJuegosSpider, :spider, engine: :prestashop do
       let(:expected) do
         {
           url: "https://www.aldeajuegos.cl/familiar/5155-maravillas-del-mundo-.html",
-          title: "maravillas del mundo",
+          title: "Maravillas Del Mundo",
           price: 59_990,
           stock: false,
           image_url: "https://www.aldeajuegos.cl/9932-large_default/maravillas-del-mundo.jpg"

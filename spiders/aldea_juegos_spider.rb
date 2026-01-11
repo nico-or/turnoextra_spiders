@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Aldea Juegos store spider
-class AldeaJuegosSpider < EcommerceEngines::PrestaShop::Spider
+class AldeaJuegosSpider < ApplicationSpider
   @name = "aldea_juegos_spider"
   @store = {
     name: "Aldea Juegos",
@@ -14,5 +14,7 @@ class AldeaJuegosSpider < EcommerceEngines::PrestaShop::Spider
     EcommerceEngines::Prestashop::ProductIndexPageParser
   )
 
-  title_strategy :slug
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Prestashop::ProductCardParser
+  )
 end
