@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Kaio Juegos store spider
-class KaioJuegosSpider < EcommerceEngines::PrestaShop::Spider
+class KaioJuegosSpider < ApplicationSpider
   @name = "entrejuegos_spider"
   @name = "kaio_juegos_spider"
   @store = {
@@ -14,5 +14,7 @@ class KaioJuegosSpider < EcommerceEngines::PrestaShop::Spider
     EcommerceEngines::Prestashop::ProductIndexPageParser
   )
 
-  title_strategy :slug
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Prestashop::ProductCardParser
+  )
 end

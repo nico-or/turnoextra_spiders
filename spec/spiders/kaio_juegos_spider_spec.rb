@@ -28,7 +28,7 @@ RSpec.describe KaioJuegosSpider, :spider, engine: :prestashop do
       let(:expected) do
         {
           url: "https://kaiojuegos.cl/juegos-de-mesa/1597-1000-km-juego-de-mesa.html",
-          title: "1000 km juego de mesa",
+          title: "1000 KM - Juego de Mesa",
           price: 23_990,
           stock: true,
           image_url: "https://kaiojuegos.cl/1852-large_default/1000-km-juego-de-mesa.jpg"
@@ -60,7 +60,7 @@ RSpec.describe KaioJuegosSpider, :spider, engine: :prestashop do
       let(:expected) do
         {
           url: "https://kaiojuegos.cl/juegos-de-mesa/1031-dixit-disney-juego-de-mesa.html",
-          title: "dixit disney juego de mesa",
+          title: "Dixit Disney - Juego de Mesa",
           price: 26_990,
           stock: false,
           image_url: "https://kaiojuegos.cl/1220-large_default/dixit-disney-juego-de-mesa.jpg"
