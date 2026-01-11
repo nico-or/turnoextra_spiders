@@ -61,7 +61,7 @@ RSpec.describe LaMesaDeVarasSpider, :spider, engine: :prestashop do
       let(:expected) do
         {
           url: "https://lamesadevaras.cl/juegos-de-mesa/163-hanabi.html",
-          title: "hanabi",
+          title: "Hanabi",
           price: 24_990,
           stock: false,
           image_url: "https://lamesadevaras.cl/268-large_default/hanabi.jpg"

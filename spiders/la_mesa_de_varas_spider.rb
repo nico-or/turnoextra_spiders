@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # La Mesa De Varas store spider
-class LaMesaDeVarasSpider < EcommerceEngines::PrestaShop::Spider
+class LaMesaDeVarasSpider < ApplicationSpider
   @name = "la_mesa_de_varas_spider"
   @store = {
     name: "La Mesa De Varas",
@@ -13,5 +13,7 @@ class LaMesaDeVarasSpider < EcommerceEngines::PrestaShop::Spider
     EcommerceEngines::Prestashop::ProductIndexPageParser
   )
 
-  title_strategy :slug
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Prestashop::ProductCardParser
+  )
 end
