@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Entrejuegos  store spider
-class EntrejuegosSpider < EcommerceEngines::PrestaShop::Spider
+class EntrejuegosSpider < ApplicationSpider
   @name = "entrejuegos_spider"
   @store = {
     name: "Entrejuegos",
@@ -14,21 +14,7 @@ class EntrejuegosSpider < EcommerceEngines::PrestaShop::Spider
     EcommerceEngines::Prestashop::ProductIndexPageParser
   )
 
-  title_strategy :slug
-
-  private
-
-  def price?(node)
-    # example: https://www.entrejuegos.cl/juegos-de-mesa/16717-everdell-spirecrest.html
-    # sometimes listings appear in the index but don't have a price element
-    # when that happens, the 'add to cart' button is also disabled
-    # this is different from products marked as 'out of stock'
-    # which have a price tag element
-    price_node = node.at_css("span.price")
-    !price_node.nil?
-  end
-
-  def purchasable?(node)
-    in_stock?(node) && price?(node)
-  end
+  @product_parser_factory = ParserFactory.new(
+    Stores::Entrejuegos::ProductCardParser
+  )
 end

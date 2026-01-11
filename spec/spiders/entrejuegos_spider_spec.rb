@@ -28,7 +28,7 @@ RSpec.describe EntrejuegosSpider, :spider, engine: :prestashop do
       let(:expected) do
         {
           url: "https://www.entrejuegos.cl/juegos-de-mesa/16788-quarto.html",
-          title: "quarto",
+          title: "Quarto",
           price: 29_990,
           stock: true,
           image_url: "https://www.entrejuegos.cl/11925-large_default/quarto.jpg"
@@ -60,7 +60,7 @@ RSpec.describe EntrejuegosSpider, :spider, engine: :prestashop do
       let(:expected) do
         {
           url: "https://www.entrejuegos.cl/ofertas/16789-cosmic-encounters-duel.html",
-          title: "cosmic encounters duel",
+          title: "Cosmic Encounters Duel",
           price: 24_990,
           stock: true,
           image_url: "https://www.entrejuegos.cl/11789-large_default/cosmic-encounters-duel.jpg"
@@ -92,7 +92,7 @@ RSpec.describe EntrejuegosSpider, :spider, engine: :prestashop do
       let(:expected) do
         {
           url: "https://www.entrejuegos.cl/juegos-de-mesa/16717-everdell-spirecrest.html",
-          title: "everdell spirecrest",
+          title: "Everdell: Spirecrest",
           price: nil,
           stock: false,
           image_url: "https://www.entrejuegos.cl/11536-large_default/everdell-spirecrest.jpg"
@@ -108,7 +108,7 @@ RSpec.describe EntrejuegosSpider, :spider, engine: :prestashop do
       let(:expected) do
         {
           url: "https://www.entrejuegos.cl/familiares/16751-adventure-land.html",
-          title: "adventure land",
+          title: "Adventure Land",
           price: 34_990,
           stock: true,
           image_url: "https://www.entrejuegos.cl/img/p/es-default-large_default.jpg"
