@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Demente Games store spider
-class DementegamesSpider < EcommerceEngines::PrestaShop::Spider
+class DementegamesSpider < ApplicationSpider
   @name = "dementegames_spider"
   @store = {
     name: "Demente Games",
@@ -14,5 +14,10 @@ class DementegamesSpider < EcommerceEngines::PrestaShop::Spider
     Stores::DementeGames::ProductIndexPageParser
   )
 
-  selector :stock, "form button[disabled]"
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Prestashop::ProductCardParser,
+    selectors: {
+      stock: "form button[disabled]"
+    }
+  )
 end
