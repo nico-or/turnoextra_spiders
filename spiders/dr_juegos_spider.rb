@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Dr. Juegos store spider
-class DrJuegosSpider < EcommerceEngines::PrestaShop::Spider
+class DrJuegosSpider < ApplicationSpider
   @name = "dr_juegos_spider"
   @store = {
     name: "Dr. Juegos",
@@ -13,8 +13,12 @@ class DrJuegosSpider < EcommerceEngines::PrestaShop::Spider
   @index_parser_factory = ParserFactory.new(
     EcommerceEngines::Prestashop::ProductIndexPageParser
   )
-
-  selector :title, "h5"
-  selector :stock, "div.product-availability span.unavailable"
-  selector :url, "h5 a"
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Prestashop::ProductCardParser,
+    selectors: {
+      title: "h5",
+      stock: "div.product-availability span.unavailable",
+      url: "h5 a"
+    }
+  )
 end
