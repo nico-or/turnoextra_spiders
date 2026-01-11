@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Magicsur store spider
-class MagicsurSpider < EcommerceEngines::PrestaShop::Spider
+class MagicsurSpider < ApplicationSpider
   @name = "magicsur_spider"
   @store = {
     name: "magicsur",
@@ -14,6 +14,11 @@ class MagicsurSpider < EcommerceEngines::PrestaShop::Spider
     EcommerceEngines::Prestashop::ProductIndexPageParser
   )
 
-  selector :price, "span.product-price"
-  selector :stock, "div.product-add-cart a.btn"
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Prestashop::ProductCardParser,
+    selectors: {
+      price: "span.product-price",
+      stock: "div.product-add-cart a.btn"
+    }
+  )
 end
