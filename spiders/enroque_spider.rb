@@ -20,8 +20,13 @@ class EnroqueSpider < EcommerceEngines::Shopify::Spider
     }
   )
 
-  selector :title, "a.card-link"
-  selector :price, "strong.price__current"
-  selector :stock, "span.product-label--sold-out"
-  selector :image_attr, "data-src"
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Shopify::ProductCardParser,
+    selectors: {
+      title: "a.card-link",
+      price: "strong.price__current",
+      stock: "span.product-label--sold-out",
+      image_attr: "data-src"
+    }
+  )
 end
