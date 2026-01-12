@@ -17,25 +17,7 @@ class Cafe2d6Spider < EcommerceEngines::Shopify::Spider
     }
   )
 
-  selector :url, "a"
-  selector :title, "h3"
-  selector :stock, "a.add-to-agotado"
-
-  private
-
-  def discount_price_node(node)
-    price_node = node.at_css("p.price.sale")
-    return unless price_node
-
-    price_node.children.first
-  end
-
-  def regular_price_node(node)
-    node.at_css("p.price")
-  end
-
-  def get_price(node)
-    price_node = discount_price_node(node) || regular_price_node(node)
-    scan_int(price_node.text)
-  end
+  @product_parser_factory = ParserFactory.new(
+    Stores::Cafe2d6::ProductCardParser
+  )
 end
