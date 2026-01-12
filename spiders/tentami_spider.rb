@@ -19,7 +19,12 @@ class TentamiSpider < EcommerceEngines::Shopify::Spider
     }
   )
 
-  selector :title, "h3"
-  selector :price, "span.price-item--sale"
-  selector :stock, "product-form button[disabled]"
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Shopify::ProductCardParser,
+    selectors: {
+      title: "h3",
+      price: "span.price-item--sale",
+      stock: "product-form button[disabled]"
+    }
+  )
 end
