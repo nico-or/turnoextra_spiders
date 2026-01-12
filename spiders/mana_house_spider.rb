@@ -17,8 +17,13 @@ class ManaHouseSpider < EcommerceEngines::Shopify::Spider
     }
   )
 
-  selector :title, "a.product-grid-item__title"
-  selector :price, "a.product-grid-item__price"
-  selector :stock, "div.product__badge div.product__badge__item--sold"
-  selector :image_attr, "srcset"
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Shopify::ProductCardParser,
+    selectors: {
+      title: "a.product-grid-item__title",
+      price: "a.product-grid-item__price",
+      stock: "div.product__badge div.product__badge__item--sold",
+      image_attr: "srcset"
+    }
+  )
 end
