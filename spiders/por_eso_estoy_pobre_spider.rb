@@ -16,8 +16,12 @@ class PorEsoEstoyPobreSpider < EcommerceEngines::Shopify::Spider
       next_page: "link[rel=next]"
     }
   )
-
-  selector :title, "h3 a"
-  selector :price, "div.price__regular span.price-item--regular"
-  selector :stock, "div.price--sold-out"
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Shopify::ProductCardParser,
+    selectors: {
+      title: "h3 a",
+      price: "div.price__regular span.price-item--regular",
+      stock: "div.price--sold-out"
+    }
+  )
 end
