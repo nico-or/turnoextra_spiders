@@ -17,8 +17,13 @@ class ChileBoardGamesSpider < EcommerceEngines::Shopify::Spider
     }
   )
 
-  selector :title, "a span"
-  selector :price, "dl span.price-item"
-  selector :stock, "dl.price--sold-out"
-  selector :image_attr, "srcset"
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Shopify::ProductCardParser,
+    selectors: {
+      title: "a span",
+      price: "dl span.price-item",
+      stock: "dl.price--sold-out",
+      image_attr: "srcset"
+    }
+  )
 end
