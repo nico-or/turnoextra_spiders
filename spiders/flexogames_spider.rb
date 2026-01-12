@@ -18,7 +18,12 @@ class FlexogamesSpider < EcommerceEngines::Shopify::Spider
     }
   )
 
-  selector :title, "a span"
-  selector :price, "dl span.price-item"
-  selector :stock, "dl.price--sold-out"
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Shopify::ProductCardParser,
+    selectors: {
+      title: "a span",
+      price: "dl span.price-item",
+      stock: "dl.price--sold-out"
+    }
+  )
 end
