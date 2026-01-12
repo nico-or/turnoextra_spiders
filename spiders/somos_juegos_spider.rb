@@ -18,7 +18,12 @@ class SomosJuegosSpider < EcommerceEngines::Shopify::Spider
     }
   )
 
-  selector :title, "p a"
-  selector :price, "span.price__current"
-  selector :stock, "span.product-label--sold-out"
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Shopify::ProductCardParser,
+    selectors: {
+      title: "p a",
+      price: "span.price__current",
+      stock: "span.product-label--sold-out"
+    }
+  )
 end
