@@ -20,7 +20,8 @@ module Base
     end
 
     def title
-      node.at(selectors[:title])&.text&.strip || ""
+      text = node.at(selectors[:title])&.text || ""
+      text.strip.gsub(/\s+/, " ").strip
     end
 
     def price
