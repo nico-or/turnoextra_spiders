@@ -15,10 +15,14 @@ class ElArcanistaSpider < EcommerceEngines::Shopify::Spider
   @index_parser_factory = ParserFactory.new(
     Stores::ElArcanista::ProductIndexPageParser
   )
-
-  selector :url, "a.product-name"
-  selector :title, "a.product-name"
-  selector :price, "span.item-price"
-  selector :stock, "span.badge-sold"
-  selector :image_attr, "data-src"
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Shopify::ProductCardParser,
+    selectors: {
+      url: "a.product-name",
+      title: "a.product-name",
+      price: "span.item-price",
+      stock: "span.badge-sold",
+      image_attr: "data-src"
+    }
+  )
 end
