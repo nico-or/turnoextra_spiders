@@ -22,26 +22,7 @@ class PiedrabrujaSpider < EcommerceEngines::Shopify::Spider
     }
   )
 
-  selector :title, "a.product-item__title"
-
-  private
-
-  def regular_price(node)
-    node.at_css("span.price")
-  end
-
-  def discount_price(node)
-    node.at_css("span.price--highlight")
-  end
-
-  def get_price(node)
-    price_node = discount_price(node) || regular_price(node)
-    return unless price_node
-
-    scan_int(price_node.children.last.text)
-  end
-
-  def in_stock?(_node)
-    true
-  end
+  @product_parser_factory = ParserFactory.new(
+    Stores::PiedraBruja::ProductCardParser
+  )
 end
