@@ -17,18 +17,7 @@ class BuhoJuegosDeMesaSpider < EcommerceEngines::Shopify::Spider
     }
   )
 
-  selector :title, "div.product-card__name"
-
-  private
-
-  def get_price(node)
-    price_node = node.at_css("div.product-card__price")
-    return unless price_node
-
-    scan_int(price_node.children.last.text)
-  end
-
-  def in_stock?(_node)
-    true
-  end
+  @product_parser_factory = ParserFactory.new(
+    Stores::BuhoJuegosDeMesa::ProductCardParser
+  )
 end
