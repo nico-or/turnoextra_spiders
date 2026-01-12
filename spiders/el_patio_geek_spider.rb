@@ -18,13 +18,12 @@ class ElPatioGeekSpider < EcommerceEngines::Shopify::Spider
     }
   )
 
-  selector :title, "p"
-  selector :price, "div.product-item--price small"
-  selector :image_attr, "srcset"
-
-  private
-
-  def purchasable?(_node)
-    true
-  end
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::Shopify::ProductCardParser,
+    selectors: {
+      title: "p",
+      price: "div.product-item--price small",
+      image_attr: "srcset"
+    }
+  )
 end
