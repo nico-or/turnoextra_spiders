@@ -17,13 +17,7 @@ class Area52Spider < EcommerceEngines::Shopify::Spider
     }
   )
 
-  selector :title, "h3"
-  selector :price, "span.price-item--sale"
-  selector :stock, "product-form button[disabled]"
-
-  private
-
-  def in_stock?(node)
-    node.at_css("span.badge")&.text != "Agotado"
-  end
+  @product_parser_factory = ParserFactory.new(
+    Stores::Area52::ProductCardParser
+  )
 end
