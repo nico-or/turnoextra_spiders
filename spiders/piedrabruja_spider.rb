@@ -17,12 +17,16 @@ class PiedrabrujaSpider < EcommerceEngines::Shopify::Spider
   @index_parser_factory = ParserFactory.new(
     Base::ProductIndexPageParser,
     selectors: {
-      index_product: "div.product-list div.product-item",
-      next_page: "div.pagination a[@rel=next]"
+      index_product: "motion-list div.card",
+      next_page: "div.pagination a.next"
     }
   )
 
   @product_parser_factory = ParserFactory.new(
-    Stores::PiedraBruja::ProductCardParser
+    EcommerceEngines::Shopify::ProductCardParser,
+    selectors: {
+      title: "a.product-card__title",
+      price: "span.price__regular"
+    }
   )
 end

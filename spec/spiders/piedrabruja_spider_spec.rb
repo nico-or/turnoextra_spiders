@@ -15,9 +15,9 @@ RSpec.describe PiedrabrujaSpider, :spider, engine: :shopify do
       Nokogiri::HTML(html)
     end
 
-    it "returns 24 items" do
+    it "returns 2 items" do
       items = spider.send(:parse_index, response, url: store_url)
-      expect(items.length).to eq(24)
+      expect(items.length).to eq(2)
     end
   end
 
@@ -27,11 +27,11 @@ RSpec.describe PiedrabrujaSpider, :spider, engine: :shopify do
 
       let(:expected) do
         {
-          url: "https://www.piedrabruja.cl/products/talisman-5th-edicion",
-          title: "Talisman 5th Edicion",
+          url: "https://www.piedrabruja.cl/products/zombicide-segunda-edicion-rio-z-janeiro",
+          title: "Zombicide Segunda Edición - Rio Z Janeiro",
           price: 59_990,
           stock: true,
-          image_url: "https://piedrabruja.cl/cdn/shop/files/Talisman_5th_Edicion_Portada.webp"
+          image_url: "https://piedrabruja.cl/cdn/shop/files/BM8tz1I61Ed8lh2aDwPoQsLAdPijncRmMsIRHarF.jpg"
         }
       end
 
@@ -43,11 +43,11 @@ RSpec.describe PiedrabrujaSpider, :spider, engine: :shopify do
 
       let(:expected) do
         {
-          url: "https://www.piedrabruja.cl/products/love-letter-eco-box",
-          title: "Love Letter Eco Box",
-          price: 12_990,
+          url: "https://www.piedrabruja.cl/products/master-of-orion",
+          title: "Master of Orion",
+          price: 19_990,
           stock: true,
-          image_url: "https://piedrabruja.cl/cdn/shop/files/Love-Letter-Eco-Box-Portada.png"
+          image_url: "https://piedrabruja.cl/cdn/shop/files/master-of-orion.jpg"
         }
       end
 
