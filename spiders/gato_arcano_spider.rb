@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Gato Arcano store spider
-class GatoArcanoSpider < EcommerceEngines::WooCommerce::Spider
+class GatoArcanoSpider < ApplicationSpider
   @name = "gato_arcano_spider"
   @store = {
     name: "Gato Arcano",
@@ -16,5 +16,7 @@ class GatoArcanoSpider < EcommerceEngines::WooCommerce::Spider
     }
   )
 
-  image_url_strategy(:sized)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
