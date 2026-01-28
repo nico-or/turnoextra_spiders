@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Cartones Pesados store spider
-class CartonesPesadosSpider < EcommerceEngines::WooCommerce::Spider
+class CartonesPesadosSpider < ApplicationSpider
   @name = "cartones_pesados_spider"
   @store = {
     name: "Cartones Pesados",
@@ -18,14 +18,7 @@ class CartonesPesadosSpider < EcommerceEngines::WooCommerce::Spider
     }
   )
 
-  selector :title, "h3 a"
-
-  private
-
-  image_url_strategy(:sized)
-
-  def get_price(node)
-    price_node = node.css("span.amount bdi").last
-    scan_int(price_node.text) if price_node
-  end
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
