@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # La Loseta store spider
-class LaLosetaSpider < EcommerceEngines::WooCommerce::Spider
+class LaLosetaSpider < ApplicationSpider
   @name = "la_loseta_spider"
   @store = {
     name: "La Loseta",
@@ -14,5 +14,7 @@ class LaLosetaSpider < EcommerceEngines::WooCommerce::Spider
     EcommerceEngines::WooCommerce::ProductIndexPageParser
   )
 
-  image_url_strategy(:sized)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
