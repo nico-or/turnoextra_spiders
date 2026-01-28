@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # El Kingo store spider
-class ElKingoSpider < EcommerceEngines::WooCommerce::Spider
+class ElKingoSpider < ApplicationSpider
   @name = "el_kingo_spider"
   @store = {
     name: "El Kingo",
@@ -13,5 +13,7 @@ class ElKingoSpider < EcommerceEngines::WooCommerce::Spider
     EcommerceEngines::WooCommerce::ProductIndexPageParser
   )
 
-  image_url_strategy(:sized)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
