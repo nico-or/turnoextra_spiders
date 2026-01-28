@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # La Boveda del Mago store spider
-class LaBovedaDelMagoSpider < EcommerceEngines::WooCommerce::Spider
+class LaBovedaDelMagoSpider < ApplicationSpider
   @name = "la_boveda_del_mago_spider"
   @store = {
     name: "La Boveda del Mago",
@@ -14,5 +14,7 @@ class LaBovedaDelMagoSpider < EcommerceEngines::WooCommerce::Spider
     EcommerceEngines::WooCommerce::ProductIndexPageParser
   )
 
-  image_url_strategy(:sized)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
