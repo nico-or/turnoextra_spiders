@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # El Desafio Store store spider
-class ElDesafioStoreSpider < EcommerceEngines::WooCommerce::Spider
+class ElDesafioStoreSpider < ApplicationSpider
   @name = "el_desafio_store_spider"
   @store = {
     name: "El Desafio Store",
@@ -16,7 +16,7 @@ class ElDesafioStoreSpider < EcommerceEngines::WooCommerce::Spider
     }
   )
 
-  selector :title, "h3"
-
-  image_url_strategy(:sized)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
