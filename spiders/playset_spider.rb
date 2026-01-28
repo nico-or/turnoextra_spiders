@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Playset store spider
-class PlaysetSpider < EcommerceEngines::WooCommerce::Spider
+class PlaysetSpider < ApplicationSpider
   @name = "playset_spider"
   @store = {
     name: "Playset",
@@ -15,6 +15,11 @@ class PlaysetSpider < EcommerceEngines::WooCommerce::Spider
       index_product: "div.products div.product"
     }
   )
-  selector :title, "p.product-title"
-  image_url_strategy(:sized)
+
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser,
+    selectors: {
+      title: "p.product-title"
+    }
+  )
 end
