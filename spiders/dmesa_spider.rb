@@ -30,8 +30,4 @@ class DmesaSpider < EcommerceEngines::WooCommerce::Spider
 
     scan_int(price_node.text)
   end
-
-  def in_stock?(node)
-    node.classes.include? "product-type-simple"
-  end
 end

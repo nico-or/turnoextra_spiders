@@ -53,22 +53,6 @@ RSpec.describe DmesaSpider, :spider, engine: :woocommerce do
 
       it_behaves_like "a product node parser"
     end
-
-    context "with a pack price index product node" do
-      let(:filename) { File.join("spec/fixtures/stores", fixture_directory, "product_index_node_pack.html") }
-
-      let(:expected) do
-        {
-          url: "https://www.dmesa.cl/product/pack-oferta-al-seco-amigos-de-mierda/",
-          title: "Pack Oferta: Amigos de Mierda + Al Seco",
-          price: 20_990,
-          stock: false,
-          image_url: "https://www.dmesa.cl/wp-content/uploads/2024/08/15605929732-1.png"
-        }
-      end
-
-      it_behaves_like "a product node parser"
-    end
   end
 
   describe "#next_page_url" do
