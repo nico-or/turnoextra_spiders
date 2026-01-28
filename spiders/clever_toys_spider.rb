@@ -2,7 +2,7 @@
 
 # Clever Toys store spider
 # Engine: WooCommerce + Woodmart Theme
-class CleverToysSpider < EcommerceEngines::WooCommerce::Spider
+class CleverToysSpider < ApplicationSpider
   @name = "clever_toys_spider"
   @store = {
     name: "Clever Toys",
@@ -27,19 +27,10 @@ class CleverToysSpider < EcommerceEngines::WooCommerce::Spider
     }
   )
 
-  selector :title, "h3.product-title a"
-  selector :url, "h3.product-title a"
-  selector :price, "span.price span.amount"
-
-  image_url_strategy(:sized)
-
-  private
-
-  def get_price(node)
-    selector = get_selector(:price)
-    price_node = node.css(selector).last
-    return unless price_node
-
-    scan_int(price_node.text)
-  end
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser,
+    selectors: {
+      price: "span.price span.amount"
+    }
+  )
 end
