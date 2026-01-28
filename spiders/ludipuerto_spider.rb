@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Ludipuerto store spider
-class LudipuertoSpider < EcommerceEngines::WooCommerce::Spider
+class LudipuertoSpider < ApplicationSpider
   @name = "ludipuerto_spider"
   @store = {
     name: "Ludipuerto",
@@ -16,7 +16,7 @@ class LudipuertoSpider < EcommerceEngines::WooCommerce::Spider
     }
   )
 
-  selector :title, "h3"
-
-  image_url_strategy(:sized)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
