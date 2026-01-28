@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Kimun Austral store spider
-class KimunAustralSpider < EcommerceEngines::WooCommerce::Spider
+class KimunAustralSpider < ApplicationSpider
   @name = "kimun_austral_spider"
   @store = {
     name: "Kimun Austral",
@@ -13,5 +13,7 @@ class KimunAustralSpider < EcommerceEngines::WooCommerce::Spider
     EcommerceEngines::WooCommerce::ProductIndexPageParser
   )
 
-  image_url_strategy(:sized)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
