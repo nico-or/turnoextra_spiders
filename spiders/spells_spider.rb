@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Spells store spider
-class SpellsSpider < EcommerceEngines::WooCommerce::Spider
+class SpellsSpider < ApplicationSpider
   @name = "spells_spider"
   @store = {
     name: "Spells",
@@ -14,5 +14,7 @@ class SpellsSpider < EcommerceEngines::WooCommerce::Spider
     EcommerceEngines::WooCommerce::ProductIndexPageParser
   )
 
-  image_url_strategy(:srcset)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
