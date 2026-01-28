@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Topo Token store spider
-class TopoTokenSpider < EcommerceEngines::WooCommerce::Spider
+class TopoTokenSpider < ApplicationSpider
   @name = "topo_token_spider"
   @store = {
     name: "Topo Token",
@@ -14,15 +14,7 @@ class TopoTokenSpider < EcommerceEngines::WooCommerce::Spider
     EcommerceEngines::WooCommerce::ProductIndexPageParser
   )
 
-  private
-
-  def protected?(node)
-    node.classes.include?("post-password-required")
-  end
-
-  def purchasable?(node)
-    in_stock?(node) && !protected?(node)
-  end
-
-  image_url_strategy(:sized)
+  @product_parser_factory = ParserFactory.new(
+    Stores::TopoToken::ProductCardParser
+  )
 end
