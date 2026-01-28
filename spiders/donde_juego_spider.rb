@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Donde Juego store spider
-class DondeJuegoSpider < EcommerceEngines::WooCommerce::Spider
+class DondeJuegoSpider < ApplicationSpider
   @name = "donde_juego_spider"
   @store = {
     name: "Donde Juego",
@@ -16,5 +16,7 @@ class DondeJuegoSpider < EcommerceEngines::WooCommerce::Spider
     }
   )
 
-  image_url_strategy(:sized)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
