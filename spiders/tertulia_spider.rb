@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Tertulia store spider
-class TertuliaSpider < EcommerceEngines::WooCommerce::Spider
+class TertuliaSpider < ApplicationSpider
   @name = "tertulia_spider"
   @store = {
     name: "Tertulia",
@@ -13,5 +13,7 @@ class TertuliaSpider < EcommerceEngines::WooCommerce::Spider
     EcommerceEngines::WooCommerce::ProductIndexPageParser
   )
 
-  image_url_strategy(:sized)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
