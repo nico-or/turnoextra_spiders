@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Fzcubes store spider
-class FzcubesSpider < EcommerceEngines::WooCommerce::Spider
+class FzcubesSpider < ApplicationSpider
   @name = "fzcubes_spider"
   @store = {
     name: "Fzcubes",
@@ -13,5 +13,7 @@ class FzcubesSpider < EcommerceEngines::WooCommerce::Spider
     EcommerceEngines::WooCommerce::ProductIndexPageParser
   )
 
-  image_url_strategy(:sized)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
