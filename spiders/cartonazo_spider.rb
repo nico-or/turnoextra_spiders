@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Cartonazo store spider
-class CartonazoSpider < EcommerceEngines::WooCommerce::Spider
+class CartonazoSpider < ApplicationSpider
   @name = "cartonazo_spider"
   @store = {
     name: "Cartonazo",
@@ -14,5 +14,7 @@ class CartonazoSpider < EcommerceEngines::WooCommerce::Spider
     EcommerceEngines::WooCommerce::ProductIndexPageParser
   )
 
-  image_url_strategy(:srcset)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
