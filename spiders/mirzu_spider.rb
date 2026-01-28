@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Mirzu store spider
-class MirzuSpider < EcommerceEngines::WooCommerce::Spider
+class MirzuSpider < ApplicationSpider
   @name = "mirzu_spider"
   @store = {
     name: "Mirzu",
@@ -13,5 +13,7 @@ class MirzuSpider < EcommerceEngines::WooCommerce::Spider
     EcommerceEngines::WooCommerce::ProductIndexPageParser
   )
 
-  image_url_strategy(:sized)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
