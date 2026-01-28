@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Rata De Mesa store spider
-class RataDeMesaSpider < EcommerceEngines::WooCommerce::Spider
+class RataDeMesaSpider < ApplicationSpider
   @name = "rata_de_mesa_spider"
   @store = {
     name: "Rata De Mesa",
@@ -13,7 +13,9 @@ class RataDeMesaSpider < EcommerceEngines::WooCommerce::Spider
     EcommerceEngines::WooCommerce::ProductIndexPageParser
   )
 
-  selector :title, "h2.woocommerce-loop-product__title"
+  # selector :title, "h2.woocommerce-loop-product__title"
 
-  image_url_strategy(:sized)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
