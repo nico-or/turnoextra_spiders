@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # El Dado store spider
-class ElDadoSpider < EcommerceEngines::WooCommerce::Spider
+class ElDadoSpider < ApplicationSpider
   @name = "el_dado_spider"
   @store = {
     name: "El Dado",
@@ -17,5 +17,7 @@ class ElDadoSpider < EcommerceEngines::WooCommerce::Spider
     }
   )
 
-  image_url_strategy(:sized)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
