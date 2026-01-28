@@ -7,7 +7,7 @@ module EcommerceEngines
         {
           url: "a",
           title: "h2,h3",
-          price: "span.price bdi",
+          price: "span.price bdi, span.amount bdi",
           stock: "outofstock",
           img_sized_attr: "src",
           img_srcset_attr: "srcset"
