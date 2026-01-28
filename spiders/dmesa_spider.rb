@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Dmesa store spider
-class DmesaSpider < EcommerceEngines::WooCommerce::Spider
+class DmesaSpider < ApplicationSpider
   @name = "dmesa_spider"
   @store = {
     name: "Dmesa",
@@ -17,17 +17,12 @@ class DmesaSpider < EcommerceEngines::WooCommerce::Spider
     }
   )
 
-  selector :title, "div.elementor-heading-title"
-  selector :url, "div.elementor-heading-title a"
-
-  image_url_strategy(:sized)
-
-  private
-
-  def get_price(node)
-    price_node = node.css("div[data-widget_type='woocommerce-product-price.default'] span.woocommerce-Price-amount").last # rubocop:disable Layout/LineLength
-    return unless price_node
-
-    scan_int(price_node.text)
-  end
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser,
+    selectors: {
+      url: "div.elementor-heading-title a",
+      title: "div.elementor-heading-title",
+      price: "div[data-widget_type='woocommerce-product-price.default'] span.woocommerce-Price-amount"
+    }
+  )
 end
