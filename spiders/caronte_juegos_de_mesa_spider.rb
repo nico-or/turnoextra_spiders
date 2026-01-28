@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Caronte Juegos De Mesa store spider
-class CaronteJuegosDeMesaSpider < EcommerceEngines::WooCommerce::Spider
+class CaronteJuegosDeMesaSpider < ApplicationSpider
   @name = "caronte_juegos_de_mesa_spider"
   @store = {
     name: "Caronte Juegos De Mesa",
@@ -13,5 +13,7 @@ class CaronteJuegosDeMesaSpider < EcommerceEngines::WooCommerce::Spider
     EcommerceEngines::WooCommerce::ProductIndexPageParser
   )
 
-  image_url_strategy(:sized)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
