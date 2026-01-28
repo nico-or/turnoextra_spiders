@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Ghost Game Center store spider
-class GhostGameCenterSpider < EcommerceEngines::WooCommerce::Spider
+class GhostGameCenterSpider < ApplicationSpider
   @name = "ghost_game_center_spider"
   @store = {
     name: "Ghost Game Center",
@@ -16,7 +16,7 @@ class GhostGameCenterSpider < EcommerceEngines::WooCommerce::Spider
     }
   )
 
-  selector :title, "h3.wd-entities-title a"
-
-  image_url_strategy(:sized)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
