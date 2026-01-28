@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Revaruk store spider
-class RevarukSpider < EcommerceEngines::WooCommerce::Spider
+class RevarukSpider < ApplicationSpider
   @name = "revaruk_spider"
   @store = {
     name: "Revaruk",
@@ -14,5 +14,7 @@ class RevarukSpider < EcommerceEngines::WooCommerce::Spider
     EcommerceEngines::WooCommerce::ProductIndexPageParser
   )
 
-  image_url_strategy(:srcset)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
