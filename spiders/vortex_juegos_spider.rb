@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Vortex Juegos store spider
-class VortexJuegosSpider < EcommerceEngines::WooCommerce::Spider
+class VortexJuegosSpider < ApplicationSpider
   @name = "vortex_juegos_spider"
   @store = {
     name: "Vortex Juegos",
@@ -12,5 +12,8 @@ class VortexJuegosSpider < EcommerceEngines::WooCommerce::Spider
   @index_parser_factory = ParserFactory.new(
     EcommerceEngines::WooCommerce::ProductIndexPageParser
   )
-  image_url_strategy(:sized)
+
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
