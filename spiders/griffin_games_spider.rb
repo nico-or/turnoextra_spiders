@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Griffin Games store spider
-class GriffinGamesSpider < EcommerceEngines::WooCommerce::Spider
+class GriffinGamesSpider < ApplicationSpider
   @name = "griffin_games_spider"
   @store = {
     name: "Griffin Games",
@@ -16,6 +16,7 @@ class GriffinGamesSpider < EcommerceEngines::WooCommerce::Spider
     }
   )
 
-  selector :title, "h3 a"
-  image_url_strategy(:sized)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
