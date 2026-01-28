@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Updown store spider
-class UpdownSpider < EcommerceEngines::WooCommerce::Spider
+class UpdownSpider < ApplicationSpider
   @name = "updown_spider"
   @store = {
     name: "Updown",
@@ -18,7 +18,7 @@ class UpdownSpider < EcommerceEngines::WooCommerce::Spider
     }
   )
 
-  selector :title, "h3"
-
-  image_url_strategy(:srcset)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
