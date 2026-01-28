@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # On Play store spider
-class OnPlaySpider < EcommerceEngines::WooCommerce::Spider
+class OnPlaySpider < ApplicationSpider
   @name = "on_play_spider"
   @store = {
     name: "On Play",
@@ -17,5 +17,7 @@ class OnPlaySpider < EcommerceEngines::WooCommerce::Spider
     }
   )
 
-  image_url_strategy(:sized)
+  @product_parser_factory = ParserFactory.new(
+    EcommerceEngines::WooCommerce::ProductCardParser
+  )
 end
