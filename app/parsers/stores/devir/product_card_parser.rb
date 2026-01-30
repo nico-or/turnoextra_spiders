@@ -20,12 +20,6 @@ module Stores
         Helpers.scan_int(price_text)
       end
 
-      def image_url
-        return unless image_rel_url
-
-        Helpers.absolute_url(image_rel_url, base_url:)
-      end
-
       def stock?
         node.at_css("form")&.attr("data-role") == "tocart-form"
       end
@@ -38,14 +32,6 @@ module Stores
 
       def price_text
         price_node&.attr(selectors[:price_attr])
-      end
-
-      def image_node
-        node.at_css(selectors[:image_tag])
-      end
-
-      def image_rel_url
-        image_node&.attr(selectors[:image_attr])
       end
     end
   end
