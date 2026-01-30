@@ -17,20 +17,7 @@ class JugandoAndoSpider < ApplicationSpider
     }
   )
 
-  selector :url, "a"
-  selector :title, "h3"
-  selector :price, "span.text-nowrap"
-
-  private
-
-  def purchasable?(_node)
-    true
-  end
-
-  def get_image_url(node, url)
-    img_node = node.at_css("div.bg-img")
-    return unless img_node
-
-    Helpers.absolute_url(img_node["data-bg"], base_url: url)
-  end
+  @product_parser_factory = ParserFactory.new(
+    Stores::JugandoAndo::ProductCardParser
+  )
 end
