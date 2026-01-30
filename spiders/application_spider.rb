@@ -21,26 +21,6 @@ class ApplicationSpider < Tanakai::Base
 
   class << self
     attr_reader :store, :index_parser_factory, :product_parser_factory
-
-    def selectors
-      @selectors ||= {}
-    end
-
-    def selector(key, selector)
-      selectors[key] = selector
-    end
-
-    def inherited(subclass)
-      super
-      subclass.instance_variable_set(
-        :@selectors,
-        selectors.dup
-      )
-    end
-  end
-
-  def get_selector(key)
-    self.class.selectors[key] || raise(KeyError, "Missing selector for: #{key}")
   end
 
   def parse(response, url:, data: {})
