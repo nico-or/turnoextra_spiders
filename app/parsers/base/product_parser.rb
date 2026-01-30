@@ -40,5 +40,21 @@ module Base
     def purchasable?
       stock?
     end
+
+    def image_url
+      return unless image_rel_url
+
+      Helpers.absolute_url(image_rel_url, base_url:)
+    end
+
+    private
+
+    def image_node
+      node.at_css(selectors[:image_tag])
+    end
+
+    def image_rel_url
+      image_node&.attr(selectors[:image_attr])
+    end
   end
 end
