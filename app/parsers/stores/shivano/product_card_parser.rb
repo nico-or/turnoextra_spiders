@@ -14,20 +14,8 @@ module Stores
         }
       end
 
-      def image_url
-        return unless image_rel_url
-
-        Helpers.absolute_url(image_rel_url, base_url:)
-      end
-
-      private
-
-      def image_node
-        node.at_css(selectors[:image_tag])
-      end
-
       def image_rel_url
-        image_node&.attr(selectors[:image_attr])&.sub("home_default", "large_default")
+        super&.sub("home_default", "large_default")
       end
     end
   end
