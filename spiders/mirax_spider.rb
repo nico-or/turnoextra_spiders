@@ -33,15 +33,15 @@ class MiraxSpider < ApplicationSpider
     }
   )
 
-  selector :url, "div.descripcion-producto a"
-  selector :title, "div.descripcion-producto a"
-  selector :price, "div.precio a"
-  selector :stock, "a.add-cart-btn.avisame"
-
-  private
-
-  def get_image_url(node, url)
-    rel_url = node.at_css("img").attr("src")
-    Helpers.absolute_url(rel_url, base_url: url)
-  end
+  @product_parser_factory = ParserFactory.new(
+    Base::ProductParser,
+    selectors: {
+      url: "div.descripcion-producto a",
+      title: "div.descripcion-producto a",
+      price: "div.precio a",
+      stock: "a.add-cart-btn.avisame",
+      image_tag: "img",
+      image_attr: "src"
+    }
+  )
 end
