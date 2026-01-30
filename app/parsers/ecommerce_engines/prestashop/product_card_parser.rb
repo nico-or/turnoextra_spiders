@@ -15,7 +15,7 @@ module EcommerceEngines
       end
 
       def image_url
-        image_node_url_large
+        super&.sub("home_default", "large_default")
       end
 
       def title
@@ -33,18 +33,6 @@ module EcommerceEngines
       # Becomes: name slug
       def slug_title
         File.basename(url, ".html").split("-")[1..].join(" ")
-      end
-
-      def image_node
-        node.at_css(selectors[:image_tag])
-      end
-
-      def image_node_url
-        image_node&.attr(selectors[:image_attr])
-      end
-
-      def image_node_url_large
-        image_node_url&.sub("home_default", "large_default")
       end
     end
   end
