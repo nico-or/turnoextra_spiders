@@ -7,7 +7,9 @@ module Stores
         {
           title: "a.modelo",
           url: "a.modelo",
-          stock: "a.precio.reserva"
+          stock: "a.precio.reserva",
+          image_tag: "img",
+          image_attr: "src"
         }
       end
 
@@ -35,13 +37,9 @@ module Stores
         discount_price || regular_price
       end
 
-      def image_node
-        node.at_css("img[src]")
-      end
-
       def image_rel_url
         # Example: https://www.jugones.cl/img/cache/140x140_100_172828401616969534121681488307wow1.jpg
-        image_node&.attr("src")&.sub(%r{cache/\d+x\d+_\d+_}, "productos/")
+        super&.sub(%r{cache/\d+x\d+_\d+_}, "productos/")
       end
     end
   end
