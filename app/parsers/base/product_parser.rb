@@ -21,7 +21,9 @@ module Base
 
     def title
       text = node.at(selectors[:title])&.text || ""
-      text.strip.gsub(/\s+/, " ").strip
+      text.encode("UTF-8", invalid: :replace, undef: :replace, replace: "")
+          .gsub(/\s+/, " ")
+          .strip
     end
 
     def price
