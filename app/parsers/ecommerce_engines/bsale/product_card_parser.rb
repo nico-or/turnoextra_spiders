@@ -20,12 +20,8 @@ module EcommerceEngines
 
       private
 
-      def image_node
-        node.at_css(selectors[:image_tag])
-      end
-
       def image_url_with_query
-        image_node&.attr(selectors[:image_attr])
+        image_rel_url
       end
 
       def image_url_without_query
