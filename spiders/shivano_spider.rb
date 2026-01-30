@@ -18,16 +18,7 @@ class ShivanoSpider < ApplicationSpider
     }
   )
 
-  selector :title, "h5 a.product-name span.list-name"
-  selector :url, "h5 a.product-name"
-  selector :price, "span.price"
-  selector :stock, "span.availability span.out-of-stock"
-
-  private
-
-  def get_image_url(node, _url)
-    node.at_css("img")[:src].sub("home_default", "large_default")
-  rescue NoMethodError
-    nil
-  end
+  @product_parser_factory = ParserFactory.new(
+    Stores::Shivano::ProductCardParser
+  )
 end
