@@ -13,15 +13,15 @@ class ElCalabozoSpider < ApplicationSpider
     Stores::ElCalabozo::ProductIndexPageParser
   )
 
-  selector :title, "div.card-body p.card-text span:first-child"
-  selector :url, "a"
-  selector :price, "div.card-body p.card-text strong:last-of-type span"
-  selector :stock, "span.badge-danger"
-  selector :image_url, "img"
-
-  private
-
-  def get_image_url(node, _url)
-    node.at_css("img")["src"]
-  end
+  @product_parser_factory = ParserFactory.new(
+    Base::ProductParser,
+    selectors: {
+      title: "div.card-body p.card-text span:first-child",
+      url: "a",
+      price: "div.card-body p.card-text strong:last-of-type span",
+      stock: "span.badge-danger",
+      image_tag: "img",
+      image_attr: "src"
+    }
+  )
 end
