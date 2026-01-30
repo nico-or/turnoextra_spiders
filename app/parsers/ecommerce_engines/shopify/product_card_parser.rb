@@ -19,20 +19,12 @@ module EcommerceEngines
 
       private
 
-      def image_node
-        node.at_css(selectors[:image_tag])
-      end
-
-      def image_node_url
-        image_node.attr(selectors[:image_attr])
-      end
-
       def image_node_url_raw
         case selectors[:image_attr]
         when "srcset"
-          image_node_url.split[-2]
+          image_rel_url.split[-2]
         else
-          image_node_url
+          image_rel_url
         end
       end
 
