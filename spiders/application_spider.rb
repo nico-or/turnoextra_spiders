@@ -89,39 +89,4 @@ class ApplicationSpider < Tanakai::Base
     next_page_url = next_page_url(response, url)
     request_to(:parse, url: next_page_url) if next_page_url
   end
-
-  def get_url(node, url = nil)
-    selector = get_selector(:url)
-    rel_url = node.at_css(selector)["href"]
-    Helpers.absolute_url(rel_url, base_url: url)
-  end
-
-  def get_title(node)
-    selector = get_selector(:title)
-    raw_text = node.at_css(selector)&.text || ""
-    sanitized = raw_text.encode("UTF-8", invalid: :replace, undef: :replace, replace: "")
-    sanitized.gsub(/\s+/, " ").strip
-  end
-
-  def get_price(node)
-    selector = get_selector(:price)
-    price_node = node.at_css(selector)
-    return unless price_node
-
-    scan_int(price_node.text)
-  end
-
-  def in_stock?(node)
-    selector = get_selector(:stock)
-    node.at_css(selector).nil?
-  end
-
-  def purchasable?(node)
-    in_stock?(node)
-  end
-
-  def absolute_url(rel_url, base:)
-    Helpers.absolute_url(rel_url, base_url: base)
-  end
-  deprecate(:absolute_url, :"Helpers.absolute_url", 2_026, 2)
 end
