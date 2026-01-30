@@ -17,7 +17,7 @@ module EcommerceEngines
       end
 
       def image_url
-        image_node_url_splitted
+        image_rel_url&.split(SPLIT_REGEX)&.first
       end
 
       private
@@ -31,18 +31,6 @@ module EcommerceEngines
       def css_stock_selector
         "div.product-block__disabled,
         .product-block__label--status"
-      end
-
-      def image_node
-        node.at_css(selectors[:image_tag])
-      end
-
-      def image_node_url
-        image_node&.attr(selectors[:image_attr])
-      end
-
-      def image_node_url_splitted
-        image_node_url&.split(SPLIT_REGEX)&.first
       end
     end
   end
