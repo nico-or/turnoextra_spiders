@@ -56,7 +56,7 @@ end
 STORE_FIXTURE_TEMPLATE_PATH = "spec/templates/fixture"
 SPIDER_TEMPLATE_PATH = "templates/spider.rb.erb"
 SPIDER_SPEC_TEMPLATE_PATH = "spec/templates/spider_spec.rb.erb"
-SPIDER_DIRECTORY_PATH = "app/spiders"
+SPIDER_DIRECTORY_PATH = "spiders"
 
 namespace :spider do
   desc "Create a new spider"
