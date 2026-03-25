@@ -55,6 +55,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0151) https://www.winterland.cl/
 - (0151) https://www.diverti.cl
 - (0134) https://eldado.cl
+- (0130) https://www.darkhobbies.cl
 - (0119) https://lamesadevaras.cl
 - (0109) https://tertulia.cl
 - (0104) https://www.bluecard.cl/
