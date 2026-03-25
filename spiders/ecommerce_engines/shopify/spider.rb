@@ -6,7 +6,7 @@ module EcommerceEngines
     class Spider < ApplicationSpider
       @config = {
         before_request: {
-          delay: 4..6
+          delay: 8..10
         }
       }
     end

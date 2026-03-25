@@ -15,7 +15,7 @@ class ApplicationSpider < Tanakai::Base
     skip_request_errors: [{ error: RuntimeError, message: "404 => Net::HTTPNotFound" }],
     retry_request_errors: [Net::ReadTimeout, Net::HTTPTooManyRequests],
     before_request: {
-      delay: 2
+      delay: 4..6
     }
   }
 
