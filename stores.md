@@ -85,6 +85,7 @@ Aproximate number of listings were gathered from https://juegos.tabula.cl/ and m
 - (0045) https://www.juegosdelbosque.cl/
 - (0045) https://ludopalooza.cl
 - (0041) https://www.dmesa.cl
+- (0040) https://por3.cl/
 - (0035) https://www.rivendelelconcilio.cl
 - (0032) https://www.juegomania.cl/
 - (0031) https://www.ratademesa.cl
