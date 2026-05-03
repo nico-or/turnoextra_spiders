@@ -7,7 +7,7 @@ class UpdownSpider < ApplicationSpider
     name: "Updown",
     url: "https://www.updown.cl/"
   }
-  @start_urls = ["https://www.updown.cl/categoria-producto/juegos-de-mesa/"]
+  @start_urls = ["https://www.updown.cl/categoria-producto/juegos-de-mesa/?stock_status=instock"]
   @config = {}
 
   @index_parser_factory = ParserFactory.new(
