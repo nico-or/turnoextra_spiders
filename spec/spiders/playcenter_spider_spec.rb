@@ -82,4 +82,26 @@ RSpec.describe PlaycenterSpider, :spider, engine: :woocommerce do
       end
     end
   end
+
+  context "with a malformed html product index page" do
+    describe "#parse_index" do
+      let(:response) do
+        html = File.read(File.join("spec/fixtures/stores", fixture_directory, "product_index_page_malformed.html"))
+        Nokogiri::HTML(html)
+      end
+
+      it "returns 8 items" do
+        items = spider.send(:parse_index, response, url: store_url)
+        expect(items.length).to eq(8)
+      end
+
+      it "returns the correct prices" do
+        items = spider.send(:parse_index, response, url: store_url)
+        actual_prices = items.map { it[:price] }
+        expected_prices = [39_990, 14_990, 49_990, 24_990, 39_990, 25_990, 25_000, 5_990]
+
+        expect(actual_prices).to eq(expected_prices)
+      end
+    end
+  end
 end

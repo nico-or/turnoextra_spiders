@@ -11,7 +11,10 @@ class PlaycenterSpider < ApplicationSpider
   @config = {}
 
   @index_parser_factory = ParserFactory.new(
-    EcommerceEngines::WooCommerce::ProductIndexPageParser
+    EcommerceEngines::WooCommerce::ProductIndexPageParser,
+    selectors: {
+      index_product: "ul.products div.astra-shop-summary-wrap"
+    }
   )
 
   @product_parser_factory = ParserFactory.new(
