@@ -12,7 +12,7 @@ class LaPosadaDelDadoSpider < EcommerceEngines::Shopify::Spider
   @index_parser_factory = ParserFactory.new(
     Base::ProductIndexPageParser,
     selectors: {
-      index_product: "ul#product-grid > li",
+      index_product: "ul.product-grid li.product-grid__item",
       next_page: "link[rel=next]"
     }
   )
@@ -20,8 +20,8 @@ class LaPosadaDelDadoSpider < EcommerceEngines::Shopify::Spider
     EcommerceEngines::Shopify::ProductCardParser,
     selectors: {
       title: "h3",
-      price: "div.price__regular span.price-item--regular",
-      stock: "div.price--sold-out"
+      price: "product-price span.price",
+      stock: "button.add-to-cart-button[disabled]"
     }
   )
 end

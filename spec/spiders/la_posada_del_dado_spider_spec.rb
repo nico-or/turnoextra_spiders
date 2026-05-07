@@ -15,9 +15,9 @@ RSpec.describe LaPosadaDelDadoSpider, :spider, engine: :shopify do
       Nokogiri::HTML(html)
     end
 
-    it "returns 20 items" do
+    it "returns 24 items" do
       items = spider.send(:parse_index, response, url: store_url)
-      expect(items.length).to eq(20)
+      expect(items.length).to eq(24)
     end
   end
 
@@ -27,7 +27,7 @@ RSpec.describe LaPosadaDelDadoSpider, :spider, engine: :shopify do
 
       let(:expected) do
         {
-          url: "https://laposadadeldado.cl/products/rcg",
+          url: "https://laposadadeldado.cl/products/rcg-random-card-generator?variant=44197486035135",
           title: "RCG: Random Card Generator",
           price: 14_990,
           stock: true,
@@ -43,7 +43,7 @@ RSpec.describe LaPosadaDelDadoSpider, :spider, engine: :shopify do
 
       let(:expected) do
         {
-          url: "https://laposadadeldado.cl/products/tank-up",
+          url: "https://laposadadeldado.cl/products/tank-up?variant=44197487542463",
           title: "Tank Up!",
           price: 29_990,
           stock: true,
@@ -59,11 +59,11 @@ RSpec.describe LaPosadaDelDadoSpider, :spider, engine: :shopify do
 
       let(:expected) do
         {
-          url: "https://laposadadeldado.cl/products/fantasma-blitz",
-          title: "Fantasma Blitz",
-          price: 12_990,
+          url: "https://laposadadeldado.cl/products/cards-vs-gravity?variant=44510829052095",
+          title: "Cards vs Gravity",
+          price: 17_990,
           stock: false,
-          image_url: "https://laposadadeldado.cl/cdn/shop/files/8436017220681-1200-face3d-copy.jpg"
+          image_url: "https://laposadadeldado.cl/cdn/shop/files/LaPosadadeldado_25_bf83e660-2e4f-413b-940c-143eabe1f82b.jpg"
         }
       end
 
