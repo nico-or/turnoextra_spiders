@@ -11,11 +11,7 @@ class UpdownSpider < ApplicationSpider
   @config = {}
 
   @index_parser_factory = ParserFactory.new(
-    EcommerceEngines::WooCommerce::ProductIndexPageParser,
-    selectors: {
-      index_product: "div.wd-products div.wd-product",
-      next_page: "ul.page-numbers a.next"
-    }
+    Stores::Updown::ProductIndexPageParser
   )
 
   @product_parser_factory = ParserFactory.new(

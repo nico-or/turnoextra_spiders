@@ -80,7 +80,7 @@ RSpec.describe UpdownSpider, :spider, engine: :woocommerce do
 
       it "has a next page" do
         actual = spider.next_page_url(response, store_url)
-        expected = "https://www.updown.cl/categoria-producto/juegos-de-mesa/page/2/"
+        expected = "https://www.updown.cl/categoria-producto/juegos-de-mesa/page/2/?stock_status=instock"
         expect(actual).to eq(expected)
       end
     end
