@@ -9,7 +9,7 @@ class ApplicationSpider < Tanakai::Base
   @pipelines = %i[formatter validator saver]
 
   @config = {
-    user_agent: "TurnoExtraBot/1.0 (+https://turnoextra.cl/contact) Ruby/#{RUBY_VERSION} Tanakai/#{Tanakai::VERSION}",
+    user_agent: "Mozilla/5.0 (compatible; TurnoExtraBot/1.0; +https://turnoextra.cl/contact)",
     disable_images: true,
     skip_duplicate_requests: true,
     skip_request_errors: [{ error: RuntimeError, message: "404 => Net::HTTPNotFound" }],
