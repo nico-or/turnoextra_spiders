@@ -10,16 +10,10 @@ class Magic4EverSpider < ApplicationSpider
   @start_urls = ["https://www.m4e.cl/juegos-de-mesa"]
 
   @index_parser_factory = ParserFactory.new(
-    EcommerceEngines::Jumpseller::ProductIndexPageParser,
-    selectors: {
-      next_page: "div.category-pager a:last-child[href]"
-    }
+    EcommerceEngines::Jumpseller::ProductIndexPageParser
   )
 
   @product_parser_factory = ParserFactory.new(
-    Stores::LaTribuGames::ProductCardParser,
-    selectors: {
-      price: "div.price span.block-price"
-    }
+    EcommerceEngines::Jumpseller::ProductCardParser
   )
 end

@@ -15,9 +15,9 @@ RSpec.describe Magic4EverSpider, :spider, engine: :jumpseller do # rubocop:disab
       Nokogiri::HTML(html)
     end
 
-    it "returns 12 items" do
+    it "returns 2 items" do
       items = spider.send(:parse_index, response, url: store_url)
-      expect(items.length).to eq(12)
+      expect(items.length).to eq(2)
     end
   end
 
@@ -27,11 +27,11 @@ RSpec.describe Magic4EverSpider, :spider, engine: :jumpseller do # rubocop:disab
 
       let(:expected) do
         {
-          url: "https://www.m4e.cl/aventureros-al-tren-ticket-to-ride-el-primer-viaje-espanol",
-          title: "Aventureros al Tren (Ticket to Ride): El Primer Viaje (Español)",
-          price: 31_990,
+          url: "https://www.m4e.cl/codigo-secreto-espanol",
+          title: "Código Secreto (2da Edición)",
+          price: 19_990,
           stock: true,
-          image_url: "https://cdnx.jumpseller.com/magic4ever/image/16617699"
+          image_url: "https://cdnx.jumpseller.com/magic4ever/image/72524446"
         }
       end
 
@@ -45,7 +45,7 @@ RSpec.describe Magic4EverSpider, :spider, engine: :jumpseller do # rubocop:disab
         {
           url: "https://www.m4e.cl/fumanyi",
           title: "Fumanyi",
-          price: 10_440,
+          price: 9_891,
           stock: true,
           image_url: "https://cdnx.jumpseller.com/magic4ever/image/16610375"
         }
@@ -59,11 +59,11 @@ RSpec.describe Magic4EverSpider, :spider, engine: :jumpseller do # rubocop:disab
 
       let(:expected) do
         {
-          url: "https://www.m4e.cl/puzzle-lord-of-the-rings-fellowship-of-ring-2000-piezas",
-          title: "Puzzle: Lord of the Rings - Fellowship of Ring (2000 piezas)",
-          price: 49_990,
+          url: "https://www.m4e.cl/si-te-ries-tomas",
+          title: "Si te ries, tomas",
+          price: 15_990,
           stock: false,
-          image_url: "https://cdnx.jumpseller.com/magic4ever/image/51438772"
+          image_url: "https://cdnx.jumpseller.com/magic4ever/image/69674373"
         }
       end
 
