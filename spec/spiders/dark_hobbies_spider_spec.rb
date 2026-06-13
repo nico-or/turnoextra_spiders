@@ -28,7 +28,7 @@ RSpec.describe DarkHobbiesSpider do
       let(:expected) do
         {
           url: "https://www.darkhobbies.cl/products/academia-ninja?variant=47670866706686",
-          title: "Academia Ninja – Juego de cartas de memoria y velocidad | TCG Factory / Iello",
+          title: "academia ninja",
           price: 15_990,
           stock: true,
           image_url: "https://www.darkhobbies.cl/cdn/shop/files/Academia_Ninja.png"
@@ -44,7 +44,7 @@ RSpec.describe DarkHobbiesSpider do
       let(:expected) do
         {
           url: "https://www.darkhobbies.cl/products/nebula?variant=47651390783742",
-          title: "Nebula – Juego de estrategia y colocación espacial | Fractal Juegos",
+          title: "nebula",
           price: 25_990,
           stock: true,
           image_url: "https://www.darkhobbies.cl/cdn/shop/files/1_9fa720c6-a6af-474f-a94c-44b0557a477c.png"
@@ -60,7 +60,7 @@ RSpec.describe DarkHobbiesSpider do
       let(:expected) do
         {
           url: "https://www.darkhobbies.cl/products/arte-moderno-31-minutos?variant=47451734933758",
-          title: "Arte Moderno – 31 Minutos | Subastas absurdas, arte ridículo y mucho dinero imaginario",
+          title: "arte moderno 31 minutos",
           price: 24_990,
           stock: false,
           image_url: "https://www.darkhobbies.cl/cdn/shop/files/9_6f2c01e3-1ffa-4b0a-b756-bad09198b4fb.png"

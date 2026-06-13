@@ -25,11 +25,6 @@ class DarkHobbiesSpider < ApplicationSpider
   )
 
   @product_parser_factory = ParserFactory.new(
-    EcommerceEngines::Shopify::ProductCardParser,
-    selectors: {
-      title: "h3",
-      price: "div[ref=priceContainer] span.price",
-      stock: "button[type=submit][disabled]"
-    }
+    Stores::DarkHobbies::ProductCardParser
   )
 end
